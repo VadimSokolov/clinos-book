@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>21&nbsp; Data Management – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./20-monitoring.html" rel="next">
+<link href="./18-logistics.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="21&nbsp; Data Management – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="21&nbsp; Data Management – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./19-data-management.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#electronic-data-capture" id="toc-electronic-data-capture" class="nav-link active" data-scroll-target="#electronic-data-capture"><span class="header-section-number">21.1</span> Electronic Data Capture</a></li>
+  <li><a href="#data-flow-beyond-edc-external-sources-vendor-pipelines-and-transfer-specifications" id="toc-data-flow-beyond-edc-external-sources-vendor-pipelines-and-transfer-specifications" class="nav-link" data-scroll-target="#data-flow-beyond-edc-external-sources-vendor-pipelines-and-transfer-specifications"><span class="header-section-number">21.2</span> Data flow beyond EDC: external sources, vendor pipelines, and transfer specifications</a>
+  <ul class="collapse">
+  <li><a href="#common-data-elements-cdes-standardization-for-interoperability-and-ai-readiness" id="toc-common-data-elements-cdes-standardization-for-interoperability-and-ai-readiness" class="nav-link" data-scroll-target="#common-data-elements-cdes-standardization-for-interoperability-and-ai-readiness">Common Data Elements (CDEs): standardization for interoperability and AI-readiness</a></li>
+  </ul></li>
+  <li><a href="#data-quality-standards" id="toc-data-quality-standards" class="nav-link" data-scroll-target="#data-quality-standards"><span class="header-section-number">21.3</span> Data Quality Standards</a></li>
+  <li><a href="#data-cleaning-and-query-management" id="toc-data-cleaning-and-query-management" class="nav-link" data-scroll-target="#data-cleaning-and-query-management"><span class="header-section-number">21.4</span> Data Cleaning and Query Management</a></li>
+  <li><a href="#source-data-and-verification" id="toc-source-data-and-verification" class="nav-link" data-scroll-target="#source-data-and-verification"><span class="header-section-number">21.5</span> Source Data and Verification</a></li>
+  <li><a href="#data-standards-and-traceability" id="toc-data-standards-and-traceability" class="nav-link" data-scroll-target="#data-standards-and-traceability"><span class="header-section-number">21.6</span> Data Standards and Traceability</a>
+  <ul class="collapse">
+  <li><a href="#the-traceability-chain" id="toc-the-traceability-chain" class="nav-link" data-scroll-target="#the-traceability-chain">The Traceability Chain</a></li>
+  <li><a href="#the-ectd-submission-structure" id="toc-the-ectd-submission-structure" class="nav-link" data-scroll-target="#the-ectd-submission-structure">The eCTD Submission Structure</a></li>
+  </ul></li>
+  <li><a href="#regulatory-compliance" id="toc-regulatory-compliance" class="nav-link" data-scroll-target="#regulatory-compliance"><span class="header-section-number">21.7</span> Regulatory Compliance</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./19-data-management.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-data-management" class="quarto-section-identifier"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Every clinical trial generates a vast apparatus of data: patient medical histories, laboratory values, imaging results, patient-reported outcomes, adverse event records, protocol deviations, and countless other observations. Converting this raw information into reliable, analyzable data is the province of clinical data management.</p>
+<p>The stakes are high. Regulatory decisions affecting millions of patients rest on whether the data can be trusted. The entire edifice of evidence-based medicine assumes that the numbers in clinical databases reflect what actually happened to patients. Data management provides that assurance.</p>
+<p>Data in a clinical trial flows through a carefully orchestrated pipeline, illustrated in <a href="#fig-data-flow" class="quarto-xref">Figure&nbsp;<span>21.1</span></a>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-data-flow" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-data-flow">flowchart TB
+    subgraph Row1 [ ]
+        direction LR
+        A["Clinical Observation"] --&gt; B["Source Document"] --&gt; C["CRF/EDC Entry"] --&gt; D["Edit Checks"] --&gt; E["Query Generation"]
+    end
+    subgraph Row2 [ ]
+        direction LR
+        F["Site Response"] --&gt; G["Query Resolution"] --&gt; H["Medical Review"] --&gt; I["Database Lock"] --&gt; J["Analysis Dataset"]
+    end
+    Row1 --&gt; Row2
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21.1: Clinical trial data flow from point of collection through database lock
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>It begins at the point of collection: when a nurse draws blood, when a patient completes a questionnaire, when a physician conducts an examination. At this stage, data exists as raw observations: a tube of blood, marks on paper, clinical impressions.</p>
+<p>Observations are then <em>captured</em> (entered into the trial’s data collection system). Historically, this meant transcribing information onto paper <em>case report forms (CRFs)</em>; today, <em>electronic data capture (EDC)</em> systems are standard, with site staff entering data directly into validated computer systems.</p>
+<p>Once captured, data is <em>cleaned</em>: reviewed for errors, inconsistencies, missing values, and implausibilities. Queries are issued to sites asking them to verify or correct questionable data. This iterative cleaning process continues until the data is judged acceptably clean.</p>
+<p>Finally, data is <em>locked</em> and <em>extracted</em> for statistical analysis. Database lock is a formal milestone: after lock, no further changes are made, and the data that will support the regulatory submission is fixed.</p>
+<section id="electronic-data-capture" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="electronic-data-capture"><span class="header-section-number">21.1</span> Electronic Data Capture</h2>
+<p>EDC systems have transformed data management. These validated software platforms provide electronic forms that mirror protocol requirements, capturing each data point as site staff enter it.</p>
+<p><em>Edit checks</em> programmed into EDC systems catch many errors at the point of entry. If a patient’s birth date suggests they are 200 years old, or if a systolic blood pressure is entered as 12 rather than 120, the system flags the discrepancy immediately. This <em>front-end validation</em> improves data quality substantially compared to paper-based processes where errors might not be discovered for months.</p>
+<p>EDC also provides <em>real-time visibility</em> into trial data. Sponsors can monitor enrollment, track data completeness, and identify sites with quality issues much more rapidly than was possible with paper systems.</p>
+<p><em>Audit trails</em> automatically log every entry and modification along with timestamps and user identities. This creates an unalterable record of how the data evolved, required for demonstrating compliance with regulatory requirements and for investigating any questions that arise.</p>
+</section>
+<section id="data-flow-beyond-edc-external-sources-vendor-pipelines-and-transfer-specifications" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="data-flow-beyond-edc-external-sources-vendor-pipelines-and-transfer-specifications"><span class="header-section-number">21.2</span> Data flow beyond EDC: external sources, vendor pipelines, and transfer specifications</h2>
+<p>The traditional operational framing of <em>data flow</em> (especially the contrast between bolus and continuous flow, and the emphasis on timeliness for monitoring and trial control) remains conceptually useful even as the technology stack has changed <span class="citation" data-cites="meinert_cth_2013">(<a href="references.html#ref-meinert_cth_2013" role="doc-biblioref">Meinert 2013</a>)</span>. In contemporary trials, however, “data flow” is no longer limited to site-entered CRFs/EDC. It typically includes multiple externally generated streams (central laboratories, imaging core labs, ePRO/eCOA platforms, wearable/sensor-derived endpoints, and real-world data sources), each with distinct provenance, latency, and error modes <span class="citation" data-cites="fda_dht_guidance_2023 fda_rwe_considerations_2023 fda_rwd_ehr_claims_2024">(<a href="references.html#ref-fda_dht_guidance_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023c</a>, <a href="references.html#ref-fda_rwe_considerations_2023" role="doc-biblioref">2023b</a>, <a href="references.html#ref-fda_rwd_ehr_claims_2024" role="doc-biblioref">2024b</a>)</span>.</p>
+<p>From a quality and regulatory standpoint, the central problem is not merely ingestion; it is <em>traceable control</em> across systems: documented interfaces, controlled transformations, and auditability sufficient to support reconstruction of what was collected, when, by whom/what system, and how it was transformed into analysis-ready datasets <span class="citation" data-cites="cfr21_11 fda_electronic_systems_2024">(<a href="references.html#ref-cfr21_11" role="doc-biblioref">U.S. Food and Drug Administration 2023a</a>, <a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">2024a</a>)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Checklist: Data Transfer Specification (DTS)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Checklist: Data Transfer Specification (DTS)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For each external source (device vendor, central lab, imaging core, ePRO platform, EHR/claims provider), a defensible DTS should specify:</p>
+<ul>
+<li><em>Purpose and scope</em>: what data are transferred, at what cadence, and how the data support protocol endpoints and monitoring <span class="citation" data-cites="fda_dht_guidance_2023">(<a href="references.html#ref-fda_dht_guidance_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023c</a>)</span>.</li>
+<li><em>Provenance and identifiers</em>: subject identifiers and pseudonymization rules; site identifiers; visit/timepoint mapping; timezone conventions <span class="citation" data-cites="fda_rwd_ehr_claims_2024">(<a href="references.html#ref-fda_rwd_ehr_claims_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024b</a>)</span>.</li>
+<li><em>Format and standards</em>: file formats, data dictionaries, controlled terminology, and mapping plans into SDTM/ADaM where applicable <span class="citation" data-cites="fda_rwe_considerations_2023">(<a href="references.html#ref-fda_rwe_considerations_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023b</a>)</span>.</li>
+<li><em>Validation and reconciliation</em>: checksums, record counts, missingness expectations, range/logic checks, and discrepancy handling (including “source of truth” rules) <span class="citation" data-cites="fda_electronic_systems_2024">(<a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024a</a>)</span>.</li>
+<li><em>Security and access control</em>: encryption in transit/at rest, least-privilege access, and role-based audit trails <span class="citation" data-cites="cfr21_11 fda_electronic_systems_2024">(<a href="references.html#ref-cfr21_11" role="doc-biblioref">U.S. Food and Drug Administration 2023a</a>, <a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">2024a</a>)</span>.</li>
+<li><em>Change control</em>: versioning of schemas and code, deprecation policies, and documented impact assessment for changes during the trial <span class="citation" data-cites="fda_electronic_systems_2024">(<a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024a</a>)</span>.</li>
+<li><em>Retention and inspection readiness</em>: how raw transfers, transformation logs, and audit trails will be retained and retrieved under inspection timelines <span class="citation" data-cites="cfr21_11 fda_electronic_systems_2024">(<a href="references.html#ref-cfr21_11" role="doc-biblioref">U.S. Food and Drug Administration 2023a</a>, <a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">2024a</a>)</span>.</li>
+</ul>
+</div>
+</div>
+<p>Two external streams deserve particular attention because their controls bear directly on endpoint validity. <em>Digital health technologies (DHTs): operational controls.</em> When endpoints depend on DHT-derived measurements, the data management plan should address device selection and performance, participant usability and training, data completeness monitoring, and the integrity of transmission and storage processes. These controls are part of endpoint validity, not merely IT hygiene <span class="citation" data-cites="fda_dht_guidance_2023">(<a href="references.html#ref-fda_dht_guidance_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023c</a>)</span>. <em>Real-world data (EHR and claims): fitness-for-purpose documentation.</em> When EHR or claims-derived datasets are used to support regulatory decision-making, sponsors should document data provenance, capture processes, missingness and measurement error, and the relationship between clinical care documentation and research variables. The governing question is whether the dataset is fit for the stated regulatory purpose, with traceability and transparency sufficient for review <span class="citation" data-cites="fda_rwd_ehr_claims_2024 fda_rwe_considerations_2023">(<a href="references.html#ref-fda_rwd_ehr_claims_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024b</a>, <a href="references.html#ref-fda_rwe_considerations_2023" role="doc-biblioref">2023b</a>)</span>.</p>
+<section id="common-data-elements-cdes-standardization-for-interoperability-and-ai-readiness" class="level3">
+<h3 class="anchored" data-anchor-id="common-data-elements-cdes-standardization-for-interoperability-and-ai-readiness">Common Data Elements (CDEs): standardization for interoperability and AI-readiness</h3>
+<p>Classic operational texts emphasized bespoke form design tailored to each trial’s specific requirements <span class="citation" data-cites="meinert_cth_2013">(<a href="references.html#ref-meinert_cth_2013" role="doc-biblioref">Meinert 2013</a>)</span>. While protocol-specific customization remains necessary, the modern trend is toward <em>Common Data Elements</em>: standardized variable definitions, value sets, and collection instruments that enable data pooling, cross-study comparison, and machine learning applications.</p>
+<p>The NIH CDE Repository provides curated element definitions across therapeutic areas <span class="citation" data-cites="nih_cde_repository">(<a href="references.html#ref-nih_cde_repository" role="doc-biblioref">National Library of Medicine 2024</a>)</span>, allowing researchers to adopt pre-validated instruments rather than reinventing measurements. CDISC standards (CDASH for collection, SDTM for tabulation, ADaM for analysis) provide the structural framework that regulatory submissions now routinely require <span class="citation" data-cites="cdisc_standards">(<a href="references.html#ref-cdisc_standards" role="doc-biblioref">Clinical Data Interchange Standards Consortium 2024</a>)</span>. The strategic benefit extends beyond compliance: trials that use CDEs can more readily contribute to meta-analyses, external control arms, and AI-driven signal detection, capabilities that custom-designed data structures often preclude.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Checklist: CDE Selection and Implementation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Checklist: CDE Selection and Implementation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><em>Identify applicable CDE repositories</em>: NIH CDE Repository, CDISC Therapeutic Area User Guides, disease-specific consortia standards.</li>
+<li><em>Map protocol endpoints to existing CDEs</em>: prioritize validated instruments for primary and key secondary endpoints; document rationale for any custom elements.</li>
+<li><em>Specify controlled terminology</em>: use standard dictionaries (MedDRA for adverse events, WHODrug for medications, SNOMED CT or ICD for diagnoses) with explicit version control.</li>
+<li><em>Plan CDISC mapping early</em>: define CDASH annotation during CRF design rather than retrofitting SDTM mapping at database lock.</li>
+<li><em>Document deviations</em>: where protocol requirements preclude standard CDEs, document the deviation and maintain a crosswalk to related standards for future interoperability.</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="data-quality-standards" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="data-quality-standards"><span class="header-section-number">21.3</span> Data Quality Standards</h2>
+<p>What makes data “good”? Several dimensions of quality matter.</p>
+<p><em>Accuracy</em> means that recorded data reflects what actually happened. A blood pressure of 140/90 was actually 140/90, not misread or mistranscribed.</p>
+<p><em>Completeness</em> means that all required data has been collected. Missing values may be unavoidable (a patient may miss a visit), but missing data should be documented and explained.</p>
+<p><em>Consistency</em> means that data makes sense internally. If a subject is recorded as male on one form and female on another, something is wrong.</p>
+<p><em>Timeliness</em> means that data is entered promptly. Data entered long after collection is more likely to contain errors due to memory lapses or lost source documents.</p>
+<p><em>Legibility</em> and <em>traceability</em> mean that the data can be read and that its origin can be determined. For electronic data, this means clear audit trails; for paper documents, it means legible handwriting and proper corrections (single-line strikethrough with initials and date, not obliteration).</p>
+<p>The <em>ALCOA</em> family of principles captures these standards. The base ALCOA set is summarized in <a href="#tbl-alcoa" class="quarto-xref">Table&nbsp;<span>21.1</span></a>.</p>
+<div id="tbl-alcoa" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[20,22,28,30]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-alcoa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;21.1: ALCOA Data Integrity Principles
+</figcaption>
+<div aria-describedby="tbl-alcoa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 22%">
+<col style="width: 28%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Principle</th>
+<th>Definition</th>
+<th>Examples</th>
+<th>Common Failures</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong>ttributable</td>
+<td>Who recorded it?</td>
+<td>User ID, signature, initials</td>
+<td>Shared login; Unsigned entries</td>
+</tr>
+<tr class="even">
+<td><strong>L</strong>egible</td>
+<td>Can it be read?</td>
+<td>Clear handwriting; Readable font</td>
+<td>Illegible corrections; Truncated fields</td>
+</tr>
+<tr class="odd">
+<td><strong>C</strong>ontemporaneous</td>
+<td>Recorded when observed</td>
+<td>Timestamp matches activity</td>
+<td>Backdated entries; Batched data entry</td>
+</tr>
+<tr class="even">
+<td><strong>O</strong>riginal</td>
+<td>First record of data</td>
+<td>Source document; Certified copy</td>
+<td>Transcribed from informal notes</td>
+</tr>
+<tr class="odd">
+<td><strong>A</strong>ccurate</td>
+<td>Truthful and correct</td>
+<td>Matches source document</td>
+<td>Transcription errors; Rounding</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Modern standards extend ALCOA to <em>ALCOA+</em>, adding <em>Complete</em> (nothing missing), <em>Consistent</em> (same format over time), <em>Enduring</em> (readable throughout retention), and <em>Available</em> (retrievable for inspection). A further refinement, <em>ALCOA++</em>, adds <em>Traceable</em> (every value can be followed through its full lifecycle, including audit trails of any changes).</p>
+</section>
+<section id="data-cleaning-and-query-management" class="level2" data-number="21.4">
+<h2 data-number="21.4" class="anchored" data-anchor-id="data-cleaning-and-query-management"><span class="header-section-number">21.4</span> Data Cleaning and Query Management</h2>
+<p>Despite best efforts at the point of collection, data inevitably contains errors and inconsistencies. Data cleaning systematically identifies and resolves these issues.</p>
+<p>Data management personnel run programmed checks against the database: cross-field validations (is the hospitalization date after the enrollment date?), range checks (is this laboratory value physiologically plausible?), and protocol logic checks (if the patient was randomized to arm A, should they have received arm B at this visit?).</p>
+<p>When a potential error is identified, a <em>query</em> is generated: a formal request to the site to verify or correct the data. The query specifies the discrepancy and asks the site to respond. Site staff review their source documents (the original medical records) and either correct the data or explain why it is correct as recorded.</p>
+<p><em>Query resolution</em> is an iterative dialogue. Some queries are resolved immediately; others require investigation. The number of open queries and the time to resolution are key data management metrics.</p>
+</section>
+<section id="source-data-and-verification" class="level2" data-number="21.5">
+<h2 data-number="21.5" class="anchored" data-anchor-id="source-data-and-verification"><span class="header-section-number">21.5</span> Source Data and Verification</h2>
+<p>The trial database is not the ultimate source of truth; the <em>source documents</em> are. Source documents are the original records where clinical observations first appear: medical records, laboratory printouts, imaging reports, patient diaries.</p>
+<p>This framing assumes that a paper or pre-existing record stands behind every database value, but that assumption no longer holds universally. Under <em>eSource</em> and <em>direct data capture (DDC)</em>, data are entered directly into a validated electronic system at the moment of observation, with no antecedent paper record; the electronic entry is itself the source. A source document, in other words, need not be paper: what defines source data is that it is the first, original record of an observation, in whatever medium. When that record is electronic, its trustworthiness rests on the same controls of attribution, contemporaneity, and audit trail that apply to any electronic record in a clinical investigation <span class="citation" data-cites="fda_electronic_systems_2024 fda_esource_2013">(<a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024a</a>, <a href="references.html#ref-fda_esource_2013" role="doc-biblioref">2013</a>)</span>.</p>
+<p><em>Source data verification (SDV)</em> is the process by which monitors compare the trial database against source documents to ensure that transcription has been accurate. Historically, SDV was exhaustive: 100% of key variables for 100% of patients. More recently, <em>risk-based monitoring</em> approaches target SDV toward high-risk data and sites, recognizing that exhaustive verification is expensive and that some data points are more important than others.</p>
+<p>The relationship between source documents and the trial database must be clear and auditable. For any value in the database, it should be possible to trace back to the source where that value was originally recorded.</p>
+<p>As a trial nears completion, the data management effort culminates in the database lock. At that point, all queries must be resolved, programmed cleaning must be finalized, and medical reviews must confirm the accuracy of safety coding and adverse event records. Once the database is locked, it is frozen: no further modifications are permitted, and any errors discovered afterward must be documented through administrative procedures rather than direct data edits. The locked data is then transferred to biostatisticians for analysis; that transfer must be validated to ensure the final clinical study report is based on a complete, accurate, and immutable dataset.</p>
+</section>
+<section id="data-standards-and-traceability" class="level2" data-number="21.6">
+<h2 data-number="21.6" class="anchored" data-anchor-id="data-standards-and-traceability"><span class="header-section-number">21.6</span> Data Standards and Traceability</h2>
+<p>Regulatory agencies require that submission data be provided in standardized formats that enable efficient review and cross-study comparisons <span class="citation" data-cites="fda_study_data_tcg">(<a href="references.html#ref-fda_study_data_tcg" role="doc-biblioref">U.S. Food and Drug Administration 2024c</a>)</span>. Data management professionals must understand these standards and the traceability chain from source to submission, and ensure that all trial data adheres to the international standards developed by the Clinical Data Interchange Standards Consortium (CDISC) <span class="citation" data-cites="cdisc_standards">(<a href="references.html#ref-cdisc_standards" role="doc-biblioref">Clinical Data Interchange Standards Consortium 2024</a>)</span>.</p>
+<p>These standards, which are now regulatory requirements for submissions to the FDA and PMDA, ensure that clinical data is consistent, interoperable, and reviewable. The Study Data Tabulation Model (SDTM) provides the foundation by organizing raw clinical data into standardized domains (such as demographics, adverse events, and laboratory results) using a uniform structure and variable naming convention. This consistency allows any reviewer to interpret captured data, such as a blood pressure measurement, without needing to consult study-specific custom documentation.</p>
+<p>While SDTM tabularizes the data as collected, the Analysis Data Model (ADaM) prepares it for statistical analysis. ADaM datasets include derived variables, analysis flags, and complex calculations like time-to-event estimates, providing the direct basis for the primary efficacy and safety analyses. Accompanying these datasets is the define.xml file, a machine-readable metadata document that provides a roadmap for reviewers. It specifies the origin and derivation of every dataset and variable, allowing for efficient navigation of the submission. Supporting all these models is the use of controlled terminology, which mandates standardized codes for categorical values like adverse event severity or dosing routes, thereby enabling automated data pooling and comparison across the entire research portfolio.</p>
+<section id="the-traceability-chain" class="level3">
+<h3 class="anchored" data-anchor-id="the-traceability-chain">The Traceability Chain</h3>
+<p>Regulators expect to trace any number in a submission back to its source. This <em>traceability chain</em> links:</p>
+<ol type="1">
+<li><strong>Source documents</strong> (medical records, lab reports)</li>
+<li><strong>CRF/EDC data</strong> (as collected)</li>
+<li><strong>SDTM datasets</strong> (tabulated for submission)</li>
+<li><strong>ADaM datasets</strong> (derived for analysis)</li>
+<li><strong>Tables, listings, and figures (TLFs)</strong> (in the CSR)</li>
+<li><strong>eCTD submission</strong> (regulatory dossier)</li>
+</ol>
+<p>At each step, the transformation should be documented and reproducible. If a reviewer questions an efficacy p-value, they should be able to follow the chain back through the ADaM dataset, the SDTM source, the EDC record, and ultimately the source document.</p>
+<p>Common traceability failures include:</p>
+<ul>
+<li>Undocumented derivations (how was “baseline” defined?)</li>
+<li>Missing mapping documentation (how did EDC variable X become SDTM variable Y?)</li>
+<li>Ad hoc data corrections applied outside validated systems</li>
+<li>Inconsistent versioning of datasets across analysis steps</li>
+</ul>
+</section>
+<section id="the-ectd-submission-structure" class="level3">
+<h3 class="anchored" data-anchor-id="the-ectd-submission-structure">The eCTD Submission Structure</h3>
+<p>Submissions to major regulatory agencies use the <em>electronic Common Technical Document (eCTD)</em> format, which organizes the dossier into a navigable electronic structure (<a href="#tbl-ectd-modules" class="quarto-xref">Table&nbsp;<span>21.2</span></a>).</p>
+<div id="tbl-ectd-modules" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,40,45]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ectd-modules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;21.2: eCTD Module Structure
+</figcaption>
+<div aria-describedby="tbl-ectd-modules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 40%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Module</th>
+<th>Content</th>
+<th>Data Management Relevance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Module 1</td>
+<td>Regional administrative information</td>
+<td>Country-specific forms and labels</td>
+</tr>
+<tr class="even">
+<td>Module 2</td>
+<td>Summaries and overviews</td>
+<td>Clinical summaries synthesizing data</td>
+</tr>
+<tr class="odd">
+<td>Module 3</td>
+<td>Quality (CMC)</td>
+<td>Manufacturing; not directly DM</td>
+</tr>
+<tr class="even">
+<td>Module 4</td>
+<td>Nonclinical</td>
+<td>Preclinical studies; not directly DM</td>
+</tr>
+<tr class="odd">
+<td>Module 5</td>
+<td>Clinical</td>
+<td>CSRs, SDTM/ADaM datasets, define.xml</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Module 5 is where clinical data management work appears: the study datasets (SDTM and ADaM), the define.xml files, and the clinical study reports that interpret the data. The quality of data management directly affects how efficiently reviewers can navigate and verify the submission.</p>
+</section>
+</section>
+<section id="regulatory-compliance" class="level2" data-number="21.7">
+<h2 data-number="21.7" class="anchored" data-anchor-id="regulatory-compliance"><span class="header-section-number">21.7</span> Regulatory Compliance</h2>
+<p>Clinical data management sits under several overlapping regulatory requirements, each governing a different facet of how data are captured, secured, and retained.</p>
+<p><em>21 CFR Part 11</em> establishes requirements for electronic records and electronic signatures, addressing system validation, audit trails, access controls, and electronic signatures.</p>
+<p><em>Good Clinical Practice (GCP)</em> requires that trial data be accurately recorded, attributable, contemporaneous, and available for inspection.</p>
+<p><em>Computer System Validation (CSV)</em> requires that EDC and other clinical trial systems be validated for their intended purpose before use, with documentation that the systems function as specified.</p>
+<p><em>Records retention</em> requirements mandate that trial records be maintained for specified periods and be available for regulatory inspection. ICH E6(R3) (2025) <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span> defers to applicable regional regulations rather than specifying a single retention period; in practice, FDA 21 CFR 312.57(c) requires sponsors to retain records for two years following marketing approval or program discontinuation, while many sponsors maintain records for 15 or more years as a practical minimum. AI tools for automated data cleaning, discrepancy detection, and natural language processing of source documents are covered in <a href="24-ai-agents.html" class="quarto-xref"><span>Chapter 26</span></a>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-cdisc_standards" class="csl-entry" role="listitem">
+Clinical Data Interchange Standards Consortium. 2024. <span>“CDISC Foundational Standards: SDTM, ADaM, and CDASH.”</span> <a href="https://www.cdisc.org/standards/foundational">https://www.cdisc.org/standards/foundational</a>.
+</div>
+<div id="ref-ich_e6r3_2025" class="csl-entry" role="listitem">
+International Council for Harmonisation. 2025. <span>“<span>ICH E6(R3)</span>: Guideline for Good Clinical Practice (GCP).”</span> <a href="https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf">https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf</a>.
+</div>
+<div id="ref-meinert_cth_2013" class="csl-entry" role="listitem">
+Meinert, Curtis L. 2013. <em>Clinical Trials Handbook: Design and Conduct</em>. Hoboken, NJ: John Wiley &amp; Sons.
+</div>
+<div id="ref-nih_cde_repository" class="csl-entry" role="listitem">
+National Library of Medicine. 2024. <span>“NIH Common Data Elements (CDE) Repository.”</span> <a href="https://cde.nlm.nih.gov/">https://cde.nlm.nih.gov/</a>.
+</div>
+<div id="ref-fda_esource_2013" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2013. <span>“Electronic Source Data in Clinical Investigations: Guidance for Industry.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-source-data-clinical-investigations">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-source-data-clinical-investigations</a>.
+</div>
+<div id="ref-cfr21_11" class="csl-entry" role="listitem">
+———. 2023a. <span>“21 CFR Part 11: Electronic Records; Electronic Signatures.”</span> <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11">https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11</a>.
+</div>
+<div id="ref-fda_rwe_considerations_2023" class="csl-entry" role="listitem">
+———. 2023b. <span>“Considerations for the Use of Real-World Data and Real-World Evidence to Support Regulatory Decision-Making for Drug and Biological Products.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-real-world-data-and-real-world-evidence-support-regulatory-decision-making-drug">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-real-world-data-and-real-world-evidence-support-regulatory-decision-making-drug</a>.
+</div>
+<div id="ref-fda_dht_guidance_2023" class="csl-entry" role="listitem">
+———. 2023c. <span>“Digital Health Technologies for Remote Data Acquisition in Clinical Investigations: Guidance for Industry, Investigators, and Other Stakeholders.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/digital-health-technologies-remote-data-acquisition-clinical-investigations">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/digital-health-technologies-remote-data-acquisition-clinical-investigations</a>.
+</div>
+<div id="ref-fda_electronic_systems_2024" class="csl-entry" role="listitem">
+———. 2024a. <span>“Electronic Systems, Electronic Records, and Electronic Signatures in Clinical Investigations: Questions and Answers.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-systems-electronic-records-and-electronic-signatures-clinical-investigations-questions">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-systems-electronic-records-and-electronic-signatures-clinical-investigations-questions</a>.
+</div>
+<div id="ref-fda_rwd_ehr_claims_2024" class="csl-entry" role="listitem">
+———. 2024b. <span>“Real-World Data: Assessing Electronic Health Records and Medical Claims Data to Support Regulatory Decision-Making for Drug and Biological Products.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/real-world-data-assessing-electronic-health-records-and-medical-claims-data-support-regulatory">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/real-world-data-assessing-electronic-health-records-and-medical-claims-data-support-regulatory</a>.
+</div>
+<div id="ref-fda_study_data_tcg" class="csl-entry" role="listitem">
+———. 2024c. <span>“Study Data Technical Conformance Guide.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/study-data-technical-conformance-guide-technical-specifications-document">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/study-data-technical-conformance-guide-technical-specifications-document</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./18-logistics.html" class="pagination-link" aria-label="Logistics and Project Management">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./20-monitoring.html" class="pagination-link" aria-label="Clinical Monitoring">
+        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

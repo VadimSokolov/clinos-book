@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>7&nbsp; Phase I: Human Pharmacology – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./08-phase2.html" rel="next">
+<link href="./06-economics.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="7&nbsp; Phase I: Human Pharmacology – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="7&nbsp; Phase I: Human Pharmacology – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-drug-development.html">Part II: Clinical Trial Phases</a></li><li class="breadcrumb-item"><a href="./07-phase1.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-fih-risk" id="toc-sec-fih-risk" class="nav-link active" data-scroll-target="#sec-fih-risk"><span class="header-section-number">7.1</span> Starting Dose Selection and Risk Mitigation</a></li>
+  <li><a href="#single-and-multiple-ascending-dose-studies" id="toc-single-and-multiple-ascending-dose-studies" class="nav-link" data-scroll-target="#single-and-multiple-ascending-dose-studies"><span class="header-section-number">7.2</span> Single and Multiple Ascending Dose Studies</a></li>
+  <li><a href="#characterizing-pharmacokinetics" id="toc-characterizing-pharmacokinetics" class="nav-link" data-scroll-target="#characterizing-pharmacokinetics"><span class="header-section-number">7.3</span> Characterizing Pharmacokinetics</a></li>
+  <li><a href="#special-studies" id="toc-special-studies" class="nav-link" data-scroll-target="#special-studies"><span class="header-section-number">7.4</span> Special Studies</a></li>
+  <li><a href="#phase-i-in-oncology-dose-escalation-design" id="toc-phase-i-in-oncology-dose-escalation-design" class="nav-link" data-scroll-target="#phase-i-in-oncology-dose-escalation-design"><span class="header-section-number">7.5</span> Phase I in Oncology: Dose Escalation Design</a>
+  <ul class="collapse">
+  <li><a href="#the-33-design-and-its-limitations" id="toc-the-33-design-and-its-limitations" class="nav-link" data-scroll-target="#the-33-design-and-its-limitations">The 3+3 Design and Its Limitations</a></li>
+  <li><a href="#modern-dose-escalation-designs" id="toc-modern-dose-escalation-designs" class="nav-link" data-scroll-target="#modern-dose-escalation-designs">Modern Dose-Escalation Designs</a></li>
+  <li><a href="#from-mtd-to-optimal-dose-project-optimus" id="toc-from-mtd-to-optimal-dose-project-optimus" class="nav-link" data-scroll-target="#from-mtd-to-optimal-dose-project-optimus">From MTD to Optimal Dose: Project Optimus</a></li>
+  </ul></li>
+  <li><a href="#the-phase-i-phase-ii-transition" id="toc-the-phase-i-phase-ii-transition" class="nav-link" data-scroll-target="#the-phase-i-phase-ii-transition"><span class="header-section-number">7.6</span> The Phase I-Phase II Transition</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-drug-development.html">Part II: Clinical Trial Phases</a></li><li class="breadcrumb-item"><a href="./07-phase1.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-phase1" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>First-in-human administration signals the transition from preclinical models to clinical research. Until that point, everything known about the compound comes from test tubes, cell cultures, and animal models. Phase I studies provide the first glimpse of how the drug behaves in humans.</p>
+<p>Phase I studies are traditionally called <em>first-in-human</em> trials, though this label applies specifically to the initial study in a development program. The broader category of Phase I encompasses all studies primarily designed to assess safety, tolerability, and pharmacokinetics in humans <span class="citation" data-cites="ich_e8_r1">(<a href="references.html#ref-ich_e8_r1" role="doc-biblioref">International Council for Harmonisation 2021</a>)</span>. These early-phase trials are increasingly the domain of Emerging Biopharma (EBP) companies, which sponsored <strong>65%</strong> of all Phase I trial starts in 2024, more than twice the share of large pharmaceutical companies (24%) <span class="citation" data-cites="iqvia_rd_trends_2025">(<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>)</span>.</p>
+<p>What happens when a person takes this drug? Is it absorbed? How quickly does it reach the bloodstream, and how long does it stay there? What biological effects does it produce? And what adverse effects does it cause, and at what doses do those effects become unacceptable?</p>
+<p>First-in-human studies occupy a unique space in clinical research. They are typically conducted in healthy volunteers rather than patients, because exposing sick people to a drug whose behavior in humans is completely unknown would be inappropriate. The exception is oncology and certain other therapeutic areas where the expected toxicity is too significant to justify giving the drug to healthy individuals.</p>
+<p>The starting dose for a first-in-human study is carefully calculated from preclinical data. Typically, it is derived from the <em>no observed adverse effect level (NOAEL)</em> in the most sensitive animal species, adjusted for differences in body surface area. This dose is chosen to be far below what would be expected to cause toxicity; the goal is to start small and proceed cautiously. The full framework for starting dose selection, including alternative approaches for high-risk biologics, is covered in <a href="#sec-fih-risk" class="quarto-xref"><span>Section 7.1</span></a>.</p>
+<p>Dose escalation follows strict rules. After the first cohort receives the starting dose and is observed for signs of toxicity, the dose may be increased for the next cohort. The escalation continues until a <em>maximum tolerated dose (MTD)</em> is reached (the highest dose that can be given without unacceptable toxicity) or until the desired pharmacological effect is achieved.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Lessons from TGN1412
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The 2006 tragedy involving TGN1412, in which six healthy volunteers suffered life-threatening immune reactions despite receiving a dose calculated by conventional methods, led to heightened scrutiny of first-in-human study design. Subsequent guidance emphasized understanding target biology, considering mechanism of action when selecting doses, staggering dosing within cohorts, and extending observation periods before escalation.</p>
+</div>
+</div>
+<section id="sec-fih-risk" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="sec-fih-risk"><span class="header-section-number">7.1</span> Starting Dose Selection and Risk Mitigation</h2>
+<p>The starting dose for a first-in-human study must be derived from the preclinical data, but choosing the right framework depends on the compound class and the plausible mechanisms of adverse effects.</p>
+<p><strong>NOAEL-based approach.</strong> The <em>No Observed Adverse Effect Level (NOAEL)</em> in the most sensitive animal species is converted to a human equivalent dose using a body-surface-area correction (<span class="math inline">\(\text{HED} = \text{NOAEL} \times (\text{animal weight}/70)^{0.33}\)</span>) and then divided by a safety factor of 10 to arrive at the <em>Maximum Recommended Starting Dose (MRSD)</em> <span class="citation" data-cites="fda_mrsd_2005">(<a href="references.html#ref-fda_mrsd_2005" role="doc-biblioref">U.S. Food and Drug Administration 2005</a>)</span>. For small molecules with conventional pharmacology and a well-characterized safety profile in animals, this calculation is generally sufficient.</p>
+<p><strong>MABEL approach.</strong> The <em>Minimal Anticipated Biological Effect Level (MABEL)</em> was developed for compounds for which pharmacological activity in humans begins at doses far below any observable toxicity in animals. MABEL integrates receptor occupancy modeling, in vitro pharmacological activity data, ex vivo assays on human cells, and animal PK/PD to identify the lowest dose expected to produce any measurable biological effect. EMA’s 2017 guideline on FIH trials <span class="citation" data-cites="ema_fih_2017">(<a href="references.html#ref-ema_fih_2017" role="doc-biblioref">European Medicines Agency 2017</a>)</span> specifically recommends MABEL as the dose-selection basis when a compound has high potency, a cytokine-mediated mechanism, or a target expressed on circulating immune cells. TGN1412 failed precisely because the NOAEL-based MRSD did not capture the potent receptor-mediated cytokine cascade; a MABEL-based approach would have produced a starting dose orders of magnitude lower.</p>
+<p>In practice, sponsors calculate both estimates and select the more conservative. When MABEL and NOAEL-derived MRSD differ by more than tenfold, that divergence is itself a risk signal requiring protocol-level mitigation.</p>
+<p><strong>Sentinel dosing.</strong> To reduce the number of subjects simultaneously exposed to each new dose, FIH protocols routinely use a <em>sentinel dosing</em> approach: within each cohort, one subject receives the investigational drug and one receives placebo as sentinels, dosed at least 24 to 48 hours ahead of the rest (the exact lead time depending on the compound’s half-life and the plausible onset of an adverse reaction). After that observation interval, the DSMB or Safety Review Committee reviews the sentinel data before the remaining members are dosed per the cohort’s pre-specified active:placebo allocation, which is majority active. Staggered dosing within cohorts is endorsed by EMA’s first-in-human guideline <span class="citation" data-cites="ema_fih_2017">(<a href="references.html#ref-ema_fih_2017" role="doc-biblioref">European Medicines Agency 2017</a>)</span> and is now standard regulatory expectation and standard practice for biologics and immunologically active compounds.</p>
+<p><strong>Stopping rules.</strong> Every FIH protocol prespecifies three tiers of criteria:</p>
+<ul>
+<li><em>Subject-level stopping rules</em> trigger immediate discontinuation of an individual’s dosing: any Grade 3 or higher adverse event, a cytokine elevation above a pre-specified threshold, or a defined change in cardiac rhythm or ECG morphology.</li>
+<li><em>Cohort-level pausing criteria</em> suspend enrollment pending a safety review: a DLT in a sentinel subject, two adverse events in the same organ system within a cohort, or any laboratory finding meeting a pre-specified threshold of clinical concern.</li>
+<li><em>Study-level stopping criteria</em> terminate the trial: a suspected unexpected serious adverse reaction (SUSAR), a Grade 4 cytokine release syndrome, or any potentially drug-related death.</li>
+</ul>
+<p>For immunologically active compounds, cytokine panels (IL-6, IFN-γ, TNF-α) are embedded in the protocol as early biomarkers of immune dysregulation, checked at pre-specified timepoints before clinical symptoms develop.</p>
+<p>The overarching principle is prospective specification: every foreseeable safety event should have a pre-written response in the protocol before the first subject is dosed, not a decision made in real time under clinical pressure.</p>
+</section>
+<section id="single-and-multiple-ascending-dose-studies" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="single-and-multiple-ascending-dose-studies"><span class="header-section-number">7.2</span> Single and Multiple Ascending Dose Studies</h2>
+<p>Most Phase I programs include both <em>single ascending dose (SAD)</em> and <em>multiple ascending dose (MAD)</em> studies.</p>
+<p>In SAD studies, small cohorts (typically 6 to 8 subjects) receive a single dose of the drug, and their safety and pharmacokinetics are carefully monitored. Once the data from one cohort is reviewed and found acceptable, the next cohort receives a higher dose. Placebo is typically included within each cohort to help distinguish drug effects from background noise.</p>
+<p>MAD studies come next, evaluating what happens when the drug is given repeatedly over the course of days or weeks. These studies answer questions about drug accumulation, time to reach steady state, and tolerability with repeated exposure. They bridge from the artificial world of single doses to the clinical reality of chronic treatment.</p>
+</section>
+<section id="characterizing-pharmacokinetics" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="characterizing-pharmacokinetics"><span class="header-section-number">7.3</span> Characterizing Pharmacokinetics</h2>
+<p>A primary goal of Phase I is to determine how the drug moves through the body: its <em>pharmacokinetics (PK)</em> <span class="citation" data-cites="ich_e8_r1">(<a href="references.html#ref-ich_e8_r1" role="doc-biblioref">International Council for Harmonisation 2021</a>)</span>. This involves measuring drug concentrations in blood (and sometimes other fluids) at multiple time points after dosing.</p>
+<p>From these measurements, pharmacokineticists calculate key parameters (summarized in <a href="#tbl-pk-parameters" class="quarto-xref">Table&nbsp;<span>7.1</span></a>):</p>
+<div id="tbl-pk-parameters" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[20,8,22,20,30]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pk-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7.1: Key Pharmacokinetic Parameters
+</figcaption>
+<div aria-describedby="tbl-pk-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 8%">
+<col style="width: 22%">
+<col style="width: 20%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>PK Parameter</th>
+<th>Symbol</th>
+<th>Definition</th>
+<th>Formula</th>
+<th>Clinical Implication</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Maximum Concentration</strong></td>
+<td>C<sub>max</sub></td>
+<td>Peak drug concentration achieved</td>
+<td>Observed directly from PK curve</td>
+<td>Indicates peak exposure; related to tolerability</td>
+</tr>
+<tr class="even">
+<td><strong>Time to Maximum</strong></td>
+<td>T<sub>max</sub></td>
+<td>Time to reach peak concentration</td>
+<td>Observed directly from PK curve</td>
+<td>Related to absorption rate; affects onset of action</td>
+</tr>
+<tr class="odd">
+<td><strong>Area Under Curve</strong></td>
+<td>AUC</td>
+<td>Total exposure over time</td>
+<td><span class="math inline">\(\int_0^{\infty} C(t) \, dt\)</span></td>
+<td>Proportional to amount absorbed; key PK/PD metric</td>
+</tr>
+<tr class="even">
+<td><strong>Half-life</strong></td>
+<td>t<sub>1/2</sub></td>
+<td>Time for concentration to decrease by 50%</td>
+<td><span class="math inline">\(t_{1/2} = \frac{0.693 \times V_d}{CL}\)</span></td>
+<td>Determines dosing interval needed for steady state</td>
+</tr>
+<tr class="odd">
+<td><strong>Clearance</strong></td>
+<td>CL</td>
+<td>Volume of plasma cleared per unit time</td>
+<td><span class="math inline">\(CL = \frac{Dose}{AUC}\)</span></td>
+<td>Efficiency of drug elimination; guides dosing</td>
+</tr>
+<tr class="even">
+<td><strong>Volume of Distribution</strong></td>
+<td>V<sub>d</sub></td>
+<td>Apparent volume drug distributes into</td>
+<td><span class="math inline">\(V_d = \frac{Dose}{C_0}\)</span></td>
+<td>Suggests tissue distribution; affects loading doses</td>
+</tr>
+<tr class="odd">
+<td><strong>Bioavailability</strong></td>
+<td>F</td>
+<td>Fraction of dose reaching systemic circulation</td>
+<td><span class="math inline">\(F = \frac{AUC_{oral}}{AUC_{IV}}\)</span></td>
+<td>Determines oral vs.&nbsp;IV dose equivalence</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>These parameters have direct practical implications. <em>Half-life</em> determines how often patients must take the drug: a 4-hour half-life typically requires dosing three or four times daily, while a 24-hour half-life allows once-daily dosing. Caffeine has a half-life of about 5 hours, which is why morning coffee wears off by afternoon; some antidepressants have half-lives exceeding 100 hours, which is why missing a dose matters less but also why side effects persist after discontinuation.</p>
+<p><em>Volume of distribution</em> reveals where the drug goes. A V<sub>d</sub> close to plasma volume (about 3 liters) suggests the drug stays in the bloodstream, useful for treating blood infections but unable to reach intracellular targets. A large V<sub>d</sub> (hundreds of liters, far exceeding actual body volume) indicates extensive tissue binding: the drug accumulates in fat, muscle, or specific organs. Chloroquine has a V<sub>d</sub> of over 200 liters per kilogram because it concentrates in tissues; this is why loading doses are needed and why the drug persists for weeks after the last dose.</p>
+<p><em>Clearance</em> determines the dose needed to maintain therapeutic levels. A drug with high clearance is rapidly eliminated and requires higher or more frequent doses; a drug with low clearance accumulates and requires careful dose titration to avoid toxicity. Patients with impaired kidney or liver function have reduced clearance, which is why dose adjustments are required in these populations.</p>
+<p><em>Bioavailability</em> explains why oral and intravenous doses differ. A drug with 50% oral bioavailability requires twice the oral dose to achieve the same exposure as an IV dose. Some drugs have bioavailability below 10%, making oral administration impractical; others are destroyed by stomach acid or extensively metabolized by the liver before reaching circulation (the “first-pass effect”).</p>
+<p><strong>Exploring pharmacodynamics.</strong> Pharmacokinetics tells us what the body does to the drug; <em>pharmacodynamics (PD)</em> tells us what the drug does to the body. Phase I studies often include pharmacodynamic endpoints (biomarkers or biological effects that indicate the drug is producing its intended action). Linking PK and PD through <em>PK/PD modeling</em> enables prediction of the doses and dosing regimens most likely to be effective in later trials. If a biomarker correlates with drug exposure, and if that biomarker is a reasonable predictor of clinical effect, PK/PD models can guide dose selection for Phase II.</p>
+</section>
+<section id="special-studies" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="special-studies"><span class="header-section-number">7.4</span> Special Studies</h2>
+<p>Phase I encompasses more than just first-in-human and dose-escalation studies. A variety of specialized studies (<a href="#tbl-phase1-studies" class="quarto-xref">Table&nbsp;<span>7.2</span></a>) are typically conducted during this phase <span class="citation" data-cites="ich_e8_r1 fda_clinical_pharm">(<a href="references.html#ref-ich_e8_r1" role="doc-biblioref">International Council for Harmonisation 2021</a>; <a href="references.html#ref-fda_clinical_pharm" role="doc-biblioref">U.S. Food and Drug Administration 2024a</a>)</span>:</p>
+<div id="tbl-phase1-studies" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[18,22,30,30]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-phase1-studies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7.2: Types of Phase I Special Studies
+</figcaption>
+<div aria-describedby="tbl-phase1-studies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 22%">
+<col style="width: 30%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Study Type</th>
+<th>Purpose</th>
+<th>Design</th>
+<th>Regulatory Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Bioavailability</strong></td>
+<td>Determine what fraction of dose reaches circulation</td>
+<td>Compare oral vs.&nbsp;IV administration (absolute) or different formulations (relative)</td>
+<td>Required for oral formulations</td>
+</tr>
+<tr class="even">
+<td><strong>Bioequivalence</strong></td>
+<td>Show new formulation performs like reference product</td>
+<td>Crossover design comparing test vs.&nbsp;reference; assess if 90% CI of AUC/Cmax ratio within 80-125%</td>
+<td>Required for formulation changes, generics</td>
+</tr>
+<tr class="odd">
+<td><strong>Food Effect</strong></td>
+<td>Assess how meals affect absorption</td>
+<td>Crossover comparing fed vs.&nbsp;fasted states</td>
+<td>Required; informs label dosing instructions</td>
+</tr>
+<tr class="even">
+<td><strong>Drug-Drug Interaction (DDI)</strong></td>
+<td>Evaluate interaction with other medications</td>
+<td>Test investigational drug with probe substrates/inhibitors/inducers of CYP450 enzymes</td>
+<td>Required for commonly co-administered drugs</td>
+</tr>
+<tr class="odd">
+<td><strong>Hepatic Impairment</strong></td>
+<td>PK in patients with liver dysfunction</td>
+<td>Compare normal vs.&nbsp;mild/moderate/severe hepatic impairment</td>
+<td>Required if drug significantly metabolized</td>
+</tr>
+<tr class="even">
+<td><strong>Renal Impairment</strong></td>
+<td>PK in patients with kidney dysfunction</td>
+<td>Compare normal vs.&nbsp;mild/moderate/severe renal impairment</td>
+<td>Required if drug renally eliminated</td>
+</tr>
+<tr class="odd">
+<td><strong>Elderly Subjects</strong></td>
+<td>PK in aged population ($$65 years)</td>
+<td>Compare young vs.&nbsp;elderly PK parameters</td>
+<td>Required for drugs intended for elderly use</td>
+</tr>
+<tr class="even">
+<td><strong>Thorough QT</strong></td>
+<td>Assess cardiac repolarization risk</td>
+<td>High therapeutic and supratherapeutic doses; measure QTc prolongation</td>
+<td>Required unless waived by alternative data</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>These studies ensure that appropriate dosing recommendations can be provided for all who might need the drug, accounting for physiological differences and potential interactions. Increasingly, however, physiologically-based pharmacokinetic (PBPK) modeling and model-informed drug development (MIDD) approaches are used, and accepted by FDA and EMA, to supplement or waive some dedicated drug-drug interaction and organ-impairment studies, extrapolating exposure to untested populations from validated mechanistic models rather than from a standalone trial.</p>
+</section>
+<section id="phase-i-in-oncology-dose-escalation-design" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="phase-i-in-oncology-dose-escalation-design"><span class="header-section-number">7.5</span> Phase I in Oncology: Dose Escalation Design</h2>
+<p>Phase I oncology studies differ substantially from traditional Phase I programs. Because cancer patients face serious illness with limited treatment options, and because anticancer drugs often cause significant toxicity, these studies are conducted in patients rather than healthy volunteers.</p>
+<p>The objective has traditionally been to identify the <em>maximum tolerated dose (MTD)</em>: the highest dose that can be given without causing unacceptable toxicity in more than a defined fraction of patients. <em>Dose-limiting toxicities (DLTs)</em> are the pre-specified adverse events (typically Grade 3 or 4 by the CTCAE system) that define the toxicity boundary. DLTs are observed over a fixed <em>observation window</em> (commonly 21 or 28 days, matching the first treatment cycle) after each dose.</p>
+<section id="the-33-design-and-its-limitations" class="level3">
+<h3 class="anchored" data-anchor-id="the-33-design-and-its-limitations">The 3+3 Design and Its Limitations</h3>
+<p>The <em>3+3 design</em> has been the workhorse of oncology Phase I trials for decades. Three patients receive the starting dose; if none experiences a DLT the dose is escalated; if one does, three more are enrolled at that dose; if two or more experience DLTs the dose is declared too high and the previous level is the MTD. The design is simple and transparent, requiring no statistical software.</p>
+<p>Its limitations, however, are well documented. The 3+3 consistently selects doses below the true MTD, leaving patients undertreated and failing to characterize the upper part of the dose-response curve. Because it makes decisions based only on the cohort at the current dose (ignoring information from other doses), it is statistically inefficient <span class="citation" data-cites="oquigley1990crm">(<a href="references.html#ref-oquigley1990crm" role="doc-biblioref">O’Quigley, Pepe, and Fisher 1990</a>)</span>. Simulation studies show that with most plausible dose-toxicity relationships, the 3+3 selects the correct MTD only about 40-50% of the time, and tends to err toward doses that are too low rather than too high <span class="citation" data-cites="letourneau2009dose">(<a href="references.html#ref-letourneau2009dose" role="doc-biblioref">Le Tourneau, Lee, and Siu 2009</a>)</span>.</p>
+</section>
+<section id="modern-dose-escalation-designs" class="level3">
+<h3 class="anchored" data-anchor-id="modern-dose-escalation-designs">Modern Dose-Escalation Designs</h3>
+<p>Three families of escalation designs have largely replaced or supplement the 3+3 in sponsored oncology trials. All require specifying a <em>target toxicity rate</em> (typically 20-25% in modern practice, lower than the old “highest tolerated dose” convention) and an <em>acceptable toxicity interval</em> (e.g., 15-35%).</p>
+<p><strong>Rule-based “interval” designs (BOIN, mTPI, i3+3).</strong> These methods compare the observed DLT rate at the current dose to a target interval and make a simple escalate/stay/de-escalate decision without fitting a dose-toxicity curve across all doses. The <em>Bayesian Optimal INterval (BOIN)</em> design is the most widely adopted: it derives optimal decision boundaries from the target toxicity rate and the acceptable interval through a closed-form calculation, minimizing the probability of incorrect escalation decisions <span class="citation" data-cites="boin2016liuyuan">(<a href="references.html#ref-boin2016liuyuan" role="doc-biblioref">Liu and Yuan 2015</a>)</span>. BOIN and related methods (mTPI-2, i3+3) can be pre-computed into a decision table before the trial, making them operationally tractable. Their main limitation is that they do not borrow information across doses.</p>
+<p><strong>Model-based designs (CRM, BLRM).</strong> The <em>Continual Reassessment Method (CRM)</em> fits a dose-toxicity model (typically a logistic regression in log-dose space) after each patient with complete DLT information, updating the model and assigning the next cohort to the dose estimated to be nearest the target toxicity <span class="citation" data-cites="oquigley1990crm">(<a href="references.html#ref-oquigley1990crm" role="doc-biblioref">O’Quigley, Pepe, and Fisher 1990</a>)</span>. The <em>Bayesian Logistic Regression Model (BLRM)</em> is a two-parameter extension that provides more realistic uncertainty quantification <span class="citation" data-cites="neuenschwander2008blrm">(<a href="references.html#ref-neuenschwander2008blrm" role="doc-biblioref">Neuenschwander, Branson, and Gsponer 2008</a>)</span>. By borrowing information across all tested doses simultaneously, model-based designs typically locate the MTD more accurately than rule-based designs, particularly when the true MTD is at an extreme of the tested range. The tradeoff is operational complexity: decisions require real-time statistical computation as each patient’s DLT outcome becomes available, and the prior distribution for the dose-toxicity curve requires careful elicitation from clinical and historical data.</p>
+<p><em>Escalation with Overdose Control (EWOC)</em> is an additional constraint applied with model-based designs: a dose is allocated only if the posterior probability that its DLT rate exceeds the upper bound (e.g., 35%) is below a threshold (e.g., 25%). Unlike the absolute exclusion rules in interval designs, EWOC exclusion is <em>temporary</em>: as the model accumulates data and its estimate of a dose’s toxicity is revised, a previously excluded dose can be reconsidered <span class="citation" data-cites="babb1998ewoc">(<a href="references.html#ref-babb1998ewoc" role="doc-biblioref">Babb, Rogatko, and Zacks 1998</a>)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Choosing a dose-escalation design">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Choosing a dose-escalation design
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is no universally superior design. The table below summarizes the practical trade-offs; the key dimensions to evaluate for any given program are described after it.</p>
+<div id="tbl-escalation-designs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-escalation-designs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7.3: Dose-escalation design comparison
+</figcaption>
+<div aria-describedby="tbl-escalation-designs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 28%">
+<col style="width: 32%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Design</th>
+<th>Type</th>
+<th>Information borrowing</th>
+<th>Operational requirements</th>
+<th>Typical use case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>3+3</strong></td>
+<td>Rule-based</td>
+<td>None (current cohort only)</td>
+<td>Decision table; no software</td>
+<td>Legacy studies; regulatory familiarity</td>
+</tr>
+<tr class="even">
+<td><strong>BOIN</strong></td>
+<td>Interval rule-based</td>
+<td>None across doses; optimal decision boundaries</td>
+<td>Pre-computed table; no real-time stats</td>
+<td>Most sponsored oncology Phase I; good balance of simplicity and performance</td>
+</tr>
+<tr class="odd">
+<td><strong>CRM / BLRM</strong></td>
+<td>Model-based</td>
+<td>Borrows across all tested doses simultaneously</td>
+<td>Real-time statistician or software at each decision</td>
+<td>Programs with many dose levels; extreme-range MTD; high-potency compounds</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The four practical considerations that govern which design to select:</p>
+<ul>
+<li><strong>Operational infrastructure.</strong> Rule-based designs (BOIN, i3+3) are implementable with a pre-computed table; model-based designs require a statistician or software system available at each escalation decision.</li>
+<li><strong>Number of doses.</strong> With many doses (8 or more), model-based designs have a larger relative advantage because they can skip doses on the way up and borrow more efficiently.</li>
+<li><strong>Target toxicity.</strong> For lower target toxicity rates (15-20%), interval methods may be too conservative; model-based designs with EWOC handle this more gracefully.</li>
+<li><strong>Simulation.</strong> Any design should be evaluated through simulation across a range of plausible dose-toxicity scenarios before the trial begins, assessing MTD-selection accuracy, probability of overdosing, and expected sample size.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="from-mtd-to-optimal-dose-project-optimus" class="level3">
+<h3 class="anchored" data-anchor-id="from-mtd-to-optimal-dose-project-optimus">From MTD to Optimal Dose: Project Optimus</h3>
+<p>FDA’s Project Optimus initiative, launched in 2021 for oncology, represents a fundamental shift in dose-finding philosophy <span class="citation" data-cites="fda_project_optimus fda_dose_optim_oncology_2024">(<a href="references.html#ref-fda_project_optimus" role="doc-biblioref">U.S. Food and Drug Administration 2021</a>, <a href="references.html#ref-fda_dose_optim_oncology_2024" role="doc-biblioref">2024b</a>)</span>. Historically, the regulatory pathway rewarded finding the highest dose patients could tolerate, on the assumption that more was better. Project Optimus challenges this: the <em>right</em> dose is the one that optimizes the balance of efficacy and tolerability, not necessarily the maximum patients can survive.</p>
+<p>Post-hoc analyses of several approved oncology drugs showed that doses below the MTD would have produced equivalent efficacy with substantially less toxicity. Project Optimus aims to generate that evidence prospectively. The FDA guidance on dosage optimization for oncology biologics and drugs, issued as a draft in January 2023 and finalized in August 2024, formalizes what sponsors must now include in Phase I programs <span class="citation" data-cites="fda_dose_optim_oncology_2024">(<a href="references.html#ref-fda_dose_optim_oncology_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024b</a>)</span>:</p>
+<p><em>Evidence across multiple candidate doses.</em> Rather than escalating to the MTD and declaring it the recommended Phase 2 dose (RP2D), sponsors are expected to characterize at least two candidate RP2Ds through expansion cohorts, seamless Phase I/II designs, or randomized dose-comparison substudies. The pre-specified criteria for selecting among candidate doses must be written into the protocol before enrollment begins.</p>
+<p><em>Pharmacodynamic and patient-reported evidence.</em> Dose characterization now includes efficacy biomarkers (receptor occupancy, PD markers mechanistically linked to the drug’s activity) and patient-reported outcomes measuring symptom burden and quality of life alongside the traditional clinical safety assessments. A dose that is more tolerable by PRO metrics is meaningful even if adverse event grades are equivalent.</p>
+<p><em>Randomized dose comparison.</em> FDA’s expectation, articulated explicitly in that guidance, is that sponsors use randomized designs when feasible rather than uncontrolled parallel-cohort expansion. These need not be powered for formal hypothesis testing: cohorts of 20 to 40 patients per dose are typical, with a pre-specified primary endpoint (often a composite tolerability measure) and a defined decision rule for RP2D selection. The key requirement is prospective specification, not statistical power.</p>
+<p><em>Biologically active dose.</em> For drugs with clear PD markers, the concept of the <em>biologically active dose (BAD)</em> has gained regulatory traction: if PK/PD modeling demonstrates that a dose below the MTD achieves full target coverage (e.g., sustained receptor occupancy above 80%), escalating further is unlikely to improve efficacy while certain to add toxicity. Project Optimus gives sponsors a path to justify selecting the BAD rather than the MTD as the RP2D, provided the exposure-response relationship for the PD marker is reproducible across the tested dose range.</p>
+<p>Although Project Optimus was launched for oncology, the underlying philosophy of prospective dose optimization rather than maximum-toleration escalation is influencing dose-finding discussions in immunology, gene therapy, and other areas where the relationship between dose and effect is non-linear and toxicity can be severe and irreversible.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Combination escalation: added dimensions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Combination escalation: added dimensions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Oncology increasingly relies on drug combinations, typically pairing a checkpoint inhibitor with a targeted or cytotoxic agent. Combination Phase I programs face challenges absent from single-agent escalation.</p>
+<p><strong>Two-dimensional dose space.</strong> With two drugs each tested at multiple levels, the toxicity surface spans a grid rather than a line. Exhaustive testing of every combination is infeasible. Escalation designs must pre-specify a path through the grid and use either independence assumptions (assuming additivity of toxicities) or model-based approaches (BLRM with an interaction term, the BOIN-combo design, or the Product-of-Independent Beta Probabilities design) that explicitly estimate drug-drug interaction in the toxicity surface.</p>
+<p><strong>Scheduling.</strong> The sequence and timing of combination dosing often drives tolerability independently of dose: the same total doses given sequentially may be tolerated when given simultaneously they are not. Combination protocols must specify schedule as well as dose and treat schedule changes as a form of dose modification requiring DSMB review.</p>
+<p><strong>Attribution.</strong> When a toxicity occurs, determining whether it belongs to Drug A, Drug B, or the combination is frequently impossible. DLT definitions and cohort decision rules must prespecify how attribution uncertainty is handled, and the rationale must be stated in the protocol rather than resolved at a case review meeting.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="the-phase-i-phase-ii-transition" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="the-phase-i-phase-ii-transition"><span class="header-section-number">7.6</span> The Phase I-Phase II Transition</h2>
+<p>The output of Phase I is the foundation for everything that follows. Successful Phase I studies produce a safety database characterizing adverse events across a range of doses, pharmacokinetic parameters to guide dosing decisions, pharmacodynamic data linking exposure to biological effects, and, most critically, a <em>recommended Phase II dose</em> that balances safety with expected efficacy.</p>
+<p>This transition point is one of several <em>go/no-go decisions</em> that punctuate drug development. If Phase I reveals unexpected toxicity, poor pharmacokinetics, or lack of pharmacodynamic effect, the program may be terminated. Such early terminations, while disappointing, are far preferable to late-stage failures.</p>
+<p>Phase I trials are small by design, yet they form the foundation of clinical development. A well-designed program establishes human safety and tolerability and provides the pharmacokinetic and pharmacodynamic data needed to size Phase II and III trials appropriately. The geographic footprint of these studies is also shifting, with China-headquartered companies accounting for 30% of global trial starts in 2024 <span class="citation" data-cites="iqvia_rd_trends_2025">(<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>)</span>. By identifying a recommended Phase II dose that balances safety with initial proof of mechanism, Phase I researchers move the drug from laboratory hypotheses into human biology. AI-assisted approaches to trial design and simulation, including enrollment and feasibility modeling and prognostic digital twins for covariate adjustment, are covered in <a href="24-ai-agents.html" class="quarto-xref"><span>Chapter 26</span></a>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Discussion Questions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Discussion Questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>A T-cell engager for relapsed/refractory multiple myeloma has potent cytokine-release activity in ex vivo human blood assays at concentrations well below those toxic in non-human primates. The NOAEL-based MRSD is 10-fold higher than the MABEL-derived starting dose. Which starting dose framework would you recommend to the sponsor, and what protocol-level safeguards would you require to accompany that choice?</p></li>
+<li><p>The 3+3 design selects the correct MTD only about 40-50% of the time in simulation, yet it remains in use. What institutional, regulatory, and operational factors sustain its use, and under what specific circumstances, if any, does its use remain defensible?</p></li>
+<li><p>Project Optimus requires characterization of at least two candidate RP2Ds. For a drug whose primary PD marker (target receptor occupancy) is technically feasible but not validated as a predictor of clinical response, how should the sponsor operationalize the dose-selection criteria in the protocol before data are seen?</p></li>
+<li><p>A combination Phase I program pairs a checkpoint inhibitor (fixed dose, approved) with a novel SMAC mimetic (dose-escalating). The development team proposes a simple row-by-row escalation through a dose grid, assuming additive toxicity. What are the statistical and clinical limitations of that assumption, and what design alternatives would you propose?</p></li>
+<li><p>A sentinel stopping rule specifies that dosing of the full cohort is suspended if a DLT occurs in a sentinel subject. A sentinel subject at dose level 3 develops Grade 3 transaminase elevation at hour 36 that resolves completely by hour 72. The medical monitor argues this is manageable and not clinically meaningful. Walk through the considerations for deciding whether to invoke the stopping rule or proceed with cohort dosing.</p></li>
+</ol>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-babb1998ewoc" class="csl-entry" role="listitem">
+Babb, James, Andre Rogatko, and Shelemyahu Zacks. 1998. <span>“Cancer Phase <span>I</span> Clinical Trials: Efficient Dose Escalation with Overdose Control.”</span> <em>Statistics in Medicine</em> 17 (10): 1103–20. <a href="https://doi.org/10.1002/(SICI)1097-0258(19980530)17:10<1103::AID-SIM793>3.0.CO;2-9">https://doi.org/10.1002/(SICI)1097-0258(19980530)17:10&lt;1103::AID-SIM793&gt;3.0.CO;2-9</a>.
+</div>
+<div id="ref-ema_fih_2017" class="csl-entry" role="listitem">
+European Medicines Agency. 2017. <span>“Guideline on Strategies to Identify and Mitigate Risks for First-in-Human and Early Clinical Trials with Investigational Medicinal Products.”</span> <span>EMEA/CHMP/SWP/28367/07 Rev.&nbsp;2</span>. <a href="https://www.ema.europa.eu/en/documents/scientific-guideline/guideline-strategies-identify-mitigate-risks-first-human-early-clinical-trials-investigational_en.pdf">https://www.ema.europa.eu/en/documents/scientific-guideline/guideline-strategies-identify-mitigate-risks-first-human-early-clinical-trials-investigational_en.pdf</a>.
+</div>
+<div id="ref-ich_e8_r1" class="csl-entry" role="listitem">
+International Council for Harmonisation. 2021. <span>“<span>ICH E8(R1)</span>: General Considerations for Clinical Studies.”</span> <a href="https://database.ich.org/sites/default/files/ICH_E8-R1_Guideline_Step4_2021_1006.pdf">https://database.ich.org/sites/default/files/ICH_E8-R1_Guideline_Step4_2021_1006.pdf</a>.
+</div>
+<div id="ref-iqvia_rd_trends_2025" class="csl-entry" role="listitem">
+IQVIA Institute for Human Data Science. 2025. <span>“Global Trends in r&amp;d 2025.”</span> <a href="https://iqvia.com/insights/the-iqvia-institute/reports-and-publications/reports/global-trends-in-r-and-d-2025">https://iqvia.com/insights/the-iqvia-institute/reports-and-publications/reports/global-trends-in-r-and-d-2025</a>.
+</div>
+<div id="ref-letourneau2009dose" class="csl-entry" role="listitem">
+Le Tourneau, Christophe, J. Jack Lee, and Lillian L. Siu. 2009. <span>“Dose Escalation Methods in Phase i Cancer Clinical Trials.”</span> <em>Journal of the National Cancer Institute</em> 101 (10): 708–20. <a href="https://doi.org/10.1093/jnci/djp079">https://doi.org/10.1093/jnci/djp079</a>.
+</div>
+<div id="ref-boin2016liuyuan" class="csl-entry" role="listitem">
+Liu, Suyu, and Ying Yuan. 2015. <span>“Bayesian Optimal Interval Designs for Phase <span>I</span> Clinical Trials.”</span> <em>Journal of the Royal Statistical Society: Series C (Applied Statistics)</em> 64 (3): 507–23. <a href="https://doi.org/10.1111/rssc.12089">https://doi.org/10.1111/rssc.12089</a>.
+</div>
+<div id="ref-neuenschwander2008blrm" class="csl-entry" role="listitem">
+Neuenschwander, Beat, Michael Branson, and Thomas Gsponer. 2008. <span>“Critical Aspects of the <span>Bayesian</span> Approach to Phase <span>I</span> Cancer Trials.”</span> <em>Statistics in Medicine</em> 27 (13): 2420–39. <a href="https://doi.org/10.1002/sim.3230">https://doi.org/10.1002/sim.3230</a>.
+</div>
+<div id="ref-oquigley1990crm" class="csl-entry" role="listitem">
+O’Quigley, John, Margaret Pepe, and Lloyd Fisher. 1990. <span>“Continual Reassessment Method: A Practical Design for Phase 1 Clinical Trials in Cancer.”</span> <em>Biometrics</em> 46 (1): 33–48. <a href="https://doi.org/10.2307/2531628">https://doi.org/10.2307/2531628</a>.
+</div>
+<div id="ref-fda_mrsd_2005" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2005. <span>“Estimating the Maximum Safe Starting Dose in Initial Clinical Trials for Therapeutics in Adult Healthy Volunteers.”</span> Guidance for Industry, Center for Drug Evaluation and Research. <a href="https://www.fda.gov/media/72309/download">https://www.fda.gov/media/72309/download</a>.
+</div>
+<div id="ref-fda_project_optimus" class="csl-entry" role="listitem">
+———. 2021. <span>“Project <span>Optimus</span>: Reforming the Dose Optimization and Dose Selection Paradigm in Oncology.”</span> FDA Oncology Center of Excellence. <a href="https://www.fda.gov/about-fda/oncology-center-excellence/project-optimus">https://www.fda.gov/about-fda/oncology-center-excellence/project-optimus</a>.
+</div>
+<div id="ref-fda_clinical_pharm" class="csl-entry" role="listitem">
+———. 2024a. <span>“Clinical Pharmacology Guidance Documents.”</span> <a href="https://www.fda.gov/drugs/guidance-compliance-regulatory-information/guidances-drugs">https://www.fda.gov/drugs/guidance-compliance-regulatory-information/guidances-drugs</a>.
+</div>
+<div id="ref-fda_dose_optim_oncology_2024" class="csl-entry" role="listitem">
+———. 2024b. <span>“Optimizing the Dosage of Human Prescription Drugs and Biological Products for the Treatment of Oncologic Diseases.”</span> Guidance for Industry, Center for Drug Evaluation and Research and Center for Biologics Evaluation and Research. <a href="https://www.fda.gov/media/164555/download">https://www.fda.gov/media/164555/download</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./06-economics.html" class="pagination-link" aria-label="Economics of a Trial">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./08-phase2.html" class="pagination-link" aria-label="Phase II: Exploratory">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

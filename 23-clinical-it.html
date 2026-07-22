@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>25&nbsp; Clinical Trial IT Infrastructure – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./24-ai-agents.html" rel="next">
+<link href="./22-essential-docs.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="25&nbsp; Clinical Trial IT Infrastructure – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="25&nbsp; Clinical Trial IT Infrastructure – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./23-clinical-it.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-modern-clinical-trial-ecosystem" id="toc-the-modern-clinical-trial-ecosystem" class="nav-link active" data-scroll-target="#the-modern-clinical-trial-ecosystem"><span class="header-section-number">25.1</span> The Modern Clinical Trial Ecosystem</a>
+  <ul class="collapse">
+  <li><a href="#the-technology-ecosystem" id="toc-the-technology-ecosystem" class="nav-link" data-scroll-target="#the-technology-ecosystem">The Technology Ecosystem</a></li>
+  </ul></li>
+  <li><a href="#the-foundational-backbone-platform-wars" id="toc-the-foundational-backbone-platform-wars" class="nav-link" data-scroll-target="#the-foundational-backbone-platform-wars"><span class="header-section-number">25.2</span> The Foundational “Backbone”: Platform Wars</a>
+  <ul class="collapse">
+  <li><a href="#major-platform-vendors" id="toc-major-platform-vendors" class="nav-link" data-scroll-target="#major-platform-vendors">Major Platform Vendors</a></li>
+  </ul></li>
+  <li><a href="#sec-clinical-it-regulatory" id="toc-sec-clinical-it-regulatory" class="nav-link" data-scroll-target="#sec-clinical-it-regulatory"><span class="header-section-number">25.3</span> Regulatory Framework for Computerized Systems</a>
+  <ul class="collapse">
+  <li><a href="#enforceable-standards-vs.-recommendations" id="toc-enforceable-standards-vs.-recommendations" class="nav-link" data-scroll-target="#enforceable-standards-vs.-recommendations">Enforceable Standards vs.&nbsp;Recommendations</a></li>
+  <li><a href="#validation-and-documentation-requirements" id="toc-validation-and-documentation-requirements" class="nav-link" data-scroll-target="#validation-and-documentation-requirements">Validation and Documentation Requirements</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./23-clinical-it.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-clinical-it" class="quarto-section-identifier"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Clinical trials have undergone a fundamental transformation in how they capture, manage, and store data. What began as paper-based case report forms and filing cabinets has evolved into a layered digital infrastructure of interconnected platforms that power every stage of research: from site operations to regulatory submissions. This chapter examines the IT systems that form the transactional backbone of modern trials: Electronic Data Capture (EDC), Clinical Trial Management Systems (CTMS), electronic Trial Master Files (eTMF), and Randomization and Trial Supply Management (RTSM). It also covers the platform market dynamics shaping their evolution, and the regulatory framework (21 CFR Part 11, Annex 11, and ICH E6) that governs computerized systems in clinical research.</p>
+<p>This infrastructure shapes the daily work of everyone involved in trial operations. The IT platforms determine what data can be captured and integrated, how operational metrics are tracked, and whether a trial is inspection-ready. They also provide the foundation on which the AI and automation tools discussed in <a href="24-ai-agents.html" class="quarto-xref"><span>Chapter 26</span></a> are built. Without validated, well-integrated core systems, advanced analytics and agentic automation have nothing reliable to operate on.</p>
+<p>Throughout, we maintain a realistic perspective. Technology can reduce friction and surface risks earlier, but it requires validation, governance, and oversight to be defensible in an inspection. The goal is to help readers understand not only what systems exist, but how they interconnect and what regulatory requirements govern their use in clinical research.</p>
+<section id="the-modern-clinical-trial-ecosystem" class="level2" data-number="25.1">
+<h2 data-number="25.1" class="anchored" data-anchor-id="the-modern-clinical-trial-ecosystem"><span class="header-section-number">25.1</span> The Modern Clinical Trial Ecosystem</h2>
+<p>A decade ago, sponsors managed clinical data through a patchwork of vendor systems that rarely communicated: EDC databases that could not talk to randomization systems, trial master files stored in SharePoint folders with manual indexing, and clinical trial management systems that required spreadsheet reconciliation to produce accurate enrollment counts. Data flowed through exports, imports, and emails, a process that introduced latency, transcription errors, and audit risk at every handoff.</p>
+<p>Today, the leading platforms aspire to unified architectures where patient data, operational metrics, essential documents, and supply chain signals flow through shared data models. In the best-integrated environments (particularly single-vendor platforms like Veeva Vault), when a site randomizes a patient, that event can propagate automatically: enrollment counts update in CTMS dashboards, treatment-specific CRF pages unlock in the EDC, drug shipment requests trigger in the supply management system, and expected document checklists populate in the eTMF. In practice, many sponsors still operate heterogeneous stacks with systems from multiple vendors, connected through middleware and custom integrations that require configuration, maintenance, and periodic reconciliation. The degree of integration varies widely across organizations, but the direction of travel is toward reduced manual handoffs and the shared data infrastructure on which analytics and automation depend.</p>
+<section id="the-technology-ecosystem" class="level3">
+<h3 class="anchored" data-anchor-id="the-technology-ecosystem">The Technology Ecosystem</h3>
+<p><a href="#fig-clinical-it-ecosystem" class="quarto-xref">Figure&nbsp;<span>25.1</span></a> shows how the major systems interconnect.</p>
+<div class="cell" data-eval="true" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-clinical-it-ecosystem" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-clinical-it-ecosystem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-clinical-it-ecosystem">flowchart LR
+    subgraph Sites["Clinical Sites"]
+        EHR[Electronic Health Records]
+        Wearables[Wearables &amp; Sensors]
+        Patient[Patient Portal]
+    end
+
+    subgraph Core["Core Data Platforms"]
+        EDC[EDC&lt;br/&gt;Electronic Data Capture]
+        CTMS[CTMS&lt;br/&gt;Clinical Trial Management]
+        eTMF[eTMF&lt;br/&gt;Trial Master File]
+        RTSM[RTSM&lt;br/&gt;Randomization &amp; Supply]
+    end
+
+    subgraph AI["AI Layer"]
+        Design[Protocol Design AI]
+        Recruit[Patient Matching AI]
+        QC[Data Quality AI]
+        Predict[Predictive Analytics]
+    end
+
+    subgraph Outputs["Regulatory &amp; Insights"]
+        Submit[Regulatory Submissions]
+        Reports[Real-time Dashboards]
+        Risk[Risk Signals]
+    end
+
+    EHR --&gt;|Patient Data| EDC
+    Wearables --&gt;|Biometrics| EDC
+    Patient --&gt;|ePRO/eCOA| EDC
+
+    EDC &lt;--&gt; CTMS
+    CTMS &lt;--&gt; eTMF
+    CTMS &lt;--&gt; RTSM
+
+    EDC --&gt; QC
+    CTMS --&gt; Predict
+    eTMF --&gt; QC
+
+    Design --&gt; EDC
+    Recruit --&gt; CTMS
+
+    QC --&gt; Reports
+    Predict --&gt; Risk
+    eTMF --&gt; Submit
+    EDC --&gt; Submit
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-clinical-it-ecosystem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25.1: The Modern Clinical Trial Technology Stack
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The clinical trial technology stack consists of four interconnected core platforms, each serving a distinct but complementary function <span class="citation" data-cites="everest_edc_2024">(<a href="references.html#ref-everest_edc_2024" role="doc-biblioref">Medidata Solutions 2024a</a>)</span>.</p>
+<p><em>Electronic Data Capture (EDC)</em> is the primary tool for clinical data collection. EDC systems replace paper case report forms with validated electronic forms that capture patient data at the point of care. When a coordinator records a blood pressure reading, administers a questionnaire, or documents an adverse event, that data flows into the EDC. Modern EDC platforms include built-in edit checks that flag impossible values (a heart rate of 500?) or logical inconsistencies (an adverse event dated before the patient enrolled) in real-time, catching errors before they propagate. The EDC database ultimately becomes the foundation for regulatory submissions: every efficacy and safety analysis traces back to data captured here <span class="citation" data-cites="cfr21_11">(<a href="references.html#ref-cfr21_11" role="doc-biblioref">U.S. Food and Drug Administration 2023</a>)</span>.</p>
+<p><em>Clinical Trial Management System (CTMS)</em> is the operational command center. While EDC captures patient data, CTMS tracks trial operations: which sites are open, how many patients each has enrolled, when the next monitoring visit is scheduled, and what the budget burn rate looks like. CTMS provides the project management backbone that keeps a 50-site, 14-country trial from descending into chaos. It tracks milestones, manages contracts and payments, and generates the operational metrics that sponsors use to assess trial health <span class="citation" data-cites="grandview_clinical_software_2025">(<a href="references.html#ref-grandview_clinical_software_2025" role="doc-biblioref">Grand View Research 2025</a>)</span>.</p>
+<p><em>Electronic Trial Master File (eTMF)</em> is the regulatory archive. Every clinical trial generates thousands of documents: the protocol and its amendments, informed consent forms, IRB approvals, investigator CVs, monitoring reports, safety letters, and correspondence. Regulators require sponsors to maintain a complete Trial Master File as evidence that the trial was conducted properly. eTMF systems organize these documents according to the TMF Reference Model (originally convened under DIA, now stewarded by CDISC), track document completeness, and ensure inspection readiness <span class="citation" data-cites="dia_reference_model">(<a href="references.html#ref-dia_reference_model" role="doc-biblioref">TMF Reference Model Initiative 2024</a>)</span>. When an FDA inspector arrives, the eTMF is the first artifact they examine.</p>
+<p><em>Randomization and Trial Supply Management (RTSM)</em>, sometimes called Interactive Response Technology (IRT), handles the logistics of treatment assignment and drug supply. When a patient is eligible for randomization, the RTSM system assigns them to a treatment arm according to the randomization scheme, maintaining the blind while ensuring balanced allocation. Simultaneously, RTSM tracks investigational product inventory at each site, triggers resupply shipments, and manages the complex logistics of getting the right drug to the right patient at the right time. For trials with temperature-sensitive biologics or personalized therapies, RTSM is mission-critical <span class="citation" data-cites="rtsm_best_practices">(<a href="references.html#ref-rtsm_best_practices" role="doc-biblioref">Clinical Leader 2024</a>)</span>.</p>
+<p>These four systems do not operate in isolation: they exchange data continuously. When a patient is randomized in RTSM, that information flows to CTMS (updating enrollment counts) and EDC (enabling treatment-specific data collection). When a monitoring visit is completed, the report is filed in eTMF while the visit status updates in CTMS. This integration explains why unified platforms like Veeva Vault, which house all four systems in a single architecture, have gained such traction in the market <span class="citation" data-cites="veeva_vault_overview">(<a href="references.html#ref-veeva_vault_overview" role="doc-biblioref">Veeva Systems 2024b</a>)</span>.</p>
+</section>
+</section>
+<section id="the-foundational-backbone-platform-wars" class="level2" data-number="25.2">
+<h2 data-number="25.2" class="anchored" data-anchor-id="the-foundational-backbone-platform-wars"><span class="header-section-number">25.2</span> The Foundational “Backbone”: Platform Wars</h2>
+<p>For decades, clinical data lived in silos: spreadsheets here, PDFs there, fax machines everywhere. Today, unified platforms serve as the operating system for clinical research. The clinical trial platform market is dominated by a handful of enterprise players (see <a href="#tbl-platform-comparison" class="quarto-xref">Table&nbsp;<span>25.1</span></a>), with intense competition driving innovation <span class="citation" data-cites="everest_edc_2024">(<a href="references.html#ref-everest_edc_2024" role="doc-biblioref">Medidata Solutions 2024a</a>)</span>:</p>
+<div id="tbl-platform-comparison" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[18,25,20,15,22]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-platform-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;25.1: Comparison of Major Clinical Trial Platforms
+</figcaption>
+<div aria-describedby="tbl-platform-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Vendor</th>
+<th>Primary Strengths</th>
+<th>Market Position</th>
+<th>Cloud Model</th>
+<th>AI Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Medidata (Dassault)</em></td>
+<td>Industry-standard EDC (Rave), 25-year track record, 38,000+ studies</td>
+<td>Market leader in EDC</td>
+<td>Cloud/SaaS</td>
+<td>AI-powered signal detection, synthetic control arms</td>
+</tr>
+<tr class="even">
+<td><em>Veeva Systems</em></td>
+<td>Unified Vault platform (eTMF, CTMS, EDC), life sciences focus</td>
+<td>Fast-growing challenger</td>
+<td>Cloud-native</td>
+<td>TMF Intake Agent, Quality Check Agent</td>
+</tr>
+<tr class="odd">
+<td><em>Oracle</em></td>
+<td>Enterprise scale, Siebel CTMS and Oracle Clinical One, regulatory expertise</td>
+<td>Established incumbent</td>
+<td>Cloud/On-prem</td>
+<td>ML-based safety analytics</td>
+</tr>
+<tr class="even">
+<td><em>IQVIA</em></td>
+<td>Real-world data integration, global CRO services</td>
+<td>CRO-integrated platform</td>
+<td>Cloud/SaaS</td>
+<td>Intelligent eTMF, predictive enrollment</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Deployment Trends">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Deployment Trends
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Over <em>57% of new clinical trial system deployments are now cloud-based</em>, up from 30% five years ago <span class="citation" data-cites="idc_cloud_clinical_2024">(<a href="references.html#ref-idc_cloud_clinical_2024" role="doc-biblioref">International Data Corporation 2024</a>)</span>. The pandemic accelerated this shift.</p>
+</div>
+</div>
+<section id="major-platform-vendors" class="level3">
+<h3 class="anchored" data-anchor-id="major-platform-vendors">Major Platform Vendors</h3>
+<p><em>Medidata</em> (acquired by Dassault Systemes in 2019) remains the dominant EDC platform, with its <em>Rave EDC</em> system recognized as the industry standard. The 2025 ISR Benchmarking Report ranked Rave EDC as the top-preferred EDC system based on independent sponsor evaluations <span class="citation" data-cites="isr_edc_2025">(<a href="references.html#ref-isr_edc_2025" role="doc-biblioref">Industry Standard Research (ISR) 2025</a>)</span>. Medidata’s scale is substantial: over 700,000 certified site users, 1.8 million EDC users, and more than 38,000 studies managed across all phases and therapeutic areas <span class="citation" data-cites="medidata_rave_2024">(<a href="references.html#ref-medidata_rave_2024" role="doc-biblioref">Medidata Solutions 2024b</a>)</span>.</p>
+<p>Medidata’s AI capabilities include <em>Acorn AI</em>, which provides synthetic control arms using historical patient data to reduce or eliminate placebo groups in certain trial designs <span class="citation" data-cites="medidata_sca">(<a href="references.html#ref-medidata_sca" role="doc-biblioref">Medidata Solutions 2024c</a>)</span>. Their <em>Sensor Cloud</em> integrates wearable device data directly into the EDC, enabling continuous physiological monitoring without manual data entry.</p>
+<p><em>Veeva</em> has rapidly gained market share by offering a unified <em>Vault</em> platform that integrates eTMF, CTMS, and EDC in a single system, in contrast to Medidata’s historically modular approach. Veeva serves only life sciences, unlike Oracle or Salesforce, which operate across multiple industries; this concentration has shaped a platform built around clinical and regulatory workflows rather than adapted from general-purpose enterprise software. Beyond its core platform, Veeva is deploying specialized <em>AI Agents</em> that automate the most tedious parts of clinical operations. <a href="#fig-veeva-ai-agents" class="quarto-xref">Figure&nbsp;<span>25.2</span></a> illustrates the document processing workflow:</p>
+<div class="cell" data-eval="true" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-veeva-ai-agents" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-veeva-ai-agents-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-veeva-ai-agents">sequenceDiagram
+    participant Site as Site Upload
+    participant Intake as TMF Intake Agent
+    participant QC as Quality Check Agent
+    participant TMF as eTMF Vault
+    participant User as Document Manager
+
+    Site-&gt;&gt;Intake: Upload document (PDF/scan)
+    Intake-&gt;&gt;Intake: Extract metadata&lt;br/&gt;(investigator, date, type)
+    Intake-&gt;&gt;Intake: Classify to TMF record type
+    Intake-&gt;&gt;QC: Route for quality check
+    QC-&gt;&gt;QC: Check for signatures
+    QC-&gt;&gt;QC: Validate completeness
+    alt Document Complete
+        QC-&gt;&gt;TMF: File to correct binder
+        TMF-&gt;&gt;User: Notification: "Document filed"
+    else Issues Found
+        QC-&gt;&gt;User: Alert: "Missing signature"
+        User-&gt;&gt;Site: Request correction
+    end
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-veeva-ai-agents-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25.2: How Veeva’s AI Agents Process TMF Documents
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Veeva’s AI capabilities center on two key agents. The <em>TMF Intake Agent</em> automatically classifies documents uploaded by sites, extracting metadata such as investigator name and document date to route files to the correct TMF binder. The <em>Quality Check Agent</em> reviews documents for errors (missing signatures, wrong versions, incomplete forms) before a human ever sees them, reducing TMF migration prep time by over 80% according to Veeva’s published benchmarks <span class="citation" data-cites="veeva_tmf_agent">(<a href="references.html#ref-veeva_tmf_agent" role="doc-biblioref">Veeva Systems 2024a</a>)</span>.</p>
+<p>The eTMF market alone is worth <em>$1.4 billion</em> and growing at 12.8% annually <span class="citation" data-cites="marketsandmarkets_etmf_2024">(<a href="references.html#ref-marketsandmarkets_etmf_2024" role="doc-biblioref">MarketsandMarkets 2024</a>)</span>. <a href="#tbl-etmf-comparison" class="quarto-xref">Table&nbsp;<span>25.2</span></a> compares the three vendors competing for dominance:</p>
+<div id="tbl-etmf-comparison" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[22,26,26,26]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-etmf-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;25.2: eTMF Platform Feature Comparison
+</figcaption>
+<div aria-describedby="tbl-etmf-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Veeva eTMF</th>
+<th>IQVIA eTMF</th>
+<th>Phlexglobal eTMF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Auto-Classification</em></td>
+<td>AI-powered TMF mapping</td>
+<td>ML-based indexing</td>
+<td>Intelligent auto-filing</td>
+</tr>
+<tr class="even">
+<td><em>Completeness Prediction</em></td>
+<td>Expected document lists</td>
+<td>Milestone-based gaps</td>
+<td>Risk-based prioritization</td>
+</tr>
+<tr class="odd">
+<td><em>Inspection Readiness</em></td>
+<td>Real-time dashboards</td>
+<td>Inspection-ready reports</td>
+<td>Audit trail analytics</td>
+</tr>
+<tr class="even">
+<td><em>Site Integration</em></td>
+<td>SiteVault connected</td>
+<td>Site-facing portal</td>
+<td>Sponsor-site bridge</td>
+</tr>
+<tr class="odd">
+<td><em>Unique Strength</em></td>
+<td>Unified Vault ecosystem</td>
+<td>RWD integration</td>
+<td>eTMF-specialist focus</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>These platforms use AI in two ways. First, <em>auto-indexing</em> uses machine learning models to classify unorganized scans into the TMF Reference Model structure. Second, <em>completeness prediction</em> algorithms identify missing documents based on study milestones, for example flagging that “Site 101 has initialized but is missing a financial disclosure form” <span class="citation" data-cites="iqvia_etmf phlexglobal_etmf">(<a href="references.html#ref-iqvia_etmf" role="doc-biblioref">IQVIA 2024</a>; <a href="references.html#ref-phlexglobal_etmf" role="doc-biblioref">Phlexglobal 2024</a>)</span>.</p>
+<p><em>Medable</em> took a different path: its platform was designed for the decentralized trial from the outset. As hybrid and virtual trials became mainstream, Medable’s modular platform enables patients to participate from home (see <a href="#tbl-medable-capabilities" class="quarto-xref">Table&nbsp;<span>25.3</span></a>) <span class="citation" data-cites="medable_tmf_agent">(<a href="references.html#ref-medable_tmf_agent" role="doc-biblioref">Medable 2024a</a>)</span>:</p>
+<div id="tbl-medable-capabilities" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[20,40,40]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-medable-capabilities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;25.3: Medable DCT Capabilities (impacts are implementation- and protocol-dependent) <span class="citation" data-cites="medable_ai">(<a href="references.html#ref-medable_ai" role="doc-biblioref">Medable 2024b</a>)</span>
+</figcaption>
+<div aria-describedby="tbl-medable-capabilities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Capability</th>
+<th>What It Does</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>TeleVisit</em></td>
+<td>Video conferencing for remote assessments</td>
+<td>Reduced travel for suitable protocols (implementation-dependent)</td>
+</tr>
+<tr class="even">
+<td><em>eConsent</em></td>
+<td>Multimedia-rich digital consent</td>
+<td>Improved comprehension and workflow consistency (context-dependent)</td>
+</tr>
+<tr class="odd">
+<td><em>Medable AI</em></td>
+<td>Generates digital eCOA from paper protocols</td>
+<td>Faster digitization and reuse of instruments (vendor-reported)</td>
+</tr>
+<tr class="even">
+<td><em>TMF Automation</em></td>
+<td>Processes DCT-generated document flood</td>
+<td>Helps manage higher document volume (protocol-dependent)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-clinical-it-regulatory" class="level2" data-number="25.3">
+<h2 data-number="25.3" class="anchored" data-anchor-id="sec-clinical-it-regulatory"><span class="header-section-number">25.3</span> Regulatory Framework for Computerized Systems</h2>
+<p>Every computerized system in a trial, from a validated EDC platform to an AI-enabled document classifier, operates inside a regulatory framework that dictates how it must be validated, documented, and overseen. This section lays out that framework: which requirements are legally enforceable, which are guidance, and what evidence an inspector expects to see for the systems a sponsor or CRO deploys.</p>
+<section id="enforceable-standards-vs.-recommendations" class="level3">
+<h3 class="anchored" data-anchor-id="enforceable-standards-vs.-recommendations">Enforceable Standards vs.&nbsp;Recommendations</h3>
+<p>A critical distinction exists between <em>enforceable legal requirements</em> and <em>regulatory guidance</em>, as summarized in <a href="#tbl-regulatory-hierarchy" class="quarto-xref">Table&nbsp;<span>25.4</span></a>. Failure to comply with enforceable requirements can result in warning letters, clinical holds, or rejection of submissions. Guidance documents represent FDA or EMA “current thinking” and are recommendations, not mandates, though departing from them without justification invites scrutiny.</p>
+<div id="tbl-regulatory-hierarchy" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[25,40,35]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regulatory-hierarchy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;25.4: Regulatory Hierarchy for AI in Clinical Trials
+</figcaption>
+<div aria-describedby="tbl-regulatory-hierarchy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 40%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Examples</th>
+<th>Consequence of Non-Compliance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Enforceable Law/Regulation</em></td>
+<td>21 CFR Part 11 (electronic records), 21 CFR Part 312 (INDs), ICH E6 GCP, EU Clinical Trials Regulation</td>
+<td>Warning letters, clinical holds, application rejection, criminal liability</td>
+</tr>
+<tr class="even">
+<td><em>Enforceable GxP Standards</em></td>
+<td>ICH E6(R3) computerized systems requirements, Annex 11 (EU), data integrity requirements</td>
+<td>Inspection findings, Form 483 observations, regulatory action</td>
+</tr>
+<tr class="odd">
+<td><em>Regulatory Guidance</em></td>
+<td>FDA draft guidance on AI for regulatory decisions (Jan 2025), EMA reflection paper on AI (Sept 2024)</td>
+<td>Increased scrutiny, requests for additional information, delays</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="validation-and-documentation-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="validation-and-documentation-requirements">Validation and Documentation Requirements</h3>
+<p>AI systems and computerized systems used in clinical trials must meet the same validation requirements as any other regulated software (see <a href="#tbl-validation-requirements" class="quarto-xref">Table&nbsp;<span>25.5</span></a>). The applicable standards depend on the regulatory jurisdiction and the system’s role.</p>
+<p><em>21 CFR Part 11 (FDA) and Annex 11 (EU) Requirements:</em></p>
+<p>Both frameworks require that computerized systems generating, modifying, or storing electronic records for regulatory submissions meet validation and control standards <span class="citation" data-cites="cfr21_11 fda_electronic_systems_2024 eu_annex11_2011">(<a href="references.html#ref-cfr21_11" role="doc-biblioref">U.S. Food and Drug Administration 2023</a>, <a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">2024</a>; <a href="references.html#ref-eu_annex11_2011" role="doc-biblioref">European Commission 2011</a>)</span>:</p>
+<ul>
+<li><em>System validation</em>: Documented evidence that software performs as intended, including AI model verification</li>
+<li><em>Audit trails</em>: Computer-generated, time-stamped trails recording all system actions that create, modify, or delete electronic records</li>
+<li><em>Access controls</em>: Unique user identification, authentication, and role-based permissions</li>
+<li><em>Data integrity</em>: Controls ensuring data is attributable, legible, contemporaneous, original, and accurate (ALCOA)</li>
+<li><em>Operational controls</em>: Documented procedures for system use, maintenance, and change control</li>
+</ul>
+<p><em>ICH E6(R3) Computerized Systems Requirements (January 2025):</em></p>
+<p>The updated GCP guideline adds specific requirements relevant to AI <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>:</p>
+<ul>
+<li><em>Fitness-for-purpose</em>: Systems must be validated to be fit for the specific use in the trial</li>
+<li><em>Data governance</em>: Dedicated section requiring documented data and records management</li>
+<li><em>Risk-based validation</em>: Proportional approach based on impact on patient safety and data reliability</li>
+<li><em>Metadata and automated sources</em>: Recognition of data from wearables, sensors, and automated systems as primary source data</li>
+</ul>
+<div id="tbl-validation-requirements" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[30,23,23,24]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-validation-requirements-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;25.5: Computerized Systems Validation Requirements for AI
+</figcaption>
+<div aria-describedby="tbl-validation-requirements-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Requirement</th>
+<th>21 CFR Part 11</th>
+<th>Annex 11</th>
+<th>ICH E6(R3)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>System validation</td>
+<td>Required</td>
+<td>Required</td>
+<td>Required (risk-based)</td>
+</tr>
+<tr class="even">
+<td>Audit trails</td>
+<td>Required</td>
+<td>Required</td>
+<td>Required</td>
+</tr>
+<tr class="odd">
+<td>Access controls</td>
+<td>Required</td>
+<td>Required</td>
+<td>Required</td>
+</tr>
+<tr class="even">
+<td>Change control</td>
+<td>Required</td>
+<td>Required</td>
+<td>Required</td>
+</tr>
+<tr class="odd">
+<td>Data backup/recovery</td>
+<td>Required</td>
+<td>Required</td>
+<td>Required</td>
+</tr>
+<tr class="even">
+<td>Training documentation</td>
+<td>Required</td>
+<td>Required</td>
+<td>Required</td>
+</tr>
+<tr class="odd">
+<td>Supplier qualification</td>
+<td>N/A</td>
+<td>Required</td>
+<td>Required</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Taken together, the four core platforms and the regulatory framework that governs them form the validated foundation on which everything else in a trial is built. The requirements are deliberately technology-neutral: the same expectations for validation, audit trails, access control, and data integrity apply whether a record is created by a coordinator typing into an EDC field or by a model classifying a document. That neutrality is what lets AI and automation enter the workflow without a separate rulebook, provided they are held to the same standard of evidence. <a href="24-ai-agents.html" class="quarto-xref"><span>Chapter 26</span></a> turns to those tools, examining how agentic systems are being layered onto this infrastructure and what it takes to keep them defensible in an inspection.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-rtsm_best_practices" class="csl-entry" role="listitem">
+Clinical Leader. 2024. <span>“Best Practices for Randomization and Trial Supply Management (RTSM).”</span> <a href="https://www.clinicalleader.com/doc/best-practices-for-randomization-and-trial-supply-management-rtsm-0001">https://www.clinicalleader.com/doc/best-practices-for-randomization-and-trial-supply-management-rtsm-0001</a>.
+</div>
+<div id="ref-eu_annex11_2011" class="csl-entry" role="listitem">
+European Commission. 2011. <span>“EudraLex Volume 4, EU Guidelines for Good Manufacturing Practice for Medicinal Products for Human and Veterinary Use, Annex 11: Computerised Systems.”</span> <a href="https://health.ec.europa.eu/document/download/e63bde49-af31-4d1d-8a2e-1f3f8e5f6d1c_en" class="uri">https://health.ec.europa.eu/document/download/e63bde49-af31-4d1d-8a2e-1f3f8e5f6d1c_en</a>.
+</div>
+<div id="ref-grandview_clinical_software_2025" class="csl-entry" role="listitem">
+Grand View Research. 2025. <span>“Clinical Trials Support Software Solutions Market Size, Share &amp; Trends Analysis Report.”</span> <a href="https://www.grandviewresearch.com/industry-analysis/clinical-trials-support-software-solutions-market-report">https://www.grandviewresearch.com/industry-analysis/clinical-trials-support-software-solutions-market-report</a>.
+</div>
+<div id="ref-isr_edc_2025" class="csl-entry" role="listitem">
+Industry Standard Research (ISR). 2025. <span>“EDC Benchmarking and Market Dynamics (6th Edition).”</span> <a href="https://isrreports.com/reports/2025-edc-benchmarking/">https://isrreports.com/reports/2025-edc-benchmarking/</a>.
+</div>
+<div id="ref-ich_e6r3_2025" class="csl-entry" role="listitem">
+International Council for Harmonisation. 2025. <span>“<span>ICH E6(R3)</span>: Guideline for Good Clinical Practice (GCP).”</span> <a href="https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf">https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf</a>.
+</div>
+<div id="ref-idc_cloud_clinical_2024" class="csl-entry" role="listitem">
+International Data Corporation. 2024. <span>“IDC MarketScape: Worldwide Cloud-Based Clinical Trials Platforms.”</span> <a href="https://www.idc.com/getdoc.jsp?containerId=US51722224">https://www.idc.com/getdoc.jsp?containerId=US51722224</a>.
+</div>
+<div id="ref-iqvia_etmf" class="csl-entry" role="listitem">
+IQVIA. 2024. <span>“IQVIA Intelligent eTMF.”</span> <a href="https://www.iqvia.com/library/fact-sheets/iqvia-intelligent-etmf">https://www.iqvia.com/library/fact-sheets/iqvia-intelligent-etmf</a>.
+</div>
+<div id="ref-marketsandmarkets_etmf_2024" class="csl-entry" role="listitem">
+MarketsandMarkets. 2024. <span>“Electronic Trial Master File System Market.”</span> <a href="https://www.marketsandmarkets.com/Market-Reports/electronic-trial-master-file-system-market-94357456.html">https://www.marketsandmarkets.com/Market-Reports/electronic-trial-master-file-system-market-94357456.html</a>.
+</div>
+<div id="ref-medable_tmf_agent" class="csl-entry" role="listitem">
+Medable. 2024a. <span>“Medable Releases New AI Agent to Automate Trial Master File Processing.”</span> <a href="https://www.biopharmatrend.com/news/medable-releases-new-ai-agent-to-automate-trial-master-file-processing-1447/">https://www.biopharmatrend.com/news/medable-releases-new-ai-agent-to-automate-trial-master-file-processing-1447/</a>.
+</div>
+<div id="ref-medable_ai" class="csl-entry" role="listitem">
+———. 2024b. <span>“Medable: Decentralized Clinical Trial Platform.”</span> <a href="https://www.medable.com">https://www.medable.com</a>.
+</div>
+<div id="ref-everest_edc_2024" class="csl-entry" role="listitem">
+Medidata Solutions. 2024a. <span>“Everest Group EDC PEAK Matrix Assessment.”</span> <a href="https://www.medidata.com/en/everest-group-edc-peak-matrix/">https://www.medidata.com/en/everest-group-edc-peak-matrix/</a>.
+</div>
+<div id="ref-medidata_rave_2024" class="csl-entry" role="listitem">
+———. 2024b. <span>“Medidata Rave EDC.”</span> <a href="https://www.medidata.com/en/clinical-trial-products/clinical-data-management/edc-systems">https://www.medidata.com/en/clinical-trial-products/clinical-data-management/edc-systems</a>.
+</div>
+<div id="ref-medidata_sca" class="csl-entry" role="listitem">
+———. 2024c. <span>“Medidata Synthetic Control Arm.”</span> <a href="https://medidata.com/en/clinical-trial-products/medidata-ai/real-world-data/synthetic-control-arm">https://medidata.com/en/clinical-trial-products/medidata-ai/real-world-data/synthetic-control-arm</a>.
+</div>
+<div id="ref-phlexglobal_etmf" class="csl-entry" role="listitem">
+Phlexglobal. 2024. <span>“Phlexglobal eTMF Software.”</span> <a href="https://www.phlexglobal.com/etmf-software">https://www.phlexglobal.com/etmf-software</a>.
+</div>
+<div id="ref-dia_reference_model" class="csl-entry" role="listitem">
+TMF Reference Model Initiative. 2024. <span>“Trial Master File Reference Model.”</span> <a href="https://tmfrefmodel.com/">https://tmfrefmodel.com/</a>.
+</div>
+<div id="ref-cfr21_11" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2023. <span>“21 CFR Part 11: Electronic Records; Electronic Signatures.”</span> <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11">https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11</a>.
+</div>
+<div id="ref-fda_electronic_systems_2024" class="csl-entry" role="listitem">
+———. 2024. <span>“Electronic Systems, Electronic Records, and Electronic Signatures in Clinical Investigations: Questions and Answers.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-systems-electronic-records-and-electronic-signatures-clinical-investigations-questions">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-systems-electronic-records-and-electronic-signatures-clinical-investigations-questions</a>.
+</div>
+<div id="ref-veeva_tmf_agent" class="csl-entry" role="listitem">
+Veeva Systems. 2024a. <span>“Veeva TMF Intake Agent and Quality Check Agent.”</span> <a href="https://www.veeva.com/resources/tmf-intake-agent-and-quality-check-agent/">https://www.veeva.com/resources/tmf-intake-agent-and-quality-check-agent/</a>.
+</div>
+<div id="ref-veeva_vault_overview" class="csl-entry" role="listitem">
+———. 2024b. <span>“Veeva Vault Clinical Suite.”</span> <a href="https://www.veeva.com/products/vault-clinical/">https://www.veeva.com/products/vault-clinical/</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./22-essential-docs.html" class="pagination-link" aria-label="Essential Documents and the Trial Master File">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./24-ai-agents.html" class="pagination-link" aria-label="AI Agents in Clinical Development">
+        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

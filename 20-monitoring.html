@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>22&nbsp; Clinical Monitoring – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./21-safety.html" rel="next">
+<link href="./19-data-management.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="22&nbsp; Clinical Monitoring – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="22&nbsp; Clinical Monitoring – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./20-monitoring.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#types-of-monitoring-visits" id="toc-types-of-monitoring-visits" class="nav-link active" data-scroll-target="#types-of-monitoring-visits"><span class="header-section-number">22.1</span> Types of Monitoring Visits</a></li>
+  <li><a href="#on-site-monitoring-activities" id="toc-on-site-monitoring-activities" class="nav-link" data-scroll-target="#on-site-monitoring-activities"><span class="header-section-number">22.2</span> On-Site Monitoring Activities</a></li>
+  <li><a href="#the-monitoring-report" id="toc-the-monitoring-report" class="nav-link" data-scroll-target="#the-monitoring-report"><span class="header-section-number">22.3</span> The Monitoring Report</a></li>
+  <li><a href="#risk-based-quality-management-rbqm" id="toc-risk-based-quality-management-rbqm" class="nav-link" data-scroll-target="#risk-based-quality-management-rbqm"><span class="header-section-number">22.4</span> Risk-Based Quality Management (RBQM)</a></li>
+  <li><a href="#quality-metrics-and-ongoing-oversight" id="toc-quality-metrics-and-ongoing-oversight" class="nav-link" data-scroll-target="#quality-metrics-and-ongoing-oversight"><span class="header-section-number">22.5</span> Quality Metrics and Ongoing Oversight</a>
+  <ul class="collapse">
+  <li><a href="#standard-operating-procedures-sops" id="toc-standard-operating-procedures-sops" class="nav-link" data-scroll-target="#standard-operating-procedures-sops">Standard Operating Procedures (SOPs)</a></li>
+  </ul></li>
+  <li><a href="#audits-and-inspections" id="toc-audits-and-inspections" class="nav-link" data-scroll-target="#audits-and-inspections"><span class="header-section-number">22.6</span> Audits and Inspections</a>
+  <ul class="collapse">
+  <li><a href="#preparing-for-inspection" id="toc-preparing-for-inspection" class="nav-link" data-scroll-target="#preparing-for-inspection">Preparing for Inspection</a></li>
+  <li><a href="#during-the-inspection" id="toc-during-the-inspection" class="nav-link" data-scroll-target="#during-the-inspection">During the Inspection</a></li>
+  <li><a href="#inspection-findings-and-responses" id="toc-inspection-findings-and-responses" class="nav-link" data-scroll-target="#inspection-findings-and-responses">Inspection Findings and Responses</a></li>
+  </ul></li>
+  <li><a href="#trial-governance-committees" id="toc-trial-governance-committees" class="nav-link" data-scroll-target="#trial-governance-committees"><span class="header-section-number">22.7</span> Trial Governance Committees</a>
+  <ul class="collapse">
+  <li><a href="#data-safety-monitoring-board-dsmb" id="toc-data-safety-monitoring-board-dsmb" class="nav-link" data-scroll-target="#data-safety-monitoring-board-dsmb">Data Safety Monitoring Board (DSMB)</a></li>
+  <li><a href="#dsmbs-for-platform-and-adaptive-trials" id="toc-dsmbs-for-platform-and-adaptive-trials" class="nav-link" data-scroll-target="#dsmbs-for-platform-and-adaptive-trials">DSMBs for Platform and Adaptive Trials</a></li>
+  <li><a href="#endpoint-adjudication-committees" id="toc-endpoint-adjudication-committees" class="nav-link" data-scroll-target="#endpoint-adjudication-committees">Endpoint Adjudication Committees</a></li>
+  <li><a href="#steering-committees" id="toc-steering-committees" class="nav-link" data-scroll-target="#steering-committees">Steering Committees</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./20-monitoring.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-monitoring" class="quarto-section-identifier"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>A clinical trial is not self-executing. The protocol may be brilliant, the sites carefully selected, and the data capture systems impeccably designed. Without ongoing vigilance, however, the trial can drift away from its intended course. Clinical monitoring provides that vigilance: the systematic oversight that ensures trials are conducted safely, competently, and in accordance with GCP.</p>
+<p>Good Clinical Practice requires that sponsors “implement a system to manage quality throughout all stages of the trial process” <span class="citation" data-cites="ich_e6r2_2016">(<a href="references.html#ref-ich_e6r2_2016" role="doc-biblioref">International Council for Harmonisation 2016</a>)</span>. Monitoring is a central component of that system.</p>
+<p>Monitoring serves multiple purposes. It protects research participants by identifying safety issues, protocol violations, and inadequate consent processes. It protects data integrity by identifying errors, inconsistencies, and potential fraud. It protects the sponsor’s investment by catching problems early, when they can still be corrected, rather than late, when they may have contaminated the data or triggered regulatory action.</p>
+<p>The monitor (formally called a <em>Clinical Research Associate, or CRA</em>) is the sponsor’s representative at the investigator site. CRAs are typically experienced professionals with clinical or scientific backgrounds who have been trained in GCP, protocol requirements, and monitoring procedures. A single CRA may be responsible for multiple sites, visiting each on a regular schedule.</p>
+<section id="types-of-monitoring-visits" class="level2" data-number="22.1">
+<h2 data-number="22.1" class="anchored" data-anchor-id="types-of-monitoring-visits"><span class="header-section-number">22.1</span> Types of Monitoring Visits</h2>
+<p>Monitoring occurs throughout the trial lifecycle (summarized in <a href="#tbl-monitoring-visits" class="quarto-xref">Table&nbsp;<span>22.1</span></a>), with different visits serving different purposes.</p>
+<p>The <em>Pre-Study Qualification Visit</em> (also called the site selection visit) takes place before a site is chosen, while the sponsor is still deciding where to place the trial. The monitor assesses the site’s interest and its access to the target patient population, the qualifications and availability of the investigator and staff, and whether the facilities and equipment can support the protocol’s procedures. Identifying a site that looks promising on paper but lacks the caseload or infrastructure to deliver is far cheaper before activation than after.</p>
+<p>The <em>Site Initiation Visit (SIV)</em> occurs before a site enrolls its first patient. The monitor confirms that all regulatory approvals are in place, that site staff are trained on the protocol and study procedures, that investigational product has been received and properly stored, and that all essential documents are in the Trial Master File. The SIV is also an opportunity to establish the working relationship between the monitor and the site.</p>
+<p><em>Interim Monitoring Visits (IMVs)</em> occur periodically throughout the trial: monthly, quarterly, or at intervals determined by the monitoring plan. During IMVs, the monitor reviews enrollment, verifies source data, checks protocol compliance, reviews adverse event documentation, reconciles investigational product inventory, and addresses any issues that have arisen since the last visit.</p>
+<p>The <em>Closeout Visit</em> occurs after a site completes enrollment and follow-up. The monitor ensures that all data queries are resolved, that investigational product is accounted for (returned, destroyed, or documented as dispensed), and that site files are complete and ready for long-term retention.</p>
+<div id="tbl-monitoring-visits" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[22,22,56]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-monitoring-visits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;22.1: Types of Monitoring Visits
+</figcaption>
+<div aria-describedby="tbl-monitoring-visits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Visit Type</th>
+<th>Timing</th>
+<th>Key Objectives</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Pre-Study Qualification</em></td>
+<td>Prior to selection</td>
+<td>Assess site interest, capability, facilities, and staff availability</td>
+</tr>
+<tr class="even">
+<td><em>Site Initiation (SIV)</em></td>
+<td>Prior to activation</td>
+<td>Train staff on protocol/EDC, verify TMF/ISF, confirm IP receipt</td>
+</tr>
+<tr class="odd">
+<td><em>Interim Monitoring (IMV)</em></td>
+<td>Throughout trial</td>
+<td>Verify source data, check protocol compliance, manage IP accountability, review safety reporting</td>
+</tr>
+<tr class="even">
+<td><em>Close-Out</em></td>
+<td>After LPLV</td>
+<td>Resolve data queries, return/destroy IP, reconcile files, submit final report</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="on-site-monitoring-activities" class="level2" data-number="22.2">
+<h2 data-number="22.2" class="anchored" data-anchor-id="on-site-monitoring-activities"><span class="header-section-number">22.2</span> On-Site Monitoring Activities</h2>
+<p>During a standard on-site visit, the monitor executes a disciplined workflow designed to verify every facet of the trial’s execution. Central to this is Source Data Verification (SDV), where the monitor compares data entered in the trial database against the original source documents (medical records, lab reports, and imaging results) to confirm accuracy. While historical standards often demanded 100% verification, modern risk-based approaches now target SDV toward the most critical data points. This is complemented by Source Document Review (SDR), a broader assessment that goes beyond simple verification to evaluate whether the source records themselves are complete, consistent, and suggest faithful adherence to the protocol.</p>
+<p>Ethical and regulatory compliance also demand careful review. The monitor must verify that every participant has provided valid informed consent using the correct, approved version of the form before any study procedures commenced. Simultaneously, they perform investigational product accountability, reconciling dispensing records with physical inventory to ensure drug supplies are managed and stored according to protocol. The sites’ essential documents are similarly reviewed to confirm that the Investigator Site File (ISF) is current and that all personnel qualifications are properly documented. Finally, through interviews with site staff, the monitor assesses overall team capability, identifies emerging training needs, and addresses operational bottlenecks before they escalate into systemic issues.</p>
+</section>
+<section id="the-monitoring-report" class="level2" data-number="22.3">
+<h2 data-number="22.3" class="anchored" data-anchor-id="the-monitoring-report"><span class="header-section-number">22.3</span> The Monitoring Report</h2>
+<p>After each visit, the monitor prepares a <em>monitoring report</em> documenting findings, follow-up items, and any corrective actions required. This report becomes part of the Trial Master File and provides a contemporaneous record of site status.</p>
+<p>Monitoring reports should be objective, factual, and specific. Rather than stating “informed consent was adequate,” a good report might note “100% of consents reviewed (n=15); all documented appropriately; 2 consents were signed on the same day as randomization (acceptable per protocol).”</p>
+<p>Follow-up items are tracked until resolution. If a monitor identifies that a site is not properly documenting adverse events, the report will note this finding, specify corrective action, and the issue will be verified as resolved at the subsequent visit.</p>
+</section>
+<section id="risk-based-quality-management-rbqm" class="level2" data-number="22.4">
+<h2 data-number="22.4" class="anchored" data-anchor-id="risk-based-quality-management-rbqm"><span class="header-section-number">22.4</span> Risk-Based Quality Management (RBQM)</h2>
+<p>Traditional monitoring, characterized by frequent on-site visits and 100% source data verification (SDV), is now an outdated model.</p>
+<p>The modern standard is <em>Risk-Based Quality Management (RBQM)</em>, an approach called for by ICH E6(R2) and reinforced in E6(R3) that focuses oversight on the risks that matter most to patient safety and data reliability. A 2025 report by the Association of Clinical Research Organizations (ACRO) found that 96% of trials in 2024 incorporated at least one RBM or RBQM component, such as centralized statistical monitoring (CSM) or targeted SDV, up from 53% in 2019 <span class="citation" data-cites="acro_rbqm_2025">(<a href="references.html#ref-acro_rbqm_2025" role="doc-biblioref">Association of Clinical Research Organizations 2025</a>)</span>.</p>
+<p>This shift allows sponsors to: * <strong>Reduce On-Site Burden</strong>: Monitors visit sites less frequently, focusing only on issues detected centrally. * <strong>Detect Fraud</strong>: Statistical algorithms can detect fabricated data (e.g., “perfect” blood pressure readings) that a human reviewer would miss. * <strong>Optimize Resources</strong>: Monitoring budget is reallocated from travel to data analytics.</p>
+<p><a href="#fig-rbm-workflow" class="quarto-xref">Figure&nbsp;<span>22.1</span></a> illustrates the risk-based monitoring approach now widely adopted:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-rbm-workflow" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rbm-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-rbm-workflow">flowchart LR
+    subgraph Risk["Risk Assessment"]
+        A["Identify&lt;br/&gt;Critical Data"] --&gt; B["Assess Site&lt;br/&gt;Risk Factors"] --&gt; C["Develop&lt;br/&gt;Monitoring Plan"]
+    end
+    
+    subgraph Central["Centralized Monitoring"]
+        D["Statistical&lt;br/&gt;Surveillance"] --&gt; E["Data Pattern&lt;br/&gt;Analysis"] --&gt; F["Site Risk&lt;br/&gt;Scoring"]
+    end
+    
+    subgraph OnSite["Targeted On-Site"]
+        G{"High&lt;br/&gt;Risk?"}
+        G --&gt;|Yes| H["Intensive&lt;br/&gt;Monitoring"]
+        G --&gt;|No| I["Reduced&lt;br/&gt;SDV"]
+    end
+    
+    C --&gt; D
+    F --&gt; G
+    H --&gt; J["Corrective&lt;br/&gt;Action"]
+    I --&gt; K["Continue&lt;br/&gt;Surveillance"]
+    J --&gt; K
+    K -.-&gt; D
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rbm-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.1: Risk-based monitoring workflow combining centralized surveillance with targeted on-site oversight
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>RBM starts with <em>risk assessment</em>, identifying which aspects of the trial pose the greatest risks to patient safety or data integrity. A trial evaluating a drug with a narrow safety margin may prioritize safety monitoring. A trial with subjective patient-reported endpoints may prioritize endpoint verification. A trial in a therapeutic area with a history of data integrity problems may prioritize detection of potential fraud.</p>
+<p>Based on this assessment, a <em>risk-based monitoring plan</em> allocates monitoring resources to areas of highest risk. Low-risk data may be monitored remotely or with reduced SDV; high-risk data receives more intensive oversight.</p>
+<p>The ICH E6(R2) framework gives this approach two named instruments <span class="citation" data-cites="ich_e6r2_2016 fda_rbm_2013">(<a href="references.html#ref-ich_e6r2_2016" role="doc-biblioref">International Council for Harmonisation 2016</a>; <a href="references.html#ref-fda_rbm_2013" role="doc-biblioref">U.S. Food and Drug Administration 2013</a>)</span>. <em>Quality Tolerance Limits (QTLs)</em> are pre-specified thresholds on parameters critical to participant safety and data reliability, set at the protocol level (for example, an acceptable ceiling on the rate of a key eligibility deviation across the whole trial). A breach does not by itself indicate misconduct; it triggers evaluation of whether a systematic problem is present. <em>Key Risk Indicators (KRIs)</em> are site-level metrics (enrollment pace, query rates, adverse-event reporting frequency, protocol-deviation counts) tracked centrally to flag sites whose patterns diverge from expectations and warrant closer scrutiny.</p>
+<p><em>Centralized monitoring</em> complements on-site visits. Centralized statistical monitors analyze trial data for patterns suggestive of problems: unusual distributions, unexpected correlations, digit preferences that suggest data fabrication, enrollment patterns inconsistent with site capacity. These analyses can identify sites that warrant additional scrutiny.</p>
+<p>RBM does not mean less monitoring: it means smarter monitoring. Resources are directed where they can have the greatest impact, and technology enables oversight that would be impossible through on-site visits alone.</p>
+<p>The COVID-19 pandemic accelerated adoption of <em>remote monitoring</em>, where many monitoring activities are conducted without travel to the site. Remote access to electronic health records, video calls with site staff, and remote review of scanned source documents can supplement or replace on-site visits. Remote monitoring is not appropriate for all activities (checking pharmacy storage conditions and observing site operations require a physical presence), but many monitoring functions can be performed effectively without site visits. The resulting <em>hybrid monitoring</em> model combines periodic on-site visits with more frequent remote oversight.</p>
+</section>
+<section id="quality-metrics-and-ongoing-oversight" class="level2" data-number="22.5">
+<h2 data-number="22.5" class="anchored" data-anchor-id="quality-metrics-and-ongoing-oversight"><span class="header-section-number">22.5</span> Quality Metrics and Ongoing Oversight</h2>
+<p>Understanding the relationship between Quality Assurance (QA), Quality Control (QC), and auditing functions helps clarify monitoring’s place in the broader quality system. <a href="#fig-qa-qc-relationship" class="quarto-xref">Figure&nbsp;<span>22.2</span></a> illustrates how these functions relate.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-qa-qc-relationship" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-qa-qc-relationship-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-qa-qc-relationship">flowchart LR
+    subgraph Ops["Operations (line functions)"]
+        direction TB
+        QC["Quality Control (QC)&lt;br/&gt;(day-to-day controls)"]
+        QC1["Training"]
+        QC2["SOPs"]
+        QC3["SDV/SDR"]
+        QC4["System validation"]
+        
+        QC --- QC1
+        QC --- QC2
+        QC --- QC3
+        QC --- QC4
+    end
+    
+    subgraph QA["Quality Assurance (QA)&lt;br/&gt;(independent oversight)"]
+        direction TB
+        Audit["Audits"]
+        QMS["QMS oversight&lt;br/&gt;(CAPA, trend review)"]
+        
+        Audit ~~~ QMS
+    end
+    
+    Audit -.-&gt;|verifies| QC
+    QMS -.-&gt;|sets expectations| QC
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qa-qc-relationship-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.2: Relationship between Quality Assurance, Quality Control, and Audit Functions
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Quality Assurance is the overarching system that ensures quality throughout the trial. Quality Control comprises the day-to-day operational activities (training, SOPs, source data verification, template development) that build quality into the work. Audits provide independent verification, conducted separately from line operations to objectively assess whether QC activities are achieving their intended outcomes.</p>
+<section id="standard-operating-procedures-sops" class="level3">
+<h3 class="anchored" data-anchor-id="standard-operating-procedures-sops">Standard Operating Procedures (SOPs)</h3>
+<p>SOPs are the foundation of the quality system: written instructions intended to achieve uniformity in the performance of specific functions. As listed in industry training materials, a full clinical research operation requires SOPs covering administrative and general functions, as well as specific regulatory procedures.</p>
+<p>Administrative and general SOPs govern the operational framework. Key examples include the “SOP on SOPs,” which defines how procedures are written and approved, along with SOPs for training documentation, records management (including archiving and destruction), and crisis management plans.</p>
+<p>Regulatory SOPs guide the site’s compliance with critical rules. These include detailed procedures for obtaining informed consent, communicating with the IRB, and handling safety reports. Other essential SOPs cover investigational product management (from receipt to destruction) and the specific processes for screening and enrolling subjects to ensure eligibility.</p>
+<p>Effective monitoring requires attention to metrics that indicate site and trial quality, reviewed regularly and compared across sites to identify patterns and outliers. In risk-based terms these metrics are the KRIs described earlier. Enrollment metrics track whether sites are recruiting patients as projected; sites that consistently under-enroll may require intervention or closure. Protocol deviation rates indicate how well sites are following the protocol, with high deviation rates suggesting training needs or protocol complexity.</p>
+<p>Data quality indicators provide additional oversight signals. Query rates indicate data entry problems: a site with many more queries than comparators may have inadequate training or attention to data quality. Adverse event reporting patterns can identify sites that are over- or under-reporting safety events compared to others, warranting investigation. Time to issue resolution indicates site responsiveness; sites that leave queries unresolved or that fail to address corrective action items promptly may need more intensive oversight.</p>
+</section>
+</section>
+<section id="audits-and-inspections" class="level2" data-number="22.6">
+<h2 data-number="22.6" class="anchored" data-anchor-id="audits-and-inspections"><span class="header-section-number">22.6</span> Audits and Inspections</h2>
+<p>Monitoring is the sponsor’s internal oversight mechanism, but clinical trials are also subject to external scrutiny through audits and regulatory inspections. These two differ in authority and consequence, and conflating them leads to under-preparation for the one that carries real regulatory risk.</p>
+<p>External oversight typically takes two forms: sponsor audits and regulatory inspections. Sponsor audits are systematic, internal quality assurance activities conducted by the sponsor’s QA group or independent contractors. Unlike the ongoing nature of monitoring, audits occur at strategic intervals: early in the trial to verify initial setup, mid-trial to assess ongoing compliance, or near closeout to ensure inspection readiness. These audits compare site and sponsor activities directly against the protocol, SOPs, and GCP.</p>
+<p>Regulatory inspections, however, are conducted by government authorities such as the FDA, EMA, or PMDA, and carry significantly higher stakes. These may be routine surveillance inspections, for-cause assessments triggered by specific concerns, or pre-approval inspections conducted before a new drug is cleared for market. Because inspection findings can result in warning letters, data rejection, or the delay of marketing approval, maintaining a continuous state of inspection readiness is a fundamental operational requirement.</p>
+<section id="preparing-for-inspection" class="level3">
+<h3 class="anchored" data-anchor-id="preparing-for-inspection">Preparing for Inspection</h3>
+<p>Inspection readiness is not a discrete phase that begins when an inspector arrives; it is a continuous operational state. Maintaining this readiness requires ensuring that the TMF and ISF are current, with documents version-controlled and signed. Site and sponsor staff must be prepared, understanding their specific roles and GCP requirements well enough to navigate interviews clearly and factually. Teams must also maintain document retrieval systems that can surface requested records within hours, supported by audit trails that clearly attribute and explain every data modification. Unexplained deletions or late entries in these trails serve as immediate red flags for any regulatory inspector.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Checklist: Digital Inspection Readiness (Computerized Systems)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Checklist: Digital Inspection Readiness (Computerized Systems)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In contemporary trials, inspection readiness is inseparable from readiness of computerized systems used for trial conduct and data handling. Expectations for electronic systems emphasize validation commensurate with intended use, reliable audit trails, appropriate access controls, and the ability to reconstruct trial-relevant records and signatures <span class="citation" data-cites="cfr21_11 fda_electronic_systems_2024 ich_e6r3_2025">(<a href="references.html#ref-cfr21_11" role="doc-biblioref">U.S. Food and Drug Administration 2023</a>, <a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">2024</a>; <a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>.</p>
+<ul>
+<li><em>System inventory</em>: list all computerized systems used for trial conduct and data (EDC, ePRO/eCOA, IRT/RTSM, eTMF, QMS, safety database, device platforms), including vendor responsibilities and interfaces <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>.</li>
+<li><em>Validation and intended use</em>: maintain documentation of validation/qualification aligned to intended use, including change control evidence for material releases <span class="citation" data-cites="fda_electronic_systems_2024">(<a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024</a>)</span>.</li>
+<li><em>Audit trails</em>: ensure audit trails are enabled, reviewable, and practically reviewable under inspection timelines; define when routine review is expected (e.g., consent workflows, key efficacy/safety data, late changes) <span class="citation" data-cites="fda_electronic_systems_2024">(<a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024</a>)</span>.</li>
+<li><em>Access control and identity</em>: role-based access, unique user identities, and controlled electronic signature processes (including account provisioning and deprovisioning) <span class="citation" data-cites="cfr21_11 fda_electronic_systems_2024">(<a href="references.html#ref-cfr21_11" role="doc-biblioref">U.S. Food and Drug Administration 2023</a>, <a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">2024</a>)</span>.</li>
+<li><em>Record retrieval drills</em>: demonstrate rapid retrieval of critical records (consent documentation, safety reporting, protocol deviation documentation, monitoring reports, essential documents) <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>.</li>
+<li><em>Data transfer traceability</em>: maintain transfer specifications and reconciliation evidence for transfers between systems, including vendor-managed pipelines <span class="citation" data-cites="fda_electronic_systems_2024">(<a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024</a>)</span>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="during-the-inspection" class="level3">
+<h3 class="anchored" data-anchor-id="during-the-inspection">During the Inspection</h3>
+<p>When an inspection occurs, the sponsor typically designates a <em>back room</em> team to support document retrieval and a <em>front room</em> presence to escort inspectors and manage interactions. Daily close-out meetings between inspectors and the sponsor allow clarification of findings before they become formal observations.</p>
+<p>Inspectors may request additional documents, interview staff, or conduct facility tours. Responses should be factual and concise; speculation or defensiveness rarely helps. If a question cannot be answered immediately, it is appropriate to commit to a follow-up response rather than guess.</p>
+</section>
+<section id="inspection-findings-and-responses" class="level3">
+<h3 class="anchored" data-anchor-id="inspection-findings-and-responses">Inspection Findings and Responses</h3>
+<p>Inspection findings are typically categorized by severity (see <a href="#tbl-inspection-categories" class="quarto-xref">Table&nbsp;<span>22.2</span></a>):</p>
+<div id="tbl-inspection-categories" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,30,30,25]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-inspection-categories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;22.2: Inspection Observation Categories
+</figcaption>
+<div aria-describedby="tbl-inspection-categories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 30%">
+<col style="width: 30%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Description</th>
+<th>Examples</th>
+<th>Typical Consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Critical</em></td>
+<td>Conditions that pose serious risk to participant safety or data integrity</td>
+<td>Fabricated data; Unreported deaths; Systemic GCP violations</td>
+<td>Data rejection; Clinical hold; Warning letter</td>
+</tr>
+<tr class="even">
+<td><em>Major</em></td>
+<td>Significant deviations from GCP or protocol</td>
+<td>Missing consent signatures; Unqualified investigators; Poor AE documentation</td>
+<td>Regulatory correspondence; Required corrective action</td>
+</tr>
+<tr class="odd">
+<td><em>Minor</em></td>
+<td>Administrative issues unlikely to affect safety or data integrity</td>
+<td>Filing errors; Minor documentation gaps</td>
+<td>Noted for improvement</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>In the United States, FDA inspectors issue a <em>Form 483</em> listing observations at the close of an inspection. Sponsors have an opportunity to respond, typically within 15 business days, with a <em>Corrective and Preventive Action (CAPA)</em> plan. CAPAs should address both the immediate finding and the systemic cause to prevent recurrence.</p>
+<p>Inspection findings tend to cluster around a few constant issues:</p>
+<ul>
+<li><em>Informed consent deficiencies</em>: using outdated versions, obtaining signatures after procedures have begun, or missing signatures altogether</li>
+<li><em>Protocol deviations</em>: deviations that were neither documented nor reported through the appropriate channels</li>
+<li><em>Data integrity discrepancies</em>: inconsistencies between the trial database and the original medical records</li>
+<li><em>Investigational product accountability gaps</em>: inadequate documentation of drug dispensing, returns, or reconciliation</li>
+<li><em>Sponsor oversight deficiencies</em>: inadequate documentation of monitoring or oversight activities</li>
+</ul>
+</section>
+</section>
+<section id="trial-governance-committees" class="level2" data-number="22.7">
+<h2 data-number="22.7" class="anchored" data-anchor-id="trial-governance-committees"><span class="header-section-number">22.7</span> Trial Governance Committees</h2>
+<p>Beyond routine monitoring and inspections, clinical trials (particularly large Phase III studies) operate under the oversight of specialized governance committees. These committees provide independent expertise and accountability that complements sponsor and site responsibilities.</p>
+<section id="data-safety-monitoring-board-dsmb" class="level3">
+<h3 class="anchored" data-anchor-id="data-safety-monitoring-board-dsmb">Data Safety Monitoring Board (DSMB)</h3>
+<p>The <em>Data Safety Monitoring Board</em> (DSMB; see <a href="09-phase3-overview.html#sec-phase3-dsmb" class="quarto-xref"><span>Section 9.6</span></a> for alternate names) provides independent oversight of accumulating safety and efficacy data. The DSMB reviews unblinded data that the sponsor and investigators cannot see, enabling them to recommend stopping a trial early for safety, futility, or overwhelming efficacy.</p>
+<p>DSMB composition typically includes 3-7 members: clinical experts in the disease area, a biostatistician experienced in interim analyses, and sometimes an ethicist or patient representative. Members must be independent, free from conflicts of interest with the sponsor and not involved in the trial’s conduct.</p>
+<p>The DSMB operates under a <em>charter</em> that specifies its responsibilities, meeting schedule, statistical boundaries for recommendations, and communication pathways. Typical charter elements include:</p>
+<ul>
+<li>Scope of review (safety only, or safety and efficacy)</li>
+<li>Meeting frequency and triggers for ad hoc meetings</li>
+<li>Statistical stopping rules and decision thresholds</li>
+<li>Process for communicating recommendations to the sponsor</li>
+<li>Confidentiality requirements</li>
+</ul>
+<p>DSMB meetings typically include an <em>open session</em> (where the sponsor presents trial status without unblinding) and a <em>closed session</em> (where the unblinded statistician presents interim analyses to DSMB members only). The DSMB may recommend: continue as planned, modify the protocol, stop enrollment, stop treatment, or stop the trial entirely. Recommendations go to the sponsor, who retains authority for final decisions but must document the rationale if departing from DSMB advice.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Note: Committee Documentation as an Inspection Artifact">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Note: Committee Documentation as an Inspection Artifact
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Committee governance is also a documentation problem: committees matter operationally only insofar as their processes are specified, followed, and evidenced. Meinert’s emphasis on formal committee structures and procedures remains relevant even as meeting modalities shift (e.g., secure virtual or hybrid meetings) <span class="citation" data-cites="meinert_cth_2013">(<a href="references.html#ref-meinert_cth_2013" role="doc-biblioref">Meinert 2013</a>)</span>. From a GCP and inspection standpoint, the relevant artifacts include charters, membership independence and conflict management, meeting minutes, recommendation letters, and controlled distribution of any unblinded information <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>.</p>
+</div>
+</div>
+</section>
+<section id="dsmbs-for-platform-and-adaptive-trials" class="level3">
+<h3 class="anchored" data-anchor-id="dsmbs-for-platform-and-adaptive-trials">DSMBs for Platform and Adaptive Trials</h3>
+<p>Platform trials and complex adaptive designs create challenges for DSMB oversight that go beyond the standard single-arm-versus-control structure.</p>
+<p><strong>Multi-arm review.</strong> A platform DSMB may simultaneously oversee six, eight, or ten treatment arms at different stages of enrollment and maturity. The SNAP platform (S. aureus bacteremia) had a single DSMB reviewing multiple treatment domains across thousands of patients through numerous interim analyses by the time the first results were published. A DSMB member reading a standard two-column comparison table can quickly form a judgment; the equivalent for a platform trial requires an understanding of which arms are still enrolling, which have closed, and which interim results from one domain might influence conduct in another.</p>
+<p>The platform DSMB must be constituted with this complexity in mind. Not every member can be an expert in every arm’s therapy; domain-specific consultants are sometimes added for specific reviews. Conflict-of-interest management is also harder: in a platform where multiple companies’ drugs are being evaluated simultaneously, finding members with no relationship to any sponsor is more challenging, and disclosure and recusal procedures must be detailed in the charter.</p>
+<p><strong>Arm-level stopping versus platform continuation.</strong> When a single arm fails in a platform trial, the DSMB’s recommendation is arm closure, not trial termination. The DSMB must be clear in its recommendations: “close domain B for futility in the MSSA population; continue all other domains as specified.” This partial-stop decision requires a charter that explicitly anticipates arm-level actions and specifies how the remaining platform continues without the closed arm. The DSMB must also consider spillover: if domain A’s success causes a change in standard of care that affects the control event rate for domain B, that needs to be surfaced.</p>
+<p><strong>Unblinded statistical teams.</strong> Complex Bayesian adaptive platforms require real-time statistical computation for interim analyses that most DSMB biostatisticians are not equipped to run independently. The standard solution is a separate <em>unblinded statistical team</em> (sometimes called the independent statistical center) that prepares the interim analysis package for the DSMB. This team is firewalled from the sponsor’s statisticians and has full access to unblinded data. The charter must specify exactly what the unblinded team prepares, what forms of results reach the DSMB (for example, whether sponsors see blinded or unblinded data from the open session), and how results are archived to support audit.</p>
+<p><strong>Time-adjusted models and DSMB comprehension.</strong> When a platform adjusts for temporal trends (to account for changes in background treatment or disease severity over the trial’s lifespan), the DSMB faces a presentation challenge: should they see raw observed data, or model-adjusted comparisons? Raw safety data from different time periods may not be directly comparable without the time adjustment, but DSMB members without statistical modeling backgrounds may struggle to evaluate model-adjusted estimates. For safety reviews in particular, where model-adjusted data may require machinery that is not readily available, many DSMBs see raw event counts alongside model-adjusted efficacy summaries. The unblinded statistician presenting to the DSMB should be prepared to explain both what the model is doing and what a DSMB member would see if they looked at the raw data, so the DSMB can calibrate its judgment.</p>
+<p><strong>Multi-platform RCT DSMB structure.</strong> The COVID anticoagulation multi-platform RCT (pooling REMAP-CAP, ATTACC, and ACTIV-4a) used a novel governance structure: each platform kept its own DSMB, but all three DSMBs met simultaneously and heard the same combined analyses from the joint Statistical Analysis Committee. This allowed each platform to satisfy its own regulatory obligations (each had its own IND and governance structure) while ensuring that the adaptive stopping decisions were made on the full combined evidence. The synchronization required detailed pre-specification of how simultaneous stopping decisions would be communicated across platforms.</p>
+</section>
+<section id="endpoint-adjudication-committees" class="level3">
+<h3 class="anchored" data-anchor-id="endpoint-adjudication-committees">Endpoint Adjudication Committees</h3>
+<p>For trials where endpoints are subject to interpretation (cardiovascular events, disease progression, cause of death), a <em>Clinical Events Committee</em> (CEC) or <em>Endpoint Adjudication Committee</em> provides independent, blinded review.</p>
+<p>Adjudication ensures that endpoint determinations are consistent across sites and investigators. A myocardial infarction diagnosed at one hospital should meet the same criteria as one diagnosed at another. The CEC reviews source documents (ECGs, troponin values, imaging) and applies protocol-defined criteria to classify events.</p>
+<p>Operationally, adjudication adds timeline pressure. Cases must be prepared, reviewed, and adjudicated before database lock. Large trials with thousands of potential events may require dedicated adjudication infrastructure and coordination with data management.</p>
+</section>
+<section id="steering-committees" class="level3">
+<h3 class="anchored" data-anchor-id="steering-committees">Steering Committees</h3>
+<p>A <em>Steering Committee</em> (SC) provides scientific oversight and guidance on protocol interpretation. Membership typically includes the principal investigators, sponsor representatives, and sometimes independent experts.</p>
+<p>The Steering Committee’s role is advisory: it may recommend protocol amendments, interpret eligibility questions, and guide publication strategy. Unlike the DSMB, the Steering Committee does not have access to unblinded data. The distinction between scientific guidance (SC) and safety oversight (DSMB) must be maintained to preserve the DSMB’s independence.</p>
+<p>For large, high-profile trials, the interplay among these committees, and the sponsor’s obligations to each, requires careful governance documentation and clear communication pathways. AI tools for remote monitoring, risk-signal prioritization, and automated source data review within risk-based quality management frameworks are covered in <a href="24-ai-agents.html" class="quarto-xref"><span>Chapter 26</span></a>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-acro_rbqm_2025" class="csl-entry" role="listitem">
+Association of Clinical Research Organizations. 2025. <span>“2025 Risk-Based Quality Management (RBQM) Summary Report.”</span> <a href="https://www.acrohealth.org/wp-content/uploads/2025/06/ACRO_2025-RBQM-Report_Final-062425.pdf">https://www.acrohealth.org/wp-content/uploads/2025/06/ACRO_2025-RBQM-Report_Final-062425.pdf</a>.
+</div>
+<div id="ref-ich_e6r2_2016" class="csl-entry" role="listitem">
+International Council for Harmonisation. 2016. <span>“<span>ICH E6(R2)</span>: Integrated Addendum to ICH E6(R1) - Guideline for Good Clinical Practice.”</span> <a href="https://database.ich.org/sites/default/files/E6_R2_Addendum.pdf">https://database.ich.org/sites/default/files/E6_R2_Addendum.pdf</a>.
+</div>
+<div id="ref-ich_e6r3_2025" class="csl-entry" role="listitem">
+———. 2025. <span>“<span>ICH E6(R3)</span>: Guideline for Good Clinical Practice (GCP).”</span> <a href="https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf">https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf</a>.
+</div>
+<div id="ref-meinert_cth_2013" class="csl-entry" role="listitem">
+Meinert, Curtis L. 2013. <em>Clinical Trials Handbook: Design and Conduct</em>. Hoboken, NJ: John Wiley &amp; Sons.
+</div>
+<div id="ref-fda_rbm_2013" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2013. <span>“Oversight of Clinical Investigations: A Risk-Based Approach to Monitoring.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/oversight-clinical-investigations-risk-based-approach-monitoring">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/oversight-clinical-investigations-risk-based-approach-monitoring</a>.
+</div>
+<div id="ref-cfr21_11" class="csl-entry" role="listitem">
+———. 2023. <span>“21 CFR Part 11: Electronic Records; Electronic Signatures.”</span> <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11">https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11</a>.
+</div>
+<div id="ref-fda_electronic_systems_2024" class="csl-entry" role="listitem">
+———. 2024. <span>“Electronic Systems, Electronic Records, and Electronic Signatures in Clinical Investigations: Questions and Answers.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-systems-electronic-records-and-electronic-signatures-clinical-investigations-questions">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-systems-electronic-records-and-electronic-signatures-clinical-investigations-questions</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./19-data-management.html" class="pagination-link" aria-label="Data Management">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./21-safety.html" class="pagination-link" aria-label="Safety Monitoring and Reporting">
+        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>16&nbsp; Randomization and Blinding – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./15-endpoints.html" rel="next">
+<link href="./13-protocol-benchmarks.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="16&nbsp; Randomization and Blinding – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="16&nbsp; Randomization and Blinding – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./14-randomization.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#types-of-randomization" id="toc-types-of-randomization" class="nav-link active" data-scroll-target="#types-of-randomization"><span class="header-section-number">16.1</span> Types of Randomization</a>
+  <ul class="collapse">
+  <li><a href="#block-randomization" id="toc-block-randomization" class="nav-link" data-scroll-target="#block-randomization">Block Randomization</a></li>
+  </ul></li>
+  <li><a href="#maintaining-randomization-integrity" id="toc-maintaining-randomization-integrity" class="nav-link" data-scroll-target="#maintaining-randomization-integrity"><span class="header-section-number">16.2</span> Maintaining Randomization Integrity</a></li>
+  <li><a href="#the-power-of-blinding" id="toc-the-power-of-blinding" class="nav-link" data-scroll-target="#the-power-of-blinding"><span class="header-section-number">16.3</span> The Power of Blinding</a></li>
+  <li><a href="#levels-of-blinding" id="toc-levels-of-blinding" class="nav-link" data-scroll-target="#levels-of-blinding"><span class="header-section-number">16.4</span> Levels of Blinding</a></li>
+  <li><a href="#technical-aspects-of-blinding" id="toc-technical-aspects-of-blinding" class="nav-link" data-scroll-target="#technical-aspects-of-blinding"><span class="header-section-number">16.5</span> Technical Aspects of Blinding</a></li>
+  <li><a href="#the-challenge-of-device-and-behavioral-trials" id="toc-the-challenge-of-device-and-behavioral-trials" class="nav-link" data-scroll-target="#the-challenge-of-device-and-behavioral-trials"><span class="header-section-number">16.6</span> The Challenge of Device and Behavioral Trials</a></li>
+  <li><a href="#advanced-topics" id="toc-advanced-topics" class="nav-link" data-scroll-target="#advanced-topics"><span class="header-section-number">16.7</span> Advanced Topics</a>
+  <ul class="collapse">
+  <li><a href="#sec-ch14-rar" id="toc-sec-ch14-rar" class="nav-link" data-scroll-target="#sec-ch14-rar">Response-Adaptive Randomization</a></li>
+  <li><a href="#covariate-adaptive-randomization" id="toc-covariate-adaptive-randomization" class="nav-link" data-scroll-target="#covariate-adaptive-randomization">Covariate-Adaptive Randomization</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./14-randomization.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-randomization" class="quarto-section-identifier"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Randomization and blinding are often taken for granted, yet the methodological history of medicine contains numerous examples of treatments that seemed effective in uncontrolled studies but proved worthless, or even harmful, when properly tested.</p>
+<p>Consider a simple scenario. A physician enthusiastic about a new treatment prescribes it to patients who seem likely to benefit and withholds it from those who seem too sick to respond. When the treated patients do better, is it because the treatment works, or because healthier patients were selected for treatment?</p>
+<p>This is not a hypothetical concern. For decades, hormone replacement therapy was thought to prevent heart disease based on observational studies showing that women who took hormones had lower rates of heart attacks. When randomized trials were finally conducted, they showed the opposite: combined hormone therapy increased the risk of coronary heart disease by roughly 29% and stroke by roughly 41% <span class="citation" data-cites="rossouw2002whi">(<a href="references.html#ref-rossouw2002whi" role="doc-biblioref">Rossouw et al. 2002</a>)</span>. The observational studies had been confounded: women who chose to take hormones were healthier to begin with.</p>
+<p>Randomization eliminates this confounding <span class="citation" data-cites="cox2009randomization">(<a href="references.html#ref-cox2009randomization" role="doc-biblioref">Cox 2009</a>)</span>. When a coin flip (or its statistical equivalent) determines who receives treatment and who receives control, the groups are comparable at baseline. Any differences that emerge can be attributed to the treatment itself. Cox identifies three broad purposes for randomization: to avoid selection and other biases in a publicly convincing way; to provide a unified approach to estimating error in standard designs; and to provide a basis for exact tests of significance. Of these, bias avoidance is the most compelling in clinical trials: failure to randomize appropriately may fatally compromise an investigation. Randomization also convinces those not directly involved in the trial that the comparison is fair.</p>
+<p>Randomization and blinding entered this book as design-level choices in <a href="12-study-design.html" class="quarto-xref"><span>Chapter 13</span></a>; here we turn to the operational mechanics of each: how allocation is generated and concealed, and how blinding is achieved and maintained.</p>
+<section id="types-of-randomization" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="types-of-randomization"><span class="header-section-number">16.1</span> Types of Randomization</h2>
+<p><a href="#tbl-randomization-methods" class="quarto-xref">Table&nbsp;<span>16.1</span></a> compares the major randomization strategies and their appropriate use cases.</p>
+<div id="tbl-randomization-methods" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[16,24,18,20,22]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-randomization-methods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;16.1: Randomization method comparison
+</figcaption>
+<div aria-describedby="tbl-randomization-methods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 24%">
+<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Information needed at randomization</th>
+<th>Balance guarantee</th>
+<th>Risk of prediction</th>
+<th>Best suited for</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Simple</strong></td>
+<td>None</td>
+<td>None (probabilistic only)</td>
+<td>Low</td>
+<td>Large trials (n &gt; 200); unpredictability valued</td>
+</tr>
+<tr class="even">
+<td><strong>Block</strong></td>
+<td>Block size</td>
+<td>Balance after each complete block</td>
+<td>Moderate (last slot in block predictable)</td>
+<td>Most confirmatory trials; standard practice</td>
+</tr>
+<tr class="odd">
+<td><strong>Stratified block</strong></td>
+<td>Key prognostic strata for each patient</td>
+<td>Balance within each stratum after each block</td>
+<td>Moderate (same as block, within stratum)</td>
+<td>Trials with 1-3 strong prognostic factors; multi-site</td>
+</tr>
+<tr class="even">
+<td><strong>Minimization</strong></td>
+<td>Current enrollment totals by covariate level</td>
+<td>Near-perfect balance on all included covariates</td>
+<td>Low-moderate (deterministic rule creates some predictability)</td>
+<td>Multi-center trials with many prognostic covariates; moderate sample sizes</td>
+</tr>
+<tr class="odd">
+<td><strong>Response-adaptive (RAR)</strong></td>
+<td>Accruing outcome data from enrolled patients</td>
+<td>None; allocation shifts dynamically toward better arm</td>
+<td>Low to moderate (single assignments stay probabilistic, but a shifting allocation ratio can leak interim performance)</td>
+<td>Multi-arm early-phase or platform trials; rarely appropriate for two-arm Phase III</td>
+</tr>
+<tr class="even">
+<td><strong>Cluster</strong></td>
+<td>Group (site, clinic, community) membership</td>
+<td>Balance at group level, not individual</td>
+<td>Low</td>
+<td>Community or system-level interventions; implementation science</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The simplest approach is <em>simple randomization</em>: essentially flipping a coin for each participant. This works well for large trials but can produce unequal group sizes in smaller studies. By chance, a trial randomizing 20 patients might end up with 13 in one group and 7 in the other. Bradley Efron addressed this problem in 1971 with the <em>biased coin design</em>, which increases the probability of assigning to the underrepresented group when imbalance develops <span class="citation" data-cites="efron1971biased_coin">(<a href="references.html#ref-efron1971biased_coin" role="doc-biblioref">Efron 1971</a>)</span>.</p>
+<section id="block-randomization" class="level3">
+<h3 class="anchored" data-anchor-id="block-randomization">Block Randomization</h3>
+<p><em>Block randomization</em> addresses the imbalance problem by randomizing within blocks of fixed size, as illustrated in <a href="#fig-block-randomization" class="quarto-xref">Figure&nbsp;<span>16.1</span></a>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-block-randomization" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-block-randomization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-block-randomization">flowchart LR
+    subgraph Block1["Block 1"]
+        P1["Patient 1"] --&gt; A1["Treatment A"]
+        P2["Patient 2"] --&gt; B1["Treatment B"]
+        P3["Patient 3"] --&gt; A2["Treatment A"]
+        P4["Patient 4"] --&gt; B2["Treatment B"]
+    end
+    
+    subgraph Block2["Block 2"]
+        P5["Patient 5"] --&gt; B3["Treatment B"]
+        P6["Patient 6"] --&gt; A3["Treatment A"]
+        P7["Patient 7"] --&gt; B4["Treatment B"]
+        P8["Patient 8"] --&gt; A4["Treatment A"]
+    end
+    
+    Block1 --&gt; R1["After Block 1:&lt;br/&gt;A=2, B=2"]
+    Block2 --&gt; R2["After Block 2:&lt;br/&gt;A=4, B=4"]
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-block-randomization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.1: Block randomization ensures equal group sizes after each complete block. This example shows a block size of 4.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>With blocks of 4, for example, each block might have the pattern ABAB, ABBA, BABA, or another of the six possible arrangements with two A’s and two B’s. After every complete block, the groups are guaranteed to be equal in size.</p>
+<p><em>Stratified randomization</em> goes further by randomizing separately within subgroups defined by important prognostic factors. If disease severity is a major predictor of outcome, patients might be stratified as mild, moderate, or severe, with randomization occurring independently within each stratum. This ensures that treatment groups are balanced on severity, even if overall enrollment is skewed toward one level.</p>
+<p><em>Minimization</em> (or <em>dynamic allocation</em>) takes a different approach <span class="citation" data-cites="taves1974minimization pocock1975sequential">(<a href="references.html#ref-taves1974minimization" role="doc-biblioref">Taves 1974</a>; <a href="references.html#ref-pocock1975sequential" role="doc-biblioref">Pocock and Simon 1975</a>)</span>. Rather than randomizing each patient independently, minimization algorithms assign each new patient based on the current imbalance among enrolled patients. If the treatment group currently has more older patients, the next older patient may be somewhat more likely to be assigned to control. This approach can achieve excellent balance on multiple factors simultaneously. Taves’ original simulations showed a four- to fivefold reduction in the probability of severe imbalance compared to standard randomization <span class="citation" data-cites="scott2002minimization_review">(<a href="references.html#ref-scott2002minimization_review" role="doc-biblioref">Scott et al. 2002</a>)</span>. A 2023 tutorial demonstrated that minimization is particularly beneficial when numerous major prognostic factors are known, when many centers of varying sizes recruit patients, or when the trial’s sample size is moderate <span class="citation" data-cites="coart2023minimization">(<a href="references.html#ref-coart2023minimization" role="doc-biblioref">Coart et al. 2023</a>)</span>.</p>
+</section>
+</section>
+<section id="maintaining-randomization-integrity" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="maintaining-randomization-integrity"><span class="header-section-number">16.2</span> Maintaining Randomization Integrity</h2>
+<p>The value of randomization depends on its integrity. If investigators can predict or influence which treatment a patient will receive, the protection against bias is lost.</p>
+<p><em>Allocation concealment</em> is the mechanism that prevents this. In older trials, numbered envelopes were used, sometimes inadequately, leading to investigators holding envelopes up to light to see the assignment inside. Modern trials use <em>Interactive Response Technology (IRT)</em> systems: computer or telephone systems that reveal the assignment only after the investigator has committed to enrolling a specific patient.</p>
+<p>Once randomization occurs, the assignment should be followed. <em>Treatment crossover</em> (where patients switch from their assigned group to another) can blur the distinction between groups and complicate analysis. When crossover is unavoidable (as when patients on placebo deteriorate and ethical obligations require access to active treatment), appropriate analytical methods must be used.</p>
+<p>The 2025 revision of ICH’s Good Clinical Practice guideline, E6(R3), frames randomization and blinding as factors critical to trial quality and builds them into its quality-by-design expectations <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>. E6(R3) adds a dedicated provision, <em>Safeguard Blinding in Data Governance</em>, directing sponsors to control access to unblinded data, guard against inadvertent unblinding by the vendors and service providers who handle trial data, and document both planned and unplanned unblinding.</p>
+</section>
+<section id="the-power-of-blinding" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="the-power-of-blinding"><span class="header-section-number">16.3</span> The Power of Blinding</h2>
+<p>If randomization protects against bias in allocation, blinding protects against bias in everything that follows.</p>
+<p>Consider a trial where investigators know which patients are receiving the experimental drug. They might, consciously or unconsciously, give those patients extra attention, monitor them more closely, interpret symptoms more charitably, or encourage them to continue despite side effects. Patients who know they are receiving active treatment might report more improvement due to expectations.</p>
+<p>When outcomes are subjective (pain, mood, quality of life), these biases can be substantial. Even supposedly objective outcomes can be affected: a radiologist who knows a patient is on active treatment might interpret a borderline scan as showing improvement.</p>
+<p>Blinding addresses these concerns by ensuring that treatment assignment is unknown to those who might be influenced by it.</p>
+</section>
+<section id="levels-of-blinding" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="levels-of-blinding"><span class="header-section-number">16.4</span> Levels of Blinding</h2>
+<p>Trials utilize varying levels of blinding depending on the research question and practical constraints. Open-label trials make no attempt at blinding and are often used when comparing radically different interventions, such as surgery versus medication, though they are susceptible to observer bias. Single-blind trials reduce participant expectations by concealing the assignment from patients, while double-blind trials (the industry standard) conceal assignments from both patients and investigators to protect against subjective interpretation of results. In the most rigorous triple-blind designs, the assignment is also withheld from those performing the statistical analysis until the study is formally concluded.</p>
+</section>
+<section id="technical-aspects-of-blinding" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="technical-aspects-of-blinding"><span class="header-section-number">16.5</span> Technical Aspects of Blinding</h2>
+<p>Achieving and maintaining the blind requires careful attention to multiple details.</p>
+<p>Treatment and placebo must be <em>indistinguishable</em>. This means matching appearance (color, size, shape), taste, smell, and texture. If the active drug comes as a capsule and the comparator is a tablet, both may need to be over-encapsulated to create matching appearances.</p>
+<p><em>Unblinding procedures</em> must be in place for emergencies. If a participant has a medical crisis and the treating physician needs to know the treatment assignment, there must be a mechanism to break the blind for that individual while maintaining it for everyone else.</p>
+<p><em>Side effects</em> can compromise blinding. If the experimental drug causes a distinctive adverse effect (dry mouth, dizziness, skin discoloration), participants and investigators may guess the assignment. Trials sometimes include <em>perception of assignment</em> assessments to evaluate whether blinding was maintained.</p>
+<p>When true blinding is not possible, <em>blinded assessment</em> provides an alternative. An assessor who has no contact with patients other than performing specific evaluations may remain blind even when other study staff cannot. Imaging studies can be read by radiologists who have no knowledge of treatment assignment.</p>
+</section>
+<section id="the-challenge-of-device-and-behavioral-trials" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="the-challenge-of-device-and-behavioral-trials"><span class="header-section-number">16.6</span> The Challenge of Device and Behavioral Trials</h2>
+<p>Blinding is particularly challenging in trials of devices, surgical procedures, and behavioral interventions. How do you blind a patient to whether they received surgery? How do you blind a therapist to whether they are delivering cognitive behavioral therapy or a control intervention?</p>
+<p><em>Sham procedures</em> provide one approach. In studies of surgical interventions, patients in the control group may receive anesthesia and incisions but not the actual procedure. This is ethically controversial (some argue that exposing patients to surgical risk without potential for direct benefit is unacceptable), but it may be the only way to separate the effects of the procedure from placebo effects and expectation.</p>
+<p><em>Active comparator designs</em> offer an alternative. Rather than trying to blind the comparison to nothing, both groups receive an intervention, and the question becomes which intervention is better.</p>
+<p><strong>Impact on trial design.</strong> More broadly, decisions regarding randomization and blinding shape the overall trial architecture. Increasing the number of treatment arms complicates stratification and balance, while the planned duration of blinding must account for cross-over periods and long-term follow-up requirements. Sponsors must also decide how to handle treatment discontinuations, ensuring that even if a patient stops the study medication, their follow-up and data collection continue in a way that preserves the integrity of the randomized comparison.</p>
+</section>
+<section id="advanced-topics" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="advanced-topics"><span class="header-section-number">16.7</span> Advanced Topics</h2>
+<p>Two randomization approaches extend beyond the fixed-probability designs covered above: response-adaptive randomization, which updates allocation probabilities as outcome data accumulate, and covariate-adaptive randomization, which conditions allocation on patient characteristics measured at enrollment.</p>
+<section id="sec-ch14-rar" class="level3">
+<h3 class="anchored" data-anchor-id="sec-ch14-rar">Response-Adaptive Randomization</h3>
+<p><em>Response-adaptive randomization (RAR)</em> modifies allocation probabilities during the trial in response to accruing outcome data, assigning more patients to whichever arm is performing better at any given time. The ethical motivation is direct: if one treatment is proving superior, fewer patients should be assigned to the inferior arm during the trial itself.</p>
+<p>The <em>randomized play-the-winner</em> rule, proposed by Wei and Durham <span class="citation" data-cites="wei1978randomized_ptw">(<a href="references.html#ref-wei1978randomized_ptw" role="doc-biblioref">Wei and Durham 1978</a>)</span>, is among the most transparent RAR designs. Every time a patient on a treatment arm has a successful outcome, a ball of that treatment’s color is added to an urn; a failure adds a ball of the other treatment’s color. Each new patient draws from the urn to determine their assignment, so success rates directly steer allocation toward the better arm. In later Bayesian formulations, the same intuition is implemented via Thompson sampling: at each allocation, compute the posterior probability that each arm is best and assign the next patient with that probability (see <a href="11-statistical-methods.html#sec-rar" class="quarto-xref"><span>Section 12.8</span></a> for the statistical mechanics).</p>
+<p><strong>The ECMO case.</strong> The most influential and contested application of play-the-winner was the 1985 ECMO trial by Bartlett and colleagues <span class="citation" data-cites="bartlett1985ecmo">(<a href="references.html#ref-bartlett1985ecmo" role="doc-biblioref">Bartlett et al. 1985</a>)</span>, evaluating extracorporeal membrane oxygenation for newborns with severe respiratory failure, a condition with near-certain mortality untreated. The play-the-winner design resulted in only one patient randomized to the control arm (who died), while eleven were randomized to ECMO (all eleven survived). The ethical appeal was obvious: very few infants were exposed to the inferior arm. The evidentiary problem was equally clear: a trial with one control patient cannot estimate the control-arm survival rate with any precision, and the result was vigorously contested. A subsequent UK collaborative ECMO trial using conventional equal randomization confirmed the benefit <span class="citation" data-cites="uk_ecmo_1996">(<a href="references.html#ref-uk_ecmo_1996" role="doc-biblioref">UK Collaborative ECMO Trial Group 1996</a>)</span>.</p>
+<p>The ECMO trial remains the reference case for the central tension in RAR: it can protect patients during the trial, but it can produce underpowered estimates and a result that the medical community will not accept. Full treatment of the statistical debate, including temporal-trend bias, the Proschan objection, and the conditions under which RAR is and is not appropriate, is at <a href="11-statistical-methods.html#sec-rar" class="quarto-xref"><span>Section 12.8</span></a>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="When RAR is useful and when it is not">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>When RAR is useful and when it is not
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>RAR is most defensible in multi-arm settings (three or more arms) where the goal is to efficiently identify the best arm among several plausible candidates, particularly in early-phase or platform trials. In two-arm Phase III confirmatory trials, the power loss and potential for bias under RAR is rarely worth the patient-protection benefit, and conventional equal randomization is generally preferred <span class="citation" data-cites="korn2011rar proschan2020rar">(<a href="references.html#ref-korn2011rar" role="doc-biblioref">Korn and Freidlin 2011</a>; <a href="references.html#ref-proschan2020rar" role="doc-biblioref">Proschan and Evans 2020</a>)</span>. The burn-in period (equal allocation for the first N patients before adaptation begins) and the protect-control safeguard (never reducing the control arm below a minimum proportion) are practical mitigations when RAR is used.</p>
+</div>
+</div>
+</section>
+<section id="covariate-adaptive-randomization" class="level3">
+<h3 class="anchored" data-anchor-id="covariate-adaptive-randomization">Covariate-Adaptive Randomization</h3>
+<p><em>Covariate-adaptive randomization</em> extends minimization by incorporating patient characteristics into allocation decisions in more sophisticated ways <span class="citation" data-cites="atkinson2002covariate lin2015pursuit_balance">(<a href="references.html#ref-atkinson2002covariate" role="doc-biblioref">Atkinson 2002</a>; <a href="references.html#ref-lin2015pursuit_balance" role="doc-biblioref">Lin, Zhu, and Su 2015</a>)</span>. When randomization is implemented sequentially (one patient at a time), a key tension emerges: knowing previous allocations may allow prediction of the next assignment, potentially enabling selection bias. Atkinson carefully compared procedures that balance this tension between achieving covariate balance and maintaining unpredictability <span class="citation" data-cites="cox2009randomization">(<a href="references.html#ref-cox2009randomization" role="doc-biblioref">Cox 2009</a>)</span>. FDA’s 2023 guidance on covariate adjustment recommends that sponsors prospectively specify the covariate-adjusted analysis before unblinding, include any stratification factors in that analysis model, and discuss complex covariate-adaptive randomization designs with the review division in advance <span class="citation" data-cites="fda_covariate_2023">(<a href="references.html#ref-fda_covariate_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023</a>)</span>.</p>
+<p>For full treatment of randomization theory and practice, see Rosenberger and Lachin <span class="citation" data-cites="rosenberger2016randomization">(<a href="references.html#ref-rosenberger2016randomization" role="doc-biblioref">Rosenberger and Lachin 2016</a>)</span>, which covers the mathematical foundations, and Hu and Rosenberger <span class="citation" data-cites="hu2006response_adaptive">(<a href="references.html#ref-hu2006response_adaptive" role="doc-biblioref">Hu and Rosenberger 2006</a>)</span> for response-adaptive methods specifically.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Discussion Questions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Discussion Questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Minimization is sometimes described as “not truly random” because the allocation of each patient is at least partly deterministic given the current enrollment counts. Some regulatory agencies have expressed concern about this. What is the substantive statistical concern (selection bias, inference validity, or both), how serious is it in practice, and what design modifications (e.g., a probabilistic minimization rule with a biased coin) address the concern?</p></li>
+<li><p>A Phase III sponsor using response-adaptive randomization in a two-arm cardiovascular outcomes trial argues the design is justified because the trial will run for four years and it would be unethical to continue assigning patients to a placebo if the drug is clearly superior at year two. A statistician objects that temporal confounding could bias the estimate in a multi-year trial. Construct the statistician’s argument precisely, and propose the minimum safeguards that would make RAR defensible in this specific setting.</p></li>
+<li><p>A trial investigator states: “We have allocation concealment, so blinding is not necessary for our open-label surgical trial.” Explain why allocation concealment and blinding protect against different sources of bias, using a concrete example from a surgical or device trial context to illustrate each.</p></li>
+<li><p>A sponsor planning a 120-patient Phase II trial proposes to stratify by six prognostic factors (each binary), generating 64 possible strata. Most strata will have 0-2 patients. What specific statistical and operational problems arise from over-stratification at this sample size, and what would you recommend instead?</p></li>
+<li><p>A placebo-controlled antipsychotic trial achieves double-blind status for capsule appearance and taste, but 68% of patients correctly guess their treatment assignment at the end-of-study perception survey, predominantly due to sedation and weight gain in the active arm. The primary endpoint is a subjective symptom rating scale. What are the implications for interpreting the primary efficacy result, what additional analyses could help bound the bias, and how should this be reported in the publication?</p></li>
+</ol>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-atkinson2002covariate" class="csl-entry" role="listitem">
+Atkinson, A. C. 2002. <span>“The Comparison of Designs for Sequential Clinical Trials with Covariate Information.”</span> <em>Journal of the Royal Statistical Society: Series A</em> 165 (2): 349–73. <a href="https://doi.org/10.1111/1467-985X.00564">https://doi.org/10.1111/1467-985X.00564</a>.
+</div>
+<div id="ref-bartlett1985ecmo" class="csl-entry" role="listitem">
+Bartlett, Robert H., Donald W. Roloff, Robert G. Cornell, Arthur F. Andrews, Patrick W. Dillon, and Joseph B. Zwischenberger. 1985. <span>“Extracorporeal Circulation in Neonatal Respiratory Failure: A Prospective Randomized Study.”</span> <em>Pediatrics</em> 76 (4): 479–87. <a href="https://doi.org/10.1542/peds.76.4.479">https://doi.org/10.1542/peds.76.4.479</a>.
+</div>
+<div id="ref-coart2023minimization" class="csl-entry" role="listitem">
+Coart, Elisabeth, Perrine Bamps, Emmanuel Quinaux, Geneviève Sturbois, Everardo D. Saad, Tomasz Burzykowski, and Marc Buyse. 2023. <span>“Minimization in Randomized Clinical Trials.”</span> <em>Statistics in Medicine</em> 42 (28): 5285–5311. <a href="https://doi.org/10.1002/sim.9916">https://doi.org/10.1002/sim.9916</a>.
+</div>
+<div id="ref-cox2009randomization" class="csl-entry" role="listitem">
+Cox, D. R. 2009. <span>“Randomization in the Design of Experiments.”</span> <em>International Statistical Review</em> 77 (3): 415–29. <a href="https://doi.org/10.1111/j.1751-5823.2009.00084.x">https://doi.org/10.1111/j.1751-5823.2009.00084.x</a>.
+</div>
+<div id="ref-efron1971biased_coin" class="csl-entry" role="listitem">
+Efron, Bradley. 1971. <span>“Forcing a Sequential Experiment to Be Balanced.”</span> <em>Biometrika</em> 58 (3): 403–17. <a href="https://doi.org/10.1093/biomet/58.3.403">https://doi.org/10.1093/biomet/58.3.403</a>.
+</div>
+<div id="ref-hu2006response_adaptive" class="csl-entry" role="listitem">
+Hu, Feifang, and William F. Rosenberger. 2006. <em>The Theory of Response-Adaptive Randomization in Clinical Trials</em>. Hoboken, NJ: John Wiley &amp; Sons. <a href="https://doi.org/10.1002/047005588X">https://doi.org/10.1002/047005588X</a>.
+</div>
+<div id="ref-ich_e6r3_2025" class="csl-entry" role="listitem">
+International Council for Harmonisation. 2025. <span>“<span>ICH E6(R3)</span>: Guideline for Good Clinical Practice (GCP).”</span> <a href="https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf">https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf</a>.
+</div>
+<div id="ref-korn2011rar" class="csl-entry" role="listitem">
+Korn, Edward L., and Boris Freidlin. 2011. <span>“Outcome-Adaptive Randomization: Is It Useful?”</span> <em>Journal of Clinical Oncology</em> 29 (6): 771–76. <a href="https://doi.org/10.1200/JCO.2010.31.1423">https://doi.org/10.1200/JCO.2010.31.1423</a>.
+</div>
+<div id="ref-lin2015pursuit_balance" class="csl-entry" role="listitem">
+Lin, Yunzhi, Mumu Zhu, and Zheng Su. 2015. <span>“The Pursuit of Balance: An Overview of Covariate-Adaptive Randomization Techniques in Clinical Trials.”</span> <em>Contemporary Clinical Trials</em> 45: 21–25. <a href="https://doi.org/10.1016/j.cct.2015.07.011">https://doi.org/10.1016/j.cct.2015.07.011</a>.
+</div>
+<div id="ref-pocock1975sequential" class="csl-entry" role="listitem">
+Pocock, Stuart J., and Richard Simon. 1975. <span>“Sequential Treatment Assignment with Balancing for Prognostic Factors in the Controlled Clinical Trial.”</span> <em>Biometrics</em> 31 (1): 103–15. <a href="https://doi.org/10.2307/2529712">https://doi.org/10.2307/2529712</a>.
+</div>
+<div id="ref-proschan2020rar" class="csl-entry" role="listitem">
+Proschan, Michael A., and Scott R. Evans. 2020. <span>“Resist the Temptation of Response-Adaptive Randomization.”</span> <em>Clinical Infectious Diseases</em> 71 (11): 3002–4. <a href="https://doi.org/10.1093/cid/ciaa334">https://doi.org/10.1093/cid/ciaa334</a>.
+</div>
+<div id="ref-rosenberger2016randomization" class="csl-entry" role="listitem">
+Rosenberger, William F., and John M. Lachin. 2016. <em>Randomization in Clinical Trials: Theory and Practice</em>. 2nd ed. Hoboken, NJ: John Wiley &amp; Sons.
+</div>
+<div id="ref-rossouw2002whi" class="csl-entry" role="listitem">
+Rossouw, Jacques E., Garnet L. Anderson, Ross L. Prentice, Andrea Z. LaCroix, Charles Kooperberg, Marcia L. Stefanick, Rebecca D. Jackson, et al. 2002. <span>“Risks and Benefits of Estrogen Plus Progestin in Healthy Postmenopausal Women: Principal Results from the Women’s Health Initiative Randomized Controlled Trial.”</span> <em>JAMA</em> 288 (3): 321–33. <a href="https://doi.org/10.1001/jama.288.3.321">https://doi.org/10.1001/jama.288.3.321</a>.
+</div>
+<div id="ref-scott2002minimization_review" class="csl-entry" role="listitem">
+Scott, Neil W., Gladys C. McPherson, Craig R. Ramsay, and Marion K. Campbell. 2002. <span>“The Method of Minimization for Allocation to Clinical Trials: A Review.”</span> <em>Controlled Clinical Trials</em> 23 (6): 662–74. <a href="https://doi.org/10.1016/S0197-2456(02)00242-8">https://doi.org/10.1016/S0197-2456(02)00242-8</a>.
+</div>
+<div id="ref-taves1974minimization" class="csl-entry" role="listitem">
+Taves, Donald R. 1974. <span>“Minimization: A New Method of Assigning Patients to Treatment and Control Groups.”</span> <em>Clinical Pharmacology &amp; Therapeutics</em> 15 (5): 443–53. <a href="https://doi.org/10.1002/cpt1974155443">https://doi.org/10.1002/cpt1974155443</a>.
+</div>
+<div id="ref-uk_ecmo_1996" class="csl-entry" role="listitem">
+UK Collaborative ECMO Trial Group. 1996. <span>“UK Collaborative Randomised Trial of Neonatal Extracorporeal Membrane Oxygenation.”</span> <em>The Lancet</em> 348 (9020): 75–82. <a href="https://doi.org/10.1016/S0140-6736(96)04100-1">https://doi.org/10.1016/S0140-6736(96)04100-1</a>.
+</div>
+<div id="ref-fda_covariate_2023" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2023. <span>“Adjusting for Covariates in Randomized Clinical Trials for Drugs and Biological Products: Guidance for Industry.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/adjusting-covariates-randomized-clinical-trials-drugs-and-biological-products">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/adjusting-covariates-randomized-clinical-trials-drugs-and-biological-products</a>.
+</div>
+<div id="ref-wei1978randomized_ptw" class="csl-entry" role="listitem">
+Wei, L. J., and S. Durham. 1978. <span>“The Randomized Play-the-Winner Rule in Medical Trials.”</span> <em>Journal of the American Statistical Association</em> 73 (364): 840–43. <a href="https://doi.org/10.1080/01621459.1978.10480109">https://doi.org/10.1080/01621459.1978.10480109</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./13-protocol-benchmarks.html" class="pagination-link" aria-label="Protocol Design Benchmarks">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./15-endpoints.html" class="pagination-link" aria-label="Endpoints and Outcomes">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

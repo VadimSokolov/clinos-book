@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>27&nbsp; Trial Closeout and Analysis – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./26-csr.html" rel="next">
+<link href="./24-ai-agents.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="27&nbsp; Trial Closeout and Analysis – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="27&nbsp; Trial Closeout and Analysis – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./25-closeout.html">Part IV: Trial Completion and Beyond</a></li><li class="breadcrumb-item"><a href="./25-closeout.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#unblinding" id="toc-unblinding" class="nav-link active" data-scroll-target="#unblinding"><span class="header-section-number">27.1</span> Unblinding</a></li>
+  <li><a href="#interpreting-the-results" id="toc-interpreting-the-results" class="nav-link" data-scroll-target="#interpreting-the-results"><span class="header-section-number">27.2</span> Interpreting the Results</a>
+  <ul class="collapse">
+  <li><a href="#results-as-probability-not-binary-verdict" id="toc-results-as-probability-not-binary-verdict" class="nav-link" data-scroll-target="#results-as-probability-not-binary-verdict">Results as Probability, Not Binary Verdict</a></li>
+  <li><a href="#case-study-aducanumab-and-the-limits-of-binary-verdict" id="toc-case-study-aducanumab-and-the-limits-of-binary-verdict" class="nav-link" data-scroll-target="#case-study-aducanumab-and-the-limits-of-binary-verdict">Case Study: Aducanumab and the Limits of Binary Verdict</a></li>
+  </ul></li>
+  <li><a href="#site-closeout" id="toc-site-closeout" class="nav-link" data-scroll-target="#site-closeout"><span class="header-section-number">27.3</span> Site Closeout</a>
+  <ul class="collapse">
+  <li><a href="#closeout-checklist-for-computerized-systems-and-external-data-streams" id="toc-closeout-checklist-for-computerized-systems-and-external-data-streams" class="nav-link" data-scroll-target="#closeout-checklist-for-computerized-systems-and-external-data-streams">Closeout checklist for computerized systems and external data streams</a></li>
+  </ul></li>
+  <li><a href="#what-happens-to-the-data" id="toc-what-happens-to-the-data" class="nav-link" data-scroll-target="#what-happens-to-the-data"><span class="header-section-number">27.4</span> What Happens to the Data</a></li>
+  <li><a href="#when-trials-fail" id="toc-when-trials-fail" class="nav-link" data-scroll-target="#when-trials-fail"><span class="header-section-number">27.5</span> When Trials Fail</a>
+  <ul class="collapse">
+  <li><a href="#common-failure-modes-and-why-they-show-up-late" id="toc-common-failure-modes-and-why-they-show-up-late" class="nav-link" data-scroll-target="#common-failure-modes-and-why-they-show-up-late">Common failure modes (and why they show up late)</a></li>
+  <li><a href="#the-cost-of-failure-and-delay" id="toc-the-cost-of-failure-and-delay" class="nav-link" data-scroll-target="#the-cost-of-failure-and-delay">The cost of failure and delay</a></li>
+  <li><a href="#how-ai-can-reduce-delays-and-failure-risk" id="toc-how-ai-can-reduce-delays-and-failure-risk" class="nav-link" data-scroll-target="#how-ai-can-reduce-delays-and-failure-risk">How AI can reduce delays and failure risk</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./25-closeout.html">Part IV: Trial Completion and Beyond</a></li><li class="breadcrumb-item"><a href="./25-closeout.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-closeout" class="quarto-section-identifier"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Every clinical trial, no matter how long or complex, eventually reaches its conclusion. The work that follows (closing out sites, finalizing data, and analyzing results) is as critical as everything that came before. A brilliantly designed and flawlessly executed trial can still fail if the closeout is mishandled or the analysis is flawed.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-closeout-process" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-closeout-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-closeout-process">flowchart LR
+    subgraph Row1 [ ]
+        direction LR
+        subgraph Data[Data]
+            direction LR
+            A[LPLV] --&gt; B[Queries]
+            B --&gt; C[Review]
+            C --&gt; D[SAP]
+            D --&gt; E[DB Lock]
+        end
+        
+        E --&gt; Analysis
+        
+        subgraph Analysis[Analysis]
+            direction LR
+            F[Unblind] --&gt; G[Stats]
+            G --&gt; H[CSR]
+        end
+    end
+
+    subgraph Row2 [ ]
+        direction LR
+        subgraph Site[Site]
+            direction LR
+            I["IP Accounting"] --&gt; J["Doc Recon"]
+            J --&gt; K[Closeout]
+            K --&gt; L[Archive]
+        end
+        
+        subgraph Reg[Regulatory]
+            direction LR
+            M["NDA/BLA"] --&gt; N[Submit]
+        end
+    end
+
+    %% Connection between the two lines
+    E --- Site
+    H --- M
+
+    style Row1 fill:none,stroke:none
+    style Row2 fill:none,stroke:none
+    
+    linkStyle default stroke-width:3px,stroke:#1a1a1a
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-closeout-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.1: Clinical trial closeout process from last patient visit through archiving
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The closeout phase is a multi-dimensional operation where data finalization, clinical analysis, site-level activities, and regulatory preparation proceed in parallel. As illustrated in <a href="#fig-closeout-process" class="quarto-xref">Figure&nbsp;<span>27.1</span></a>, the process begins after the Last Patient Last Visit (LPLV) and moves through a sequence of query resolution and data review to achieve database lock. Once the database is frozen, the trial unblinds, triggering the statistical analysis and the generation of the Clinical Study Report (CSR). Simultaneously, investigative sites undergo physical closeout (reconciling drug supplies and archiving records) while the regulatory team prepares the final NDA or BLA submission.</p>
+<p>As enrollment winds down and the last participants complete their follow-up, the trial enters its closeout phase. The immediate goal is <em>database lock</em>: the formal point at which the trial database is frozen and no further changes are made.</p>
+<p>Achieving clean data requires a final push. Outstanding queries are resolved. Sites are contacted to obtain missing data or clarify discrepancies. Medical coding of adverse events is completed and reviewed. Protocol deviations are adjudicated. Any data that will be used in the primary analysis is scrutinized for accuracy.</p>
+<p>Before lock, the <em>statistical analysis plan (SAP)</em> must be finalized. This document, usually developed early in the trial but refined as specifics become clearer, specifies exactly how the data will be analyzed: what populations will be included, what statistical methods will be used, how missing data will be handled, and what sensitivity analyses will be performed.</p>
+<p>The SAP must be finalized before anyone sees unblinded data. This sequencing is essential for the integrity of the analysis: if analysts could try different approaches until they found one that produced favorable results, the statistical properties of the tests would be meaningless.</p>
+<section id="unblinding" class="level2" data-number="27.1">
+<h2 data-number="27.1" class="anchored" data-anchor-id="unblinding"><span class="header-section-number">27.1</span> Unblinding</h2>
+<p>With the database locked and the SAP finalized, the moment of truth arrives: <em>unblinding</em>. The treatment assignments that have been concealed throughout the trial are revealed, and for the first time, everyone can see which patients received which treatments.</p>
+<p>Unblinding is typically controlled carefully. A small group (often just the biostatistician running the analysis and a designated medical officer) may see unblinded data initially. Results flow outward in a controlled manner to ensure that information does not leak before the analysis is complete and the findings are properly interpreted.</p>
+<p>The statistical analysis then proceeds according to the SAP. Programs that have been tested on blinded or simulated data are run on the real, unblinded data. Primary endpoints are analyzed first, followed by secondary endpoints, subgroup analyses, and safety summaries.</p>
+</section>
+<section id="interpreting-the-results" class="level2" data-number="27.2">
+<h2 data-number="27.2" class="anchored" data-anchor-id="interpreting-the-results"><span class="header-section-number">27.2</span> Interpreting the Results</h2>
+<p>The completion of statistical analyses produces numbers: p-values, confidence intervals, hazard ratios, differences in means. But numbers alone are not interpretations. Understanding what the trial found requires integrating statistical results with clinical judgment.</p>
+<p>A trial that meets its primary endpoint, demonstrating a statistically significant difference favoring the experimental treatment, is typically a success. But how large is the effect? Is it clinically meaningful, not just statistically detectable? Is it consistent across subgroups? Do the secondary endpoints support the primary finding?</p>
+<p>A trial that fails to meet its primary endpoint poses different challenges. Was the drug ineffective, or was the trial inadequately powered? Did the control group perform unexpectedly well, or the treatment group unexpectedly poorly? Is there any suggestion of benefit in subpopulations that might justify further study?</p>
+<section id="results-as-probability-not-binary-verdict" class="level3">
+<h3 class="anchored" data-anchor-id="results-as-probability-not-binary-verdict">Results as Probability, Not Binary Verdict</h3>
+<p>The conventional framing, “the trial succeeded” or “the trial failed,” is a useful shorthand but a misleading model of what a trial actually produces. A trial generates evidence, and evidence is continuous. A study showing <span class="math inline">\(p = 0.049\)</span> and a study showing <span class="math inline">\(p = 0.051\)</span> contain nearly identical information about the treatment’s effect, yet the first is “positive” and the second is “negative” under a binary decision rule.</p>
+<p>A more accurate framing is probabilistic: after the trial, what is our probability that the drug produces a meaningful benefit, given everything we know, including the trial result, prior evidence, and biological plausibility? A “positive” trial at <span class="math inline">\(p = 0.04\)</span> in a field with roughly two decades of consecutive failures (as was the case in Alzheimer’s disease by the mid-2010s) carries much less certainty than a “positive” trial at <span class="math inline">\(p = 0.001\)</span> in a well-characterized mechanism where Phase II was convincingly positive. The p-value is a property of the data; the interpretation is a property of the evidence base.</p>
+<p>For closeout teams, this matters in how trial results are documented and communicated. A negative trial result should specify the effect size observed (not just the p-value), the confidence interval, and where the observed result falls relative to the minimal clinically important difference. A result that was pre-specified to detect a 30% improvement but observed a 15% improvement with <span class="math inline">\(p = 0.07\)</span> is not “no evidence of benefit”; it is modest evidence of a smaller-than-assumed benefit, and that distinction has implications for the next study, for combining with other evidence, and for decisions about continuing development.</p>
+<p>The COVID anticoagulation multi-platform RCT illustrated this directly. Therapeutic-dose anticoagulation helped one severity group but not the other: in non-critically-ill (moderate) patients it improved organ-support-free days (adjusted odds ratio 1.27, 95% credible interval 1.03 to 1.58, with a 98.6% posterior probability of benefit), whereas in critically-ill patients it did not, with a point estimate favoring harm (adjusted odds ratio 0.83) <span class="citation" data-cites="lawler2021anticoag goligher2021anticoag">(<a href="references.html#ref-lawler2021anticoag" role="doc-biblioref">ATTACC Investigators et al. 2021</a>; <a href="references.html#ref-goligher2021anticoag" role="doc-biblioref">REMAP-CAP Investigators et al. 2021</a>)</span>. A single verdict pooled across the whole population would have averaged these opposing effects toward a null and been reported as “no effect of therapeutic anticoagulation.” The hierarchical model that accounted for the differential severity effect preserved the reversal, and the conclusions reshaped clinical practice. The aggregated binary verdict would have been wrong because the aggregation was the wrong level of analysis.</p>
+</section>
+<section id="case-study-aducanumab-and-the-limits-of-binary-verdict" class="level3">
+<h3 class="anchored" data-anchor-id="case-study-aducanumab-and-the-limits-of-binary-verdict">Case Study: Aducanumab and the Limits of Binary Verdict</h3>
+<p>The aducanumab program (developed by Biogen/Eisai) is a widely cited example of the difficulty that arises when a binary success/failure framework is applied to a program with discordant, ambiguous evidence.</p>
+<p>Aducanumab is an anti-amyloid antibody targeting the amyloid plaques that characterize Alzheimer’s disease. Two large Phase III trials (EMERGE and ENGAGE) enrolled patients with early Alzheimer’s disease and were halted at an interim analysis in March 2019 when a futility analysis suggested the trials were unlikely to succeed. With more data subsequently available from patients who had already been enrolled, Biogen reanalyzed: EMERGE appeared positive at the high dose (a statistically significant reduction on a cognitive composite), while ENGAGE did not show the same benefit <span class="citation" data-cites="buddhaeberlein2022aducanumab">(<a href="references.html#ref-buddhaeberlein2022aducanumab" role="doc-biblioref">Budd Haeberlein et al. 2022</a>)</span>.</p>
+<p>FDA’s Peripheral and Central Nervous System Drugs Advisory Committee reviewed the evidence on 6 November 2020 and voted ten “no,” zero “yes,” and one “uncertain,” largely on the grounds that EMERGE alone, with ENGAGE non-confirmatory, did not constitute reliable evidence of clinical benefit. FDA nonetheless granted accelerated approval in June 2021, based on the drug’s effect on amyloid plaque reduction as a surrogate endpoint reasonably likely to predict clinical benefit.</p>
+<p>The subsequent controversy illuminated several overlapping problems. Two trials with opposite results cannot cleanly be assigned a binary verdict: one “win” and one “loss” is genuinely ambiguous evidence. The adequacy of amyloid plaque reduction as a surrogate for cognitive benefit had been contested for years, because earlier failed anti-amyloid antibodies had reduced amyloid without improving cognition. The discordance between the two trials, rather than being evidence against the drug, might also reflect that one trial was powered for and observed the dose-response relationship that the other did not.</p>
+<p>Subsequent programs, particularly lecanemab, provided more clearly positive evidence in the same mechanism, suggesting that the amyloid hypothesis was correct but that the evidence from aducanumab alone was not sufficient to support it. Lecanemab received full FDA approval in 2023 based on a pre-specified Phase III trial showing a 27% slowing of cognitive decline on the primary composite scale <span class="citation" data-cites="vandyck2023lecanemab">(<a href="references.html#ref-vandyck2023lecanemab" role="doc-biblioref">Dyck et al. 2023</a>)</span>.</p>
+<p>The aducanumab case is instructive for closeout and reporting teams: the evidence a trial produces should be communicated in terms of what was observed (effect sizes, confidence intervals, consistency across doses and subgroups), not only as “success” or “failure.” In a field with high prior uncertainty, a discordant two-trial result may be exactly the correct outcome of an experiment, providing the information needed to correctly interpret what happened when viewed together with the subsequent program.</p>
+<p>The <em>clinical study report (CSR)</em> documents the design, conduct, and results of the trial. This document is the definitive record of the trial and a primary component of the regulatory submission. Guidance on CSR structure is at <a href="26-csr.html" class="quarto-xref"><span>Chapter 28</span></a>.</p>
+</section>
+</section>
+<section id="site-closeout" class="level2" data-number="27.3">
+<h2 data-number="27.3" class="anchored" data-anchor-id="site-closeout"><span class="header-section-number">27.3</span> Site Closeout</h2>
+<p>The <em>site closeout visit</em> ensures that all loose ends are tied up.</p>
+<p>All investigational product must be accounted for. Drug supplies are either returned to the sponsor, destroyed at the site with documentation, or otherwise reconciled against dispensing records. Regulatory authorities ask: can every dose be accounted for?</p>
+<p>All queries should be resolved or documented as unresolvable. The database reflects the final state of the data.</p>
+<p>All essential documents are reviewed for completeness. The site’s trial file should contain all required documents, properly organized and ready for retention.</p>
+<p>The investigator is reminded of ongoing responsibilities: retaining trial records for the required period (typically at least 15 years or longer if required by regulations or the protocol), notifying the sponsor before any record destruction, and being available for future regulatory inspections.</p>
+<section id="closeout-checklist-for-computerized-systems-and-external-data-streams" class="level3">
+<h3 class="anchored" data-anchor-id="closeout-checklist-for-computerized-systems-and-external-data-streams">Closeout checklist for computerized systems and external data streams</h3>
+<p>Closeout increasingly involves reconciling not only site binders and investigational product, but also a network of computerized systems and external data flows. Because trial conclusions depend on traceability from source through submission, teams should close out systems with the same discipline applied to physical records: controlled access, retention, and retrievability for inspection <span class="citation" data-cites="cfr21_11 fda_electronic_systems_2024 ich_e6r3_2025">(<a href="references.html#ref-cfr21_11" role="doc-biblioref">U.S. Food and Drug Administration 2023a</a>, <a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">2024b</a>; <a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>.</p>
+<ul>
+<li><em>Finalize data transfers</em>: confirm last scheduled transfers have occurred (central labs, imaging, ePRO, device streams, vendor databases) and reconcile expected vs received counts and timestamps <span class="citation" data-cites="fda_dht_guidance_2023">(<a href="references.html#ref-fda_dht_guidance_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023b</a>)</span>.</li>
+<li><em>Preserve audit trails</em>: ensure audit trails remain available and reviewable after database lock; document any post-lock administrative corrections as controlled deviations with rationale <span class="citation" data-cites="fda_electronic_systems_2024">(<a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024b</a>)</span>.</li>
+<li><em>Access changes</em>: deprovision non-essential access after closeout, while preserving sponsor/regulatory access needed for inspection and reconstruction <span class="citation" data-cites="cfr21_11">(<a href="references.html#ref-cfr21_11" role="doc-biblioref">U.S. Food and Drug Administration 2023a</a>)</span>.</li>
+<li><em>Retention plan</em>: document where raw data extracts, transfer logs, validation evidence, and final locked datasets will be retained and how they can be retrieved within inspection timelines <span class="citation" data-cites="ich_e6r3_2025 cfr21_312">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>; <a href="references.html#ref-cfr21_312" role="doc-biblioref">U.S. Food and Drug Administration 2024a</a>)</span>.</li>
+<li><em>Vendor/system handover</em>: for vendor-managed systems, document responsibilities for long-term hosting, export formats, and contract clauses supporting retrieval during inspection windows <span class="citation" data-cites="fda_electronic_systems_2024">(<a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024b</a>)</span>.</li>
+</ul>
+<p>Participants may need information about their individual treatment assignments (particularly for long-blinded trials) and about what to do if they experience late adverse effects.</p>
+<p><em>Regulatory pathways.</em> Running in parallel with these site activities, the output of a successful Phase III program is a regulatory submission: an NDA or BLA in the United States, or an MAA in Europe. The formal process of building, submitting, and reviewing these applications is covered in <a href="27-regulatory-submission.html" class="quarto-xref"><span>Chapter 29</span></a>.</p>
+</section>
+</section>
+<section id="what-happens-to-the-data" class="level2" data-number="27.4">
+<h2 data-number="27.4" class="anchored" data-anchor-id="what-happens-to-the-data"><span class="header-section-number">27.4</span> What Happens to the Data</h2>
+<p>The value of clinical trial data extends far beyond the primary analysis. Researchers often conduct post-hoc analyses to explore new hypotheses suggested by the findings, while pooled analyses across multiple trials provide the statistical power necessary to detect rare safety events that single studies might miss. Modern data-sharing initiatives increasingly make anonymized datasets available to the external scientific community, enhancing transparency and allowing for independent scrutiny. These data-sharing programs are voluntary, but summary results reporting is not: under FDAAA 801 and its Final Rule, applicable trials must post summary results to ClinicalTrials.gov no later than one year after the primary completion date, and noncompliance carries civil monetary penalties <span class="citation" data-cites="fdaaa801">(<a href="references.html#ref-fdaaa801" role="doc-biblioref">United States Congress 2007</a>)</span>. Long-term retention of trial records (often mandated for fifteen years or more) ensures that the study remains accessible for future regulatory inspections or scientific inquiries.</p>
+</section>
+<section id="when-trials-fail" class="level2" data-number="27.5">
+<h2 data-number="27.5" class="anchored" data-anchor-id="when-trials-fail"><span class="header-section-number">27.5</span> When Trials Fail</h2>
+<p>Not every trial reaches a successful conclusion, and understanding the modes of failure is useful for future drug development. Efficacy failures occur when a treatment fails to produce a meaningful clinical benefit, often leading researchers to re-examine the underlying mechanism or the trial’s design. Safety failures are more consequential, occurring when unacceptable toxicity emerges either immediately or through the accumulation of data. Operational failures can derail a program through poor enrollment or subpar data quality that undermines the scientific validity of the findings. Even in these cases, the generated data informs future decisions and prevents other researchers from repeating unsuccessful approaches.</p>
+<section id="common-failure-modes-and-why-they-show-up-late" class="level3">
+<h3 class="anchored" data-anchor-id="common-failure-modes-and-why-they-show-up-late">Common failure modes (and why they show up late)</h3>
+<p>Many “failed” trials are not a single point of failure, but a chain of small mismatches between the scientific question, the protocol, and real-world execution. Some problems only become obvious near closeout, when the sponsor tries to lock the database, assemble the Trial Master File (TMF), and write a defensible clinical study report.</p>
+<p>Some failures reflect underpowered or mis-specified effects: the true effect is smaller than expected, variability is larger than assumed, the endpoint is noisier than planned, or intercurrent events (dropouts, treatment changes, rescue medication) complicate interpretation. The result can be an apparently negative trial that is not decision-grade for regulators or clinicians. Other failures arise from endpoints and assessment processes that are poorly aligned with mechanism, subject to measurement drift across sites, or sensitive to missing data and visit windows; in these programs, adjudication delays or inconsistent rater training may only become obvious when datasets are reconciled late.</p>
+<p>Population mismatch is another recurring theme. Inclusion and exclusion criteria can yield a cohort that is too heterogeneous, diluting signal, or too narrow, slowing enrollment, or simply not representative of intended use. When protocol deviations accumulate, the realized population may drift from the intended estimand, leaving the sponsor with an analytically clean plan and a pragmatically messy dataset.</p>
+<p>Operationally, protocol complexity often expresses itself as amendment churn. Each amendment disrupts sites, triggers retraining, and creates opportunities for version confusion; near closeout, teams sometimes discover that determining <em>which version applied to which participant</em> is itself a data-quality problem. Enrollment shortfalls similarly compound. Poor feasibility assumptions, competing studies, strict criteria, and bottlenecks in screening pipelines can slow accrual; slow enrollment is both a timeline delay and a scientific risk because standard of care may change mid-study, introducing interpretability challenges.</p>
+<p>Site performance variation is a closeout amplifier. A subset of sites can drive a disproportionate share of protocol deviations, missing data, and query burden, and these issues may remain latent until the sponsor confronts unresolved queries and reconciliation tasks that prevent database lock. Common closeout blockers include:</p>
+<ul>
+<li><em>Data-quality and reconciliation debt</em>: late or incomplete entry, coding backlogs for medical history and adverse events, and inconsistencies across systems (EDC, ePRO, central labs, safety databases)</li>
+<li><em>Vendor and supply-chain issues</em>: drug supply interruptions, temperature excursions, device failures, and shipping problems, creating missingness that is not random</li>
+<li><em>Regulatory-readiness gaps</em>: incomplete documentation, missing signatures, unclear audit trails, inconsistent versions, or gaps in training records that surface when preparing for inspection or submission</li>
+</ul>
+</section>
+<section id="the-cost-of-failure-and-delay" class="level3">
+<h3 class="anchored" data-anchor-id="the-cost-of-failure-and-delay">The cost of failure and delay</h3>
+<p>Trial failure is costly in several ways, and closeout is where those costs become concrete.</p>
+<p>The direct financial costs are visible in the monthly burn: site payments, CRO and vendor fees, monitoring, data management, safety operations, and internal labor. Delayed database lock and delayed clinical study report completion extend these costs even after last patient last visit. There is also a substantial opportunity cost: time spent on a stalled program is time not spent on the next study, the next indication, or the next molecule, and delays can compress the effective patent-protected commercial window, reducing expected return even when a drug ultimately succeeds.</p>
+<p>Closeout also makes the scientific cost explicit. When data are incomplete or inconsistently collected, the outcome may be <em>inconclusive</em> rather than negative, forcing additional studies or post hoc salvage analyses that are difficult to interpret and harder to defend. Finally, trial failure has a human cost. Participants, investigators, and coordinators invest effort and accept risk; when a program fails late, the disappointment is not only financial, and it is amplified when results are not disseminated clearly or cannot be translated into actionable knowledge.</p>
+</section>
+<section id="how-ai-can-reduce-delays-and-failure-risk" class="level3">
+<h3 class="anchored" data-anchor-id="how-ai-can-reduce-delays-and-failure-risk">How AI can reduce delays and failure risk</h3>
+<p>In most programs, the relevant contribution of AI is operational rather than predictive, focusing on reducing coordination overhead and reconciliation debt (see <a href="24-ai-agents.html" class="quarto-xref"><span>Chapter 26</span></a> for the underlying tools and governance model). Analytics can track real-time screen-failure reasons and accrual drift, flagging problems before timelines slip irreversibly. Automated systems can accelerate the long tail of closeout by triaging queries, reconciling data across disparate systems, and checking Trial Master File readiness through automated signature and version checks. These tools support quality without adding administrative burden on site staff, flagging outlier raters or accelerating safety case processing while keeping final sign-off with trained professionals. However, these efficiencies require rigorous governance and traceability; every AI-assisted output that influences a trial must be attributable to a specific dataset, instruction, and accountable reviewer.</p>
+<p>In short, trial “failure” is often the visible outcome of earlier, correctable operational and design problems. AI can improve timelines and reduce failure rates by making those problems legible sooner and by shrinking the manual burden of reconciliation and documentation at closeout, provided the system is designed for auditability, oversight, and continuous monitoring rather than autonomous decision-making.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-lawler2021anticoag" class="csl-entry" role="listitem">
+ATTACC Investigators, ACTIV-4a Investigators, REMAP-CAP Investigators, Patrick R. Lawler, Ewan C. Goligher, Jeffrey S. Berger, et al. 2021. <span>“Therapeutic Anticoagulation with Heparin in Noncritically Ill Patients with <span>Covid-19</span>.”</span> <em>New England Journal of Medicine</em> 385 (9): 790–802. <a href="https://doi.org/10.1056/NEJMoa2105911">https://doi.org/10.1056/NEJMoa2105911</a>.
+</div>
+<div id="ref-buddhaeberlein2022aducanumab" class="csl-entry" role="listitem">
+Budd Haeberlein, Samantha, Paul S. Aisen, Frederik Barkhof, Spyridon Chalkias, Tianle Chen, Sandra Cohen, Gary Dent, et al. 2022. <span>“Two Randomized Phase 3 Studies of Aducanumab in Early <span class="nocase">Alzheimer’s</span> Disease.”</span> <em>Journal of Prevention of Alzheimer’s Disease</em> 9 (2): 197–210. <a href="https://doi.org/10.14283/jpad.2022.30">https://doi.org/10.14283/jpad.2022.30</a>.
+</div>
+<div id="ref-vandyck2023lecanemab" class="csl-entry" role="listitem">
+Dyck, Christopher H. van, Chad J. Swanson, Paul Aisen, Randall J. Bateman, Christopher Chen, Michelle Gee, Michio Kanekiyo, et al. 2023. <span>“Lecanemab in Early Alzheimer’s Disease.”</span> <em>New England Journal of Medicine</em> 388 (1): 9–21. <a href="https://doi.org/10.1056/NEJMoa2212948">https://doi.org/10.1056/NEJMoa2212948</a>.
+</div>
+<div id="ref-ich_e6r3_2025" class="csl-entry" role="listitem">
+International Council for Harmonisation. 2025. <span>“<span>ICH E6(R3)</span>: Guideline for Good Clinical Practice (GCP).”</span> <a href="https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf">https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf</a>.
+</div>
+<div id="ref-goligher2021anticoag" class="csl-entry" role="listitem">
+REMAP-CAP Investigators, ACTIV-4a Investigators, ATTACC Investigators, Ewan C. Goligher, Corrinne A. Bradbury, Bryan J. McVerry, et al. 2021. <span>“Therapeutic Anticoagulation with Heparin in Critically Ill Patients with <span>Covid-19</span>.”</span> <em>New England Journal of Medicine</em> 385 (9): 777–89. <a href="https://doi.org/10.1056/NEJMoa2103417">https://doi.org/10.1056/NEJMoa2103417</a>.
+</div>
+<div id="ref-fdaaa801" class="csl-entry" role="listitem">
+United States Congress. 2007. <span>“Food and Drug Administration Amendments Act of 2007 (FDAAA), Public Law 110-85, Section 801.”</span> <a href="https://clinicaltrials.gov/policy/fdaaa-801-final-rule">https://clinicaltrials.gov/policy/fdaaa-801-final-rule</a>.
+</div>
+<div id="ref-cfr21_11" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2023a. <span>“21 CFR Part 11: Electronic Records; Electronic Signatures.”</span> <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11">https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11</a>.
+</div>
+<div id="ref-fda_dht_guidance_2023" class="csl-entry" role="listitem">
+———. 2023b. <span>“Digital Health Technologies for Remote Data Acquisition in Clinical Investigations: Guidance for Industry, Investigators, and Other Stakeholders.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/digital-health-technologies-remote-data-acquisition-clinical-investigations">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/digital-health-technologies-remote-data-acquisition-clinical-investigations</a>.
+</div>
+<div id="ref-cfr21_312" class="csl-entry" role="listitem">
+———. 2024a. <span>“21 CFR Part 312: Investigational New Drug Application.”</span> <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-D/part-312">https://www.ecfr.gov/current/title-21/chapter-I/subchapter-D/part-312</a>.
+</div>
+<div id="ref-fda_electronic_systems_2024" class="csl-entry" role="listitem">
+———. 2024b. <span>“Electronic Systems, Electronic Records, and Electronic Signatures in Clinical Investigations: Questions and Answers.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-systems-electronic-records-and-electronic-signatures-clinical-investigations-questions">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-systems-electronic-records-and-electronic-signatures-clinical-investigations-questions</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./24-ai-agents.html" class="pagination-link" aria-label="AI Agents in Clinical Development">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./26-csr.html" class="pagination-link" aria-label="The Clinical Study Report">
+        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

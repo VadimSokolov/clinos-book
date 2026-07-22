@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>30&nbsp; Glossary and Abbreviations – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./27-regulatory-submission.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="30&nbsp; Glossary and Abbreviations – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="30&nbsp; Glossary and Abbreviations – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-glossary.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-glossary.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#abbreviations" id="toc-abbreviations" class="nav-link active" data-scroll-target="#abbreviations"><span class="header-section-number">30.1</span> Abbreviations</a></li>
+  <li><a href="#statistical-terms" id="toc-statistical-terms" class="nav-link" data-scroll-target="#statistical-terms"><span class="header-section-number">30.2</span> Statistical Terms</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-glossary.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-glossary.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-glossary" class="quarto-section-identifier"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This appendix provides definitions of key statistical and clinical trial terms, as well as a list of common abbreviations used throughout this book.</p>
+<section id="abbreviations" class="level2" data-number="30.1">
+<h2 data-number="30.1" class="anchored" data-anchor-id="abbreviations"><span class="header-section-number">30.1</span> Abbreviations</h2>
+<div id="tbl-abbreviations" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[18,82]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-abbreviations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;30.1: Common abbreviations in clinical development
+</figcaption>
+<div aria-describedby="tbl-abbreviations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 82%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Abbreviation</th>
+<th style="text-align: left;">Full Term</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>ADaM</strong></td>
+<td style="text-align: left;">Analysis Data Model; a CDISC standard for deriving analysis-ready datasets from SDTM tabulations</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ADR</strong></td>
+<td style="text-align: left;">Adverse Drug Reaction; a noxious and unintended response to a drug for which a causal relationship to the drug is at least a reasonable possibility (ICH E2A); distinguished from an adverse event, which need not be drug-related</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>AE</strong></td>
+<td style="text-align: left;">Adverse Event; any untoward medical occurrence in a trial participant, whether or not related to the investigational product</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>AI</strong></td>
+<td style="text-align: left;">Artificial Intelligence; computational systems that perform tasks typically requiring human intelligence, such as pattern recognition or decision support</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>ALCOA</strong></td>
+<td style="text-align: left;">Attributable, Legible, Contemporaneous, Original, and Accurate; the five principles governing data integrity in clinical trials; modern standards extend these to ALCOA+ (adding Complete, Consistent, Enduring, Available) and ALCOA++ (adding Traceable)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ANDA</strong></td>
+<td style="text-align: left;">Abbreviated New Drug Application; a regulatory submission to FDA for approval of a generic drug product, referencing the innovator’s safety and efficacy data</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>API</strong></td>
+<td style="text-align: left;">Application Programming Interface; a set of protocols enabling software systems to communicate and exchange data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>BIMO</strong></td>
+<td style="text-align: left;">Bioresearch Monitoring; the FDA program that conducts inspections of clinical investigators, sponsors, IRBs, and contract laboratories to verify data integrity and regulatory compliance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>BLA</strong></td>
+<td style="text-align: left;">Biologics License Application; the regulatory submission to FDA for marketing approval of a biologic product</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>BTD</strong></td>
+<td style="text-align: left;">Breakthrough Therapy Designation; an FDA expedited program for drugs intended to treat serious conditions where preliminary evidence shows substantial improvement over existing therapies</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CAPA</strong></td>
+<td style="text-align: left;">Corrective and Preventive Action; a systematic process for identifying, investigating, and resolving quality issues to prevent recurrence</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CBER</strong></td>
+<td style="text-align: left;">Center for Biologics Evaluation and Research; the FDA center responsible for regulating biological products</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CDASH</strong></td>
+<td style="text-align: left;">Clinical Data Acquisition Standards Harmonization; a CDISC standard defining recommended fields for CRF design</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CDER</strong></td>
+<td style="text-align: left;">Center for Drug Evaluation and Research; the FDA center responsible for regulating drugs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CDISC</strong></td>
+<td style="text-align: left;">Clinical Data Interchange Standards Consortium; the organization that develops data standards (SDTM, ADaM, CDASH) used in regulatory submissions</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CEC</strong></td>
+<td style="text-align: left;">Clinical Events Committee; an independent committee that adjudicates clinical endpoints to ensure consistent classification across sites</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CFR</strong></td>
+<td style="text-align: left;">Code of Federal Regulations; the codification of US federal rules, including 21 CFR governing FDA-regulated activities</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CHMP</strong></td>
+<td style="text-align: left;">Committee for Medicinal Products for Human Use; the EMA committee responsible for scientific assessment of marketing authorization applications through the centralized procedure</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CIOMS</strong></td>
+<td style="text-align: left;">Council for International Organizations of Medical Sciences; an international organization that develops guidelines for safety reporting, including the CIOMS form for individual case safety reports</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CMC</strong></td>
+<td style="text-align: left;">Chemistry, Manufacturing, and Controls; the body of data covering a drug product’s composition, manufacturing process, and quality specifications (CTD Module 3)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>COU</strong></td>
+<td style="text-align: left;">Context of Use; the specific role and scope for which a drug development tool or AI model is applied</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CRA</strong></td>
+<td style="text-align: left;">Clinical Research Associate; a monitor who conducts on-site and remote oversight of investigator sites on behalf of the sponsor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CRF</strong></td>
+<td style="text-align: left;">Case Report Form; the document (paper or electronic) used to record trial data for each participant</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CRL</strong></td>
+<td style="text-align: left;">Complete Response Letter; an FDA communication indicating that an application cannot be approved in its current form and specifying deficiencies to address</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CRO</strong></td>
+<td style="text-align: left;">Contract Research Organization; a company hired by a sponsor to perform one or more trial-related functions such as monitoring, data management, or regulatory submissions</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CSR</strong></td>
+<td style="text-align: left;">Clinical Study Report; the comprehensive document describing the design, conduct, results, and interpretation of a completed clinical trial</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CSV</strong></td>
+<td style="text-align: left;">Computer System Validation; the documented process of ensuring that a computerized system performs as intended for its regulated purpose</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CTA</strong></td>
+<td style="text-align: left;">(1) Clinical Trial Authorization, the regulatory approval required in certain jurisdictions (e.g., EU) before a clinical trial may begin; (2) Clinical Trial Agreement, the legally binding sponsor-site contract covering budget, indemnification, intellectual property, data ownership, and publication rights (see <a href="16-site-selection.html" class="quarto-xref"><span>Chapter 18</span></a>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CTD</strong></td>
+<td style="text-align: left;">Common Technical Document; the internationally harmonized format for organizing regulatory submissions into five modules</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CTIS</strong></td>
+<td style="text-align: left;">Clinical Trials Information System; the EU portal for submitting and managing clinical trial applications under the Clinical Trials Regulation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CTMS</strong></td>
+<td style="text-align: left;">Clinical Trial Management System; software used to manage the operational aspects of clinical trials, including site management, visit tracking, and milestone reporting</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CTR</strong></td>
+<td style="text-align: left;">Clinical Trials Regulation; the EU regulation (536/2014) governing clinical trial conduct in member states</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>DCT</strong></td>
+<td style="text-align: left;">Decentralized Clinical Trial; a trial design where some or all activities occur at locations other than a traditional clinical site, such as the participant’s home</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>DDT</strong></td>
+<td style="text-align: left;">Drug Development Tool; a method, material, or measure that FDA has qualified to facilitate drug development</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>DHT</strong></td>
+<td style="text-align: left;">Digital Health Technology; electronic systems that capture health-related data from participants, including wearable sensors, mobile apps, and remote monitoring devices</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>DLT</strong></td>
+<td style="text-align: left;">Dose-Limiting Toxicity; a pre-defined adverse event in dose-escalation studies that signals the dose has reached an unacceptable level of toxicity</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>DMC</strong></td>
+<td style="text-align: left;">Data Monitoring Committee; see DSMB</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>DMP</strong></td>
+<td style="text-align: left;">Data Management Plan; the document specifying procedures for data collection, cleaning, coding, transfer, and quality control throughout a trial</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>DSMB</strong></td>
+<td style="text-align: left;">Data Safety Monitoring Board; an independent group of experts who periodically review unblinded safety and efficacy data and may recommend stopping or modifying a trial</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>DSUR</strong></td>
+<td style="text-align: left;">Development Safety Update Report; an annual safety report submitted to regulators summarizing the safety profile of an investigational product across all ongoing trials</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>eCOA</strong></td>
+<td style="text-align: left;">Electronic Clinical Outcome Assessment; electronic systems for capturing patient-reported, clinician-reported, or observer-reported outcomes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>eConsent</strong></td>
+<td style="text-align: left;">Electronic Informed Consent; the use of electronic systems (multimedia, interactive tools) to present and document the informed consent process</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>eCRF</strong></td>
+<td style="text-align: left;">Electronic Case Report Form; the electronic version of a CRF used within an EDC system to capture trial data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>eCTD</strong></td>
+<td style="text-align: left;">Electronic Common Technical Document; the electronic format for submitting the CTD to regulatory agencies</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>EDC</strong></td>
+<td style="text-align: left;">Electronic Data Capture; a computerized system for collecting clinical trial data in electronic format, replacing paper CRFs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>EHR</strong></td>
+<td style="text-align: left;">Electronic Health Record; a digital version of a patient’s medical record maintained by healthcare providers</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>EMA</strong></td>
+<td style="text-align: left;">European Medicines Agency; the EU regulatory authority responsible for evaluating and supervising medicinal products</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ePRO</strong></td>
+<td style="text-align: left;">Electronic Patient-Reported Outcome; patient-reported outcome data collected via electronic devices such as smartphones, tablets, or web portals</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>eTMF</strong></td>
+<td style="text-align: left;">Electronic Trial Master File; an electronic system for storing and managing essential trial documents required by GCP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>FDA</strong></td>
+<td style="text-align: left;">Food and Drug Administration; the US regulatory agency responsible for protecting public health through oversight of drugs, biologics, and medical devices</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>FDORA</strong></td>
+<td style="text-align: left;">Food and Drug Omnibus Reform Act; 2022 US legislation that modernized FDA authorities, including provisions for decentralized trials and diversity action plans</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>FIH</strong></td>
+<td style="text-align: left;">First-in-Human; the initial clinical study in which an investigational product is administered to human subjects</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>GAMP</strong></td>
+<td style="text-align: left;">Good Automated Manufacturing Practice; a framework (GAMP 5) providing guidance on computer system validation in regulated industries</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>GCP</strong></td>
+<td style="text-align: left;">Good Clinical Practice; the international ethical and scientific quality standard for designing, conducting, recording, and reporting clinical trials (ICH E6)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>GDPR</strong></td>
+<td style="text-align: left;">General Data Protection Regulation; the EU regulation governing the processing and protection of personal data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>GLP</strong></td>
+<td style="text-align: left;">Good Laboratory Practice; the quality system governing non-clinical laboratory studies intended to support regulatory submissions</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>GMP</strong></td>
+<td style="text-align: left;">Good Manufacturing Practice; the quality system governing the manufacture of investigational and commercial pharmaceutical products</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>GxP</strong></td>
+<td style="text-align: left;">Good Practice; a collective term for quality guidelines and regulations (e.g., GCP, GMP, GLP) in the pharmaceutical industry</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>HIPAA</strong></td>
+<td style="text-align: left;">Health Insurance Portability and Accountability Act; US legislation that establishes standards for protecting patient health information</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>HTA</strong></td>
+<td style="text-align: left;">Health Technology Assessment; the payer-side evaluation of a medicine’s cost-effectiveness and value (e.g., by NICE) that informs reimbursement decisions, distinct from a regulator’s assessment of safety and efficacy</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>IB</strong></td>
+<td style="text-align: left;">Investigator’s Brochure; the document providing investigators with clinical and non-clinical data on the investigational product relevant to the study</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ICF</strong></td>
+<td style="text-align: left;">Informed Consent Form; the document that participants sign to confirm they understand and voluntarily agree to participate in a clinical trial</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>ICH</strong></td>
+<td style="text-align: left;">International Council for Harmonisation; the organization that brings together regulators and industry to develop harmonized guidelines (e.g., E6 GCP, E8, E9) for pharmaceutical development</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>IDMC</strong></td>
+<td style="text-align: left;">Independent Data Monitoring Committee; see DSMB</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>IEC</strong></td>
+<td style="text-align: left;">Independent Ethics Committee; a body responsible for reviewing clinical trial protocols to ensure the rights, safety, and well-being of participants are protected; the EU equivalent of an IRB</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>IND</strong></td>
+<td style="text-align: left;">Investigational New Drug; the FDA submission that must go into effect (i.e., not be placed on clinical hold within 30 days; 21 CFR 312.40) before an investigational product may be administered to humans in the US</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>IP</strong></td>
+<td style="text-align: left;">Investigational Product; the drug, biologic, or device being tested in a clinical trial, including placebo or active comparator</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>IRB</strong></td>
+<td style="text-align: left;">Institutional Review Board; a committee that reviews and approves clinical research to protect the rights and welfare of human subjects; the US equivalent of an IEC</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>IRT</strong></td>
+<td style="text-align: left;">Interactive Response Technology; a system that manages randomization and drug supply in clinical trials via web or telephone interfaces</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ISF</strong></td>
+<td style="text-align: left;">Investigator Site File; the collection of essential documents maintained at each investigator site for regulatory inspection readiness</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>ITT</strong></td>
+<td style="text-align: left;">Intent-to-Treat; an analysis population that includes all randomized subjects regardless of protocol adherence</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>IWRS</strong></td>
+<td style="text-align: left;">Interactive Web Response System; a web-based system for managing randomization and trial supply; a specific type of IRT</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>J-NDA</strong></td>
+<td style="text-align: left;">Japanese New Drug Application; the regulatory submission to PMDA for marketing approval of a new drug in Japan</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>KRI</strong></td>
+<td style="text-align: left;">Key Risk Indicator; a metric used in risk-based quality management to monitor trial conduct and trigger risk mitigation actions</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>LLM</strong></td>
+<td style="text-align: left;">Large Language Model; a type of AI model trained on large text corpora that can generate, summarize, and analyze text</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>LOA</strong></td>
+<td style="text-align: left;">Likelihood of Approval; a metric estimating the probability that a drug in development will ultimately receive regulatory approval</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>LPLV</strong></td>
+<td style="text-align: left;">Last Patient Last Visit; the final protocol-specified visit by the last enrolled participant, marking the end of data collection</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>MAA</strong></td>
+<td style="text-align: left;">Marketing Authorization Application; the regulatory submission to EMA for marketing approval of a medicinal product in the EU</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>MCID</strong></td>
+<td style="text-align: left;">Minimum Clinically Important Difference; the smallest change in an outcome that patients or clinicians would consider meaningful</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>MCP</strong></td>
+<td style="text-align: left;">Model Context Protocol; a standard for connecting AI applications to external data sources and tools in a controlled, auditable manner</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>MedDRA</strong></td>
+<td style="text-align: left;">Medical Dictionary for Regulatory Activities; the standardized medical terminology used for coding adverse events and medical history in clinical trials and pharmacovigilance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ML</strong></td>
+<td style="text-align: left;">Machine Learning; a subset of AI in which algorithms learn patterns from data without being explicitly programmed for each task</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>MTD</strong></td>
+<td style="text-align: left;">Maximum Tolerated Dose; the highest dose of an investigational product that can be administered without unacceptable toxicity</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>NDA</strong></td>
+<td style="text-align: left;">New Drug Application; the regulatory submission to FDA for marketing approval of a new drug product</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>NLP</strong></td>
+<td style="text-align: left;">Natural Language Processing; AI techniques for understanding, interpreting, and generating human language</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>NMPA</strong></td>
+<td style="text-align: left;">National Medical Products Administration; the regulatory authority in China responsible for drug, device, and cosmetic oversight</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>NOAEL</strong></td>
+<td style="text-align: left;">No Observed Adverse Effect Level; the highest dose in preclinical studies at which no adverse effects are observed; used to calculate the starting dose for first-in-human trials</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>PD</strong></td>
+<td style="text-align: left;">Pharmacodynamics; the study of what a drug does to the body, including its mechanism of action and biological effects</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>PDUFA</strong></td>
+<td style="text-align: left;">Prescription Drug User Fee Act; US legislation authorizing FDA to collect fees from drug manufacturers to fund the drug review process</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>PI</strong></td>
+<td style="text-align: left;">Principal Investigator; the physician or qualified individual at a trial site who is responsible for the conduct of the trial at that site</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>PK</strong></td>
+<td style="text-align: left;">Pharmacokinetics; the study of how the body absorbs, distributes, metabolizes, and excretes a drug</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>PMC</strong></td>
+<td style="text-align: left;">Post-Marketing Commitment; a study or clinical trial that a sponsor agrees to conduct after approval, not required by statute or regulation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>PMDA</strong></td>
+<td style="text-align: left;">Pharmaceuticals and Medical Devices Agency; the Japanese regulatory authority responsible for evaluating and approving drugs and medical devices</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>PMR</strong></td>
+<td style="text-align: left;">Post-Marketing Requirement; a study or clinical trial that a sponsor is required by statute or regulation to conduct after approval</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>PRO</strong></td>
+<td style="text-align: left;">Patient-Reported Outcome; a measurement of any aspect of a patient’s health status that comes directly from the patient, without interpretation by a clinician</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>QA</strong></td>
+<td style="text-align: left;">Quality Assurance; the overarching system of planned activities to ensure that trial processes comply with GCP and applicable regulations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>QC</strong></td>
+<td style="text-align: left;">Quality Control; the operational techniques and activities undertaken to verify that data and processes meet quality requirements</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>QMS</strong></td>
+<td style="text-align: left;">Quality Management System; the organizational structure, processes, and resources for implementing quality management across trial activities</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>RAG</strong></td>
+<td style="text-align: left;">Retrieval-Augmented Generation; an AI technique that grounds language model outputs by retrieving relevant documents before generating a response</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>RAR</strong></td>
+<td style="text-align: left;">Response-Adaptive Randomization; a design in which allocation probabilities shift during the trial toward better-performing arms based on accumulating outcome data (see <a href="11-statistical-methods.html#sec-rar" class="quarto-xref"><span>Section 12.8</span></a>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>RBQM</strong></td>
+<td style="text-align: left;">Risk-Based Quality Management; a systematic approach to trial quality that focuses oversight on the risks most likely to affect participant safety and data reliability (ICH E6 R2/R3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>RDEP</strong></td>
+<td style="text-align: left;">Rare Disease Evidence Principles; regulatory principles guiding the use of innovative evidence approaches in rare disease drug development</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>REMS</strong></td>
+<td style="text-align: left;">Risk Evaluation and Mitigation Strategy; an FDA-required safety plan for certain drugs with known or potential serious risks, designed to ensure benefits outweigh risks</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>RP2D</strong></td>
+<td style="text-align: left;">Recommended Phase 2 Dose; the dose selected from Phase I studies for further evaluation in Phase II efficacy trials</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>RTF</strong></td>
+<td style="text-align: left;">Refuse to File; an FDA decision that a submitted application is insufficiently complete to permit substantive review</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>RTSM</strong></td>
+<td style="text-align: left;">Randomization and Trial Supply Management; a system that integrates randomization with drug supply logistics, ensuring correct treatment allocation and supply forecasting</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>RWD</strong></td>
+<td style="text-align: left;">Real-World Data; data relating to patient health status or healthcare delivery collected outside of traditional clinical trials (e.g., from EHRs, claims, registries)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>RWE</strong></td>
+<td style="text-align: left;">Real-World Evidence; clinical evidence derived from analysis of real-world data</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SAE</strong></td>
+<td style="text-align: left;">Serious Adverse Event; an adverse event that results in death, is life-threatening, requires or prolongs hospitalization, causes persistent or significant disability, is a congenital anomaly, or is another medically important event (ICH E2A)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SAP</strong></td>
+<td style="text-align: left;">Statistical Analysis Plan; the document specifying the statistical methods, populations, endpoints, and handling of missing data for a clinical trial, finalized before unblinding</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SDTM</strong></td>
+<td style="text-align: left;">Study Data Tabulation Model; a CDISC standard for organizing and formatting clinical trial data for regulatory submission</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SDV</strong></td>
+<td style="text-align: left;">Source Data Verification; the process of comparing data entered in the CRF/EDC against original source documents to ensure accuracy</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SIV</strong></td>
+<td style="text-align: left;">Site Initiation Visit; the visit conducted by the sponsor or CRO to a trial site before enrollment begins, to train staff, review the protocol, and verify site readiness</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SOP</strong></td>
+<td style="text-align: left;">Standard Operating Procedure; a documented set of step-by-step instructions for carrying out routine operations in compliance with regulations and quality standards</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SUSAR</strong></td>
+<td style="text-align: left;">Suspected Unexpected Serious Adverse Reaction; a serious adverse event that is both suspected to be related to the investigational product and not consistent with known risk information; requires expedited reporting to regulators</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>TLF</strong></td>
+<td style="text-align: left;">Tables, Listings, and Figures; the standard set of statistical outputs generated from clinical trial data for inclusion in the CSR and regulatory submission</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>TMF</strong></td>
+<td style="text-align: left;">Trial Master File; the collection of essential documents that individually and collectively permit evaluation of the conduct of a trial and the quality of data produced (ICH E6)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>VVUQ</strong></td>
+<td style="text-align: left;">Verification, Validation, and Uncertainty Quantification; the framework for assessing whether computational models are correctly implemented and fit for their intended use</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>WMA</strong></td>
+<td style="text-align: left;">World Medical Association; the international organization that authored the Declaration of Helsinki, establishing ethical principles for medical research involving human subjects</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="statistical-terms" class="level2" data-number="30.2">
+<h2 data-number="30.2" class="anchored" data-anchor-id="statistical-terms"><span class="header-section-number">30.2</span> Statistical Terms</h2>
+<div id="tbl-statistical-terms" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[25,75]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-statistical-terms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;30.2: Key statistical terms for clinical trials
+</figcaption>
+<div aria-describedby="tbl-statistical-terms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Term</th>
+<th style="text-align: left;">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Active control</strong></td>
+<td style="text-align: left;">The current standard-of-care treatment used as a comparator</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Adaptive design</strong></td>
+<td style="text-align: left;">A trial that modifies itself based on accumulating data according to pre-specified rules</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Alpha (<span class="math inline">\(\alpha\)</span>)</strong></td>
+<td style="text-align: left;">The maximum acceptable probability of Type I error; typically 2.5% or 5%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Basket trial</strong></td>
+<td style="text-align: left;">A master protocol that tests one therapy across multiple diseases (e.g., tumor types) sharing a common biomarker</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Bayesian</strong></td>
+<td style="text-align: left;">Statistical approach that directly estimates the probability a treatment works, given observed data; naturally updates as evidence accumulates</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Bias (systematic error)</strong></td>
+<td style="text-align: left;">A flaw causing treatment groups to differ in ways unrelated to treatment, distorting results</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Biomarker</strong></td>
+<td style="text-align: left;">A measurable biological indicator (e.g., genetic mutation, protein level) that can predict treatment response</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Confidence interval</strong></td>
+<td style="text-align: left;">A range of values, computed from the data, that would contain the true treatment effect in a stated percentage (e.g., 95%) of repeated trials; narrower intervals indicate more precise estimates. It describes the reliability of the procedure, not the probability that one particular interval contains the true value</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Control arm</strong></td>
+<td style="text-align: left;">The comparison group receiving placebo or standard of care</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Effectiveness</strong></td>
+<td style="text-align: left;">How well a treatment works in routine clinical practice</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Efficacy</strong></td>
+<td style="text-align: left;">The treatment’s ability to produce beneficial effects under controlled trial conditions</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Endpoint</strong></td>
+<td style="text-align: left;">The outcome measured to determine treatment effect (e.g., survival, tumor response, symptom improvement)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Estimand</strong></td>
+<td style="text-align: left;">A precise definition of the treatment effect being estimated, including how to handle intercurrent events</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>External control arm (ECA)</strong></td>
+<td style="text-align: left;">A comparator group built from data outside the trial (historical trials, registries, EHRs, or claims) in place of a concurrent randomized control, used when randomization is infeasible or unethical</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>External validity (generalizability)</strong></td>
+<td style="text-align: left;">Whether conclusions apply to broader patient populations</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Fixed design</strong></td>
+<td style="text-align: left;">A traditional trial where sample size is set before the trial begins and cannot change</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Frequentist</strong></td>
+<td style="text-align: left;">Statistical approach that interprets probability as the frequency of outcomes over many repeated trials; focuses on controlling error rates</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Hazard ratio</strong></td>
+<td style="text-align: left;">The ratio of event rates between treatment and control groups in a time-to-event analysis; a hazard ratio of 0.75 means the treatment group experiences events at 75% the rate of the control group</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Intent-to-Treat (ITT)</strong></td>
+<td style="text-align: left;">Analyzing all patients according to their original randomization, regardless of protocol adherence</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Intercurrent events</strong></td>
+<td style="text-align: left;">Events occurring after randomization that affect interpretation (e.g., discontinuation, rescue medication)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Interim analysis</strong></td>
+<td style="text-align: left;">An analysis conducted partway through a trial, before all patients have completed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Internal validity</strong></td>
+<td style="text-align: left;">Whether the trial’s conclusions are correct for the patients actually studied</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Investigational arm</strong></td>
+<td style="text-align: left;">The group receiving the new therapy being tested</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Master protocol</strong></td>
+<td style="text-align: left;">A single overarching design that evaluates multiple therapies, disease subtypes, or both under one shared infrastructure; basket, umbrella, and platform trials are its principal forms</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Minimum clinically important difference (MCID)</strong></td>
+<td style="text-align: left;">The smallest treatment effect worth detecting; below which approval would not change practice</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Null hypothesis</strong></td>
+<td style="text-align: left;">The default assumption that there is no treatment difference</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>p-value</strong></td>
+<td style="text-align: left;">The probability of observing results as extreme as those seen, assuming the null hypothesis is true</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Placebo</strong></td>
+<td style="text-align: left;">An inactive substance given to the control group</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Platform trial</strong></td>
+<td style="text-align: left;">A master protocol in which treatment arms enter and exit over time against a shared control arm, enabling continuous evaluation of multiple therapies</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Population</strong></td>
+<td style="text-align: left;">The entire universe of patients with the condition of interest who might receive the drug if approved</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Power</strong></td>
+<td style="text-align: left;">The probability of correctly detecting a true treatment effect; typically set at 80% or 90%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Precision</strong></td>
+<td style="text-align: left;">The degree of certainty in an estimate; higher precision means smaller standard error</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Precision medicine</strong></td>
+<td style="text-align: left;">Treatments targeted to patients with specific biological characteristics, rather than one-size-fits-all approaches</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Prior and posterior probability</strong></td>
+<td style="text-align: left;">In Bayesian analysis, the prior is the probability of a hypothesis or parameter before observing the current data; the posterior is the updated probability after combining the prior with the observed data via Bayes’ theorem</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Probability</strong></td>
+<td style="text-align: left;">A number between 0 and 1 (or 0%-100%) quantifying how likely something is to occur; 0 = impossible, 1 = certain</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Random error</strong></td>
+<td style="text-align: left;">Natural fluctuation in results due to studying a sample rather than the entire population</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Randomization</strong></td>
+<td style="text-align: left;">Using a chance mechanism to assign patients to treatment arms, eliminating systematic differences</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Sample</strong></td>
+<td style="text-align: left;">The subset of patients actually enrolled in the trial</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Sample size</strong></td>
+<td style="text-align: left;">The number of patients enrolled; balances Type I error, power, and detectable effect size</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Standard error</strong></td>
+<td style="text-align: left;">A measure of the expected magnitude of random error in an estimate</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Statistical significance</strong></td>
+<td style="text-align: left;">A result is “significant” when the p-value falls below the <span class="math inline">\(\alpha\)</span> threshold, suggesting the effect is unlikely due to chance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Treatment arms</strong></td>
+<td style="text-align: left;">The groups being compared in a trial</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Treatment effect</strong></td>
+<td style="text-align: left;">The true difference in outcomes between investigational and control treatments</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Type I error (false positive)</strong></td>
+<td style="text-align: left;">Concluding an ineffective drug works; regulators limit this to <span class="math inline">\(\leq 2.5\%\)</span> (one-sided) or <span class="math inline">\(\leq 5\%\)</span> (two-sided)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Type II error (false negative)</strong></td>
+<td style="text-align: left;">Failing to detect that an effective drug works</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Umbrella trial</strong></td>
+<td style="text-align: left;">A master protocol that tests multiple therapies within a single disease (e.g., one tumor type), assigning patients to arms by biomarker</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Underpowered trial</strong></td>
+<td style="text-align: left;">A trial with too few patients to reliably detect a true treatment effect</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./27-regulatory-submission.html" class="pagination-link" aria-label="Regulatory Submission">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>10&nbsp; Phase IV: Post-Marketing Studies and Surveillance – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./11-statistical-foundations.html" rel="next">
+<link href="./09-phase3-overview.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="10&nbsp; Phase IV: Post-Marketing Studies and Surveillance – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="10&nbsp; Phase IV: Post-Marketing Studies and Surveillance – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-drug-development.html">Part II: Clinical Trial Phases</a></li><li class="breadcrumb-item"><a href="./10-phase4.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#types-of-phase-iv-studies" id="toc-types-of-phase-iv-studies" class="nav-link active" data-scroll-target="#types-of-phase-iv-studies"><span class="header-section-number">10.1</span> Types of Phase IV Studies</a></li>
+  <li><a href="#pharmacovigilance" id="toc-pharmacovigilance" class="nav-link" data-scroll-target="#pharmacovigilance"><span class="header-section-number">10.2</span> Pharmacovigilance</a></li>
+  <li><a href="#risk-evaluation-and-mitigation-strategies" id="toc-risk-evaluation-and-mitigation-strategies" class="nav-link" data-scroll-target="#risk-evaluation-and-mitigation-strategies"><span class="header-section-number">10.3</span> Risk Evaluation and Mitigation Strategies</a></li>
+  <li><a href="#comparative-effectiveness-research-and-real-world-data-sources" id="toc-comparative-effectiveness-research-and-real-world-data-sources" class="nav-link" data-scroll-target="#comparative-effectiveness-research-and-real-world-data-sources"><span class="header-section-number">10.4</span> Comparative Effectiveness Research and Real-World Data Sources</a></li>
+  <li><a href="#real-world-evidence" id="toc-real-world-evidence" class="nav-link" data-scroll-target="#real-world-evidence"><span class="header-section-number">10.5</span> Real-World Evidence</a></li>
+  <li><a href="#health-technology-assessment-hta-and-payer-value" id="toc-health-technology-assessment-hta-and-payer-value" class="nav-link" data-scroll-target="#health-technology-assessment-hta-and-payer-value"><span class="header-section-number">10.6</span> Health Technology Assessment (HTA) and Payer Value</a></li>
+  <li><a href="#lifecycle-management" id="toc-lifecycle-management" class="nav-link" data-scroll-target="#lifecycle-management"><span class="header-section-number">10.7</span> Lifecycle Management</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-drug-development.html">Part II: Clinical Trial Phases</a></li><li class="breadcrumb-item"><a href="./10-phase4.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-phase4" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Phase IV encompasses all clinical studies conducted after a drug has received regulatory approval. These studies serve multiple purposes, from satisfying regulatory requirements to expanding the understanding of the drug’s benefits and risks in broader patient populations.</p>
+<p>Once a drug is approved and marketed, it enters a new phase of its lifecycle. The controlled conditions of clinical trials give way to real-world clinical practice, where patients may differ from those studied in trials, where adherence patterns vary, and where the drug is used alongside other medications and in combination with diverse health conditions.</p>
+<p>This transition from the controlled environment of clinical trials to the complexity of clinical practice represents both an opportunity and a responsibility. The opportunity lies in learning how the drug performs in the broader population for whom it is intended. The responsibility lies in continuing to monitor safety and to generate evidence that helps clinicians and patients make informed treatment decisions.</p>
+<section id="types-of-phase-iv-studies" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="types-of-phase-iv-studies"><span class="header-section-number">10.1</span> Types of Phase IV Studies</h2>
+<p>Phase IV studies can be broadly categorized by their primary purpose (see <a href="#tbl-phase4-types" class="quarto-xref">Table&nbsp;<span>10.1</span></a>):</p>
+<div id="tbl-phase4-types" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[22,20,30,28]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-phase4-types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;10.1: Types of Phase IV Studies
+</figcaption>
+<div aria-describedby="tbl-phase4-types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 20%">
+<col style="width: 30%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Study Type</th>
+<th>Purpose</th>
+<th>Examples</th>
+<th>Regulatory Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Post-Marketing Safety</strong></td>
+<td>Detect rare or delayed adverse events</td>
+<td>Long-term safety studies, special population studies</td>
+<td>May be required or voluntary</td>
+</tr>
+<tr class="even">
+<td><strong>Post-Marketing Efficacy</strong></td>
+<td>Evaluate real-world effectiveness</td>
+<td>Subpopulation analyses, comparative effectiveness</td>
+<td>Usually voluntary</td>
+</tr>
+<tr class="odd">
+<td><strong>Post-Marketing Requirements (PMR)</strong></td>
+<td>Satisfy mandated post-approval studies</td>
+<td>Confirmatory trials for accelerated approval</td>
+<td>Required by statute or regulation</td>
+</tr>
+<tr class="even">
+<td><strong>Label Extension</strong></td>
+<td>Expand approved uses</td>
+<td>Pediatric studies, new indication trials</td>
+<td>Required for new indication claims</td>
+</tr>
+<tr class="odd">
+<td><strong>Outcomes Research</strong></td>
+<td>Demonstrate value in real-world practice</td>
+<td>Quality of life studies, health economics</td>
+<td>Usually voluntary; payer-driven</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><em>Post-marketing safety studies</em> aim to detect adverse events that may not have been identified in premarketing trials, either because they are rare, because they emerge only with prolonged exposure, or because they occur preferentially in populations not well represented in the original trials.</p>
+<p><em>Post-marketing efficacy studies</em> may be conducted to evaluate the drug’s performance in specific subpopulations, to compare its effectiveness to other treatments under real-world conditions, or to demonstrate effects on long-term outcomes that could not be assessed in the time frame of premarketing trials.</p>
+<p><em>Post-marketing requirement (PMR) studies</em> are those the sponsor is required by statute or regulation to conduct. These may include studies to confirm efficacy when approval was based on a surrogate endpoint (as in accelerated approval), to evaluate safety in specific populations of concern, or to assess effects on outcomes not fully evaluated before approval. <em>Post-marketing commitments (PMCs)</em>, by contrast, are studies a sponsor agrees to conduct but is not legally required to complete.</p>
+<p>The confirmatory trials on which accelerated approval depends are PMRs, and the Food and Drug Omnibus Reform Act (FDORA) of 2022 strengthened the FDA’s authority over them: the agency may now require that a confirmatory trial be underway before it grants accelerated approval, and it can withdraw approval through an expedited procedure when the trial fails to verify clinical benefit <span class="citation" data-cites="fdora2022">(<a href="references.html#ref-fdora2022" role="doc-biblioref">U.S. Congress 2022</a>)</span>. The withdrawal of melphalan flufenamide (Pepaxto), effective February 2024 after its confirmatory trial showed worse overall survival, illustrates how an accelerated approval can be reversed when the required trial does not confirm the drug’s benefit.</p>
+<p>In addition, sponsors may conduct studies to support label extensions, seeking approval for new indications, new populations (such as pediatric patients), or new dosing regimens.</p>
+<p>This is particularly critical given the historical “pediatric labeling gap.” The FDA has tracked pediatric labeling changes under federal laws including the Best Pharmaceuticals for Children Act (BPCA), the Pediatric Research Equity Act (PREA), and the Pediatric Rule since 1998 <span class="citation" data-cites="fda_pediatric_labeling">(<a href="references.html#ref-fda_pediatric_labeling" role="doc-biblioref">U.S. Food and Drug Administration 2025</a>)</span>. These legislative initiatives have significantly improved pediatric labeling over the past two decades, with hundreds of labeling changes approved to provide evidence-based dosing and safety information for pediatric populations. However, the “therapeutic orphan” problem (drugs used in children without adequate pediatric studies) remains a primary driver for dedicated Phase IV pediatric programs.</p>
+</section>
+<section id="pharmacovigilance" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="pharmacovigilance"><span class="header-section-number">10.2</span> Pharmacovigilance</h2>
+<p><em>Pharmacovigilance</em> is the science of detecting, assessing, and preventing adverse effects of medicines once they are in widespread use. Its first line of detection is <em>spontaneous reporting</em>: clinicians, patients, and manufacturers voluntarily report suspected adverse reactions to systems such as the FDA Adverse Event Reporting System (FAERS) or the European Union’s EudraVigilance. Spontaneous reports are invaluable for flagging rare or unexpected events that premarketing trials were too small or too short to detect. Some of the most consequential post-marketing actions began this way: the severe liver injury that led to the 2000 withdrawal of troglitazone (Rezulin) was flagged largely through spontaneous case reports. Not every signal surfaces first through passive reporting, though. The cardiovascular risk that led to the 2004 withdrawal of rofecoxib (Vioxx) was established instead by randomized trials (VIGOR in 2000 and the halted APPROVe trial in 2004), a case often cited for how slowly passive surveillance can move on its own.</p>
+<p>Spontaneous reporting also has well-known limitations (underreporting, uncertain causality, and lack of denominator data), which mean that signals identified through spontaneous reports often require confirmation through formal studies. These may include epidemiologic studies using healthcare databases, registries, or dedicated Phase IV trials.</p>
+<p>Passive reporting is increasingly complemented by <em>active surveillance</em>, in which regulators run standardized queries against large networks of electronic health records and claims data on a routine schedule rather than waiting for reports to arrive. The FDA’s Sentinel System and the European Medicines Agency’s DARWIN EU (Data Analysis and Real World Interrogation Network) apply this approach at scale; the methods of signal detection are developed further in <a href="21-safety.html" class="quarto-xref"><span>Chapter 23</span></a>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="The Scale of Safety Surveillance">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The Scale of Safety Surveillance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The volume of safety data generated once a drug reaches the market is immense. The FDA Adverse Event Reporting System alone receives more than one million adverse-event reports each year and holds tens of millions accumulated over decades <span class="citation" data-cites="fda_faers">(<a href="references.html#ref-fda_faers" role="doc-biblioref">U.S. Food and Drug Administration 2024a</a>)</span>. Filtering genuine signals from that volume of noise is the central operational challenge of pharmacovigilance.</p>
+</div>
+</div>
+</section>
+<section id="risk-evaluation-and-mitigation-strategies" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="risk-evaluation-and-mitigation-strategies"><span class="header-section-number">10.3</span> Risk Evaluation and Mitigation Strategies</h2>
+<p>When significant safety concerns are identified, regulatory agencies may require a <em>Risk Evaluation and Mitigation Strategy</em> (REMS) as a condition of approval or continued marketing <span class="citation" data-cites="fda_rems">(<a href="references.html#ref-fda_rems" role="doc-biblioref">U.S. Food and Drug Administration 2024b</a>)</span>. A REMS is a safety strategy designed to manage known or potential serious risks associated with a drug and to enable patients to have continued access to such medicines by managing their safe use.</p>
+<div id="tbl-rems-components" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[22,38,40]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rems-components-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;10.2: Components of Risk Evaluation and Mitigation Strategies
+</figcaption>
+<div aria-describedby="tbl-rems-components-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 38%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>REMS Component</th>
+<th>Description</th>
+<th>Example Application</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Medication Guide</strong></td>
+<td>FDA-approved written information for patients about drug risks/benefits</td>
+<td>Required with each dispensing; e.g., NSAIDs cardiovascular risk</td>
+</tr>
+<tr class="even">
+<td><strong>Communication Plan</strong></td>
+<td>Ensure healthcare providers receive important safety information</td>
+<td>Dear Healthcare Provider letters, professional society communications</td>
+</tr>
+<tr class="odd">
+<td><strong>Elements to Assure Safe Use (ETASU)</strong></td>
+<td>Specific requirements for prescribing, dispensing, or receiving</td>
+<td>Prescriber certification, patient enrollment, restricted distribution</td>
+</tr>
+<tr class="even">
+<td><strong>Implementation System</strong></td>
+<td>Infrastructure to ensure REMS is executed</td>
+<td>Centralized REMS programs with data collection</td>
+</tr>
+<tr class="odd">
+<td><strong>REMS Assessment</strong></td>
+<td>Periodic evaluation of REMS effectiveness</td>
+<td>Annual or as specified by FDA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>REMS may include any or all of the elements described in <a href="#tbl-rems-components" class="quarto-xref">Table&nbsp;<span>10.2</span></a>. A <em>Medication Guide</em> is written information for patients about the drug’s risks and benefits, required to be provided with each dispensing. <em>Communication Plans</em> ensure that healthcare providers receive important safety information. <em>Elements to Assure Safe Use</em> (ETASU) are specific actions required for prescribing, dispensing, or receiving the drug, and may include special prescriber training and certification, patient enrollment in a registry, or dispensing only through certified pharmacies.</p>
+</section>
+<section id="comparative-effectiveness-research-and-real-world-data-sources" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="comparative-effectiveness-research-and-real-world-data-sources"><span class="header-section-number">10.4</span> Comparative Effectiveness Research and Real-World Data Sources</h2>
+<p>Phase IV studies increasingly include <em>comparative effectiveness research</em> (CER), which compares the benefits and harms of different interventions for treating a particular condition. Unlike traditional efficacy trials that compare a drug to placebo under idealized conditions, CER studies are designed to inform real-world clinical decision-making by comparing interventions under conditions that approximate routine practice.</p>
+<p>CER studies may be pragmatic clinical trials conducted in real-world settings with broad inclusion criteria and clinically relevant endpoints. They may also be observational studies using data from electronic health records, claims databases, or registries to compare outcomes among patients receiving different treatments in routine clinical care.</p>
+<p><strong>Registries.</strong> Patient registries are organized systems that use observational methods to collect uniform data on a population defined by a particular disease, condition, or exposure. Registries can serve multiple Phase IV purposes.</p>
+<p>Registries are categorized by their primary focus. Disease registries follow patients with a particular condition to characterize natural history and identify prognostic factors. Product registries, often mandated for drugs with significant safety concerns or accelerated approvals, collect long-term safety and effectiveness data for specific medications. Pregnancy registries are critical for assessing developmental risks, as they provide the primary source of safety information for a population typically excluded from premarketing trials.</p>
+</section>
+<section id="real-world-evidence" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="real-world-evidence"><span class="header-section-number">10.5</span> Real-World Evidence</h2>
+<p>The 21st Century Cures Act of 2016 directed the FDA to evaluate how <em>real-world evidence</em> (RWE) could support regulatory decisions, and the agency’s subsequent framework defined the terms <span class="citation" data-cites="fda_rwe_framework_2018">(<a href="references.html#ref-fda_rwe_framework_2018" role="doc-biblioref">U.S. Food and Drug Administration 2018</a>)</span>. RWE is clinical evidence regarding the usage and potential benefits or risks of a drug derived from analysis of <em>real-world data</em> (RWD): data relating to patient health status or the delivery of health care routinely collected from electronic health records, claims and billing databases, product and disease registries, and other sources.</p>
+<p>The FDA’s framework and its subsequent guidance describe how RWE may support approval of new indications for already-approved drugs and satisfy post-marketing study requirements <span class="citation" data-cites="fda_rwe_considerations_2023">(<a href="references.html#ref-fda_rwe_considerations_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023</a>)</span>. Using RWE for regulatory purposes still demands close attention to the quality and relevance of the underlying data and to the rigor of the study design and analysis. The design and regulatory use of external control arms and other real-world evidence methods are developed in <a href="12b-rwe-external-controls.html" class="quarto-xref"><span>Chapter 14</span></a>.</p>
+</section>
+<section id="health-technology-assessment-hta-and-payer-value" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="health-technology-assessment-hta-and-payer-value"><span class="header-section-number">10.6</span> Health Technology Assessment (HTA) and Payer Value</h2>
+<p>While regulatory approval answers the question of whether a drug is safe and effective, it does not answer whether it is worth paying for. This second question is the domain of Health Technology Assessment (HTA) bodies and payers. In many markets, achieving regulatory approval is only the first hurdle. Access to the market depends on demonstrating value.</p>
+<p>Cost-effectiveness analysis determines whether the drug provides sufficient health benefit, often measured in Quality-Adjusted Life Years, to justify its price. Bodies like the National Institute for Health and Care Excellence (NICE) in the UK or the Institute for Clinical and Economic Review (ICER) in the US conduct rigorous economic modeling to make this determination. Other bodies, such as IQWiG in Germany, assess whether the new drug offers a proven advantage over the current standard of care, a higher bar than the placebo-controlled evidence often accepted for regulatory approval.</p>
+<p>Consequently, Phase IV is frequently the setting for real-world evidence studies designed specifically to satisfy these payer requirements, collecting data on resource utilization, comparative effectiveness against active controls, and long-term economic outcomes <span class="citation" data-cites="nice_methods_2022">(<a href="references.html#ref-nice_methods_2022" role="doc-biblioref">National Institute for Health and Care Excellence 2022</a>)</span>.</p>
+</section>
+<section id="lifecycle-management" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="lifecycle-management"><span class="header-section-number">10.7</span> Lifecycle Management</h2>
+<p>From the sponsor’s perspective, Phase IV is part of a broader <em>lifecycle management</em> strategy for the product. This strategy may include studies to differentiate the product from competitors, to expand into new indications or populations, to optimize dosing, to document comparative effectiveness, or to address safety concerns.</p>
+<p>Lifecycle management must balance commercial objectives with scientific integrity. The post-marketing period is a continuation of the learning process, not an epilogue to it, and its regulatory stakes have risen. Under FDORA, an accelerated approval now stands or falls on whether its confirmatory trial verifies the benefit that premarketing data only suggested, and it is that binding requirement, more than any voluntary commitment, that keeps Phase IV tied to the standard of evidence the earlier phases set out to meet.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-nice_methods_2022" class="csl-entry" role="listitem">
+National Institute for Health and Care Excellence. 2022. <span>“<span>NICE</span> Technology Appraisal and Highly Specialised Technologies Guidance: The Manual.”</span> <a href="https://www.nice.org.uk/process/pmg36">https://www.nice.org.uk/process/pmg36</a>.
+</div>
+<div id="ref-fdora2022" class="csl-entry" role="listitem">
+U.S. Congress. 2022. <span>“Food and Drug Omnibus Reform Act (<span>FDORA</span>) of 2022.”</span> <a href="https://www.fda.gov/regulatory-information/selected-amendments-fdc-act/food-and-drug-omnibus-reform-act-fdora-2022">https://www.fda.gov/regulatory-information/selected-amendments-fdc-act/food-and-drug-omnibus-reform-act-fdora-2022</a>.
+</div>
+<div id="ref-fda_rwe_framework_2018" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2018. <span>“Framework for FDA’s Real-World Evidence Program.”</span> <a href="https://www.fda.gov/media/120060/download">https://www.fda.gov/media/120060/download</a>.
+</div>
+<div id="ref-fda_rwe_considerations_2023" class="csl-entry" role="listitem">
+———. 2023. <span>“Considerations for the Use of Real-World Data and Real-World Evidence to Support Regulatory Decision-Making for Drug and Biological Products.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-real-world-data-and-real-world-evidence-support-regulatory-decision-making-drug">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-real-world-data-and-real-world-evidence-support-regulatory-decision-making-drug</a>.
+</div>
+<div id="ref-fda_faers" class="csl-entry" role="listitem">
+———. 2024a. <span>“FDA Adverse Event Reporting System (FAERS) Public Dashboard.”</span> <a href="https://www.fda.gov/drugs/drug-approvals-and-databases/fda-adverse-event-reporting-system-faers-database">https://www.fda.gov/drugs/drug-approvals-and-databases/fda-adverse-event-reporting-system-faers-database</a>.
+</div>
+<div id="ref-fda_rems" class="csl-entry" role="listitem">
+———. 2024b. <span>“Risk Evaluation and Mitigation Strategies (REMS).”</span> <a href="https://www.fda.gov/drugs/drug-safety-and-availability/risk-evaluation-and-mitigation-strategies-rems">https://www.fda.gov/drugs/drug-safety-and-availability/risk-evaluation-and-mitigation-strategies-rems</a>.
+</div>
+<div id="ref-fda_pediatric_labeling" class="csl-entry" role="listitem">
+———. 2025. <span>“Pediatric Labeling Changes.”</span> <a href="https://www.fda.gov/science-research/pediatrics/pediatric-labeling-changes">https://www.fda.gov/science-research/pediatrics/pediatric-labeling-changes</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./09-phase3-overview.html" class="pagination-link" aria-label="Phase III: Confirmatory">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./11-statistical-foundations.html" class="pagination-link" aria-label="Statistical Methods for Clinical Trials">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

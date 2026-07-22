@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>1&nbsp; Historical Context and Evolution – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./02-lifecycle.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="1&nbsp; Historical Context and Evolution – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="1&nbsp; Historical Context and Evolution – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-history.html">Part I: Foundations of Clinical Trials</a></li><li class="breadcrumb-item"><a href="./01-history.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-elixir-sulfanilamide-disaster-1937" id="toc-the-elixir-sulfanilamide-disaster-1937" class="nav-link active" data-scroll-target="#the-elixir-sulfanilamide-disaster-1937"><span class="header-section-number">1.1</span> The Elixir Sulfanilamide Disaster (1937)</a></li>
+  <li><a href="#the-nuremberg-code-1947" id="toc-the-nuremberg-code-1947" class="nav-link" data-scroll-target="#the-nuremberg-code-1947"><span class="header-section-number">1.2</span> The Nuremberg Code (1947)</a></li>
+  <li><a href="#the-thalidomide-tragedy-1961-1962" id="toc-the-thalidomide-tragedy-1961-1962" class="nav-link" data-scroll-target="#the-thalidomide-tragedy-1961-1962"><span class="header-section-number">1.3</span> The Thalidomide Tragedy (1961-1962)</a></li>
+  <li><a href="#the-declaration-of-helsinki-1964" id="toc-the-declaration-of-helsinki-1964" class="nav-link" data-scroll-target="#the-declaration-of-helsinki-1964"><span class="header-section-number">1.4</span> The Declaration of Helsinki (1964)</a></li>
+  <li><a href="#the-tuskegee-syphilis-study-1932-1972" id="toc-the-tuskegee-syphilis-study-1932-1972" class="nav-link" data-scroll-target="#the-tuskegee-syphilis-study-1932-1972"><span class="header-section-number">1.5</span> The Tuskegee Syphilis Study (1932-1972)</a></li>
+  <li><a href="#the-belmont-report-1979" id="toc-the-belmont-report-1979" class="nav-link" data-scroll-target="#the-belmont-report-1979"><span class="header-section-number">1.6</span> The Belmont Report (1979)</a></li>
+  <li><a href="#ich-and-global-harmonization-1990s-present" id="toc-ich-and-global-harmonization-1990s-present" class="nav-link" data-scroll-target="#ich-and-global-harmonization-1990s-present"><span class="header-section-number">1.7</span> ICH and Global Harmonization (1990s-Present)</a>
+  <ul class="collapse">
+  <li><a href="#ich-e6-gcp-evolution" id="toc-ich-e6-gcp-evolution" class="nav-link" data-scroll-target="#ich-e6-gcp-evolution">ICH E6 GCP: Evolution</a></li>
+  <li><a href="#the-gcp-principles" id="toc-the-gcp-principles" class="nav-link" data-scroll-target="#the-gcp-principles">The GCP Principles</a></li>
+  </ul></li>
+  <li><a href="#recent-developments-2020s" id="toc-recent-developments-2020s" class="nav-link" data-scroll-target="#recent-developments-2020s"><span class="header-section-number">1.8</span> Recent Developments (2020s)</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-history.html">Part I: Foundations of Clinical Trials</a></li><li class="breadcrumb-item"><a href="./01-history.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-history" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The rules that govern clinical trials were not written in the abstract. They were written after people were harmed. A liquid antibacterial mixed with a toxic solvent killed more than a hundred patients in 1937, many of them children. Nazi physicians ran experiments on concentration camp prisoners without consent. In Tuskegee, researchers watched syphilis progress in Black men for forty years and withheld the cure. Thalidomide left thousands of infants with ruined limbs after their mothers took it for morning sickness. Each failure forced a new protection into law or ethics: safety testing before marketing, voluntary consent, independent review, proof of efficacy. The protocols, monitors, and oversight committees of the modern trial are scar tissue from wounds inflicted on subjects who had no voice.</p>
+<section id="the-elixir-sulfanilamide-disaster-1937" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="the-elixir-sulfanilamide-disaster-1937"><span class="header-section-number">1.1</span> The Elixir Sulfanilamide Disaster (1937)</h2>
+<p>The Elixir Sulfanilamide tragedy of 1937 was the first disaster to demonstrate that commercial drug manufacturing without safety testing could kill on a large scale <span class="citation" data-cites="elixir1937">(<a href="references.html#ref-elixir1937" role="doc-biblioref">U.S. Department of Agriculture 1937</a>)</span>. Sulfanilamide was an effective antibacterial drug, but to create a liquid formulation that would appeal to patients who had difficulty swallowing tablets, the S.E. Massengill Company dissolved the drug in diethylene glycol, a sweet-tasting but toxic industrial solvent related to the ethylene glycol used in antifreeze.</p>
+<p>The consequences were devastating. The Secretary of Agriculture’s report to Congress traced them to a gap in the law <span class="citation" data-cites="elixir1937">(<a href="references.html#ref-elixir1937" role="doc-biblioref">U.S. Department of Agriculture 1937</a>)</span>:</p>
+<blockquote class="blockquote">
+<p>“Before the ‘elixir’ was put on the market, it was tested for flavor but not for its effect on human life. The existing Federal Food and Drugs Act does not require that new drugs be tested before they are placed on sale.”</p>
+</blockquote>
+<p>The report revealed critical failures in the drug development process. The chief chemist testified that <em>no tests were made to determine the toxicity</em> of either the separate ingredients or of the finished product <span class="citation" data-cites="elixir1937">(<a href="references.html#ref-elixir1937" role="doc-biblioref">U.S. Department of Agriculture 1937</a>)</span>. The “control laboratory” merely checked the elixir for <em>appearance, flavor, and fragrance</em>, not safety. The formula used (see <a href="#tbl-elixir-formula" class="quarto-xref">Table&nbsp;<span>1.1</span></a>) was:</p>
+<div id="tbl-elixir-formula" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[50,50]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-elixir-formula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1.1: Elixir Sulfanilamide Formula (1937)
+</figcaption>
+<div aria-describedby="tbl-elixir-formula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ingredient</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sulfanilamide</td>
+<td>58.5 pounds</td>
+</tr>
+<tr class="even">
+<td>Diethylene Glycol</td>
+<td>60 gallons</td>
+</tr>
+<tr class="odd">
+<td>Elixir Flavor</td>
+<td>1 gallon</td>
+</tr>
+<tr class="even">
+<td>Raspberry Extract</td>
+<td>1 pint</td>
+</tr>
+<tr class="odd">
+<td>Saccharin Soluble</td>
+<td>1 pound</td>
+</tr>
+<tr class="even">
+<td>Water</td>
+<td>to make 80 gallons total</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The product was labeled simply as “Elixir Sulfanilamide” with no disclosure of diethylene glycol and no warning of danger <span class="citation" data-cites="elixir1937">(<a href="references.html#ref-elixir1937" role="doc-biblioref">U.S. Department of Agriculture 1937</a>)</span>. Most of the drug was administered on physicians’ prescriptions. Of the 240 gallons manufactured and distributed, all but about 6 gallons were recovered before they could be consumed; that small quantity was enough to kill, and the report to Congress counted 93 deaths in fifteen states as it was written in late 1937 <span class="citation" data-cites="elixir1937">(<a href="references.html#ref-elixir1937" role="doc-biblioref">U.S. Department of Agriculture 1937</a>)</span>. The final toll is generally put at more than 100 people, many of them children <span class="citation" data-cites="fda_sulfanilamide_history">(<a href="references.html#ref-fda_sulfanilamide_history" role="doc-biblioref">Ballentine 1981</a>)</span>.</p>
+<p>Existing law did not require proof of safety before marketing. Seizures had to be based on a technicality: the word “elixir” implies an alcoholic solution, whereas this product was a diethylene glycol solution. Had it been called a “solution,” no charge of violating the law could have been brought.</p>
+<p>Congress responded to the Elixir Sulfanilamide disaster by passing the <em>Federal Food, Drug, and Cosmetic Act of 1938</em>, which for the first time required manufacturers to demonstrate the safety of new drugs before they could be marketed. The 1938 Act left the boundary between physician-prescribed and self-medication drugs unsettled; the <em>Durham-Humphrey Amendment of 1951</em> fixed that line in statute, defining which drugs require a practitioner’s supervision and may be dispensed only on prescription <span class="citation" data-cites="durham_humphrey_1951">(<a href="references.html#ref-durham_humphrey_1951" role="doc-biblioref">United States Congress 1951</a>)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Key Regulatory Outcome
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The 1938 Act established the principle that new drugs must be proven safe through adequate testing before being marketed: a foundation of modern pharmaceutical regulation.</p>
+</div>
+</div>
+</section>
+<section id="the-nuremberg-code-1947" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="the-nuremberg-code-1947"><span class="header-section-number">1.2</span> The Nuremberg Code (1947)</h2>
+<p>The atrocities committed by Nazi physicians during World War II represented the darkest chapter in the history of human experimentation. Doctors conducted horrific experiments on concentration camp prisoners without consent, causing immense suffering and death in the name of “medical science.”</p>
+<p>After the war, a U.S. military tribunal put 23 German physicians and administrators in the dock for war crimes and crimes against humanity. Before naming who was guilty, the judges set down what lawful human research requires. That statement became the <em>Nuremberg Code</em>: ten principles forged in a criminal judgment, not a professional committee <span class="citation" data-cites="nuremberg1949 nuremberg_unc">(<a href="references.html#ref-nuremberg1949" role="doc-biblioref">Nuremberg Military Tribunal 1949</a>; <a href="references.html#ref-nuremberg_unc" role="doc-biblioref">University of North Carolina at Chapel Hill 2024</a>)</span>. The first principle is still the one that matters most: no one may be enrolled without free, informed consent. The rest follow from it. The study must be worth doing, the risks must not outrun the possible gain, the investigators must be competent, and the subject must be free to walk away. If the experiment turns harmful, the physician in charge must stop it.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Nuremberg Code’s emphasis on voluntary consent established the principle that remains central to clinical research ethics today: research subjects must never be coerced and must provide informed consent.</p>
+</div>
+</div>
+</section>
+<section id="the-thalidomide-tragedy-1961-1962" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="the-thalidomide-tragedy-1961-1962"><span class="header-section-number">1.3</span> The Thalidomide Tragedy (1961-1962)</h2>
+<p>Just over a decade after the Nuremberg Code, another tragedy would reshape pharmaceutical regulation. Thalidomide, a sedative marketed in Europe for sleep and nausea (including morning sickness during pregnancy), caused severe birth defects, primarily phocomelia (limb malformations), in an estimated 10,000 infants worldwide.</p>
+<p>In the United States, FDA medical officer Dr.&nbsp;Frances Kelsey refused to approve thalidomide for marketing, citing insufficient safety data. Her diligence prevented widespread tragedy in America, with only 17 cases reported from investigational use.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Regulatory Gap Exposed
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Thalidomide revealed that proving safety alone was insufficient: drugs also needed to demonstrate <em>efficacy</em>. The tragedy also exposed the absence of systematic requirements for studying drug effects during pregnancy and for reporting adverse events.</p>
+</div>
+</div>
+<p>The thalidomide tragedy directly led to the <em>Kefauver-Harris Drug Amendments of 1962</em>, which reshaped pharmaceutical regulation in several key ways (see <a href="#fig-regulatory-timeline" class="quarto-xref">Figure&nbsp;<span>1.1</span></a>):</p>
+<p>The 1962 amendments required manufacturers to prove both safety and efficacy before marketing. Efficacy had to rest on <em>substantial evidence</em> from <em>adequate and well-controlled</em> investigations: the statutory phrase that still anchors modern Phase III practice (<a href="09-phase3-overview.html" class="quarto-xref"><span>Chapter 9</span></a>). Clinical pharmacologist Louis Lasagna was among those who pressed Congress for that standard, testifying that adequately controlled drug comparisons were almost impossible to find under the old regime <span class="citation" data-cites="junod_fda_trials_history">(<a href="references.html#ref-junod_fda_trials_history" role="doc-biblioref">Junod 2008</a>)</span>. The Amendments also required that clinical work be grounded in prior animal studies, established formal Investigational New Drug (IND) applications, and mandated adverse-reaction reporting and informed consent from research subjects.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-regulatory-timeline" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regulatory-timeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-regulatory-timeline">timeline
+    title Evolution of Clinical Trial Regulation
+    1937 : Elixir Sulfanilamide : 100+ deaths
+         : FD&amp;C Act of 1938
+    1947 : Nuremberg Code : ten principles established
+    1951 : Durham-Humphrey Amendment : prescription vs OTC
+    1961-62 : Thalidomide tragedy : 10,000+ birth defects
+           : Kefauver-Harris Amendments
+    1964 : Declaration of Helsinki : WMA guidelines
+    1974 : National Research Act : National Commission created
+    1979 : Belmont Report : three ethical principles
+    1991 : Common Rule : Federal policy unified
+    1996 : ICH E6 GCP : Global harmonization
+    2022-25 : CTIS : EU single submission system
+    2024 : FDA DCT guidance
+    2025 : ICH E6(R3)
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regulatory-timeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: Timeline of Major Regulatory Milestones in Clinical Research
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-declaration-of-helsinki-1964" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="the-declaration-of-helsinki-1964"><span class="header-section-number">1.4</span> The Declaration of Helsinki (1964)</h2>
+<p>In 1964, the <em>World Medical Association (WMA)</em> adopted the Declaration of Helsinki, which built upon the Nuremberg Code to provide more detailed ethical guidance specifically for physicians conducting medical research. Unlike the Nuremberg Code, which emerged from criminal proceedings, the Declaration was developed by the medical profession itself as a statement of ethical principles <span class="citation" data-cites="helsinki2013">(<a href="references.html#ref-helsinki2013" role="doc-biblioref">World Medical Association 2013</a>)</span>.</p>
+<p>The 1964 text built directly on Nuremberg: it distinguished therapeutic from non-therapeutic research, required that studies rest on adequately performed laboratory and animal work and be conducted by scientifically qualified persons, and sharpened the proportionality requirement (research risk must be outweighed by the scientific importance of the objective) from a vague Nuremberg principle into a more operationalized standard. Several protections now regarded as central to the Declaration were added in later revisions rather than in the original: independent committee review of protocols before enrollment entered with the 1975 Tokyo revision (the conceptual ancestor of today’s ethics committees and IRBs), and explicit obligations around trial registration and the publication of results, including negative findings, were strengthened in the revisions of the 2000s.</p>
+<p>The Declaration has been revised multiple times, most recently in 2024, to address emerging ethical issues in clinical research <span class="citation" data-cites="helsinki_2024">(<a href="references.html#ref-helsinki_2024" role="doc-biblioref">World Medical Association 2025</a>)</span>.</p>
+</section>
+<section id="the-tuskegee-syphilis-study-1932-1972" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="the-tuskegee-syphilis-study-1932-1972"><span class="header-section-number">1.5</span> The Tuskegee Syphilis Study (1932-1972)</h2>
+<p>While regulatory frameworks were evolving for pharmaceutical products, ethical failures in government-sponsored research would expose another critical gap. Between 1932 and 1972, the U.S. Public Health Service conducted the Tuskegee Syphilis Study on approximately 600 low-income African-American men in rural Alabama (399 with syphilis and 201 controls without) to observe the natural progression of untreated syphilis.</p>
+<p>Ethical violations were systemic: participants were misled into believing they were being treated for “bad blood,” a local catch-all that obscured syphilis, and after penicillin became standard therapy in the mid-1940s researchers both withheld it and blocked men from getting treatment elsewhere until the study ended in 1972.</p>
+<p>The study’s exposure in 1972 forced major reforms in research ethics and the establishment of systematic oversight mechanisms.</p>
+</section>
+<section id="the-belmont-report-1979" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="the-belmont-report-1979"><span class="header-section-number">1.6</span> The Belmont Report (1979)</h2>
+<p>In response to the Tuskegee study and other ethical violations, the National Commission for the Protection of Human Subjects of Biomedical and Behavioral Research produced the <em>Belmont Report</em> in 1979 <span class="citation" data-cites="belmont1979">(<a href="references.html#ref-belmont1979" role="doc-biblioref">National Commission for the Protection of Human Subjects of Biomedical and Behavioral Research 1979</a>)</span>. This document established three ethical principles (<a href="#tbl-belmont-principles" class="quarto-xref">Table&nbsp;<span>1.2</span></a>) that continue to guide clinical research:</p>
+<div id="tbl-belmont-principles" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[20,40,40]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-belmont-principles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1.2: The Three Principles of the Belmont Report
+</figcaption>
+<div aria-describedby="tbl-belmont-principles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Principle</th>
+<th>Core Requirement</th>
+<th>Application to Research</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Respect for Persons</em></td>
+<td>Individuals should be treated as autonomous agents; persons with diminished autonomy are entitled to protection</td>
+<td><em>Informed consent</em>: Subjects must voluntarily agree to participate with full understanding of risks, benefits, and alternatives. Vulnerable populations require additional protections.</td>
+</tr>
+<tr class="even">
+<td><em>Beneficence</em></td>
+<td>Do not harm; maximize possible benefits and minimize possible harms</td>
+<td><em>Risk-benefit assessment</em>: Research risks must be reasonable in relation to anticipated benefits. Study design must maximize benefits and minimize risks.</td>
+</tr>
+<tr class="odd">
+<td><em>Justice</em></td>
+<td>Fair distribution of research burdens and benefits</td>
+<td><em>Equitable subject selection</em>: The selection of research subjects must be fair. Those who bear the burdens should potentially benefit. Vulnerable groups should not be exploited.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>In the United States, these principles are the ethical foundation for human subjects research. They became binding federal rules through the <em>Federal Policy for the Protection of Human Subjects</em>—the Common Rule—adopted in 1991 and codified for HHS <span class="citation" data-cites="cfr45_46">(<a href="references.html#ref-cfr45_46" role="doc-biblioref">U.S. Department of Health and Human Services 2024</a>)</span>. The Common Rule requires prior IRB review and approval, documented informed consent, and additional protections for pregnant women, prisoners, and children; at adoption it aligned those requirements across fifteen federal departments and agencies. For clinical investigations of drugs and devices, FDA imposes parallel obligations for informed consent and IRB review <span class="citation" data-cites="cfr21_50 cfr21_56">(<a href="references.html#ref-cfr21_50" role="doc-biblioref">U.S. Food and Drug Administration 2023a</a>, <a href="references.html#ref-cfr21_56" role="doc-biblioref">2023b</a>)</span>. The 2018 revision, among other changes, generally requires a single IRB for U.S. multi-site research funded by Common Rule agencies and a concise “key information” section at the start of consent forms. How IRBs exercise that authority in practice is covered in <a href="04-ethics.html" class="quarto-xref"><span>Chapter 4</span></a>. Internationally, the Declaration of Helsinki and the CIOMS guidelines fill the corresponding ethical role.</p>
+</section>
+<section id="ich-and-global-harmonization-1990s-present" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="ich-and-global-harmonization-1990s-present"><span class="header-section-number">1.7</span> ICH and Global Harmonization (1990s-Present)</h2>
+<p>As pharmaceutical development became increasingly global, the need for harmonized standards became clear. The <em>International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH)</em> was established in 1990 to bring together regulatory authorities and pharmaceutical industries from Europe, Japan, and the United States.</p>
+<section id="ich-e6-gcp-evolution" class="level3">
+<h3 class="anchored" data-anchor-id="ich-e6-gcp-evolution">ICH E6 GCP: Evolution</h3>
+<p>The ICH <em>Guideline for Good Clinical Practice (E6)</em> was first adopted in 1996 and established an international ethical and scientific quality standard for designing, conducting, recording, and reporting clinical trials <span class="citation" data-cites="ich_e6">(<a href="references.html#ref-ich_e6" role="doc-biblioref">International Council for Harmonisation 1996</a>)</span>. The guideline has evolved significantly through subsequent revisions: E6(R2) in 2016 introduced risk-based monitoring and quality management systems <span class="citation" data-cites="ich_e6r2_2016">(<a href="references.html#ref-ich_e6r2_2016" role="doc-biblioref">International Council for Harmonisation 2016</a>)</span>, while E6(R3) in 2025 restructured GCP into a Principles document with Annexes, introducing <em>Quality by Design</em>, risk-proportionate oversight, decentralized trial guidance, and technology-neutral data standards <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025b</a>)</span>. This evolution reflects how GCP principles have adapted to increasingly complex and technology-enabled trial designs.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>ICH E6(R3) Implementation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ICH E6(R3) Principles and Annex 1 became effective in the EU on July 23, 2025 <span class="citation" data-cites="ema_iche6r3_2024">(<a href="references.html#ref-ema_iche6r3_2024" role="doc-biblioref">European Medicines Agency 2024</a>)</span>. Annex 2, which addresses decentralized, pragmatic, and other non-traditional interventional trials, reached Step 4 in June 2026 and takes effect in the EU on January 15, 2027.</p>
+</div>
+</div>
+</section>
+<section id="the-gcp-principles" class="level3">
+<h3 class="anchored" data-anchor-id="the-gcp-principles">The GCP Principles</h3>
+<p>GCP rests on ethical foundations from the Declaration of Helsinki. The core requirement is that subject welfare takes priority over scientific objectives. Before trials begin, sponsors must demonstrate that preclinical data justify human testing and that risks are reasonable given expected benefits. Trials require clear protocols, qualified investigators, physician oversight of medical decisions, and adherence to approved procedures throughout.</p>
+<p>Additional principles cover consent documentation, data integrity, participant confidentiality, drug manufacturing standards, and quality management systems.</p>
+</section>
+</section>
+<section id="recent-developments-2020s" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="recent-developments-2020s"><span class="header-section-number">1.8</span> Recent Developments (2020s)</h2>
+<p>The 2020s pushed clinical trials toward a more <em>technology-enabled, participant-centered, and globally harmonized</em> operating model. COVID-19 forced sponsors and sites to redesign “on the fly” for continuity (remote visits, alternative safety labs, local care, shipment logistics, and documentation of protocol deviations), and FDA codified many of these practices in its guidance on trial conduct during the public health emergency <span class="citation" data-cites="fda_covid_conduct_2021">(<a href="references.html#ref-fda_covid_conduct_2021" role="doc-biblioref">U.S. Food and Drug Administration 2021</a>)</span>. Those contingencies then hardened into durable operating patterns. FDA finalized guidance on <em>digital health technologies</em> for remote data acquisition in 2023, stressing verification, validation, data integrity, and operational controls that make remotely collected endpoints usable for regulatory decisions <span class="citation" data-cites="fda_dht_remote_2023">(<a href="references.html#ref-fda_dht_remote_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023d</a>)</span>. In 2024 it followed with a framework for <em>decentralized elements</em>—telehealth and in-home visits, local healthcare providers, direct-to-participant investigational product shipment, and electronic consent—treating decentralization as a set of designable elements rather than an all-or-nothing trial type <span class="citation" data-cites="fda_dct_guidance_2024">(<a href="references.html#ref-fda_dct_guidance_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024c</a>)</span>.</p>
+<p>Methodological change was equally significant. Adaptive and simulation-driven designs, long used in selected programs, moved toward routine options for efficiency and decision quality. Expectations for pre-specified adaptation rules, trial integrity protections, and simulation of operating characteristics had already been set out in FDA’s 2019 adaptive design guidance <span class="citation" data-cites="fda2019adaptive">(<a href="references.html#ref-fda2019adaptive" role="doc-biblioref">U.S. Food and Drug Administration 2019</a>)</span>; the 2020s added broader uptake and international harmonization through the draft ICH E20 guideline (Step 2b, endorsed June 2025), which proposes common vocabulary and best practices, including simulation, multiplicity control, and operational-bias mitigation <span class="citation" data-cites="ich_e20">(<a href="references.html#ref-ich_e20" role="doc-biblioref">International Council for Harmonisation 2025a</a>)</span>.</p>
+<p><em>Bayesian methods</em> received particular regulatory attention. Building on principles FDA had already applied to medical devices <span class="citation" data-cites="fda_bayesian_devices_2010">(<a href="references.html#ref-fda_bayesian_devices_2010" role="doc-biblioref">U.S. Food and Drug Administration 2010</a>)</span>, the agency’s January 2026 draft guidance for drugs and biologics treats Bayesian approaches as appropriate for primary inference, including in trials that borrow external information <span class="citation" data-cites="fda_bayesian_2026">(<a href="references.html#ref-fda_bayesian_2026" role="doc-biblioref">U.S. Food and Drug Administration 2026</a>)</span>. The guidance specifies what sponsors must demonstrate:</p>
+<ul>
+<li>pre-specification of Bayesian success criteria</li>
+<li>evaluation of operating characteristics through simulation</li>
+<li>careful justification of prior distributions (especially when borrowing)</li>
+<li>planned sensitivity analyses for prior-data conflict</li>
+<li>documentation sufficient for regulatory review and reproducibility</li>
+</ul>
+<p>This framework converts “Bayesian acceptability” from an abstract question into a set of reviewable components: decision rules, error control, effective sample size calculations, and computational reproducibility. The practical result is that sponsors increasingly treat trial design as an iterative engineering exercise, stress-testing decision thresholds across realistic scenarios before the first patient is enrolled.</p>
+<p>A third shift has been <em>representation and equity</em>, which the 2022 FDORA statute elevated from aspirational rhetoric to a statutory requirement. FDA’s draft guidance on <em>Diversity Action Plans</em>, issued under FDORA, describes when plans are required, what they must contain, how waivers are evaluated, and how sponsors should translate enrollment goals into actionable recruitment and retention strategies <span class="citation" data-cites="fda_diversity_action_plans_2024">(<a href="references.html#ref-fda_diversity_action_plans_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024a</a>)</span>. The regulatory framing has since become contested. FDA removed the draft Diversity Action Plans guidance from its website after the January 2025 executive order on diversity programs, restored it weeks later under court order, and let the statutory deadline for the final Diversity Action Plans guidance pass without issuing it <span class="citation" data-cites="fda_dap_status_2025">(<a href="references.html#ref-fda_dap_status_2025" role="doc-biblioref">Grossi 2025</a>)</span>. A separate document, FDA’s December 2025 final guidance on trial participation (a revision of its long-standing eligibility-criteria guidance, issued under a different statutory mandate), retains the expectation of representative enrollment while dropping the ‘diversity’ framing <span class="citation" data-cites="fda_eligibility_2025">(<a href="references.html#ref-fda_eligibility_2025" role="doc-biblioref">U.S. Food and Drug Administration 2025</a>)</span>. At the same time, the growing use of master protocols and platform approaches, accelerated by COVID-era experience, has been accompanied by regulatory efforts to standardize expectations around governance, control of multiplicity, and interpretability across continuously evolving trial infrastructures <span class="citation" data-cites="fda_master_protocols_2023">(<a href="references.html#ref-fda_master_protocols_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023e</a>)</span>.</p>
+<p>Automation became a structural response to scale and complexity. Risk-based quality management (RBQM) and centralized monitoring matured into analytics-first oversight models, supported by statistical anomaly detection and machine learning to prioritize site follow-up, target source data verification, and detect data quality and compliance risks earlier <span class="citation" data-cites="acro_rbqm_2025">(<a href="references.html#ref-acro_rbqm_2025" role="doc-biblioref">Association of Clinical Research Organizations 2025</a>)</span>. Across the clinical operations stack, AI/ML is being applied to protocol authoring and feasibility, patient-to-trial matching, safety case triage, and Trial Master File processing; the market growth of AI tooling in clinical trials reflects that these capabilities are moving from pilot projects into production workflows <span class="citation" data-cites="fortune_ai_clinical_2024">(<a href="references.html#ref-fortune_ai_clinical_2024" role="doc-biblioref">Fortune Business Insights 2024</a>)</span>. This trend does not remove the need for human accountability. It shifts effort toward governance, validation, and auditability so automated decisions can be explained and defended.</p>
+<p>AI/ML has also reshaped <em>evidence generation</em>, not just operations. The availability of large-scale electronic health record (EHR) and claims datasets made externally controlled analyses and hybrid designs more common, but only when the underlying data are demonstrably “fit for purpose.” FDA’s 2023 guidance on using real-world data (RWD) and real-world evidence (RWE) lays out how sponsors should justify data relevance, reliability, and analytic validity for regulatory decisions <span class="citation" data-cites="fda_rwe_considerations_2023">(<a href="references.html#ref-fda_rwe_considerations_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023c</a>)</span>. In 2024, FDA finalized more prescriptive guidance on assessing EHR and medical claims sources for regulatory-grade use, reflecting a shift from “RWE is promising” to “RWE is acceptable when you can prove provenance, completeness, linkage quality, and outcome ascertainment” <span class="citation" data-cites="fda_rwd_ehr_claims_2024">(<a href="references.html#ref-fda_rwd_ehr_claims_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024b</a>)</span>. Practically, this opens the door to more credible external controls, contextualization of single-arm studies, and post-market effectiveness/safety questions, while raising the bar for data engineering, bias assessment, and reproducibility.</p>
+<p>A further transition is emerging: from <em>automation as a feature</em> to <em>automation as an operating model</em>. The concept of “agentic AI” (systems that can plan, execute, and verify multi-step workflows rather than simply generate text) is beginning to appear in clinical operations, though governance lags behind capability. The regulatory question is not whether AI can draft a protocol section or flag a safety signal, but whether it can do so in a way that preserves data integrity, produces audit-ready traces, and keeps humans accountable for decisions that affect participant safety. Standards bodies and regulators are adapting: NIST’s AI Risk Management Framework (2023) provides a structure for identifying hazards and implementing controls <span class="citation" data-cites="nist_ai_rmf_2023">(<a href="references.html#ref-nist_ai_rmf_2023" role="doc-biblioref">National Institute of Standards and Technology 2023</a>)</span>, while earlier human-AI interaction guidelines still emphasize making uncertainty visible and supporting oversight <span class="citation" data-cites="amershi_hai_guidelines_2019">(<a href="references.html#ref-amershi_hai_guidelines_2019" role="doc-biblioref">Amershi et al. 2019</a>)</span>. The practical implication is that sponsors deploying AI must now budget for governance (validation, monitoring, and documentation) just as they budget for the software itself.</p>
+<p>In Europe, the 2020s turned the <em>Clinical Trials Regulation</em> (adopted in 2014) into working infrastructure. The <em>Clinical Trials Information System (CTIS)</em> became the single submission and coordinated-assessment channel for multinational trials, with a public transparency layer; it went live on January 31, 2022, became mandatory for new applications on January 31, 2023, and completed transition of legacy trials by January 31, 2025 <span class="citation" data-cites="ema_ctr_ctis">(<a href="references.html#ref-ema_ctr_ctis" role="doc-biblioref">European Medicines Agency 2022</a>)</span>.</p>
+<p>Remote visits, CTIS portals, and model-assisted monitoring change how trials run. They do not change what the history in this chapter was for: keeping subjects from being harmed so that someone else can finish a study.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-amershi_hai_guidelines_2019" class="csl-entry" role="listitem">
+Amershi, Saleema, Dan Weld, Mihaela Vorvoreanu, Adam Fourney, Besmira Nushi, Penny Collisson, Jina Suh, et al. 2019. <span>“Guidelines for Human-AI Interaction.”</span> In <em>Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems</em>, 1–13. <a href="https://doi.org/10.1145/3290605.3300233">https://doi.org/10.1145/3290605.3300233</a>.
+</div>
+<div id="ref-acro_rbqm_2025" class="csl-entry" role="listitem">
+Association of Clinical Research Organizations. 2025. <span>“2025 Risk-Based Quality Management (RBQM) Summary Report.”</span> <a href="https://www.acrohealth.org/wp-content/uploads/2025/06/ACRO_2025-RBQM-Report_Final-062425.pdf">https://www.acrohealth.org/wp-content/uploads/2025/06/ACRO_2025-RBQM-Report_Final-062425.pdf</a>.
+</div>
+<div id="ref-fda_sulfanilamide_history" class="csl-entry" role="listitem">
+Ballentine, Carol. 1981. <span>“Taste of Raspberries, Taste of Death: The 1937 Elixir Sulfanilamide Incident.”</span> FDA Consumer. <a href="https://www.fda.gov/files/about%20fda/published/The-Sulfanilamide-Disaster.pdf">https://www.fda.gov/files/about%20fda/published/The-Sulfanilamide-Disaster.pdf</a>.
+</div>
+<div id="ref-ema_ctr_ctis" class="csl-entry" role="listitem">
+European Medicines Agency. 2022. <span>“Clinical Trials Regulation (EU) No 536/2014 and Clinical Trials Information System (CTIS).”</span> <a href="https://www.ema.europa.eu/en/human-regulatory/research-development/clinical-trials/clinical-trials-regulation">https://www.ema.europa.eu/en/human-regulatory/research-development/clinical-trials/clinical-trials-regulation</a>.
+</div>
+<div id="ref-ema_iche6r3_2024" class="csl-entry" role="listitem">
+———. 2024. <span>“ICH E6(R3) Good Clinical Practice Guidelines.”</span> <a href="https://www.ema.europa.eu/en/ich-e6-good-clinical-practice-scientific-guideline">https://www.ema.europa.eu/en/ich-e6-good-clinical-practice-scientific-guideline</a>.
+</div>
+<div id="ref-fortune_ai_clinical_2024" class="csl-entry" role="listitem">
+Fortune Business Insights. 2024. <span>“AI in Clinical Trials Market Size, Share &amp; Industry Analysis.”</span> <a href="https://www.fortunebusinessinsights.com/ai-in-clinical-trials-market-114081">https://www.fortunebusinessinsights.com/ai-in-clinical-trials-market-114081</a>.
+</div>
+<div id="ref-fda_dap_status_2025" class="csl-entry" role="listitem">
+Grossi, Giuliana. 2025. <span>“FDA Quietly Removes Draft Guidance on Diversity in Clinical Trials Following Executive Order on DEI.”</span> The American Journal of Managed Care (AJMC). <a href="https://www.ajmc.com/view/fda-quietly-removes-draft-guidance-on-diversity-in-clinical-trials-following-executive-order-on-dei">https://www.ajmc.com/view/fda-quietly-removes-draft-guidance-on-diversity-in-clinical-trials-following-executive-order-on-dei</a>.
+</div>
+<div id="ref-ich_e6" class="csl-entry" role="listitem">
+International Council for Harmonisation. 1996. <span>“ICH Harmonised Tripartite Guideline: Guideline for Good Clinical Practice E6(R1).”</span> <a href="https://www.ema.europa.eu/en/documents/scientific-guideline/ich-e6-r1-guideline-good-clinical-practice_en.pdf">https://www.ema.europa.eu/en/documents/scientific-guideline/ich-e6-r1-guideline-good-clinical-practice_en.pdf</a>.
+</div>
+<div id="ref-ich_e6r2_2016" class="csl-entry" role="listitem">
+———. 2016. <span>“<span>ICH E6(R2)</span>: Integrated Addendum to ICH E6(R1) - Guideline for Good Clinical Practice.”</span> <a href="https://database.ich.org/sites/default/files/E6_R2_Addendum.pdf">https://database.ich.org/sites/default/files/E6_R2_Addendum.pdf</a>.
+</div>
+<div id="ref-ich_e20" class="csl-entry" role="listitem">
+———. 2025a. <span>“E20 Adaptive Designs for Clinical Trials.”</span> <a href="https://www.ema.europa.eu/en/ich-e20-adaptive-designs-clinical-trials-scientific-guideline">https://www.ema.europa.eu/en/ich-e20-adaptive-designs-clinical-trials-scientific-guideline</a>.
+</div>
+<div id="ref-ich_e6r3_2025" class="csl-entry" role="listitem">
+———. 2025b. <span>“<span>ICH E6(R3)</span>: Guideline for Good Clinical Practice (GCP).”</span> <a href="https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf">https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf</a>.
+</div>
+<div id="ref-junod_fda_trials_history" class="csl-entry" role="listitem">
+Junod, Suzanne White. 2008. <span>“<span>FDA</span> and Clinical Drug Trials: A Short History.”</span> U.S. Food and Drug Administration. <a href="https://www.fda.gov/media/110437/download">https://www.fda.gov/media/110437/download</a>.
+</div>
+<div id="ref-belmont1979" class="csl-entry" role="listitem">
+National Commission for the Protection of Human Subjects of Biomedical and Behavioral Research. 1979. <span>“The Belmont Report: Ethical Principles and Guidelines for the Protection of Human Subjects of Research.”</span> <a href="https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html">https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html</a>.
+</div>
+<div id="ref-nist_ai_rmf_2023" class="csl-entry" role="listitem">
+National Institute of Standards and Technology. 2023. <span>“Artificial Intelligence Risk Management Framework (AI RMF 1.0).”</span> <a href="https://www.nist.gov/itl/ai-risk-management-framework">https://www.nist.gov/itl/ai-risk-management-framework</a>.
+</div>
+<div id="ref-nuremberg1949" class="csl-entry" role="listitem">
+Nuremberg Military Tribunal. 1949. <span>“The Nuremberg Code.”</span> <a href="https://collections.nlm.nih.gov/catalog/nlm:nlmuid-01130400RX2-mvpart">https://collections.nlm.nih.gov/catalog/nlm:nlmuid-01130400RX2-mvpart</a>.
+</div>
+<div id="ref-durham_humphrey_1951" class="csl-entry" role="listitem">
+United States Congress. 1951. <span>“An Act to Amend Section 503(b) of the Federal Food, Drug, and Cosmetic Act (Durham-Humphrey Amendment).”</span> <a href="https://www.govinfo.gov/content/pkg/STATUTE-65/pdf/STATUTE-65-Pg648.pdf">https://www.govinfo.gov/content/pkg/STATUTE-65/pdf/STATUTE-65-Pg648.pdf</a>.
+</div>
+<div id="ref-nuremberg_unc" class="csl-entry" role="listitem">
+University of North Carolina at Chapel Hill. 2024. <span>“Nuremberg Code.”</span> <a href="https://research.unc.edu/human-research-ethics/resources/ccm3_019064/">https://research.unc.edu/human-research-ethics/resources/ccm3_019064/</a>.
+</div>
+<div id="ref-elixir1937" class="csl-entry" role="listitem">
+U.S. Department of Agriculture. 1937. <span>“Report of the Secretary of Agriculture on Deaths Due to Elixir Sulfanilamide-Massengill.”</span>
+</div>
+<div id="ref-cfr45_46" class="csl-entry" role="listitem">
+U.S. Department of Health and Human Services. 2024. <span>“45 CFR Part 46: Protection of Human Subjects (Common Rule).”</span> <a href="https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-46">https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-46</a>.
+</div>
+<div id="ref-fda_bayesian_devices_2010" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2010. <span>“Guidance for the Use of <span>Bayesian</span> Statistics in Medical Device Clinical Trials.”</span> U.S. Food; Drug Administration. <a href="https://www.fda.gov/media/71512/download">https://www.fda.gov/media/71512/download</a>.
+</div>
+<div id="ref-fda2019adaptive" class="csl-entry" role="listitem">
+———. 2019. <span>“Adaptive Designs for Clinical Trials of Drugs and Biologics: Guidance for Industry.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/adaptive-design-clinical-trials-drugs-and-biologics-guidance-industry">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/adaptive-design-clinical-trials-drugs-and-biologics-guidance-industry</a>.
+</div>
+<div id="ref-fda_covid_conduct_2021" class="csl-entry" role="listitem">
+———. 2021. <span>“Conduct of Clinical Trials of Medical Products During the COVID-19 Public Health Emergency: Guidance for Industry, Investigators, and Institutional Review Boards.”</span> <a href="https://www.fda.gov/media/137496/download">https://www.fda.gov/media/137496/download</a>.
+</div>
+<div id="ref-cfr21_50" class="csl-entry" role="listitem">
+———. 2023a. <span>“21 CFR Part 50: Protection of Human Subjects.”</span> <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-50">https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-50</a>.
+</div>
+<div id="ref-cfr21_56" class="csl-entry" role="listitem">
+———. 2023b. <span>“21 CFR Part 56: Institutional Review Boards.”</span> <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-56">https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-56</a>.
+</div>
+<div id="ref-fda_rwe_considerations_2023" class="csl-entry" role="listitem">
+———. 2023c. <span>“Considerations for the Use of Real-World Data and Real-World Evidence to Support Regulatory Decision-Making for Drug and Biological Products.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-real-world-data-and-real-world-evidence-support-regulatory-decision-making-drug">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-real-world-data-and-real-world-evidence-support-regulatory-decision-making-drug</a>.
+</div>
+<div id="ref-fda_dht_remote_2023" class="csl-entry" role="listitem">
+———. 2023d. <span>“Digital Health Technologies for Remote Data Acquisition in Clinical Investigations.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/digital-health-technologies-remote-data-acquisition-clinical-investigations">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/digital-health-technologies-remote-data-acquisition-clinical-investigations</a>.
+</div>
+<div id="ref-fda_master_protocols_2023" class="csl-entry" role="listitem">
+———. 2023e. <span>“Master Protocols for Drug and Biological Product Development: Guidance for Industry.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/master-protocols-drug-and-biological-product-development">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/master-protocols-drug-and-biological-product-development</a>.
+</div>
+<div id="ref-fda_diversity_action_plans_2024" class="csl-entry" role="listitem">
+———. 2024a. <span>“Diversity Action Plans to Improve Enrollment of Participants from Underrepresented Populations in Clinical Studies: Guidance for Industry.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/diversity-action-plans-improve-enrollment-participants-underrepresented-populations-clinical-studies">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/diversity-action-plans-improve-enrollment-participants-underrepresented-populations-clinical-studies</a>.
+</div>
+<div id="ref-fda_rwd_ehr_claims_2024" class="csl-entry" role="listitem">
+———. 2024b. <span>“Real-World Data: Assessing Electronic Health Records and Medical Claims Data to Support Regulatory Decision-Making for Drug and Biological Products.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/real-world-data-assessing-electronic-health-records-and-medical-claims-data-support-regulatory">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/real-world-data-assessing-electronic-health-records-and-medical-claims-data-support-regulatory</a>.
+</div>
+<div id="ref-fda_dct_guidance_2024" class="csl-entry" role="listitem">
+———. 2024c. <span>“Conducting Clinical Trials with Decentralized Elements.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/conducting-clinical-trials-decentralized-elements">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/conducting-clinical-trials-decentralized-elements</a>.
+</div>
+<div id="ref-fda_eligibility_2025" class="csl-entry" role="listitem">
+———. 2025. <span>“Enhancing Participation in Clinical Trials: Eligibility Criteria, Enrollment Practices, and Trial Designs.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/enhancing-participation-clinical-trials-eligibility-criteria-enrollment-practices-and-trial-designs">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/enhancing-participation-clinical-trials-eligibility-criteria-enrollment-practices-and-trial-designs</a>.
+</div>
+<div id="ref-fda_bayesian_2026" class="csl-entry" role="listitem">
+———. 2026. <span>“Use of <span>Bayesian</span> Methodology in Clinical Trials of Drug and Biological Products.”</span> U.S. Food; Drug Administration. <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-bayesian-methodology-clinical-trials-drug-and-biological-products">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-bayesian-methodology-clinical-trials-drug-and-biological-products</a>.
+</div>
+<div id="ref-helsinki2013" class="csl-entry" role="listitem">
+World Medical Association. 2013. <span>“Declaration of Helsinki: Ethical Principles for Medical Research Involving Human Subjects.”</span> <a href="https://www.wma.net/policies-post/wma-declaration-of-helsinki/">https://www.wma.net/policies-post/wma-declaration-of-helsinki/</a>.
+</div>
+<div id="ref-helsinki_2024" class="csl-entry" role="listitem">
+———. 2025. <span>“World Medical Association Declaration of Helsinki: Ethical Principles for Medical Research Involving Human Participants.”</span> <em>JAMA</em> 333 (1): 71–74. <a href="https://doi.org/10.1001/jama.2024.21972">https://doi.org/10.1001/jama.2024.21972</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./02-lifecycle.html" class="pagination-link" aria-label="Lifecycle of a Clinical Trial">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

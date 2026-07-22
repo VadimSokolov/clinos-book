@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>11&nbsp; Statistical Methods for Clinical Trials – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./11-statistical-methods.html" rel="next">
+<link href="./10-phase4.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="11&nbsp; Statistical Methods for Clinical Trials – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="11&nbsp; Statistical Methods for Clinical Trials – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./11-statistical-foundations.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#hypothesis-testing-and-error-control" id="toc-hypothesis-testing-and-error-control" class="nav-link active" data-scroll-target="#hypothesis-testing-and-error-control"><span class="header-section-number">11.1</span> Hypothesis Testing and Error Control</a>
+  <ul class="collapse">
+  <li><a href="#the-itt-principle-and-the-estimands-framework" id="toc-the-itt-principle-and-the-estimands-framework" class="nav-link" data-scroll-target="#the-itt-principle-and-the-estimands-framework">The ITT Principle and the Estimands Framework</a></li>
+  </ul></li>
+  <li><a href="#survival-analysis" id="toc-survival-analysis" class="nav-link" data-scroll-target="#survival-analysis"><span class="header-section-number">11.2</span> Survival Analysis</a>
+  <ul class="collapse">
+  <li><a href="#kaplan-meier-estimator" id="toc-kaplan-meier-estimator" class="nav-link" data-scroll-target="#kaplan-meier-estimator">Kaplan-Meier Estimator</a></li>
+  <li><a href="#log-rank-test" id="toc-log-rank-test" class="nav-link" data-scroll-target="#log-rank-test">Log-Rank Test</a></li>
+  <li><a href="#cox-proportional-hazards-model" id="toc-cox-proportional-hazards-model" class="nav-link" data-scroll-target="#cox-proportional-hazards-model">Cox Proportional Hazards Model</a></li>
+  <li><a href="#competing-risks" id="toc-competing-risks" class="nav-link" data-scroll-target="#competing-risks">Competing Risks</a></li>
+  </ul></li>
+  <li><a href="#repeated-measures-and-longitudinal-data" id="toc-repeated-measures-and-longitudinal-data" class="nav-link" data-scroll-target="#repeated-measures-and-longitudinal-data"><span class="header-section-number">11.3</span> Repeated Measures and Longitudinal Data</a>
+  <ul class="collapse">
+  <li><a href="#ancova-for-single-timepoint-outcomes" id="toc-ancova-for-single-timepoint-outcomes" class="nav-link" data-scroll-target="#ancova-for-single-timepoint-outcomes">ANCOVA for Single-Timepoint Outcomes</a></li>
+  <li><a href="#mixed-model-for-repeated-measures-mmrm" id="toc-mixed-model-for-repeated-measures-mmrm" class="nav-link" data-scroll-target="#mixed-model-for-repeated-measures-mmrm">Mixed Model for Repeated Measures (MMRM)</a></li>
+  </ul></li>
+  <li><a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data"><span class="header-section-number">11.4</span> Missing Data</a>
+  <ul class="collapse">
+  <li><a href="#the-mcarmarmnar-taxonomy" id="toc-the-mcarmarmnar-taxonomy" class="nav-link" data-scroll-target="#the-mcarmarmnar-taxonomy">The MCAR/MAR/MNAR Taxonomy</a></li>
+  <li><a href="#multiple-imputation" id="toc-multiple-imputation" class="nav-link" data-scroll-target="#multiple-imputation">Multiple Imputation</a></li>
+  <li><a href="#sensitivity-analyses" id="toc-sensitivity-analyses" class="nav-link" data-scroll-target="#sensitivity-analyses">Sensitivity Analyses</a></li>
+  </ul></li>
+  <li><a href="#sec-alpha-spending" id="toc-sec-alpha-spending" class="nav-link" data-scroll-target="#sec-alpha-spending"><span class="header-section-number">11.5</span> Group-Sequential Designs and Alpha Allocation</a></li>
+  <li><a href="#smart-designs-and-dynamic-treatment-regimes" id="toc-smart-designs-and-dynamic-treatment-regimes" class="nav-link" data-scroll-target="#smart-designs-and-dynamic-treatment-regimes"><span class="header-section-number">11.6</span> SMART Designs and Dynamic Treatment Regimes</a>
+  <ul class="collapse">
+  <li><a href="#the-smart-design" id="toc-the-smart-design" class="nav-link" data-scroll-target="#the-smart-design">The SMART Design</a></li>
+  <li><a href="#key-applications" id="toc-key-applications" class="nav-link" data-scroll-target="#key-applications">Key Applications</a></li>
+  <li><a href="#when-smart-designs-are-appropriate" id="toc-when-smart-designs-are-appropriate" class="nav-link" data-scroll-target="#when-smart-designs-are-appropriate">When SMART Designs Are Appropriate</a></li>
+  </ul></li>
+  <li><a href="#causal-inference-from-trials-to-real-world-evidence" id="toc-causal-inference-from-trials-to-real-world-evidence" class="nav-link" data-scroll-target="#causal-inference-from-trials-to-real-world-evidence"><span class="header-section-number">11.7</span> Causal Inference: From Trials to Real-World Evidence</a>
+  <ul class="collapse">
+  <li><a href="#the-potential-outcomes-framework" id="toc-the-potential-outcomes-framework" class="nav-link" data-scroll-target="#the-potential-outcomes-framework">The Potential Outcomes Framework</a></li>
+  <li><a href="#propensity-score-methods" id="toc-propensity-score-methods" class="nav-link" data-scroll-target="#propensity-score-methods">Propensity Score Methods</a></li>
+  <li><a href="#target-trial-emulation" id="toc-target-trial-emulation" class="nav-link" data-scroll-target="#target-trial-emulation">Target Trial Emulation</a></li>
+  <li><a href="#marginal-structural-models" id="toc-marginal-structural-models" class="nav-link" data-scroll-target="#marginal-structural-models">Marginal Structural Models</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./11-statistical-foundations.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-statistical-methods" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>D.R. Cox, in his foundational <em>Planning of Experiments</em> <span class="citation" data-cites="cox1958planning">(<a href="references.html#ref-cox1958planning" role="doc-biblioref">Cox 1958</a>)</span>, describes clinical trials as operating in the domain of “large uncontrolled variations.” In physics, once the apparatus is working correctly, closely reproducible results emerge: uncontrolled variation is small relative to the effect being measured. Clinical trials face a different reality. Any given patient’s outcome swings with the natural history of disease, environmental factors, the psychological response to treatment, and the supportive care received. The effect of a new drug, often only a modest improvement over existing therapy, has to be distinguished from that underlying variation. This chapter describes the statistical toolkit developed to solve that problem.</p>
+<p>The toolkit divides naturally into two chapters. This chapter covers the frequentist core: hypothesis testing and error control, survival analysis, repeated-measures models, missing data, and group-sequential designs. It also covers two modern extensions whose methods cut across inferential frameworks: dynamic treatment regimes (SMART designs) and causal inference for observational and hybrid evidence. The following chapter (<a href="11-statistical-methods.html" class="quarto-xref"><span>Chapter 12</span></a>) covers Bayesian and adaptive methods: predictive probability, response-adaptive randomization, platform trials, and hierarchical borrowing.</p>
+<section id="hypothesis-testing-and-error-control" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="hypothesis-testing-and-error-control"><span class="header-section-number">11.1</span> Hypothesis Testing and Error Control</h2>
+<p>Clinical trials are designed for <em>comparison</em>, not absolute measurement. A five-year survival rate of 40% tells us little without knowing what would have happened without the treatment. The <em>treatment effect</em> (the difference in outcomes between the investigational arm and the control arm) is what we seek to estimate and test.</p>
+<p>The frequentist framework structures this comparison around two hypotheses. The <em>null hypothesis</em> (<span class="math inline">\(H_0\)</span>) is the default assumption of no treatment difference. The <em>alternative hypothesis</em> (<span class="math inline">\(H_1\)</span>) is the claim that a difference exists. The trial’s statistical analysis produces a <em>p-value</em>: the probability of observing results at least as extreme as those seen, assuming <span class="math inline">\(H_0\)</span> is true. If the p-value falls below a pre-specified threshold <span class="math inline">\(\alpha\)</span>, we reject <span class="math inline">\(H_0\)</span> and conclude the treatment has an effect.</p>
+<p>Two types of decision error matter:</p>
+<p><em>Type I error</em> (false positive): concluding the drug works when it does not. Regulators mandate a strict upper bound on this probability, typically <span class="math inline">\(\alpha = 0.025\)</span> one-sided (or 0.05 two-sided). A trial significant at <span class="math inline">\(p &lt; 0.025\)</span> one-sided is meeting a standard that limits falsely approving ineffective drugs to at most 2.5 per 100 trials of ineffective agents.</p>
+<p><em>Type II error</em> (false negative): failing to detect a drug that genuinely works. The probability of <em>avoiding</em> Type II error is <em>power</em>: the trial’s ability to correctly identify an effective drug. Trials are typically designed for 80% or 90% power.</p>
+<p><em>Sample size</em> is determined by three inputs: the minimum clinically important difference (MCID, the smallest effect worth detecting), the desired power, and the tolerated Type I error. Precision improves only with the square root of sample size: to halve the standard error (and so double the precision), sample size must quadruple. This is why large Phase III trials are expensive and why design efficiency (reducing variability through stratification, using continuous rather than binary endpoints, or fitting a covariate-adjustment model) can meaningfully reduce required enrollment.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="What a p-value does and does not say">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What a p-value does and does not say
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A p-value of 0.01 does not mean there is a 99% chance the drug works. It means that if the drug truly had no effect, we would see results this extreme only 1% of the time by chance. The frequentist framework controls error rates over many hypothetical repetitions; it does not directly state the probability that <em>this particular drug</em> is effective. Surveys consistently show that even experienced researchers misinterpret p-values <span class="citation" data-cites="wasserstein2016asa_pvalue goodman2008dirty_dozen">(<a href="references.html#ref-wasserstein2016asa_pvalue" role="doc-biblioref">Wasserstein and Lazar 2016</a>; <a href="references.html#ref-goodman2008dirty_dozen" role="doc-biblioref">Goodman 2008</a>)</span>. Bayesian methods (<a href="11-statistical-methods.html" class="quarto-xref"><span>Chapter 12</span></a>) address this by directly computing posterior probabilities.</p>
+</div>
+</div>
+<section id="the-itt-principle-and-the-estimands-framework" class="level3">
+<h3 class="anchored" data-anchor-id="the-itt-principle-and-the-estimands-framework">The ITT Principle and the Estimands Framework</h3>
+<p>For decades, the <em>Intent-to-Treat</em> (ITT) principle governed trial analysis: include every patient according to their randomization assignment, regardless of whether they actually received the treatment or completed the study. A patient randomized to the drug arm who never took a single dose is still analyzed in the drug arm. ITT is conservative (it tends to underestimate treatment effects) but it preserves the benefits of randomization and prevents manipulation of results by selectively excluding patients.</p>
+<p>ITT does not, however, always answer the clinical question of greatest interest. The ICH E9(R1) addendum introduced the <em>estimands framework</em> <span class="citation" data-cites="ich_e9_r1">(<a href="references.html#ref-ich_e9_r1" role="doc-biblioref">International Council for Harmonisation 2019</a>)</span>, which requires sponsors to explicitly specify five elements of the treatment comparison: the population, the treatment and control, the endpoint variable, how <em>intercurrent events</em> will be handled, and the population-level summary measure. Intercurrent events (things that happen after randomization and affect interpretation, such as treatment discontinuation, rescue medication use, or crossover) cannot be silently swept under the rug. Different handling strategies answer different clinical questions:</p>
+<ul>
+<li><strong>Treatment policy strategy</strong> (closest to ITT): outcome is measured regardless of intercurrent events. Estimates the effect of the treatment <em>policy</em> (“start on Drug X”), not necessarily the effect of the drug itself.</li>
+<li><strong>Hypothetical strategy</strong>: estimates what would have happened if the intercurrent event had not occurred. Requires modeling assumptions about unobserved outcomes.</li>
+<li><strong>Principal stratum strategy</strong>: estimates the effect within the subpopulation defined by how patients would respond to the intercurrent event (for example, those who would remain adherent regardless of which arm they were assigned to). That stratum is a well-defined causal subgroup, but membership is not directly observed and must be inferred from baseline characteristics.</li>
+<li><strong>Composite variable strategy</strong>: folds the intercurrent event into the endpoint itself, so that experiencing it (for example, treatment discontinuation or death) counts as a specified, usually unfavorable, outcome. Common when the event is itself a marker of treatment failure.</li>
+<li><strong>While-on-treatment strategy</strong>: restricts analysis to the period of treatment. Answers “what is the effect while the patient is actually taking the drug?”</li>
+</ul>
+<p>The estimands framework forces clarity before data collection: you cannot retrospectively choose the strategy that makes results look better. It also aligns the statistical analysis with the regulatory claim being sought, since different strategies support different label language. The interaction between estimands and endpoint choice is covered in <a href="15-endpoints.html" class="quarto-xref"><span>Chapter 17</span></a>.</p>
+</section>
+</section>
+<section id="survival-analysis" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="survival-analysis"><span class="header-section-number">11.2</span> Survival Analysis</h2>
+<p>Time-to-event endpoints are the workhorses of Phase III oncology, cardiovascular, and infectious disease trials. Rather than recording whether an event occurred by a fixed date (a binary endpoint that discards timing information), survival analysis models the time until an event of interest: death, disease progression, hospitalization, or relapse.</p>
+<p><em>Censoring</em> is the key technical challenge. A patient who is still alive at the end of the trial, or who was lost to follow-up, has not experienced the event, but we know they survived <em>at least</em> until their last observation. This partial information is called a <em>censored</em> observation and must be handled correctly, not discarded.</p>
+<section id="kaplan-meier-estimator" class="level3">
+<h3 class="anchored" data-anchor-id="kaplan-meier-estimator">Kaplan-Meier Estimator</h3>
+<p>The Kaplan-Meier (KM) estimator <span class="citation" data-cites="kaplan1958nonparametric">(<a href="references.html#ref-kaplan1958nonparametric" role="doc-biblioref">Kaplan and Meier 1958</a>)</span> is the standard method for plotting and describing survival experience in a trial arm. It estimates the probability of surviving beyond each observed event time, accounting for censoring. KM curves are the visual signature of most Phase III oncology and cardiovascular publications.</p>
+<p>Key properties of KM curves that every trial team should understand:</p>
+<ul>
+<li>The curve drops only at times when events actually occur; censored observations cause a tick mark but no step.</li>
+<li>The width of the confidence band (and the reliability of the curve) deteriorates toward the right, where fewer patients remain at risk. Median survival has narrower uncertainty than 5-year survival if most events occur in the first few years.</li>
+<li>Comparing two KM curves visually can be misleading when curves cross, because a single summary statistic (hazard ratio) may hide clinically important patterns of early benefit and late harm or vice versa.</li>
+</ul>
+</section>
+<section id="log-rank-test" class="level3">
+<h3 class="anchored" data-anchor-id="log-rank-test">Log-Rank Test</h3>
+<p>The log-rank test is the standard significance test for comparing two survival curves. It asks: did the two groups experience events at the same rate over time? The test is distribution-free (no parametric assumptions about survival times) and maximally sensitive when the proportional hazards assumption holds.</p>
+<p>When curves cross or diverge late, the log-rank test can be insensitive. <em>Weighted log-rank tests</em> (Fleming-Harrington family) place more or less weight on early versus late events, targeting the test toward the timing of expected benefit. For immunotherapy trials, where effects often emerge slowly, up-weighting late events (equivalently, down-weighting early ones) can improve power.</p>
+</section>
+<section id="cox-proportional-hazards-model" class="level3">
+<h3 class="anchored" data-anchor-id="cox-proportional-hazards-model">Cox Proportional Hazards Model</h3>
+<p>The Cox model <span class="citation" data-cites="cox1972regression">(<a href="references.html#ref-cox1972regression" role="doc-biblioref">Cox 1972</a>)</span> is the most widely used regression model for survival data. It estimates the effect of treatment (and covariates) on the <em>hazard</em> (the instantaneous rate of experiencing the event at each point in time, among those who have survived to that point).</p>
+<p>The model produces a <em>hazard ratio</em> (HR): the ratio of the hazard in the treatment arm to the hazard in the control arm. An HR of 0.75 means patients on treatment experience the event at 75% of the rate of controls at any given moment, a 25% reduction in the hazard.</p>
+<p>The <em>proportional hazards (PH) assumption</em> states that the HR is constant over time. This is testable (Schoenfeld residuals, scaled Schoenfeld plots) and should be checked. When it is violated, the HR is still estimable but represents an average over time rather than a stable effect size. Alternatives for non-proportional hazards include restricted mean survival time (RMST), which compares average time alive up to a horizon <span class="math inline">\(t^*\)</span> without requiring the PH assumption.</p>
+<p>Covariate adjustment via the Cox model is standard: pre-specified prognostic variables (age, disease stage, performance status, prior therapy) increase precision by reducing unexplained variability, making the treatment comparison more efficient at fixed sample size.</p>
+</section>
+<section id="competing-risks" class="level3">
+<h3 class="anchored" data-anchor-id="competing-risks">Competing Risks</h3>
+<p>In many trials, the event of interest cannot occur once another event has intervened. In an oncology trial measuring disease-specific survival, a patient who dies from a car accident is censored in the standard analysis, but this censoring is non-informative only if death from other causes is independent of disease progression, an assumption that may not hold in older or sicker populations. <em>Competing risks</em> analysis (Fine-Gray subdistribution hazards <span class="citation" data-cites="fine1999proportional">(<a href="references.html#ref-fine1999proportional" role="doc-biblioref">Fine and Gray 1999</a>)</span>) models the <em>cumulative incidence</em> of each event type explicitly. For trials with substantial competing events (hematologic cancers, COVID-19, elderly populations), competing risks analysis should be pre-specified as at least a sensitivity analysis.</p>
+</section>
+</section>
+<section id="repeated-measures-and-longitudinal-data" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="repeated-measures-and-longitudinal-data"><span class="header-section-number">11.3</span> Repeated Measures and Longitudinal Data</h2>
+<p>Many trials measure outcomes repeatedly over time: pain scores every two weeks, cognitive assessments every three months, quality-of-life questionnaires at each visit. The primary question may be the effect of treatment at a specific timepoint (e.g., change from baseline at week 52), but the repeated measurements contain information that a single-timepoint analysis discards.</p>
+<section id="ancova-for-single-timepoint-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="ancova-for-single-timepoint-outcomes">ANCOVA for Single-Timepoint Outcomes</h3>
+<p>Analysis of covariance (ANCOVA) is the standard model when the primary endpoint is a continuous outcome measured at one post-baseline timepoint, with baseline value as a covariate. It produces a treatment comparison adjusted for baseline, which is consistently more powerful than an unadjusted comparison and less susceptible to chance baseline imbalances.</p>
+<p>The EMA and FDA both recommend ANCOVA as the primary analysis for most continuous endpoints in two-arm confirmatory trials <span class="citation" data-cites="fda_covariate_2023">(<a href="references.html#ref-fda_covariate_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023</a>)</span>. The residual variance in an ANCOVA is always at most as large as the variance of the raw change score, and often substantially smaller.</p>
+</section>
+<section id="mixed-model-for-repeated-measures-mmrm" class="level3">
+<h3 class="anchored" data-anchor-id="mixed-model-for-repeated-measures-mmrm">Mixed Model for Repeated Measures (MMRM)</h3>
+<p>The <em>Mixed Model for Repeated Measures</em> (MMRM) has become the de facto standard for longitudinal continuous endpoints in confirmatory trials, particularly in neurology, psychiatry, and metabolic disease. It models all post-baseline measurements simultaneously, with treatment, visit, and treatment-by-visit interaction as fixed effects and an unstructured correlation matrix across visits.</p>
+<p>The critical practical advantage of MMRM over the older <em>Last Observation Carried Forward</em> (LOCF) method is in missing data handling. LOCF imputes missing later observations with the last observed value, which is a strong and often wrong assumption (a patient who dropped out because they were doing poorly is treated as though they continued at that level indefinitely). MMRM, by contrast, uses a likelihood-based approach that is valid under the <em>Missing at Random</em> (MAR) assumption: it uses all available data from each patient and draws valid inferences without imputation, as long as missingness depends only on observed (not unobserved) outcomes. FDA and EMA have increasingly pushed sponsors toward MMRM and away from LOCF for this reason.</p>
+<p>MMRM with an unstructured covariance matrix makes no assumption about the shape of within-patient correlation over time, which is appropriate when visits are irregularly spaced or the correlation pattern is unknown. For trials with many timepoints or complex longitudinal patterns, random-effects models (with random slopes and intercepts) are an alternative that borrows strength across patients.</p>
+</section>
+</section>
+<section id="missing-data" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="missing-data"><span class="header-section-number">11.4</span> Missing Data</h2>
+<p>Missing data in clinical trials is not an afterthought: it is a design and analysis challenge that should be addressed in the protocol and statistical analysis plan before enrollment begins.</p>
+<section id="the-mcarmarmnar-taxonomy" class="level3">
+<h3 class="anchored" data-anchor-id="the-mcarmarmnar-taxonomy">The MCAR/MAR/MNAR Taxonomy</h3>
+<p>The inferential consequences of missing data depend on <em>why</em> data are missing:</p>
+<ul>
+<li><strong>Missing Completely at Random (MCAR):</strong> missingness is unrelated to any observed or unobserved data. Rare in practice; a lab machine failure that randomly affects 2% of samples might qualify.</li>
+<li><strong>Missing at Random (MAR):</strong> missingness depends on observed data but not on the unobserved outcome itself. A patient with worse observed prior scores is more likely to drop out, but conditional on those observed scores, whether they drop out does not depend on what their unmeasured future score would have been. MAR is the working assumption for MMRM and multiple imputation.</li>
+<li><strong>Missing Not at Random (MNAR):</strong> missingness depends on the unobserved outcome itself. A patient stops reporting because they are feeling worse than what their last observed score reflects. This is the problematic case: no analysis fully corrects for MNAR without additional assumptions.</li>
+</ul>
+</section>
+<section id="multiple-imputation" class="level3">
+<h3 class="anchored" data-anchor-id="multiple-imputation">Multiple Imputation</h3>
+<p>Multiple imputation (MI) creates several (typically 20-100) complete datasets by drawing from the predictive distribution of missing values given observed data, analyzes each complete dataset separately, and combines results using Rubin’s rules <span class="citation" data-cites="rubin1987multiple">(<a href="references.html#ref-rubin1987multiple" role="doc-biblioref">Rubin 1987</a>)</span>. Under MAR, MI produces valid estimates. Under MNAR, MI under MAR gives an optimistic estimate, which is why MNAR sensitivity analyses are required.</p>
+</section>
+<section id="sensitivity-analyses" class="level3">
+<h3 class="anchored" data-anchor-id="sensitivity-analyses">Sensitivity Analyses</h3>
+<p>Regulators expect primary analyses that assume MAR to be accompanied by sensitivity analyses that explore MNAR scenarios. Common approaches:</p>
+<ul>
+<li><strong>Tipping point analysis:</strong> how extreme must the unobserved missing outcomes be before the treatment effect is no longer significant? If the tipping point requires unrealistically bad outcomes for dropouts in the treatment arm, the MAR result is robust.</li>
+<li><strong>Pattern mixture models:</strong> specify different outcome distributions for different dropout patterns (e.g., dropouts for adverse events vs.&nbsp;dropouts for lack of efficacy) and check sensitivity to plausible MNAR assumptions.</li>
+<li><strong>Reference-based imputation:</strong> impute missing treatment-arm outcomes using the control arm distribution (a conservative “return-to-baseline” assumption for withdrawals), directly encoding the estimand strategy for treatment discontinuation.</li>
+</ul>
+</section>
+</section>
+<section id="sec-alpha-spending" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="sec-alpha-spending"><span class="header-section-number">11.5</span> Group-Sequential Designs and Alpha Allocation</h2>
+<p>Group-sequential testing is the oldest and most widely adopted form of interim flexibility in confirmatory trials <span class="citation" data-cites="jennison_turnbull_2000">(<a href="references.html#ref-jennison_turnbull_2000" role="doc-biblioref">Jennison and Turnbull 2000</a>)</span>. Take a fixed 400-patient trial and add planned interim looks at 200 and 300 patients before the final analysis: you now have three opportunities to declare superiority (or stop for futility) instead of one. The statistical challenge is that each additional look creates another opportunity for a false positive. Applying the same <span class="math inline">\(\alpha\)</span> threshold (0.025) at each of three looks raises the experiment-wide false-positive rate above 2.5%.</p>
+<p>The solution is to <em>allocate</em> alpha across looks so the total remains 2.5%. Two boundary families dominate practice:</p>
+<p><strong>O’Brien-Fleming boundaries</strong> <span class="citation" data-cites="obrien1979multiple">(<a href="references.html#ref-obrien1979multiple" role="doc-biblioref">O’Brien and Fleming 1979</a>)</span> spend very little alpha early, requiring an extremely stringent threshold at interim looks (roughly <span class="math inline">\(p &lt; 0.003\)</span> at the halfway point) while preserving a final threshold close to the unadjusted 0.025. The intuition: a finding that clears a very high early bar is convincing; a finding that merely clears the standard bar at the end requires no sacrifice. O’Brien-Fleming boundaries are common in Phase III trials because the final boundary remains close to 0.025, which is familiar to sponsors and regulators.</p>
+<p><strong>Pocock boundaries</strong> <span class="citation" data-cites="pocock1977group">(<a href="references.html#ref-pocock1977group" role="doc-biblioref">Pocock 1977</a>)</span> distribute alpha more evenly across looks, making early stopping slightly easier but depressing the final threshold. The same evidence standard applies at each look; a drug that succeeds at interim 1 but not quite at the end is not approved.</p>
+<p>The <strong>Lan-DeMets alpha-spending function</strong> <span class="citation" data-cites="lan1983discrete">(<a href="references.html#ref-lan1983discrete" role="doc-biblioref">Lan and DeMets 1983</a>)</span> generalizes both into a single flexible framework: alpha is allocated as a smooth function of the information fraction (the proportion of patients enrolled or events observed), without requiring the number or timing of interim analyses to be fixed in advance. Lan-DeMets spending is now the workhorse of Phase III interim planning, because it accommodates the practical reality that interim dates depend on enrollment rate and event accumulation rather than a fixed calendar.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Alpha is distributed, not consumed">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Alpha is distributed, not consumed
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A common but mistaken belief is that interim looks “cost alpha” or impose a “penalty.” Alpha is <em>distributed</em> across analyses rather than spent irrecoverably. You still have 2.5% experiment-wide Type I error; you have simply allocated it to different timepoints. The final nominal threshold (e.g., 0.021 rather than 0.025) reflects that some alpha was allocated to earlier looks, not a penalty for looking.</p>
+<p>The corollary matters for practice: looking at interim data is not inherently costly. What requires alpha adjustment is the <em>action</em> taken in response to that data. Stopping early for superiority requires spending alpha for that possibility. Stopping early for futility does not: it <em>deflates</em> rather than inflates Type I error. A DSMB monitoring a trial for safety without unblinding the sponsor does not touch alpha at all.</p>
+</div>
+</div>
+<p><strong>Futility rules</strong> are pre-specified stopping criteria that end a trial when interim evidence is sufficiently discouraging. Well-designed futility rules are based on predictive probability (see <a href="11-statistical-methods.html#sec-predictive-prob" class="quarto-xref"><span>Section 12.7.1</span></a>): given the data observed so far, what is the probability that continuing to the planned sample size would yield a successful outcome? If that probability falls below a threshold (typically 10-20%), continuing may be difficult to justify. Futility thresholds interact with the overall design: an aggressive threshold may prematurely terminate a trial that would have ultimately succeeded; a conservative threshold may waste resources. Simulation across plausible effect-size scenarios is essential for calibration.</p>
+<p><strong>The group-sequential advantage over ad hoc sample-size increases.</strong> A recurring design trap: a trial reaches an interim with borderline results, prompting the sponsor to consider extending enrollment to “wash out” an unfavorable trend. Doing so without pre-specification inflates Type I error. The <em>promising zone</em> design <span class="citation" data-cites="mehtapocock2011promzone">(<a href="references.html#ref-mehtapocock2011promzone" role="doc-biblioref">Mehta and Pocock 2011</a>)</span> offers a pre-specified version of this extension: it allows sample-size expansion when interim conditional power falls within a defined range, without additional alpha adjustment. Comparative simulations <span class="citation" data-cites="jennison_turnbull_2015">(<a href="references.html#ref-jennison_turnbull_2015" role="doc-biblioref">Jennison and Turnbull 2015</a>)</span> suggest that a well-built group-sequential design with futility rules can match or exceed the standard promising-zone design’s efficiency (higher power at lower average sample size) under many assumptions, though an optimally tuned promising-zone design can narrow the gap. The practical lesson: build flexibility into the design from the start rather than reaching for it after an unfavorable interim.</p>
+<p>The introduction to group-sequential concepts in the context of Phase III planning is at <a href="09-phase3-overview.html#sec-phase3-interims" class="quarto-xref"><span>Section 9.3</span></a>. Bayesian analogs (predictive probability of success, adaptive interim rules based on posterior distributions) are covered in <a href="11-statistical-methods.html" class="quarto-xref"><span>Chapter 12</span></a>.</p>
+</section>
+<section id="smart-designs-and-dynamic-treatment-regimes" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="smart-designs-and-dynamic-treatment-regimes"><span class="header-section-number">11.6</span> SMART Designs and Dynamic Treatment Regimes</h2>
+<p>Many diseases are not cured by a single fixed treatment. Depression, substance use disorders, cancer, HIV, and chronic pain all require <em>sequences</em> of treatments: what to start with, whether to switch if the initial treatment fails, and what to switch to. A standard RCT comparing Treatment A versus Treatment B answers which starting treatment is better on average. It does not tell you what to do next for patients who do not respond.</p>
+<p>A <em>Dynamic Treatment Regime</em> (DTR) is a sequence of decision rules, each mapping a patient’s current status (clinical state, response to prior treatment, biomarkers) to a treatment action. DTRs are the formal statistical representation of how clinicians actually practice: “start with drug A; if patient has not responded at week 8, augment with drug B or switch to drug C.” The goal of a DTR comparison is to identify which sequence of treatment decisions produces the best outcomes over time.</p>
+<section id="the-smart-design" class="level3">
+<h3 class="anchored" data-anchor-id="the-smart-design">The SMART Design</h3>
+<p>A <em>Sequential Multiple Assignment Randomized Trial</em> (SMART) provides the data needed to compare embedded DTRs using clean randomization at each decision stage <span class="citation" data-cites="murphy2005smart lavori2000dynamic">(<a href="references.html#ref-murphy2005smart" role="doc-biblioref">Murphy 2005</a>; <a href="references.html#ref-lavori2000dynamic" role="doc-biblioref">Lavori and Dawson 2000</a>)</span>.</p>
+<p>In a two-stage SMART, patients are first randomized to one of two (or more) initial treatments. After an assessment of response (typically at a clinically meaningful timepoint), patients who responded continue; non-responders are <em>re-randomized</em> to one of two (or more) salvage or augmentation options. The result is a tree of sequences: initial treatment A followed by augmentation X for non-responders, initial treatment A followed by switch to Y for non-responders, initial treatment B followed by augmentation X for non-responders, and so forth. Each branch of the tree defines an <em>embedded DTR</em>.</p>
+<p>The key advantage over a factorial or crossover design is that re-randomization at stage two occurs only among non-responders (or only among responders, if the question concerns maintenance), making the design clinically realistic. A patient who responds to treatment A is not randomized again, as there is no clinical or ethical reason to switch them.</p>
+<p><strong>Inference in SMART.</strong> Comparing embedded DTRs requires weighted analysis: non-responders contribute to both stage-two arms, but they were not all enrolled with equal probability of being compared. Inverse probability weighting (IPW) or doubly-robust estimators correctly account for this. The estimand is the <em>mean outcome under the DTR if applied to all patients in the target population</em>, a well-defined causal quantity.</p>
+<p><strong>Sample size.</strong> Sample size for a SMART depends on the proportion of non-responders (since stage-two randomization occurs only among that group), the effect size of the DTR comparison, and the correlation between stages. Power is typically lower than a standard two-arm RCT of the same enrollment, because the stage-two comparison uses only the non-responder fraction. Murphy (2005) provides the foundational sample size framework for SMART designs <span class="citation" data-cites="murphy2005smart">(<a href="references.html#ref-murphy2005smart" role="doc-biblioref">Murphy 2005</a>)</span>.</p>
+</section>
+<section id="key-applications" class="level3">
+<h3 class="anchored" data-anchor-id="key-applications">Key Applications</h3>
+<p><strong>ADHD (Pelham et al., 2016):</strong> Children with ADHD were randomized to begin with low-dose medication or behavioral intervention; non-responders were re-randomized to intensify that modality or add the other <span class="citation" data-cites="pelham2016adhd">(<a href="references.html#ref-pelham2016adhd" role="doc-biblioref">Pelham et al. 2016</a>)</span>. The study found that starting with behavioral intervention and augmenting with medication for non-responders produced better outcomes than starting with medication, with less overall medication exposure, a clinically actionable DTR comparison.</p>
+<p>**STAR*D (Rush et al., 2004):** The Sequenced Treatment Alternatives to Relieve Depression trial was a multi-stage “real-world” depression study in which patients who did not achieve remission at each stage were offered progressively different treatment options <span class="citation" data-cites="rush2004star_d">(<a href="references.html#ref-rush2004star_d" role="doc-biblioref">Rush et al. 2004</a>)</span>. While not a formally pre-specified SMART (sequential randomization was optional at each stage), it provided the foundational data motivating the SMART framework in psychiatry and generated the hypothesis that most patients who will ultimately achieve remission do so within two or three medication steps <span class="citation" data-cites="rush2006stard">(<a href="references.html#ref-rush2006stard" role="doc-biblioref">Rush et al. 2006</a>)</span>.</p>
+<p><strong>ExTENd (Oslin et al.):</strong> The Extending Treatment Effectiveness of Naltrexone study, a SMART for alcohol use disorder comparing naltrexone and combined behavioral intervention for initial responders and non-responders, demonstrating that the DTR comparison could be operationalized in outpatient substance use settings <span class="citation" data-cites="nahumshani2017smart">(<a href="references.html#ref-nahumshani2017smart" role="doc-biblioref">Nahum-Shani et al. 2017</a>)</span>.</p>
+</section>
+<section id="when-smart-designs-are-appropriate" class="level3">
+<h3 class="anchored" data-anchor-id="when-smart-designs-are-appropriate">When SMART Designs Are Appropriate</h3>
+<p>SMART designs are most valuable when: (a) there is genuine clinical uncertainty about sequencing decisions, not just initial treatment choice; (b) the re-randomization timepoint corresponds to a meaningful clinical decision window; (c) non-response to the initial treatment is common enough to power stage-two comparisons; and (d) the scientific question concerns the embedded DTR comparison, not just average response at stage two.</p>
+<p>For conditions where most patients respond to initial treatment and sequencing rarely arises, a standard RCT is more efficient. SMART designs impose operational complexity (tracking response status, executing stage-two randomization in real time) that is only warranted when the DTR comparison is the primary scientific question.</p>
+</section>
+</section>
+<section id="causal-inference-from-trials-to-real-world-evidence" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="causal-inference-from-trials-to-real-world-evidence"><span class="header-section-number">11.7</span> Causal Inference: From Trials to Real-World Evidence</h2>
+<p>The randomized trial is the gold standard for establishing causal treatment effects precisely because randomization balances all confounders (measured and unmeasured) by design. When randomization is not possible (rare diseases, historical comparisons, post-marketing effectiveness), causal inference methods attempt to recover valid treatment comparisons from observational data.</p>
+<p>This section provides the conceptual vocabulary. The full regulatory and design framework for using real-world evidence in drug development is in <a href="12b-rwe-external-controls.html" class="quarto-xref"><span>Chapter 14</span></a>.</p>
+<section id="the-potential-outcomes-framework" class="level3">
+<h3 class="anchored" data-anchor-id="the-potential-outcomes-framework">The Potential Outcomes Framework</h3>
+<p>The potential outcomes (Rubin causal model) framework <span class="citation" data-cites="rubin1974estimating">(<a href="references.html#ref-rubin1974estimating" role="doc-biblioref">Rubin 1974</a>)</span> defines the causal effect of treatment at the individual level as the difference between what would have happened to a patient under treatment versus what would have happened under control: two <em>potential outcomes</em>, only one of which is observed (the <em>fundamental problem of causal inference</em>). The average treatment effect (ATE) is the average of these individual-level differences across the population.</p>
+<p>ITT analysis in a randomized trial estimates the ATE under the treatment-policy estimand: it compares what happened to patients <em>assigned</em> to treatment with what happened to patients <em>assigned</em> to control, averaged over the entire population including non-compliers. When compliance is high, the ITT effect closely approximates the effect of treatment actually received. When non-compliance is substantial, the <em>complier average causal effect</em> (CACE, or local average treatment effect, LATE) can be estimated via instrumental variables (IV), using randomization as the instrument.</p>
+</section>
+<section id="propensity-score-methods" class="level3">
+<h3 class="anchored" data-anchor-id="propensity-score-methods">Propensity Score Methods</h3>
+<p>In observational data, treatment assignment is not random. <em>Propensity score</em> methods <span class="citation" data-cites="rosenbaum1983propensity">(<a href="references.html#ref-rosenbaum1983propensity" role="doc-biblioref">Rosenbaum and Rubin 1983</a>)</span> use the estimated probability of receiving treatment given observed covariates to balance groups. The three main approaches:</p>
+<ul>
+<li><strong>Matching:</strong> pair each treated patient with one or more control patients with similar propensity scores. Reduces the sample to matched pairs; balance is verifiable but matching can discard many patients.</li>
+<li><strong>Inverse probability weighting (IPW):</strong> weight each patient by the inverse of their probability of receiving the treatment they actually received, creating a pseudo-population where treatment is independent of covariates. Retains all patients but is sensitive to extreme weights when propensity scores are near 0 or 1.</li>
+<li><strong>Stratification / subclassification:</strong> divide patients into strata by propensity score quintile and estimate treatment effects within strata. A rougher approach with less bias reduction than matching or IPW.</li>
+</ul>
+<p>Propensity score methods balance only on <em>observed</em> covariates. Unmeasured confounding (the persistent concern in any observational analysis) cannot be removed by propensity scoring. Sensitivity analysis for unmeasured confounding (e.g., E-values <span class="citation" data-cites="vanderweele2017sensitivity">(<a href="references.html#ref-vanderweele2017sensitivity" role="doc-biblioref">VanderWeele and Ding 2017</a>)</span>) should accompany any causal claim from propensity-based analyses.</p>
+</section>
+<section id="target-trial-emulation" class="level3">
+<h3 class="anchored" data-anchor-id="target-trial-emulation">Target Trial Emulation</h3>
+<p><em>Target trial emulation</em> <span class="citation" data-cites="hernan2016using">(<a href="references.html#ref-hernan2016using" role="doc-biblioref">Hernán and Robins 2016</a>)</span> is a framework for designing observational analyses that explicitly mimic a hypothetical randomized trial. The analyst specifies the target trial’s eligibility criteria, treatment strategies, assignment mechanism, outcomes, follow-up, and estimand, then checks whether these elements can be credibly emulated with the available observational data.</p>
+<p>The discipline of specifying the target trial forces analytic decisions (e.g., the time zero for follow-up, which patients qualify as eligible, how to handle time-varying treatment) that are often made implicitly and inconsistently in ad hoc observational analyses. Common biases (immortal time bias, selection bias at time zero, depletion of susceptibles) become visible and correctable when mapped against the target trial template.</p>
+<p>Target trial emulation is increasingly used for: post-marketing effectiveness studies comparing two approved drugs (no RCT exists); historical comparisons in rare disease programs; and informing the design of prospective trials by estimating likely effect sizes and population characteristics from existing registries.</p>
+</section>
+<section id="marginal-structural-models" class="level3">
+<h3 class="anchored" data-anchor-id="marginal-structural-models">Marginal Structural Models</h3>
+<p>When treatment is time-varying and affected by prior outcomes (e.g., a patient’s dose is adjusted based on their response), standard regression confounds the treatment effect with the confounding pathway that runs through time-varying covariates. <em>Marginal structural models</em> (MSMs) <span class="citation" data-cites="robins2000marginal">(<a href="references.html#ref-robins2000marginal" role="doc-biblioref">Robins, Hernán, and Brumback 2000</a>)</span>, fit using IPW with time-varying weights, handle this correctly by modeling the <em>marginal</em> (population-averaged) treatment effect in a population where, by weighting, all patients had equal probability of being on each treatment at each time.</p>
+<p>MSMs are the appropriate tool for questions like: “What would have happened to this patient population if everyone had maintained continuous antiretroviral therapy, compared to a policy of interrupting therapy when CD4 counts exceeded a threshold?” (a question that standard adjusted regression cannot answer because CD4 count is simultaneously a confounder and a mediator).</p>
+<hr>
+<p>The methods described in this chapter share a common goal: valid inference about treatment effects under uncertainty, whether from a randomized trial with missing data, an adaptive trial with pre-specified interim rules, or an observational database where patients were not randomly assigned. <a href="11-statistical-methods.html" class="quarto-xref"><span>Chapter 12</span></a> extends this toolkit with Bayesian methods, which provide a complementary framework for updating probability estimates as evidence accumulates and for incorporating prior information about treatment effects.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Discussion Questions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Discussion Questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>A Phase III trial for a novel PD-L1 inhibitor in second-line hepatocellular carcinoma uses overall survival as its primary endpoint and pre-specifies the log-rank test. At the time of analysis, the Kaplan-Meier curves separate at month 6, converge at month 12, and then diverge again in favor of the experimental arm. The log-rank test is not significant (p = 0.08). What does this tell you about the proportional hazards assumption, and what alternative analysis approaches (restricted mean survival time, weighted log-rank, landmark analysis) could be pre-specified to handle this pattern without inflating Type I error?</p></li>
+<li><p>A sponsor is designing a 52-week antidepressant trial in treatment-resistant depression with an expected 40% dropout rate. The ICH E9(R1) estimands framework requires explicit handling of treatment discontinuation. Compare the treatment policy strategy and the hypothetical strategy as the primary estimand: what different clinical questions do they answer, what are their respective data requirements, and how does your choice affect the labeling claim you can support?</p></li>
+<li><p>A tipping-point sensitivity analysis for a chronic pain trial shows that the primary MMRM result (p = 0.03) would flip to non-significance only if the mean of unobserved outcomes in the treatment arm were 2.8 standard deviations worse than the observed completer mean. How should a clinical reviewer interpret this threshold, and under what circumstances would you consider this result robust versus still uncertain?</p></li>
+<li><p>A SMART design for an anxiety disorder population estimates that 35% of patients will be classified as non-responders at the stage-one re-randomization. The target effect size for the DTR comparison is a 0.35-unit difference on a validated symptom scale, with a standard deviation of 1.2. Why does the non-responder proportion directly determine required enrollment rather than only the stage-two sample size, and what is the role of inverse probability weighting in ensuring a valid DTR comparison?</p></li>
+<li><p>A propensity-score-matched observational study reports that patients who received Drug A had a 22% lower rate of major cardiovascular events than those who received Drug B (HR 0.78, 95% CI 0.67-0.91). The authors report an E-value of 1.9. A reviewer argues this is insufficient to rule out unmeasured confounding. Construct the strongest possible argument that the result is robust and the strongest possible argument that it is not, using the E-value and the study design features.</p></li>
+</ol>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-cox1958planning" class="csl-entry" role="listitem">
+Cox, D. R. 1958. <em>Planning of Experiments</em>. New York: John Wiley &amp; Sons.
+</div>
+<div id="ref-cox1972regression" class="csl-entry" role="listitem">
+———. 1972. <span>“Regression Models and Life-Tables.”</span> <em>Journal of the Royal Statistical Society: Series B (Methodological)</em> 34 (2): 187–220. <a href="https://doi.org/10.1111/j.2517-6161.1972.tb00899.x">https://doi.org/10.1111/j.2517-6161.1972.tb00899.x</a>.
+</div>
+<div id="ref-fine1999proportional" class="csl-entry" role="listitem">
+Fine, Jason P., and Robert J. Gray. 1999. <span>“A Proportional Hazards Model for the Subdistribution of a Competing Risk.”</span> <em>Journal of the American Statistical Association</em> 94 (446): 496–509. <a href="https://doi.org/10.1080/01621459.1999.10474144">https://doi.org/10.1080/01621459.1999.10474144</a>.
+</div>
+<div id="ref-goodman2008dirty_dozen" class="csl-entry" role="listitem">
+Goodman, Steven. 2008. <span>“A Dirty Dozen: Twelve <span class="math inline">\(P\)</span>-Value Misconceptions.”</span> <em>Seminars in Hematology</em> 45 (3): 135–40. <a href="https://doi.org/10.1053/j.seminhematol.2008.04.003">https://doi.org/10.1053/j.seminhematol.2008.04.003</a>.
+</div>
+<div id="ref-hernan2016using" class="csl-entry" role="listitem">
+Hernán, Miguel A., and James M. Robins. 2016. <span>“Using Big Data to Emulate a Target Trial When a Randomized Trial Is Not Available.”</span> <em>American Journal of Epidemiology</em> 183 (8): 758–64. <a href="https://doi.org/10.1093/aje/kwv254">https://doi.org/10.1093/aje/kwv254</a>.
+</div>
+<div id="ref-ich_e9_r1" class="csl-entry" role="listitem">
+International Council for Harmonisation. 2019. <span>“<span>ICH E9(R1)</span>: Addendum on Estimands and Sensitivity Analysis in Clinical Trials to the Guideline on Statistical Principles for Clinical Trials.”</span> <a href="https://database.ich.org/sites/default/files/E9-R1_Step4_Guideline_2019_1203.pdf">https://database.ich.org/sites/default/files/E9-R1_Step4_Guideline_2019_1203.pdf</a>.
+</div>
+<div id="ref-jennison_turnbull_2000" class="csl-entry" role="listitem">
+Jennison, Christopher, and Bruce W. Turnbull. 2000. <em>Group Sequential Methods with Applications to Clinical Trials</em>. Boca Raton, FL: Chapman &amp; Hall/CRC.
+</div>
+<div id="ref-jennison_turnbull_2015" class="csl-entry" role="listitem">
+———. 2015. <span>“Adaptive Sample Size Modification in Clinical Trials: Start Small Then Ask for More?”</span> <em>Statistics in Medicine</em> 34 (29): 3793–3810. <a href="https://doi.org/10.1002/sim.6575">https://doi.org/10.1002/sim.6575</a>.
+</div>
+<div id="ref-kaplan1958nonparametric" class="csl-entry" role="listitem">
+Kaplan, E. L., and Paul Meier. 1958. <span>“Nonparametric Estimation from Incomplete Observations.”</span> <em>Journal of the American Statistical Association</em> 53 (282): 457–81. <a href="https://doi.org/10.1080/01621459.1958.10501452">https://doi.org/10.1080/01621459.1958.10501452</a>.
+</div>
+<div id="ref-lan1983discrete" class="csl-entry" role="listitem">
+Lan, K. K. Gordon, and David L. DeMets. 1983. <span>“Discrete Sequential Boundaries for Clinical Trials.”</span> <em>Biometrika</em> 70 (3): 659–63. <a href="https://doi.org/10.1093/biomet/70.3.659">https://doi.org/10.1093/biomet/70.3.659</a>.
+</div>
+<div id="ref-lavori2000dynamic" class="csl-entry" role="listitem">
+Lavori, Philip W., and Ree Dawson. 2000. <span>“A Design for Testing Clinical Strategies: Biased Adaptive Within-Subject Randomization.”</span> <em>Journal of the Royal Statistical Society: Series A (Statistics in Society)</em> 163 (1): 29–38. <a href="https://doi.org/10.1111/1467-985X.00154">https://doi.org/10.1111/1467-985X.00154</a>.
+</div>
+<div id="ref-mehtapocock2011promzone" class="csl-entry" role="listitem">
+Mehta, Cyrus R., and Stuart J. Pocock. 2011. <span>“Adaptive Increase in Sample Size When Interim Results Are Promising: A Practical Guide with Examples.”</span> <em>Statistics in Medicine</em> 30 (28): 3267–84. <a href="https://doi.org/10.1002/sim.4102">https://doi.org/10.1002/sim.4102</a>.
+</div>
+<div id="ref-murphy2005smart" class="csl-entry" role="listitem">
+Murphy, Susan A. 2005. <span>“An Experimental Design for the Development of Adaptive Treatment Strategies.”</span> <em>Statistics in Medicine</em> 24 (10): 1455–81. <a href="https://doi.org/10.1002/sim.2022">https://doi.org/10.1002/sim.2022</a>.
+</div>
+<div id="ref-nahumshani2017smart" class="csl-entry" role="listitem">
+Nahum-Shani, Inbal, Ashkan Ertefaie, Xi Lu, Kevin G. Lynch, James R. McKay, David W. Oslin, and Daniel Almirall. 2017. <span>“A SMART Data Analysis Method for Constructing Adaptive Treatment Strategies for Substance Use Disorders.”</span> <em>Addiction</em> 112 (5): 901–9. <a href="https://doi.org/10.1111/add.13743">https://doi.org/10.1111/add.13743</a>.
+</div>
+<div id="ref-obrien1979multiple" class="csl-entry" role="listitem">
+O’Brien, Peter C., and Thomas R. Fleming. 1979. <span>“A Multiple Testing Procedure for Clinical Trials.”</span> <em>Biometrics</em> 35 (3): 549–56. <a href="https://doi.org/10.2307/2530245">https://doi.org/10.2307/2530245</a>.
+</div>
+<div id="ref-pelham2016adhd" class="csl-entry" role="listitem">
+Pelham, William E., Gregory A. Fabiano, James G. Waxmonsky, Andrew R. Greiner, Elizabeth M. Gnagy, et al. 2016. <span>“Treatment Sequencing for Childhood <span>ADHD</span>: A Multiple-Randomization Study of Adaptive Medication and Behavioral Interventions.”</span> <em>Journal of Clinical Child &amp; Adolescent Psychology</em> 45 (4): 396–415. <a href="https://doi.org/10.1080/15374416.2015.1105138">https://doi.org/10.1080/15374416.2015.1105138</a>.
+</div>
+<div id="ref-pocock1977group" class="csl-entry" role="listitem">
+Pocock, Stuart J. 1977. <span>“Group Sequential Methods in the Design and Analysis of Clinical Trials.”</span> <em>Biometrika</em> 64 (2): 191–99. <a href="https://doi.org/10.1093/biomet/64.2.191">https://doi.org/10.1093/biomet/64.2.191</a>.
+</div>
+<div id="ref-robins2000marginal" class="csl-entry" role="listitem">
+Robins, James M., Miguel A. Hernán, and Babette Brumback. 2000. <span>“Marginal Structural Models and Causal Inference in Epidemiology.”</span> <em>Epidemiology</em> 11 (5): 550–60. <a href="https://doi.org/10.1097/00001648-200009000-00011">https://doi.org/10.1097/00001648-200009000-00011</a>.
+</div>
+<div id="ref-rosenbaum1983propensity" class="csl-entry" role="listitem">
+Rosenbaum, Paul R., and Donald B. Rubin. 1983. <span>“The Central Role of the Propensity Score in Observational Studies for Causal Effects.”</span> <em>Biometrika</em> 70 (1): 41–55. <a href="https://doi.org/10.1093/biomet/70.1.41">https://doi.org/10.1093/biomet/70.1.41</a>.
+</div>
+<div id="ref-rubin1974estimating" class="csl-entry" role="listitem">
+Rubin, Donald B. 1974. <span>“Estimating Causal Effects of Treatments in Randomized and Nonrandomized Studies.”</span> <em>Journal of Educational Psychology</em> 66 (5): 688–701. <a href="https://doi.org/10.1037/h0037350">https://doi.org/10.1037/h0037350</a>.
+</div>
+<div id="ref-rubin1987multiple" class="csl-entry" role="listitem">
+———. 1987. <em>Multiple Imputation for Nonresponse in Surveys</em>. New York: John Wiley &amp; Sons. <a href="https://doi.org/10.1002/9780470316696">https://doi.org/10.1002/9780470316696</a>.
+</div>
+<div id="ref-rush2004star_d" class="csl-entry" role="listitem">
+Rush, A. John, Maurizio Fava, Stephen R. Wisniewski, Philip W. Lavori, Madhukar H. Trivedi, Harold A. Sackeim, Michael E. Thase, et al. 2004. <span>“Sequenced Treatment Alternatives to Relieve Depression (<span>STAR*D</span>): Rationale and Design.”</span> <em>Controlled Clinical Trials</em> 25 (1): 119–42. <a href="https://doi.org/10.1016/S0197-2456(03)00112-0">https://doi.org/10.1016/S0197-2456(03)00112-0</a>.
+</div>
+<div id="ref-rush2006stard" class="csl-entry" role="listitem">
+Rush, A. John, Madhukar H. Trivedi, Stephen R. Wisniewski, Andrew A. Nierenberg, Jonathan W. Stewart, Diane Warden, George Niederehe, et al. 2006. <span>“Acute and Longer-Term Outcomes in Depressed Outpatients Requiring One or Several Treatment Steps: A STAR*d Report.”</span> <em>American Journal of Psychiatry</em> 163 (11): 1905–17. <a href="https://doi.org/10.1176/ajp.2006.163.11.1905">https://doi.org/10.1176/ajp.2006.163.11.1905</a>.
+</div>
+<div id="ref-fda_covariate_2023" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2023. <span>“Adjusting for Covariates in Randomized Clinical Trials for Drugs and Biological Products: Guidance for Industry.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/adjusting-covariates-randomized-clinical-trials-drugs-and-biological-products">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/adjusting-covariates-randomized-clinical-trials-drugs-and-biological-products</a>.
+</div>
+<div id="ref-vanderweele2017sensitivity" class="csl-entry" role="listitem">
+VanderWeele, Tyler J., and Peng Ding. 2017. <span>“Sensitivity Analysis in Observational Research: Introducing the <span>E</span>-Value.”</span> <em>Annals of Internal Medicine</em> 167 (4): 268–74. <a href="https://doi.org/10.7326/M16-2607">https://doi.org/10.7326/M16-2607</a>.
+</div>
+<div id="ref-wasserstein2016asa_pvalue" class="csl-entry" role="listitem">
+Wasserstein, Ronald L., and Nicole A. Lazar. 2016. <span>“The <span>ASA</span> Statement on <span class="math inline">\(p\)</span>-Values: Context, Process, and Purpose.”</span> <em>The American Statistician</em> 70 (2): 129–33. <a href="https://doi.org/10.1080/00031305.2016.1154108">https://doi.org/10.1080/00031305.2016.1154108</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./10-phase4.html" class="pagination-link" aria-label="Phase IV: Post-Marketing Studies and Surveillance">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./11-statistical-methods.html" class="pagination-link" aria-label="Adaptive and Bayesian Trial Design">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

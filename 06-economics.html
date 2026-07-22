@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>6&nbsp; Economics of a Trial – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./07-phase1.html" rel="next">
+<link href="./05-drug-development.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="6&nbsp; Economics of a Trial – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:image" content="06-economics_files/figure-html/fig-iqvia-spending-1.png">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="6&nbsp; Economics of a Trial – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:image" content="06-economics_files/figure-html/fig-iqvia-spending-1.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-drug-development.html">Part II: Clinical Trial Phases</a></li><li class="breadcrumb-item"><a href="./06-economics.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-cost-structure" id="toc-the-cost-structure" class="nav-link active" data-scroll-target="#the-cost-structure"><span class="header-section-number">6.1</span> The Cost Structure</a>
+  <ul class="collapse">
+  <li><a href="#stratospheric-rd-costs" id="toc-stratospheric-rd-costs" class="nav-link" data-scroll-target="#stratospheric-rd-costs">Stratospheric R&amp;D Costs</a></li>
+  </ul></li>
+  <li><a href="#how-ai-and-automation-can-change-trial-economics" id="toc-how-ai-and-automation-can-change-trial-economics" class="nav-link" data-scroll-target="#how-ai-and-automation-can-change-trial-economics"><span class="header-section-number">6.2</span> How AI and Automation Can Change Trial Economics</a>
+  <ul class="collapse">
+  <li><a href="#internal-discovery-vs.-external-acquisition" id="toc-internal-discovery-vs.-external-acquisition" class="nav-link" data-scroll-target="#internal-discovery-vs.-external-acquisition">Internal Discovery vs.&nbsp;External Acquisition</a></li>
+  <li><a href="#the-shift-toward-rare-diseases-and-high-value-targets" id="toc-the-shift-toward-rare-diseases-and-high-value-targets" class="nav-link" data-scroll-target="#the-shift-toward-rare-diseases-and-high-value-targets">The Shift Toward Rare Diseases and High-Value Targets</a></li>
+  <li><a href="#shifting-the-cost-structure-labor-vs.-software-and-governance" id="toc-shifting-the-cost-structure-labor-vs.-software-and-governance" class="nav-link" data-scroll-target="#shifting-the-cost-structure-labor-vs.-software-and-governance">Shifting the cost structure: labor vs.&nbsp;software and governance</a></li>
+  <li><a href="#the-globalization-of-clinical-trials" id="toc-the-globalization-of-clinical-trials" class="nav-link" data-scroll-target="#the-globalization-of-clinical-trials">The Globalization of Clinical Trials</a></li>
+  <li><a href="#the-regional-pivot-the-rise-of-china" id="toc-the-regional-pivot-the-rise-of-china" class="nav-link" data-scroll-target="#the-regional-pivot-the-rise-of-china">The Regional Pivot: The Rise of China</a></li>
+  <li><a href="#budgeting-checklist" id="toc-budgeting-checklist" class="nav-link" data-scroll-target="#budgeting-checklist">Budgeting Checklist</a></li>
+  </ul></li>
+  <li><a href="#how-money-flows" id="toc-how-money-flows" class="nav-link" data-scroll-target="#how-money-flows"><span class="header-section-number">6.3</span> How Money Flows</a></li>
+  <li><a href="#the-cro-site-relationship" id="toc-the-cro-site-relationship" class="nav-link" data-scroll-target="#the-cro-site-relationship"><span class="header-section-number">6.4</span> The CRO-Site Relationship</a></li>
+  <li><a href="#where-the-money-actually-goes" id="toc-where-the-money-actually-goes" class="nav-link" data-scroll-target="#where-the-money-actually-goes"><span class="header-section-number">6.5</span> Where the Money Actually Goes</a></li>
+  <li><a href="#patient-economics" id="toc-patient-economics" class="nav-link" data-scroll-target="#patient-economics"><span class="header-section-number">6.6</span> Patient Economics</a></li>
+  <li><a href="#funding-interims-and-portfolio-management" id="toc-funding-interims-and-portfolio-management" class="nav-link" data-scroll-target="#funding-interims-and-portfolio-management"><span class="header-section-number">6.7</span> Funding Interims and Portfolio Management</a>
+  <ul class="collapse">
+  <li><a href="#administrative-interim-analyses" id="toc-administrative-interim-analyses" class="nav-link" data-scroll-target="#administrative-interim-analyses">Administrative Interim Analyses</a></li>
+  <li><a href="#predictive-probability-of-success-as-a-funders-tool" id="toc-predictive-probability-of-success-as-a-funders-tool" class="nav-link" data-scroll-target="#predictive-probability-of-success-as-a-funders-tool">Predictive Probability of Success as a Funder’s Tool</a></li>
+  <li><a href="#assurance-and-portfolio-optimization" id="toc-assurance-and-portfolio-optimization" class="nav-link" data-scroll-target="#assurance-and-portfolio-optimization">Assurance and Portfolio Optimization</a></li>
+  </ul></li>
+  <li><a href="#platform-trial-economics" id="toc-platform-trial-economics" class="nav-link" data-scroll-target="#platform-trial-economics"><span class="header-section-number">6.8</span> Platform Trial Economics</a></li>
+  <li><a href="#strategic-implications" id="toc-strategic-implications" class="nav-link" data-scroll-target="#strategic-implications"><span class="header-section-number">6.9</span> Strategic Implications</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-drug-development.html">Part II: Clinical Trial Phases</a></li><li class="breadcrumb-item"><a href="./06-economics.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-economics" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Clinical trials are expensive. A single Phase III trial can cost $50-400 million; a large cardiovascular outcomes trial can exceed $1 billion. Bringing a new drug to market (accounting for the trials that fail along the way) requires an estimated $2.2-2.6 billion in capitalized investment over 10-15 years (Deloitte estimates $2.2B; the Tufts CSDD study estimates $2.6B) <span class="citation" data-cites="deloitte_rd_return_2025 tufts_cost_2016">(<a href="references.html#ref-deloitte_rd_return_2025" role="doc-biblioref">Deloitte Centre for Health Solutions 2025</a>; <a href="references.html#ref-tufts_cost_2016" role="doc-biblioref">DiMasi, Grabowski, and Hansen 2016</a>)</span>. While historical success rates were approximately 10%, recent data shows a composite success rate of 6% in 2023, which increased to 7% in 2024, driven by improvements in Phase III <span class="citation" data-cites="iqvia_rd_trends_2025">(<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>)</span>.</p>
+<p>These economics shape every decision in drug development. They explain why companies pursue some diseases and not others, why trials are increasingly conducted in lower-cost regions, why sponsors outsource to CROs rather than build internal capabilities, and why small biotechs partner with large pharma rather than go it alone. Understanding who pays, who profits, and who bears risk is required for anyone working in clinical research, because the science does not happen in isolation from the money.</p>
+<p>Several distinct types of organizations participate in the clinical trial ecosystem, each driven by unique economic incentives. Pharmaceutical and biotechnology sponsors fund the vast majority of research, viewing trials as critical investments that must yield approved products and eventually drive revenue. Much of this work is outsourced to Contract Research Organizations (CROs), which provide specialized services ranging from study design to data management, a market that has grown to over $80 billion annually <span class="citation" data-cites="grandview_cro_2024">(<a href="references.html#ref-grandview_cro_2024" role="doc-biblioref">Grand View Research 2024</a>)</span>. CROs are also the dominant purchasers of clinical trial software, accounting for over 37% of that market’s end-use <span class="citation" data-cites="grandview_clinical_software_2025">(<a href="references.html#ref-grandview_clinical_software_2025" role="doc-biblioref">Grand View Research 2025</a>)</span>. The trials themselves are conducted at clinical sites, such as hospitals and private practices, which are compensated for their resources and staff time. Supporting this core infrastructure are numerous specialized vendors providing everything from laboratory processing to data capture software. Finally, patients remain the primary participants; while they are often altruistic or hope for therapeutic benefit, they also bear significant personal costs (including travel expenses and time away from work) that are frequently invisible in formal trial budgets.</p>
+<section id="the-cost-structure" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="the-cost-structure"><span class="header-section-number">6.1</span> The Cost Structure</h2>
+<p>Clinical trial costs have escalated dramatically in the last two decades. While earlier estimates (in the early 2000s) pegged the total cost of bringing a drug to market at $800 million, modern analysis paints a starker picture.</p>
+<section id="stratospheric-rd-costs" class="level3">
+<h3 class="anchored" data-anchor-id="stratospheric-rd-costs">Stratospheric R&amp;D Costs</h3>
+<p>While the <em>$2.2 Billion Benchmark</em> is widely cited, it often underestimates the full economic burden of modern development. Recent analysis from the Deloitte 2025 report reveals a slight rebound in productivity, with a forecast <strong>Internal Rate of Return (IRR)</strong> of <strong>5.9%</strong> (up from 4.3% in 2023), driven by the entry of high-value assets like GLP-1 agonists into late-stage pipelines <span class="citation" data-cites="deloitte_rd_return_2025">(<a href="references.html#ref-deloitte_rd_return_2025" role="doc-biblioref">Deloitte Centre for Health Solutions 2025</a>)</span>. However, the average cost to develop a drug from discovery to launch has risen to <strong>$2.23 billion</strong> ($2,229 million), with the top 20 biopharma companies spending <strong>$7.7 billion</strong> on terminated trials for assets that failed during the 2024 analysis cycle alone. Average forecast <strong>peak sales</strong> per asset have also increased to <strong>$510 million</strong>, though excluding obesity therapies (GLP-1s) would drop this benchmark to $370 million <span class="citation" data-cites="deloitte_rd_return_2025">(<a href="references.html#ref-deloitte_rd_return_2025" role="doc-biblioref">Deloitte Centre for Health Solutions 2025</a>)</span>.</p>
+<p>When accounting for post-approval R&amp;D, required manufacturing scale-up, and the increasing complexity of global regulatory submissions, the true <strong>lifecycle cost</strong> of a novel asset often exceeds <strong>$2.8 billion</strong> <span class="citation" data-cites="deloitte_rd_return_2025 tufts_cost_2016">(<a href="references.html#ref-deloitte_rd_return_2025" role="doc-biblioref">Deloitte Centre for Health Solutions 2025</a>; <a href="references.html#ref-tufts_cost_2016" role="doc-biblioref">DiMasi, Grabowski, and Hansen 2016</a>)</span>. This figure includes:</p>
+<ol type="1">
+<li><strong>Out-of-pocket costs</strong>: The actual cash spent on both successful and failed projects.</li>
+<li><strong>Cost of failure</strong>: The heavy investment in the approximately 93-94% of compounds that never reach the market, based on composite success rates of 6-7% <span class="citation" data-cites="iqvia_rd_trends_2025">(<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>)</span>. For the scientific drivers of phase-by-phase attrition, see <a href="05-drug-development.html" class="quarto-xref"><span>Chapter 5</span></a>.</li>
+<li><strong>Cost of capital</strong>: The opportunity cost of tying up billions in investment over a 10-15 year development horizon.</li>
+</ol>
+<p>These widely cited cost estimates have been challenged in the academic literature. <span class="citation" data-cites="avorn2015pill">Avorn (<a href="references.html#ref-avorn2015pill" role="doc-biblioref">2015</a>)</span> argued that the Tufts CSDD methodology overstates true development costs by including a large opportunity-cost-of-capital adjustment and by relying on confidential, self-reported industry data that cannot be independently verified. An alternative analysis by <span class="citation" data-cites="prasad2017rd">Prasad and Mailankody (<a href="references.html#ref-prasad2017rd" role="doc-biblioref">2017</a>)</span>, using publicly available data from oncology companies that brought a single drug to market, estimated the median out-of-pocket R&amp;D cost at <strong>$648 million</strong> (<strong>$757 million</strong> once capitalized at a 7% cost of capital), roughly one-third of the comparably capitalized Tufts figure. The debate remains unresolved because true R&amp;D expenditures are proprietary, and methodological choices (which costs to include, how to allocate shared overhead, what discount rate to apply) drive large differences in headline figures. What is clear is that any single cost-to-market number should be interpreted with attention to the assumptions behind it.</p>
+<p>These escalating costs create a “stratospheric” financial barrier that shapes the entire industry’s risk profile. Sponsors must not only fund the successful drug but also provide enough “economic cover” for the nine others that failed, a reality that drives the extreme pressure on clinical trial timelines and success rates.</p>
+<p>Costs vary significantly by phase, driven by protocol complexity and enrollment size. <em>Phase I</em> trials, focused on safety in small cohorts (20-80 participants), typically cost <em>$4-10 million</em> with high per-patient costs due to intensive PK/PD sampling. <em>Phase II</em> trials (100-300 participants) typically cost <em>$20-50 million</em>. <em>Phase III</em> definitive efficacy trials (1,000-3,000+ participants) typically cost <em>$50-400 million</em> and can exceed $1 billion for large cardiovascular or vaccine outcome trials.</p>
+<p>A granular view of operational costs reveals the pressure of daily burn rates. The direct cost to operate a standard Phase II/III trial is approximately <em>$40,000 per day</em> <span class="citation" data-cites="getz_delay_day_2024">(<a href="references.html#ref-getz_delay_day_2024" role="doc-biblioref">Z. P. Smith, DiMasi, and Getz 2024</a>)</span>. The opportunity cost of a delay is larger still: for a newly launched drug, a lost day of sales now averages roughly <em>$800,000</em> (about a fifth of the <em>$4-5 million</em> per day long assumed from 1990s blockbusters), rising by therapeutic area to a median of <em>$1.3-1.4 million per day</em> for cardiovascular and hematology products <span class="citation" data-cites="getz_delay_white_2024">(<a href="references.html#ref-getz_delay_white_2024" role="doc-biblioref">Z. Smith, DiMasi, and Getz 2024</a>)</span>. This financial pressure drives the immense emphasis on timelines.</p>
+</section>
+</section>
+<section id="how-ai-and-automation-can-change-trial-economics" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="how-ai-and-automation-can-change-trial-economics"><span class="header-section-number">6.2</span> How AI and Automation Can Change Trial Economics</h2>
+<p>If the economics of development are dominated by timelines and failure, then the economic value of AI is primarily indirect: it comes from shifting <em>when</em> and <em>how confidently</em> sponsors make decisions, and from reducing high-friction operational work that does not add scientific value.</p>
+<p>The most expensive failure is the late failure. When Phase III fails, years of work and hundreds of millions of dollars are already sunk, and the “cost of failure” must be recovered by the few programs that succeed <span class="citation" data-cites="tufts_cost_2016">(<a href="references.html#ref-tufts_cost_2016" role="doc-biblioref">DiMasi, Grabowski, and Hansen 2016</a>)</span>. AI cannot eliminate biological uncertainty, but it can support earlier termination of low-probability programs by improving evidence synthesis across preclinical, translational, and early clinical signals, especially when combined with more structured protocols and better data integration. Even modest improvements in decision timing can have large economic consequences because capital is tied up for a decade or more, and because time-to-market directly affects expected returns <span class="citation" data-cites="deloitte_rd_return_2025">(<a href="references.html#ref-deloitte_rd_return_2025" role="doc-biblioref">Deloitte Centre for Health Solutions 2025</a>)</span>.</p>
+<p>The second lever is timeline compression: sponsors concentrate effort on the steps that dominate calendar time and generate large amounts of administrative work. Enrollment delays are a canonical example, because feasibility errors, inefficient patient identification, and retention failures can drive substantial schedule slippage and therefore opportunity cost <span class="citation" data-cites="lamberti_enrollment_2024">(<a href="references.html#ref-lamberti_enrollment_2024" role="doc-biblioref">Lamberti et al. 2024</a>)</span>. Protocol amendments are another: they trigger IRB/ethics resubmissions, re-consent, electronic data capture rebuilds, and supply-chain re-forecasting, and substantial changes can cost hundreds of thousands of dollars once downstream disruption is accounted for <span class="citation" data-cites="getz_protocol_amendments_2016 tufts_csdd_2021">(<a href="references.html#ref-getz_protocol_amendments_2016" role="doc-biblioref">Getz et al. 2016</a>; <a href="references.html#ref-tufts_csdd_2021" role="doc-biblioref">Tufts Center for the Study of Drug Development 2021</a>)</span>. Finally, monitoring and data cleaning can become a “long tail” of repetitive query generation, verification, and follow-up, motivating risk-based quality management (RBQM) approaches that concentrate effort where it changes outcomes <span class="citation" data-cites="acro_rbqm_2025">(<a href="references.html#ref-acro_rbqm_2025" role="doc-biblioref">Association of Clinical Research Organizations 2025</a>)</span>.</p>
+<p>In this framing, AI-enabled tools create economic value mainly by automating classification, triage, and routine drafting (such as document indexing, query suggestion and clustering, and standardized narrative scaffolds) so that expert time is shifted from low-information coordination to higher-judgment work. The intended outcome is not the removal of expertise, but a reduction in coordination overhead and a reduction in the reconciliation debt that delays interim decisions and final reporting.</p>
+<section id="internal-discovery-vs.-external-acquisition" class="level3">
+<h3 class="anchored" data-anchor-id="internal-discovery-vs.-external-acquisition">Internal Discovery vs.&nbsp;External Acquisition</h3>
+<p>The R&amp;D model for large pharmaceutical companies has shifted decisively toward external innovation. According to the Deloitte 2025 report, <strong>61% of assets</strong> in the late-stage pipelines of the top 20 biopharma companies are now <strong>externally sourced</strong> through mergers, acquisitions, and licensing agreements (up from 59% in 2023) <span class="citation" data-cites="deloitte_rd_return_2025">(<a href="references.html#ref-deloitte_rd_return_2025" role="doc-biblioref">Deloitte Centre for Health Solutions 2025</a>)</span>. This trend reflects a strategy of “bolt-on” acquisitions to offset looming patent expiries and the offshoring of early-stage risk to smaller, more agile biotech firms. However, this reliance on external assets introduces its own risks: externally sourced assets are consistently <strong>more likely to be terminated</strong> in late-stage development compared to those developed in-house (14% vs 12% termination rate in 2024), often due to misaligned strategic fit or unforeseen data inconsistencies discovered during integration <span class="citation" data-cites="deloitte_rd_return_2025">(<a href="references.html#ref-deloitte_rd_return_2025" role="doc-biblioref">Deloitte Centre for Health Solutions 2025</a>)</span>.</p>
+</section>
+<section id="the-shift-toward-rare-diseases-and-high-value-targets" class="level3">
+<h3 class="anchored" data-anchor-id="the-shift-toward-rare-diseases-and-high-value-targets">The Shift Toward Rare Diseases and High-Value Targets</h3>
+<p>Financial returns are also increasingly concentrated in specialized therapy areas. In 2024, <strong>37.4% of late-stage assets</strong> were focused on <strong>rare diseases</strong> (orphan indications), a significant increase from 31.1% in 2023. This reflects the industry’s pivot toward precision medicine and high-unmet-need populations, where regulatory pathways may be faster and pricing power is greater. However, this focus has led to extreme concentration: <strong>Oncology</strong> alone accounts for <strong>37%</strong> of all late-stage assets, leading to intense competition for trial sites and eligible participants <span class="citation" data-cites="deloitte_rd_return_2025">(<a href="references.html#ref-deloitte_rd_return_2025" role="doc-biblioref">Deloitte Centre for Health Solutions 2025</a>)</span>. These categories are not mutually exclusive, since many oncology assets also carry orphan designations.</p>
+</section>
+<section id="shifting-the-cost-structure-labor-vs.-software-and-governance" class="level3">
+<h3 class="anchored" data-anchor-id="shifting-the-cost-structure-labor-vs.-software-and-governance">Shifting the cost structure: labor vs.&nbsp;software and governance</h3>
+<p>Automation does not “remove” cost; it changes its composition. Some labor costs can decline (less manual reconciliation and administrative follow-up), while software, integration, validation, and oversight costs increase. In regulated settings, sponsors must budget for governance: validation of computerized systems, audit trails, monitoring of model performance, and clear accountability for errors <span class="citation" data-cites="cfr21_11 nist_ai_rmf_2023">(<a href="references.html#ref-cfr21_11" role="doc-biblioref">U.S. Food and Drug Administration 2023a</a>; <a href="references.html#ref-nist_ai_rmf_2023" role="doc-biblioref">National Institute of Standards and Technology 2023</a>)</span>.</p>
+<p>Over time, this shift may change how services are bought. If routine work becomes more software-mediated, CRO margins based on manual throughput are pressured, while differentiated value moves toward execution excellence, specialized expertise, and quality systems that can demonstrate control and traceability. The clinical trial software market, growing at over 10% annually and projected to reach nearly $29 billion by 2033, reflects this shift toward technology-mediated operations, with cloud-based delivery now dominant <span class="citation" data-cites="grandview_clinical_software_2025">(<a href="references.html#ref-grandview_clinical_software_2025" role="doc-biblioref">Grand View Research 2025</a>)</span>.</p>
+<p>At a macro level, these forces sit on top of a long-run increase in global R&amp;D spend and a recognition that both <em>time</em> and <em>attrition</em> dominate the economics of development.</p>
+<p><a href="#tbl-rd-spending-modern" class="quarto-xref">Table&nbsp;<span>6.1</span></a> illustrates the current annual global R&amp;D spend, which has grown from ~$55 billion in 2005 to over <strong>$260 billion</strong> by 2025.</p>
+<div id="tbl-rd-spending-modern" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[34,33,33]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rd-spending-modern-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6.1: 20-Year Evolution of Drug Development Economics <span class="citation" data-cites="deloitte_rd_return_2025 iqvia_rd_trends_2025 tufts_cost_2016">(<a href="references.html#ref-deloitte_rd_return_2025" role="doc-biblioref">Deloitte Centre for Health Solutions 2025</a>; <a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>; <a href="references.html#ref-tufts_cost_2016" role="doc-biblioref">DiMasi, Grabowski, and Hansen 2016</a>)</span>
+</figcaption>
+<div aria-describedby="tbl-rd-spending-modern-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>2005 Estimate</th>
+<th>2025 Estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Avg Cost to Market</td>
+<td>$800 Million</td>
+<td>~$2.23 Billion</td>
+</tr>
+<tr class="even">
+<td>Global R&amp;D Spend</td>
+<td>$55 Billion</td>
+<td>&gt;$260 Billion</td>
+</tr>
+<tr class="odd">
+<td>Phase I Success</td>
+<td>~60%</td>
+<td>~48%</td>
+</tr>
+<tr class="even">
+<td>Phase III Success</td>
+<td>~50%</td>
+<td>~54%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Therapeutic area dramatically influences cost. Oncology trials are among the most expensive, driven by complex protocols, specialized imaging and biomarker testing, and extended survival follow-up. Neurology and cardiovascular trials are similarly costly. Dermatology and infectious disease trials tend toward the lower end of cost ranges. <a href="#tbl-rd-spending-area" class="quarto-xref">Table&nbsp;<span>6.2</span></a> illustrates projected global pharmaceutical spending by therapeutic area through 2028, and <a href="#fig-iqvia-spending" class="quarto-xref">Figure&nbsp;<span>6.1</span></a> visualizes the top therapy areas by projected 2028 spending.</p>
+<div id="tbl-rd-spending-area" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[30,35,35]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rd-spending-area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6.2: Global Pharmaceutical Spending by Therapeutic Area, 2024-2028 Projections <span class="citation" data-cites="iqvia_therapeutic_spending_2024">(<a href="references.html#ref-iqvia_therapeutic_spending_2024" role="doc-biblioref">IQVIA Institute for Human Data Science 2024</a>)</span>. Note: Oncology and immunology represent the largest R&amp;D investment areas, with specialty medicines accounting for growing share of total spending.
+</figcaption>
+<div aria-describedby="tbl-rd-spending-area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 35%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Therapeutic Area</th>
+<th>2024-2028 Projected Spending</th>
+<th>Key Trends</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Oncology</strong></td>
+<td>$440B by 2028</td>
+<td>Largest therapeutic area; novel mechanisms (cell/gene therapy, ADCs) now account for <strong>35%</strong> of oncology trials in 2024 <span class="citation" data-cites="iqvia_rd_trends_2025">(<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Immunology</strong></td>
+<td>2-5% CAGR through 2028</td>
+<td>Growth slowing due to biosimilar competition (adalimumab, ustekinumab)</td>
+</tr>
+<tr class="odd">
+<td><strong>Diabetes/Metabolic</strong></td>
+<td>$184B by 2028</td>
+<td>Massive growth in <strong>obesity</strong> trial starts (<strong>+77%</strong> in 2024 compared to 2023), with 173 medicines in development or marketed <span class="citation" data-cites="iqvia_rd_trends_2025">(<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Neurology (CNS)</strong></td>
+<td>$103B by 2028</td>
+<td>Continued investment in Alzheimer’s, Parkinson’s, and rare neurological diseases</td>
+</tr>
+<tr class="odd">
+<td><strong>Cardiovascular</strong></td>
+<td>Moderate growth</td>
+<td>Established market with incremental innovation</td>
+</tr>
+<tr class="even">
+<td><strong>Infectious Disease</strong></td>
+<td>Variable</td>
+<td>Pandemic preparedness and antimicrobial resistance driving investment</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-iqvia-spending" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-iqvia-spending-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="06-economics_files/figure-html/fig-iqvia-spending-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-iqvia-spending-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.1: Global Spending by Top Therapy Areas in 2028. Data from <span class="citation" data-cites="iqvia_therapeutic_spending_2024">IQVIA Institute for Human Data Science (<a href="references.html#ref-iqvia_therapeutic_spending_2024" role="doc-biblioref">2024</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-globalization-of-clinical-trials" class="level3">
+<h3 class="anchored" data-anchor-id="the-globalization-of-clinical-trials">The Globalization of Clinical Trials</h3>
+<p>Geography is a primary driver of cost. Per-patient costs in the United States can be several times higher than in countries like India <span class="citation" data-cites="glickman2009globalization">(<a href="references.html#ref-glickman2009globalization" role="doc-biblioref">Glickman et al. 2009</a>)</span>. A Phase III trial that might cost $50,000 to $100,000 per patient in the U.S. might cost $15,000 to $25,000 per patient in India.</p>
+<p>These cost variations reflect fundamental differences in healthcare systems and medicine utilization patterns. Per capita medicine use varies dramatically by region: Western Europe and Japan average 1,150-1,200 defined daily doses per capita, compared to North America’s 800 doses per capita, despite North America having the highest GDP per capita. Eastern Europe demonstrates over three times higher medicine use per capita than China, despite GDP per capita being only 50% higher. These disparities stem from differences in healthcare system structure, reimbursement policies, patient cost-sharing requirements, and disease burden, all of which directly influence both trial site selection and per-patient costs <span class="citation" data-cites="iqvia_therapeutic_spending_2024">(<a href="references.html#ref-iqvia_therapeutic_spending_2024" role="doc-biblioref">IQVIA Institute for Human Data Science 2024</a>)</span>.</p>
+<p>This cost differential, combined with the need for large patient pools, has driven a massive shift toward global participation. Historical analysis by <strong>Glickman et al.&nbsp;(2009)</strong> in the <em>New England Journal of Medicine</em> documented this transition, noting that industry-sponsored Phase III trials were increasingly being conducted at sites outside the United States. At that time, <strong>more than half</strong> of all Phase III study sites (13,521 of 24,206) were located ex-U.S., with approximately <strong>one-third</strong> of trials conducted solely outside the United States <span class="citation" data-cites="glickman2009globalization">(<a href="references.html#ref-glickman2009globalization" role="doc-biblioref">Glickman et al. 2009</a>)</span>. The economic driver was stark: a first-rate academic medical center in India charged approximately <strong>$1,500-$2,000</strong> per case report, less than one-tenth the cost at a second-tier U.S. center <span class="citation" data-cites="glickman2009globalization">(<a href="references.html#ref-glickman2009globalization" role="doc-biblioref">Glickman et al. 2009</a>)</span>.</p>
+<p>The globalization of research raises significant scientific and ethical questions. Glickman et al.&nbsp;highlighted concerns regarding the <strong>generalizability</strong> of trial results, noting that geographically distinct populations can have different genetic profiles that affect drug safety and effectiveness. For example, <strong>more than two-thirds</strong> of 42 genetic variants associated with pharmacologic response show significant frequency differences between persons of African ancestry and those of European ancestry. Differences in medical infrastructure and physician training are often not transparently reported, making it difficult to assess whether standards of care are consistent across regions. Ethically, the “translation” of results is complicated by the fact that many drugs tested in developing countries never become readily available or affordable there after approval, potentially violating the principle that research should be responsive to the health needs of the host community <span class="citation" data-cites="glickman2009globalization">(<a href="references.html#ref-glickman2009globalization" role="doc-biblioref">Glickman et al. 2009</a>)</span>.</p>
+<p>Recent data from IQVIA (2025) quantifies the magnitude of these regional shifts (<a href="#fig-country-utilization" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>). China’s share of global trial country-uses grew from 9% in 2019 to 15% in 2024, a 66% increase that moved it from fifth to fourth place globally, just behind Asia-Pacific as a whole.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-country-utilization" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-country-utilization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="06-economics_files/figure-html/fig-country-utilization-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-country-utilization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.2: Country Utilization as Percent of Trial Country-Uses, 2019 vs 2024. Data from <span class="citation" data-cites="iqvia_rd_trends_2025">IQVIA Institute for Human Data Science (<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">2025</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-regional-pivot-the-rise-of-china" class="level3">
+<h3 class="anchored" data-anchor-id="the-regional-pivot-the-rise-of-china">The Regional Pivot: The Rise of China</h3>
+<p>The modern era of clinical development has seen China emerge as a major force in a now multi-polar innovation ecosystem. According to IQVIA (2025), <strong>China</strong> now accounts for <strong>30%</strong> of all global trial starts by headquarters location, up from just <strong>1%</strong> in 2009 <span class="citation" data-cites="iqvia_rd_trends_2025">(<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>)</span>. Independent data corroborates this trajectory: China-sponsored trial registrations grew from 1,333 cumulative studies in 2009 to over 32,500 by 2018, a 24-fold increase <span class="citation" data-cites="zarin_china_trials_2020">(<a href="references.html#ref-zarin_china_trials_2020" role="doc-biblioref">Xu, Dong, and Liu 2020</a>)</span>. China has now approached the United States (<strong>35%</strong> in 2024) and surpassed Europe (<strong>21%</strong>) in terms of trial initiation volume.</p>
+<p>This growth in trial activity reflects substantial capital investment. The market value of publicly listed Chinese biopharma innovation players grew from <strong>$3 billion in 2016 to over $380 billion by July 2021</strong>, a 127-fold increase in five years (<a href="#fig-china-market-value" class="quarto-xref">Figure&nbsp;<span>6.3</span></a>). China’s share of the global innovation pipeline grew from <strong>4.1% in 2015 to 13.9% in 2020</strong>, and clinical trial applications from Chinese companies grew at an average of <strong>32% per year</strong> from 2016 onward <span class="citation" data-cites="mckinsey_china_biopharma_2021">(<a href="references.html#ref-mckinsey_china_biopharma_2021" role="doc-biblioref">Han et al. 2021</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-china-market-value" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-china-market-value-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="06-economics_files/figure-html/fig-china-market-value-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-china-market-value-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.3: Total Market Value of Listed Innovative China Biotechs and CRO/CDMO Players on Major Stock Exchanges (2021 data as of mid-year). Data from <span class="citation" data-cites="mckinsey_china_biopharma_2021">Han et al. (<a href="references.html#ref-mckinsey_china_biopharma_2021" role="doc-biblioref">2021</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The composition of this growth is notable: CRO/CDMO companies (contract research and manufacturing organizations) grew from a negligible base to represent over half of the total market value by 2021, reflecting both the outsourcing trend and China’s emergence as a global services hub for clinical development. This dual growth (in both innovative drug development and clinical services infrastructure) positions China as both a source and destination for clinical trial activity.</p>
+<p>However, a distinction remains between where a company is headquartered and where its trials are physically conducted. While Chinese emerging biopharma companies (EBPs) are prolific, Chinese companies ran <strong>83% of their trials domestically</strong> between 2020 and 2024 <span class="citation" data-cites="iqvia_rd_trends_2025">(<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>)</span>. In contrast, Western sponsors remain heavily tethered to U.S. and European site networks for global regulatory submissions.</p>
+<p>This geographical expansion is also occurring against a backdrop of shifting capacity. As discussed in <a href="16-site-selection.html" class="quarto-xref"><span>Chapter 18</span></a>, the number of unique U.S. investigators declined by 78% between 2020 and 2024, and new trial starts fell sharply following a post-pandemic peak <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>. This suggests that while trial activity is geographically broader, the absolute density of the global investigative environment is under significant strain.</p>
+</section>
+<section id="budgeting-checklist" class="level3">
+<h3 class="anchored" data-anchor-id="budgeting-checklist">Budgeting Checklist</h3>
+<p>Successful budgeting requires a granular understanding of costs. The following checklists (<a href="#tbl-direct-costs" class="quarto-xref">Table&nbsp;<span>6.3</span></a> and <a href="#tbl-indirect-costs" class="quarto-xref">Table&nbsp;<span>6.4</span></a>), adapted from <span class="citation" data-cites="beal2004budget">Beal et al. (<a href="references.html#ref-beal2004budget" role="doc-biblioref">2004</a>)</span> regarding industry-sponsored trials, outline the key direct and indirect costs that sites must anticipate.</p>
+<div id="tbl-direct-costs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-direct-costs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6.3: Direct Cost Considerations for Clinical Trial Sites
+</figcaption>
+<div aria-describedby="tbl-direct-costs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Direct Cost Considerations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Study Startup</em></td>
+<td>Staff training time, Site initiation visit attendance, IRB preparation &amp; submission fees, Amendment processing</td>
+</tr>
+<tr class="even">
+<td><em>Personnel</em></td>
+<td>PI oversight, Coordinator time, Research assistants, Data entry, AE reporting, Monitor visits</td>
+</tr>
+<tr class="odd">
+<td><em>Lab &amp; Procedures</em></td>
+<td>Phlebotomy supplies, Specimen processing/shipping, Dry ice, Biohazard fees, Radiology/Imaging fees, ECGs</td>
+</tr>
+<tr class="even">
+<td><em>Pharmacy</em></td>
+<td>Drug storage, Preparation (compounding), Dispensing, Accountability logs, Destruction/Return</td>
+</tr>
+<tr class="odd">
+<td><em>Patient Costs</em></td>
+<td>Stipends/Reasonable reimbursement, Travel/Parking, Meals, Overnight stays (if required)</td>
+</tr>
+<tr class="even">
+<td><em>Administrative</em></td>
+<td>Record storage (long-term), Copying/Scanning supplies, Courier fees, Archiving</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div id="tbl-indirect-costs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-indirect-costs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6.4: Indirect Cost Considerations (Institutional Overhead)
+</figcaption>
+<div aria-describedby="tbl-indirect-costs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Indirect Cost Considerations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Institutional Overhead</em></td>
+<td>Often a fixed % (e.g., 20-30%) covering rent, utilities, building maintenance</td>
+</tr>
+<tr class="even">
+<td><em>Administrative Support</em></td>
+<td>Payroll processing, Accounting/Invoicing, Legal review, Purchasing/Procurement</td>
+</tr>
+<tr class="odd">
+<td><em>Infrastructure</em></td>
+<td>Equipment depreciation (freezers, centrifuges), IT support/Network access, Communication (phones/internet)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Budget Line Items for Decentralized Trials and Digital Endpoints">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Budget Line Items for Decentralized Trials and Digital Endpoints
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The shift toward decentralized elements and digital endpoints changes not only operations but also the cost structure. Sponsors and sites increasingly incur costs for computerized systems, integration work, validation and oversight, and vendor-managed data flows, costs that are distinct from traditional per-visit procedure budgets <span class="citation" data-cites="fda_dct_guidance_2024 fda_dht_guidance_2023 cfr21_11">(<a href="references.html#ref-fda_dct_guidance_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024b</a>, <a href="references.html#ref-fda_dht_guidance_2023" role="doc-biblioref">2023c</a>, <a href="references.html#ref-cfr21_11" role="doc-biblioref">2023a</a>)</span>. Quality management also remains a material cost driver: <span class="citation" data-cites="meinert_cth_2013">Meinert (<a href="references.html#ref-meinert_cth_2013" role="doc-biblioref">2013</a>)</span> noted that there is “reason for concern” when quality assurance and control are allocated less than 10% of total direct costs, reflecting a long-standing operational reality that quality is purchased through discipline and oversight rather than assumed.</p>
+<p>Common incremental line items include:</p>
+<ul>
+<li><em>eConsent and participant communication tooling</em>: platform licensing, configuration, accessibility review, and staff training <span class="citation" data-cites="fda_econsent_2016 fda_electronic_systems_2024">(<a href="references.html#ref-fda_econsent_2016" role="doc-biblioref">U.S. Food and Drug Administration 2016</a>, <a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">2024a</a>)</span>.</li>
+<li><em>DHT/device operations</em>: device procurement, provisioning, support, replacement rates, data transmission, and device data monitoring <span class="citation" data-cites="fda_dht_guidance_2023">(<a href="references.html#ref-fda_dht_guidance_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023c</a>)</span>.</li>
+<li><em>Data integration and transfer management</em>: interface build, testing, reconciliation, and sustained change control for vendor pipelines <span class="citation" data-cites="fda_rwe_considerations_2023 fda_electronic_systems_2024">(<a href="references.html#ref-fda_rwe_considerations_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023b</a>, <a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">2024a</a>)</span>.</li>
+<li><em>Remote monitoring enablement</em>: secure remote source access solutions, redaction workflows where applicable, and expanded centralized monitoring analytics <span class="citation" data-cites="fda_dct_guidance_2024 ich_e6r3_2025">(<a href="references.html#ref-fda_dct_guidance_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024b</a>; <a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>.</li>
+<li><em>Validation and governance</em>: computerized system validation/qualification efforts, audit trail review capacity, and inspection readiness drills <span class="citation" data-cites="cfr21_11 fda_electronic_systems_2024">(<a href="references.html#ref-cfr21_11" role="doc-biblioref">U.S. Food and Drug Administration 2023a</a>, <a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">2024a</a>)</span>.</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="how-money-flows" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="how-money-flows"><span class="header-section-number">6.3</span> How Money Flows</h2>
+<p>The sponsor sits at the center of the financial web, paying out to everyone else.</p>
+<p>When a sponsor hires a CRO, the CRO’s fee typically includes a management margin. Public financial data shows typical gross margins of 40-50%, with operating margins typically ranging from 6-16% <span class="citation" data-cites="grandview_cro_2024">(<a href="references.html#ref-grandview_cro_2024" role="doc-biblioref">Grand View Research 2024</a>)</span>. The CRO payment covers:</p>
+<ul>
+<li>project management</li>
+<li>site monitoring</li>
+<li>data management</li>
+<li>biostatistics</li>
+<li>regulatory affairs</li>
+<li>medical monitoring</li>
+<li>quality assurance</li>
+</ul>
+<p>Clinical procedures (laboratory tests, imaging, specialized assessments) typically represent 15-22% of the CRO budget <span class="citation" data-cites="prorelix_cro_budget_2024">(<a href="references.html#ref-prorelix_cro_budget_2024" role="doc-biblioref">Prorelix Research 2024</a>)</span>. Site monitoring accounts for 9-14%, project management 8-12%, and data management 5-10%.</p>
+<p>The CRO, in turn, pays many vendors. Central laboratories are paid per specimen processed. Electronic data capture companies charge licensing fees and per-patient or per-site fees. Interactive response technology vendors charge for randomization and drug supply management. Each service generates revenue for the vendor and represents a pass-through cost (plus CRO margin) to the sponsor.</p>
+<p>Sites receive payments from sponsors or CROs based on negotiated budgets. The site budget covers investigator time, coordinator time, overhead, and study-specific procedures. Starting a new clinical trial site costs the sponsor $20,000 to $75,000 or more <span class="citation" data-cites="prorelix_cro_budget_2024">(<a href="references.html#ref-prorelix_cro_budget_2024" role="doc-biblioref">Prorelix Research 2024</a>)</span>, covering site selection, regulatory submissions, staff training, and infrastructure setup.</p>
+<p>Site payments are typically structured around <em>per-patient</em> or <em>per-visit</em> fees. A site might receive $3,000 for screening a patient, $500 for each study visit, and defined amounts for specific procedures. Sites also receive payments for protocol amendments, additional monitoring burden, and other non-standard activities.</p>
+<p>Trial budgets calculate per-subject payments by mapping protocol procedures to specific visits. One-time activities, such as obtaining informed consent or reviewing medical history, are typically billed at the screening visit. Recurring activities (physical exams, vital sign collections, and laboratory tests) are usually billed at every study visit. Specialized assessments like ECGs or pharmacokinetic (PK) sampling occur only at designated intervals. Finally, the sponsor pays professional fees to the investigator (PI) and a coordinator fee to the site for each visit conducted, with the total per-subject budget representing the sum of these procedural and professional components across the screening period, treatment visits, and the final end-of-study assessment.</p>
+<p>In addition to per-subject costs, sites negotiate <em>start-up fees</em> to cover the administrative burden of opening the trial. These often include regulatory document preparation, contract negotiation, pharmacy setup, source document creation, and archiving fees for long-term record storage.</p>
+<p>The money that reaches sites must cover substantial costs. Personnel time (investigators, coordinators, nurses, regulatory staff) is the largest expense. Administrative and regulatory costs (IRB submissions, informed consent development, training) add up. Medical procedures, laboratory costs, and participant reimbursements (meal stipends, travel allowances) are often paid from site budgets.</p>
+</section>
+<section id="the-cro-site-relationship" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="the-cro-site-relationship"><span class="header-section-number">6.4</span> The CRO-Site Relationship</h2>
+<p>The relationship between CROs and sites is economically fraught and often strained.</p>
+<p>CROs are accountable to sponsors. Their business depends on meeting sponsor timelines, controlling costs, and delivering quality data. Sites are focused on patient care and, increasingly, on the operational challenges of running a clinical research enterprise. These priorities can conflict.</p>
+<p>Communication breakdowns are common. Industry surveys indicate that over half of sites are dissatisfied with how communication is handled <span class="citation" data-cites="tufts_csdd_2021">(<a href="references.html#ref-tufts_csdd_2021" role="doc-biblioref">Tufts Center for the Study of Drug Development 2021</a>)</span>. Sites report repeating the same information to multiple CRO contacts, dealing with fragmented decision-making, and feeling disconnected from sponsors.</p>
+<p>Contracting processes are frequently delayed and inefficient. The involvement of multiple parties (sponsor, CRO, legal departments, institutional offices) creates layers of bureaucracy that slow trial startup. Sites may wait months for executed contracts and first patient payments.</p>
+<p>High staff turnover at CROs compounds these problems. When CRO personnel rotate frequently, sites must continuously re-educate their contacts about the trial and their capabilities. Inexperienced CRO staff may not understand protocol requirements, leading to errors that sites must correct.</p>
+<p>The economic tension is fundamental: CROs control payment flow to sites but are paid based on sponsor satisfaction. Sites feel squeezed between CRO cost pressures and the realities of delivering quality research. This structural tension underlies many operational conflicts.</p>
+</section>
+<section id="where-the-money-actually-goes" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="where-the-money-actually-goes"><span class="header-section-number">6.5</span> Where the Money Actually Goes</h2>
+<p>Understanding the ultimate destination of trial spending reveals the economic impact of clinical research.</p>
+<p>In 2023, the biopharmaceutical industry spent over $30 billion directly at clinical trial sites across the United States, generating more than $62 billion in total economic activity <span class="citation" data-cites="phrma_economic_impact_2024">(<a href="references.html#ref-phrma_economic_impact_2024" role="doc-biblioref">Pharmaceutical Research and Manufacturers of America 2024</a>)</span>. These expenditures support jobs (investigators, coordinators, nurses, regulatory staff, administrators) and purchase goods and services from local economies.</p>
+<p>CROs employ hundreds of thousands of people globally. The industry supports specialized vendors, technology companies, and service providers. Academic medical centers derive substantial revenue from clinical research, which supports teaching and infrastructure beyond the trials themselves.</p>
+<p>For sponsors, trial costs are investments against uncertain future returns. A development program that costs $1 billion may never yield an approved product: the majority do not. Those that succeed must generate enough revenue to cover not only their own development costs but the costs of failed programs.</p>
+<p>The oft-cited figure of $2.6 billion to bring a new drug to market (from a Tufts University study) reflects this reality: the average cost includes capitalized R&amp;D expenditures and the cost of failure. For an individual successful program, out-of-pocket costs are lower, but sponsors must fund many programs to achieve a few successes. This high cost of failure increasingly drives larger pharmaceutical companies to license assets later in the development cycle, shifting much of the early-phase risk, and the majority of trial activity, onto Emerging Biopharma (EBP) companies <span class="citation" data-cites="iqvia_rd_trends_2025">(<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>)</span>.</p>
+</section>
+<section id="patient-economics" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="patient-economics"><span class="header-section-number">6.6</span> Patient Economics</h2>
+<p>Patients bear costs that are often invisible in trial budgets.</p>
+<p>While investigational drugs and many study procedures are covered, patients face out-of-pocket expenses for travel, parking, meals, and accommodations. In early-phase oncology trials, nearly half of patients (48%) report monthly out-of-pocket costs of at least $1,000 <span class="citation" data-cites="huey2021oop">(<a href="references.html#ref-huey2021oop" role="doc-biblioref">Huey et al. 2021</a>)</span>. These costs fall disproportionately on patients with lower incomes and those who live far from trial sites.</p>
+<p>Time costs are also substantial. Participation requires clinic visits, sometimes frequent ones. For working patients, this means time away from jobs. For patients with caregiving responsibilities, it requires arranging coverage. These costs are real even if they do not appear in any budget.</p>
+<p>The emergence of decentralized trial elements (home visits, remote monitoring, direct-to-patient drug shipment) addresses some of these burdens but introduces new logistical challenges and costs.</p>
+</section>
+<section id="funding-interims-and-portfolio-management" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="funding-interims-and-portfolio-management"><span class="header-section-number">6.7</span> Funding Interims and Portfolio Management</h2>
+<p>Interim analyses are usually framed as scientific tools, but they also serve a financial one: deciding whether to commit capital to the next stage of a program. This section distinguishes the funding interim from its scientific counterpart, then turns to the metric funders actually rely on, the predictive probability of success.</p>
+<section id="administrative-interim-analyses" class="level3">
+<h3 class="anchored" data-anchor-id="administrative-interim-analyses">Administrative Interim Analyses</h3>
+<p>A <em>funding interim</em> (also called an administrative or financial interim analysis) is a pre-specified analysis of accumulating trial data conducted specifically to trigger an investment decision, not to change trial design or stop enrollment. The distinction from a scientific interim is essential: a scientific interim (for futility, efficacy, or dose selection) changes something about the trial. A funding interim changes nothing about the trial at all. It simply answers a binary question for an external funder: “Has the pre-specified threshold been met?”</p>
+<p>The mechanics are straightforward. The trial protocol specifies that an independent statistical group will perform a blinded or unblinded analysis when a defined number of patients have completed follow-up. That group delivers a checkbox (yes/no) to the sponsor and to the funder under a non-disclosure agreement. The criterion is typically based on predictive probability of trial success, described below. The funder uses the checkbox to decide whether to commit capital to complete the trial; if the threshold is not met, the funder may decline to invest but the trial continues unchanged under its original protocol.</p>
+<p>The critical naming convention is not semantic: calling this analysis a “futility” interim creates a regulatory problem, because futility implies that failing the analysis triggers a protocol change. An administrative analysis that changes nothing does not require the same pre-specification, alpha-allocation, and regulatory disclosure as a scientific futility analysis. Sponsors should use “administrative analysis” or “financial analysis” in the protocol and charter, and clearly distinguish it from any scientific interim planned.</p>
+<p>This design solves a structural problem in smaller biotech development. A company that can fund the Phase II portion of a seamless Phase II/III program may need external capital to fund the Phase III expansion. A standalone Phase II trial requires a gap between studies (unblinding, data readout, fundraising, regulatory interaction) that adds roughly a year or more to the development timeline and costs additional months of patent life. A seamless design with a built-in funding checkpoint can eliminate that gap, with the funder committing based on the interim checkpoint result.</p>
+</section>
+<section id="predictive-probability-of-success-as-a-funders-tool" class="level3">
+<h3 class="anchored" data-anchor-id="predictive-probability-of-success-as-a-funders-tool">Predictive Probability of Success as a Funder’s Tool</h3>
+<p>The funding criterion is almost always some form of <em>predictive probability of success (PPoS)</em>, the probability that the trial will achieve statistical significance at the planned final analysis, given the data accumulated so far <span class="citation" data-cites="predictive_probabilities2025">(<a href="references.html#ref-predictive_probabilities2025" role="doc-biblioref">Marion et al. 2025</a>)</span>. This is distinct from power, which is fixed at design time based on an assumed effect size and does not change as data accumulate. PPoS does change with interim data: it rises as the treatment effect looks larger than assumed, falls as it looks smaller, and can swing dramatically depending on what the data show. The full statistical treatment is at <a href="11-statistical-methods.html#sec-predictive-prob" class="quarto-xref"><span>Section 12.7.1</span></a>.</p>
+<p>For funders, PPoS is intuitive in a way that p-values and confidence intervals are not. Investment decisions are probability-based: a funder is, in effect, buying a lottery ticket with a stated probability of a payoff. A 70% PPoS at the time of the funding checkpoint means that, given the available data, there is a 70% probability the trial will be statistically successful at the final analysis. This is the natural framing for investors who think about expected value and risk-adjusted returns. Even large pharmaceutical companies use internal PPoS calculations as portfolio-management tools for deciding which Phase III programs to continue and which to terminate.</p>
+<p>A common communication failure is demanding that PPoS equal power. “We need 90% predictive probability” as a funding criterion means the funder needs to see, at halftime, that the team is 90% likely to win by the required margin. That is an extraordinarily high bar mid-trial, far higher than is typically achievable without an enormous interim effect size. The practical solution is to show funders example data presentations (Kaplan-Meier curves, hazard ratios, mean differences) and work backward to the PPoS associated with each one, building intuition for what a “fundable” interim result looks like.</p>
+</section>
+<section id="assurance-and-portfolio-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="assurance-and-portfolio-optimization">Assurance and Portfolio Optimization</h3>
+<p><em>Assurance</em> (sometimes called Bayesian predictive probability of success) extends the PPoS concept from trial execution to program planning <span class="citation" data-cites="ohagan2005assurance">(<a href="references.html#ref-ohagan2005assurance" role="doc-biblioref">O’Hagan, Stevens, and Campbell 2005</a>)</span>. Where PPoS conditions on the accumulated data at a specific interim time point, assurance is computed before the trial starts, averaging the probability of a successful outcome over the uncertainty in the true treatment effect. The distinction: power assumes a specific true effect size and computes the probability of observing a significant result under that assumption. Assurance integrates over a distribution of plausible true effects and computes the average probability of a successful outcome across that distribution.</p>
+<p>For portfolio management, assurance is the more relevant quantity. A Phase III program powered at 85% for an assumed hazard ratio of 0.80 sounds high, but if the sponsor’s internal evidence places substantial uncertainty on whether the effect is 0.70 or 0.90, the assurance (averaged over that uncertainty) might be 55-60%. Portfolio managers who optimize based on power alone are systematically overestimating the probability of success for their programs; assurance provides a more realistic forecast.</p>
+<p>Assurance calculations also make uncertainty transparent in a useful way. A program team that disagrees about the likely effect size can run assurance under both assumptions and see how dramatically the probability of success changes. This is more productive than arguing about which single effect size to assume for power.</p>
+</section>
+</section>
+<section id="platform-trial-economics" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="platform-trial-economics"><span class="header-section-number">6.8</span> Platform Trial Economics</h2>
+<p>The economic case for platform trials (described in detail at <a href="12-study-design.html#sec-master-protocols" class="quarto-xref"><span>Section 13.6</span></a>) can be summarized as a reduction in cost per scientific question answered. When sponsors each build separate Phase III programs for drugs targeting the same disease, approximately half of the enrolled patients receive placebo across all programs simultaneously, generating information only about the control-arm trajectory rather than about any experimental treatment. A platform with a shared control arm redirects those patients to experimental arms, substantially reducing the total number of patients required to answer each question while maintaining statistical power <span class="citation" data-cites="saville2016platform">(<a href="references.html#ref-saville2016platform" role="doc-biblioref">Saville and Berry 2016</a>)</span>.</p>
+<p>The benefit is not just in patient count. Platform infrastructure (site contracts, databases, regulatory submissions, DSMBs, monitoring infrastructure) represents a substantial fixed cost that scales with the number of programs in parallel. Amortizing this fixed cost across multiple arms makes the per-arm cost of subsequent arms a fraction of the cost of a standalone trial. REMAP-CAP investigated many therapies across its multiple treatment domains over its lifespan; each of those questions would have required years of infrastructure development if approached as a standalone trial.</p>
+<p>The first-arm problem is the primary economic barrier to platforms. The sponsor of the platform’s first arm bears the full fixed cost of building the arena before any amortization benefit materializes. This means platforms in academic or disease-advocacy settings (Healey ALS, I-SPY 2, SNAP) typically require philanthropic or government funding for the first arms; once the platform is proven, commercial sponsors engage at much lower marginal cost. This structural challenge explains why perpetual platforms have succeeded most readily in conditions with strong advocacy communities or NIH investment, while diseases without those resources remain served primarily by standalone trials.</p>
+</section>
+<section id="strategic-implications" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="strategic-implications"><span class="header-section-number">6.9</span> Strategic Implications</h2>
+<p>The largest economic levers in a trial are rarely the per-procedure line items. They are the decisions about which programs to fund, when to stop them, and how to share fixed infrastructure across scientific questions.</p>
+<p>For sponsors and their funders, this argues for judging programs on assurance rather than power: a program powered at 85% can carry a true probability of success closer to 55-60% once uncertainty in the effect size is taken into account, and stopping such a program early (or structuring a seamless design with an administrative funding checkpoint) protects far more capital than any procedure-level negotiation. For CROs, differentiated value is moving from manual throughput toward execution excellence and the quality systems that can demonstrate control as routine work becomes software-mediated. For sites, financial viability depends on budgeting that captures the indirect and administrative costs (<a href="#tbl-indirect-costs" class="quarto-xref">Table&nbsp;<span>6.4</span></a>) that per-visit fees routinely miss, so that negotiated compensation actually covers personnel and infrastructure. And for the patients at the center of the enterprise, designs that move cost off the participant are both an ethical obligation and, increasingly, an advantage in recruitment and retention.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-acro_rbqm_2025" class="csl-entry" role="listitem">
+Association of Clinical Research Organizations. 2025. <span>“2025 Risk-Based Quality Management (RBQM) Summary Report.”</span> <a href="https://www.acrohealth.org/wp-content/uploads/2025/06/ACRO_2025-RBQM-Report_Final-062425.pdf">https://www.acrohealth.org/wp-content/uploads/2025/06/ACRO_2025-RBQM-Report_Final-062425.pdf</a>.
+</div>
+<div id="ref-avorn2015pill" class="csl-entry" role="listitem">
+Avorn, Jerry. 2015. <span>“The $2.6 Billion Pill — Methodologic and Policy Considerations.”</span> <em>New England Journal of Medicine</em> 372 (20): 1877–79. <a href="https://doi.org/10.1056/NEJMp1500848">https://doi.org/10.1056/NEJMp1500848</a>.
+</div>
+<div id="ref-beal2004budget" class="csl-entry" role="listitem">
+Beal, Kristy, Juliette Dean, James Chen, Elena Dragaon, Ann Saulino, and Charles D. Collard. 2004. <span>“Budget Negotiation for Industry-Sponsored Clinical Trials.”</span> <em>Anesthesia &amp; Analgesia</em> 99 (1): 173–76. <a href="https://doi.org/10.1213/01.ANE.0000122633.97424.76">https://doi.org/10.1213/01.ANE.0000122633.97424.76</a>.
+</div>
+<div id="ref-deloitte_rd_return_2025" class="csl-entry" role="listitem">
+Deloitte Centre for Health Solutions. 2025. <span>“Measuring the Return from Pharmaceutical Innovation.”</span> <a href="https://www2.deloitte.com/us/en/pages/life-sciences-and-health-care/articles/measuring-return-from-pharmaceutical-innovation.html">https://www2.deloitte.com/us/en/pages/life-sciences-and-health-care/articles/measuring-return-from-pharmaceutical-innovation.html</a>.
+</div>
+<div id="ref-tufts_cost_2016" class="csl-entry" role="listitem">
+DiMasi, Joseph A., Henry G. Grabowski, and Ronald W. Hansen. 2016. <span>“Innovation in the Pharmaceutical Industry: New Estimates of r&amp;d Costs.”</span> <em>Journal of Health Economics</em> 47: 20–33. <a href="https://doi.org/10.1016/j.jhealeco.2016.01.012">https://doi.org/10.1016/j.jhealeco.2016.01.012</a>.
+</div>
+<div id="ref-getz_protocol_amendments_2016" class="csl-entry" role="listitem">
+Getz, Kenneth A., Stella Stergiopoulos, Mary Short, Leon Surgeon, Randy Krauss, Sybrand Pretorius, Julian Desmond, and Derek Dunn. 2016. <span>“The Impact of Protocol Amendments on Clinical Trial Performance and Cost.”</span> <em>Therapeutic Innovation &amp; Regulatory Science</em> 50 (4): 436–41. <a href="https://doi.org/10.1177/2168479016632271">https://doi.org/10.1177/2168479016632271</a>.
+</div>
+<div id="ref-glickman2009globalization" class="csl-entry" role="listitem">
+Glickman, Seth W., John G. McHutchison, Eric D. Peterson, Charles B. Cairns, Robert A. Harrington, Robert M. Califf, and Kevin A. Schulman. 2009. <span>“Ethical and Scientific Implications of the Globalization of Clinical Research.”</span> <em>New England Journal of Medicine</em> 360 (8): 816–23. <a href="https://doi.org/10.1056/NEJMsb0803929">https://doi.org/10.1056/NEJMsb0803929</a>.
+</div>
+<div id="ref-grandview_cro_2024" class="csl-entry" role="listitem">
+Grand View Research. 2024. <span>“Contract Research Organization Market Size Report.”</span> <a href="https://www.grandviewresearch.com/industry-analysis/contract-research-organization-market">https://www.grandviewresearch.com/industry-analysis/contract-research-organization-market</a>.
+</div>
+<div id="ref-grandview_clinical_software_2025" class="csl-entry" role="listitem">
+———. 2025. <span>“Clinical Trials Support Software Solutions Market Size, Share &amp; Trends Analysis Report.”</span> <a href="https://www.grandviewresearch.com/industry-analysis/clinical-trials-support-software-solutions-market-report">https://www.grandviewresearch.com/industry-analysis/clinical-trials-support-software-solutions-market-report</a>.
+</div>
+<div id="ref-mckinsey_china_biopharma_2021" class="csl-entry" role="listitem">
+Han, Kiki, Franck Le Deu, Fangning Zhang, and Josie Zhou. 2021. <span>“The Dawn of China Biopharma Innovation.”</span> <a href="https://www.mckinsey.com/industries/life-sciences/our-insights/the-dawn-of-china-biopharma-innovation">https://www.mckinsey.com/industries/life-sciences/our-insights/the-dawn-of-china-biopharma-innovation</a>.
+</div>
+<div id="ref-huey2021oop" class="csl-entry" role="listitem">
+Huey, Ryan W., Goldy C. George, Penny Phillips, Revenda White, Siqing Fu, Filip Janku, Daniel D. Karp, et al. 2021. <span>“Patient-Reported Out-of-Pocket Costs and Financial Toxicity During Early-Phase Oncology Clinical Trials.”</span> <em>The Oncologist</em> 26 (7): 588–96. <a href="https://doi.org/10.1002/onco.13767">https://doi.org/10.1002/onco.13767</a>.
+</div>
+<div id="ref-ich_e6r3_2025" class="csl-entry" role="listitem">
+International Council for Harmonisation. 2025. <span>“<span>ICH E6(R3)</span>: Guideline for Good Clinical Practice (GCP).”</span> <a href="https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf">https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf</a>.
+</div>
+<div id="ref-iqvia_therapeutic_spending_2024" class="csl-entry" role="listitem">
+IQVIA Institute for Human Data Science. 2024. <span>“Global Use of Medicines 2024: Outlook to 2028.”</span> <a href="https://www.iqvia.com/insights/the-iqvia-institute/reports-and-publications/reports/the-global-use-of-medicines-2024-outlook-to-2028">https://www.iqvia.com/insights/the-iqvia-institute/reports-and-publications/reports/the-global-use-of-medicines-2024-outlook-to-2028</a>.
+</div>
+<div id="ref-iqvia_rd_trends_2025" class="csl-entry" role="listitem">
+———. 2025. <span>“Global Trends in r&amp;d 2025.”</span> <a href="https://iqvia.com/insights/the-iqvia-institute/reports-and-publications/reports/global-trends-in-r-and-d-2025">https://iqvia.com/insights/the-iqvia-institute/reports-and-publications/reports/global-trends-in-r-and-d-2025</a>.
+</div>
+<div id="ref-lamberti_enrollment_2024" class="csl-entry" role="listitem">
+Lamberti, Mary Jo, Abigail Dirks, Nicholas Kikuchi, Neha Patel Cervantes, and Kenneth Getz. 2024. <span>“Benchmarking Site Activation and Patient Enrollment.”</span> <em>Therapeutic Innovation &amp; Regulatory Science</em> 58 (4): 696–703. <a href="https://doi.org/10.1007/s43441-024-00638-1">https://doi.org/10.1007/s43441-024-00638-1</a>.
+</div>
+<div id="ref-predictive_probabilities2025" class="csl-entry" role="listitem">
+Marion, Joe, Elizabeth Lorenzi, Cora Allen-Savietta, Scott Berry, and Kert Viele. 2025. <span>“Predictive Probabilities Made Simple: A Fast and Accurate Method for Clinical Trial Decision-Making.”</span> <em>Statistics in Medicine</em> 44 (13-14): e70120. <a href="https://doi.org/10.1002/sim.70120">https://doi.org/10.1002/sim.70120</a>.
+</div>
+<div id="ref-meinert_cth_2013" class="csl-entry" role="listitem">
+Meinert, Curtis L. 2013. <em>Clinical Trials Handbook: Design and Conduct</em>. Hoboken, NJ: John Wiley &amp; Sons.
+</div>
+<div id="ref-nist_ai_rmf_2023" class="csl-entry" role="listitem">
+National Institute of Standards and Technology. 2023. <span>“Artificial Intelligence Risk Management Framework (AI RMF 1.0).”</span> <a href="https://www.nist.gov/itl/ai-risk-management-framework">https://www.nist.gov/itl/ai-risk-management-framework</a>.
+</div>
+<div id="ref-ohagan2005assurance" class="csl-entry" role="listitem">
+O’Hagan, Anthony, John W. Stevens, and Michael J. Campbell. 2005. <span>“Assurance in Clinical Trial Design.”</span> <em>Pharmaceutical Statistics</em> 4 (3): 187–201. <a href="https://doi.org/10.1002/pst.175">https://doi.org/10.1002/pst.175</a>.
+</div>
+<div id="ref-phrma_economic_impact_2024" class="csl-entry" role="listitem">
+Pharmaceutical Research and Manufacturers of America. 2024. <span>“The Economic Impact of the u.s. Biopharmaceutical Industry.”</span> <a href="https://phrma.org/resource-center/topics/economic-impact/industry-economic-impact">https://phrma.org/resource-center/topics/economic-impact/industry-economic-impact</a>.
+</div>
+<div id="ref-prasad2017rd" class="csl-entry" role="listitem">
+Prasad, Vinay, and Sham Mailankody. 2017. <span>“Research and Development Spending to Bring a Single Cancer Drug to Market and Revenues After Approval.”</span> <em>JAMA Internal Medicine</em> 177 (11): 1569–75. <a href="https://doi.org/10.1001/jamainternmed.2017.3601">https://doi.org/10.1001/jamainternmed.2017.3601</a>.
+</div>
+<div id="ref-prorelix_cro_budget_2024" class="csl-entry" role="listitem">
+Prorelix Research. 2024. <span>“Phase-by-Phase Clinical Trial Costs: What Every Sponsor Needs to Know.”</span> <a href="https://prorelixresearch.com/phase-by-phase-clinical-trial-costs-what-every-sponsor-needs-to-know/">https://prorelixresearch.com/phase-by-phase-clinical-trial-costs-what-every-sponsor-needs-to-know/</a>.
+</div>
+<div id="ref-saville2016platform" class="csl-entry" role="listitem">
+Saville, Benjamin R., and Scott M. Berry. 2016. <span>“Efficiencies of Platform Clinical Trials: A Vision of the Future.”</span> <em>Clinical Trials</em> 13 (3): 358–66. <a href="https://doi.org/10.1177/1740774515626362">https://doi.org/10.1177/1740774515626362</a>.
+</div>
+<div id="ref-getz_delay_day_2024" class="csl-entry" role="listitem">
+Smith, Zachary P., Joseph A. DiMasi, and Kenneth A. Getz. 2024. <span>“New Estimates on the Cost of a Delay Day in Drug Development.”</span> <em>Therapeutic Innovation &amp; Regulatory Science</em> 58 (5): 855–62. <a href="https://doi.org/10.1007/s43441-024-00667-w">https://doi.org/10.1007/s43441-024-00667-w</a>.
+</div>
+<div id="ref-getz_delay_white_2024" class="csl-entry" role="listitem">
+Smith, Zachary, Joseph A. DiMasi, and Kenneth A. Getz. 2024. <span>“Quantifying the Value of a Day of Delay in Drug Development.”</span> White Paper. Tufts Center for the Study of Drug Development. <a href="https://csdd.tufts.edu/sites/default/files/2025-02/Aug2024%20Day%20of%20Delay%20White%20Paper%20Final.pdf">https://csdd.tufts.edu/sites/default/files/2025-02/Aug2024%20Day%20of%20Delay%20White%20Paper%20Final.pdf</a>.
+</div>
+<div id="ref-tufts_csdd_2021" class="csl-entry" role="listitem">
+Tufts Center for the Study of Drug Development. 2021. <span>“Tufts Center for the Study of Drug Development Impact Reports.”</span> <a href="https://csdd.tufts.edu/publications/impact-reports">https://csdd.tufts.edu/publications/impact-reports</a>.
+</div>
+<div id="ref-fda_econsent_2016" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2016. <span>“Use of Electronic Informed Consent in Clinical Investigations: Questions and Answers.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-electronic-informed-consent-clinical-investigations-questions-and-answers">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-electronic-informed-consent-clinical-investigations-questions-and-answers</a>.
+</div>
+<div id="ref-cfr21_11" class="csl-entry" role="listitem">
+———. 2023a. <span>“21 CFR Part 11: Electronic Records; Electronic Signatures.”</span> <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11">https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11</a>.
+</div>
+<div id="ref-fda_rwe_considerations_2023" class="csl-entry" role="listitem">
+———. 2023b. <span>“Considerations for the Use of Real-World Data and Real-World Evidence to Support Regulatory Decision-Making for Drug and Biological Products.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-real-world-data-and-real-world-evidence-support-regulatory-decision-making-drug">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-real-world-data-and-real-world-evidence-support-regulatory-decision-making-drug</a>.
+</div>
+<div id="ref-fda_dht_guidance_2023" class="csl-entry" role="listitem">
+———. 2023c. <span>“Digital Health Technologies for Remote Data Acquisition in Clinical Investigations: Guidance for Industry, Investigators, and Other Stakeholders.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/digital-health-technologies-remote-data-acquisition-clinical-investigations">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/digital-health-technologies-remote-data-acquisition-clinical-investigations</a>.
+</div>
+<div id="ref-fda_electronic_systems_2024" class="csl-entry" role="listitem">
+———. 2024a. <span>“Electronic Systems, Electronic Records, and Electronic Signatures in Clinical Investigations: Questions and Answers.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-systems-electronic-records-and-electronic-signatures-clinical-investigations-questions">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-systems-electronic-records-and-electronic-signatures-clinical-investigations-questions</a>.
+</div>
+<div id="ref-fda_dct_guidance_2024" class="csl-entry" role="listitem">
+———. 2024b. <span>“Conducting Clinical Trials with Decentralized Elements.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/conducting-clinical-trials-decentralized-elements">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/conducting-clinical-trials-decentralized-elements</a>.
+</div>
+<div id="ref-wcg_site_challenges_2024" class="csl-entry" role="listitem">
+WCG Clinical. 2024. <span>“2024 Clinical Research Site Challenges Report: Data-Driven Insights on Current Site Challenges and Strategic Recommendations to Overcome Barriers and Boost Clinical Trial Efficiency.”</span> <a href="https://www.wcgclinical.com/wp-content/uploads/2024/10/WCG_2024_Clinical_Research_Site_Challenges_Report.pdf">https://www.wcgclinical.com/wp-content/uploads/2024/10/WCG_2024_Clinical_Research_Site_Challenges_Report.pdf</a>.
+</div>
+<div id="ref-zarin_china_trials_2020" class="csl-entry" role="listitem">
+Xu, Yang, Min Dong, and Xuemei Liu. 2020. <span>“Characteristics and Trends of Clinical Studies Primarily Sponsored by China in WHO Primary Registries Between 2009 and 2018: A Cross-Sectional Survey.”</span> <em>BMJ Open</em> 10 (11): e037262. <a href="https://doi.org/10.1136/bmjopen-2020-037262">https://doi.org/10.1136/bmjopen-2020-037262</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./05-drug-development.html" class="pagination-link" aria-label="Overview of Drug Development">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./07-phase1.html" class="pagination-link" aria-label="Phase I: Human Pharmacology">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

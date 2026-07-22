@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>13&nbsp; Study Design – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./12b-rwe-external-controls.html" rel="next">
+<link href="./11-statistical-methods.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="13&nbsp; Study Design – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="13&nbsp; Study Design – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./12-study-design.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#randomization" id="toc-randomization" class="nav-link active" data-scroll-target="#randomization"><span class="header-section-number">13.1</span> Randomization</a></li>
+  <li><a href="#blinding" id="toc-blinding" class="nav-link" data-scroll-target="#blinding"><span class="header-section-number">13.2</span> Blinding</a></li>
+  <li><a href="#control-groups" id="toc-control-groups" class="nav-link" data-scroll-target="#control-groups"><span class="header-section-number">13.3</span> Control Groups</a></li>
+  <li><a href="#trial-design-types" id="toc-trial-design-types" class="nav-link" data-scroll-target="#trial-design-types"><span class="header-section-number">13.4</span> Trial Design Types</a></li>
+  <li><a href="#sample-size" id="toc-sample-size" class="nav-link" data-scroll-target="#sample-size"><span class="header-section-number">13.5</span> Sample Size</a></li>
+  <li><a href="#sec-master-protocols" id="toc-sec-master-protocols" class="nav-link" data-scroll-target="#sec-master-protocols"><span class="header-section-number">13.6</span> Master Protocols and Platform Trials</a>
+  <ul class="collapse">
+  <li><a href="#platform-trial-mechanics" id="toc-platform-trial-mechanics" class="nav-link" data-scroll-target="#platform-trial-mechanics">Platform Trial Mechanics</a></li>
+  <li><a href="#case-studies" id="toc-case-studies" class="nav-link" data-scroll-target="#case-studies">Case Studies</a></li>
+  </ul></li>
+  <li><a href="#the-statistical-analysis-plan" id="toc-the-statistical-analysis-plan" class="nav-link" data-scroll-target="#the-statistical-analysis-plan"><span class="header-section-number">13.7</span> The Statistical Analysis Plan</a></li>
+  <li><a href="#the-protocol" id="toc-the-protocol" class="nav-link" data-scroll-target="#the-protocol"><span class="header-section-number">13.8</span> The Protocol</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./12-study-design.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-study-design" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Clinical trial design addresses a central problem in clinical development: <strong>how to turn a clinical question into decision-grade evidence while minimizing bias, confounding, and ambiguity</strong>. The design choices (population, endpoints, control, randomization, blinding, follow-up, and analysis plan) determine whether an observed effect can be credibly attributed to the intervention and interpreted for the intended regulatory and clinical use.</p>
+<p>Every clinical trial begins with a question. Sometimes the question is simple: does this drug reduce blood pressure more than placebo? More often, the question is nuanced: does this drug reduce cardiovascular events more than existing therapy in patients with moderate-to-severe hypertension and high cardiovascular risk who are not adequately controlled on their current regimen?</p>
+<p>When design is weak, trials can fail for reasons unrelated to the drug’s biology. For example, if eligibility criteria are defined too broadly and the endpoint is noisy or poorly aligned with the mechanism, the study may enroll a heterogeneous population in which any true benefit is diluted; the result can be an underpowered “negative” trial that is not persuasive for approval even if a meaningful effect exists in the intended subgroup.</p>
+<section id="randomization" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="randomization"><span class="header-section-number">13.1</span> Randomization</h2>
+<p>The cornerstone of the modern clinical trial is <em>randomization</em>: the random allocation of participants to treatment groups. This seemingly simple procedure is arguably the most important innovation in the history of clinical research.</p>
+<p>The power of randomization lies in what it accomplishes: it ensures that treatment groups are comparable in both known and unknown characteristics. We know that age, sex, disease severity, and genetic factors can influence outcomes. But there are likely hundreds of factors we do not know about or cannot measure that also influence outcomes. Randomization, when performed correctly, creates groups that are balanced on all these factors. Not in every individual case, but on average across studies.</p>
+<p>This balance is what allows us to attribute observed differences to the treatment rather than to differences between the groups. If patients receiving the new drug do better than patients receiving placebo, and the groups were comparable at baseline, the most likely explanation is that the drug works.</p>
+<p>Randomization comes in various forms. <em>Simple randomization</em> flips a coin for each patient, which is simple but can lead to imbalanced group sizes. <em>Block randomization</em> ensures that after every block of patients (say, 4 or 8), the groups are equal in size. <em>Stratified randomization</em> performs separate randomization within subgroups defined by important prognostic factors, ensuring balance on those factors.</p>
+</section>
+<section id="blinding" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="blinding"><span class="header-section-number">13.2</span> Blinding</h2>
+<p>If randomization protects against bias in how patients are assigned to groups, <em>blinding</em> (also called masking) protects against bias in how they are treated and assessed. <a href="#tbl-blinding-levels" class="quarto-xref">Table&nbsp;<span>13.1</span></a> summarizes the levels of blinding and their applications.</p>
+<div id="tbl-blinding-levels" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[18,20,25,37]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-blinding-levels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;13.1: Levels of Blinding in Clinical Trials
+</figcaption>
+<div aria-describedby="tbl-blinding-levels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Blinding Level</th>
+<th>Who Is Blinded</th>
+<th>Protection Against</th>
+<th>Limitations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Open-label</em></td>
+<td>No one</td>
+<td>None</td>
+<td>Risk of assessment and performance bias</td>
+</tr>
+<tr class="even">
+<td><em>Single-blind</em></td>
+<td>Participants only</td>
+<td>Participant expectation effects</td>
+<td>Investigator may influence care/assessment</td>
+</tr>
+<tr class="odd">
+<td><em>Double-blind</em></td>
+<td>Participants + Investigators</td>
+<td>Expectation + Assessment bias</td>
+<td>May still be unblinded by side effects</td>
+</tr>
+<tr class="even">
+<td><em>Triple-blind</em></td>
+<td>+ Data analysts</td>
+<td>All above + Analytic bias</td>
+<td>Maximum protection</td>
+</tr>
+<tr class="odd">
+<td><em>Blinded assessment</em></td>
+<td>Outcome assessors only</td>
+<td>Assessment bias when other blinding impossible</td>
+<td>Limited to specific outcomes</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>In a <em>single-blind</em> trial, participants do not know which treatment they receive, but investigators do. This prevents participant expectations from influencing subjective outcomes but does not protect against investigator bias in assessments or care.</p>
+<p>In a <em>double-blind</em> trial, neither participants nor investigators know the treatment assignment. This is the gold standard for most clinical trials, eliminating both participant and investigator bias.</p>
+<p>In a <em>triple-blind</em> trial, even the statisticians analyzing the data do not know which group is which until the analysis plan is executed, preventing any conscious or unconscious manipulation of the analysis.</p>
+<p>Maintaining the blind is not always straightforward. Some drugs have distinctive side effects (certain cancer treatments cause hair loss; some psychiatric medications cause weight gain). Placebo formulations must be designed to be indistinguishable from active treatment in appearance, taste, smell, and texture. When blinding is not possible (as in surgical trials or many device studies), alternative designs and analyses must account for the limitations.</p>
+</section>
+<section id="control-groups" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="control-groups"><span class="header-section-number">13.3</span> Control Groups</h2>
+<p>Clinical trials are controlled experiments, and choosing the right control is required.</p>
+<p><em>Placebo controls</em> compare the experimental treatment to an inert substance that is indistinguishable from the active treatment. Placebo-controlled trials provide the clearest evidence of efficacy because any difference between groups can be attributed to the pharmacological effect of the drug rather than to expectations, attention from healthcare providers, or natural fluctuations in disease.</p>
+<p>However, placebo controls are not always ethical. When effective treatments exist, withholding them to demonstrate that a new drug is better than nothing may be unacceptable. The Declaration of Helsinki requires that new treatments generally be tested against the best current therapy, not placebo <span class="citation" data-cites="helsinki_2024">(<a href="references.html#ref-helsinki_2024" role="doc-biblioref">World Medical Association 2025</a>)</span>.</p>
+<p><em>Active controls</em> compare the experimental treatment to an established therapy. This is ethically appropriate when withholding treatment would be harmful, but it creates statistical challenges. Showing that a new drug is <em>superior</em> to an active control requires a larger sample size than showing it is better than placebo. Showing that a new drug is <em>non-inferior</em> (not meaningfully worse) requires careful definition of how much difference would be acceptable and raises concerns about trial quality that could mask real differences.</p>
+<p><em>Historical and External Controls</em> compare study participants to patients treated in the past or in separate real-world environments. While traditionally viewed with skepticism for pivotal trials, regulatory agencies are increasingly providing structure for their use in rare diseases and high unmet need areas. In 2025, the MHRA released a draft guideline on the use of external control arms derived from real-world data <span class="citation" data-cites="mhra_external_controls_2025">(<a href="references.html#ref-mhra_external_controls_2025" role="doc-biblioref">Medicines and Healthcare products Regulatory Agency 2025</a>)</span>, and EMA published a concept paper outlining plans for a future reflection paper on the same topic <span class="citation" data-cites="ema_external_controls_2025">(<a href="references.html#ref-ema_external_controls_2025" role="doc-biblioref">European Medicines Agency 2025</a>)</span>, both emphasizing transparent, pre-specified protocols and the fitness for purpose of the external data.</p>
+<p>Technically, these designs are being advanced by <strong>Digital Twin</strong> and <strong>Bayesian Borrowing</strong> frameworks. Digital twins (prognostic scores generated from high-dimensional baseline data) allow for “TwinRCTs” where each patient’s outcome is adjusted by their own AI-generated digital counterpart, increasing statistical power in longitudinal studies <span class="citation" data-cites="unlearn_digital_twins unlearn_mmrm_2024">(<a href="references.html#ref-unlearn_digital_twins" role="doc-biblioref">Unlearn.AI 2024</a>; <a href="references.html#ref-unlearn_mmrm_2024" role="doc-biblioref">Ross et al. 2024</a>)</span>. Similarly, Bayesian dynamic borrowing allows sponsors to “borrow” information from historical trials or RWD while accounting for differences in patient populations, as demonstrated in recent case studies in first-line non-small cell lung cancer (NSCLC) <span class="citation" data-cites="nsclc_borrowing_2024">(<a href="references.html#ref-nsclc_borrowing_2024" role="doc-biblioref">Struebing et al. 2024</a>)</span>.</p>
+</section>
+<section id="trial-design-types" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="trial-design-types"><span class="header-section-number">13.4</span> Trial Design Types</h2>
+<p><a href="#tbl-trial-designs" class="quarto-xref">Table&nbsp;<span>13.2</span></a> compares the major trial design types, each suited to different clinical questions and conditions.</p>
+<div id="tbl-trial-designs" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[12,22,22,22,22]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-trial-designs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;13.2: Comparison of Clinical Trial Design Types
+</figcaption>
+<div aria-describedby="tbl-trial-designs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Design</th>
+<th>Description</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+<th>Best Used When</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Parallel</em></td>
+<td>Patients randomized to one treatment for study duration</td>
+<td>Simple; No carryover concerns; Works for progressive diseases</td>
+<td>Larger sample needed; Between-patient variability</td>
+<td>Most confirmatory trials; Progressive conditions</td>
+</tr>
+<tr class="even">
+<td><em>Crossover</em></td>
+<td>Each patient receives all treatments in sequence</td>
+<td>Smaller sample; Patients serve as own controls</td>
+<td>Carryover effects; Requires stable disease</td>
+<td>Stable chronic conditions; PK studies</td>
+</tr>
+<tr class="odd">
+<td><em>Factorial</em></td>
+<td>Multiple interventions tested simultaneously</td>
+<td>Tests interactions; Efficient for 2+ questions</td>
+<td>Complex analysis; Interpretation challenges</td>
+<td>Testing combinations; Multiple hypotheses</td>
+</tr>
+<tr class="even">
+<td><em>Cluster</em></td>
+<td>Groups (sites, clinics) randomized, not individuals</td>
+<td>Practical for system-level interventions</td>
+<td>Reduced power; Complex analysis</td>
+<td>Community interventions; Educational programs</td>
+</tr>
+<tr class="odd">
+<td><em>Adaptive</em></td>
+<td>Design modified based on interim data</td>
+<td>Efficient; Smaller samples possible</td>
+<td>Complex planning; Implementation challenges</td>
+<td>Dose-finding; Rare diseases</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>In a <em>parallel design</em>, participants are randomized to treatment groups and remain in those groups throughout the study. This is the most common design for confirmatory trials.</p>
+<p>In a <em>crossover design</em>, each participant receives multiple treatments in sequence, serving as their own control. The advantage is efficiency: within-patient comparisons have less variability than between-patient comparisons, so smaller sample sizes may suffice. The disadvantages are complexity and the requirement that the condition be stable (the disease should not progress during the study) and that treatments have no lasting effects that carry over from one period to the next.</p>
+<p>In a <em>factorial design</em>, two or more interventions are tested in the same trial by randomizing each participant to every combination (for example, drug A or placebo crossed with drug B or placebo). When the treatments act independently, a single trial delivers the main effect of each intervention, answering two questions for roughly the cost of one; the design can also estimate whether the treatments interact, though detecting an interaction reliably requires a much larger sample than estimating either main effect alone. This same logic reappears later in the chapter in the <em>multifactorial</em> platform trials: REMAP-CAP randomizes a single patient within several treatment domains at once, and SNAP layers multiple treatment domains over one shared infrastructure.</p>
+<p>In a <em>cluster-randomized design</em>, the unit of randomization is a group (a clinic, hospital, or community) rather than an individual. This is the natural choice when the intervention operates at the level of a system (a screening program, or a change in how a ward is staffed) or when treating individuals differently within the same site risks contamination between arms. The cost is statistical: outcomes for patients in the same cluster are correlated, so a cluster trial carries less information than an individually randomized trial of the same size, and the sample size must be inflated by a design effect that grows with the intracluster correlation and the number of patients per cluster. A <em>stepped-wedge</em> variant rolls the intervention out to clusters in a randomized sequence until all have crossed over, which suits an intervention expected to do more good than harm, where withholding it from some clusters for the whole trial would be hard to justify.</p>
+</section>
+<section id="sample-size" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="sample-size"><span class="header-section-number">13.5</span> Sample Size</h2>
+<p>How many patients should be enrolled in a trial? The answer depends on several factors: the size of the effect we expect (or the minimum effect we consider clinically meaningful), the variability of the outcome measure, the Type I error rate we are willing to accept (the probability of declaring the drug works when it does not), and the power we require (the probability of detecting a real effect if it exists).</p>
+<p>Larger effects are easier to detect than smaller ones. More variable outcomes require more patients to distinguish signal from noise. Lower acceptable error rates require larger samples. Higher power requirements (commonly 80% or 90%) require more patients than lower requirements.</p>
+<p>In practice, sample size calculations are performed before the trial begins, based on assumptions about effect size and variability drawn from prior studies. If those assumptions prove incorrect (for example, if the drug produces a smaller effect than expected, or if outcomes are more variable), the trial may be underpowered to detect a real effect. Adaptive designs that allow sample size re-estimation based on interim data address this concern.</p>
+</section>
+<section id="sec-master-protocols" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="sec-master-protocols"><span class="header-section-number">13.6</span> Master Protocols and Platform Trials</h2>
+<p>Traditional trials test one treatment in one disease, then shut down and start from scratch for the next question. The analogy is building a stadium for a single game and then demolishing it: every element (enrollment infrastructure, site contracts, database, regulatory submissions, DSMB) is built and then torn down, with the next group starting over. <em>Master protocols</em> reuse the arena: multiple therapies, or multiple diseases, share a single infrastructure, regulatory submission, database, and operational team <span class="citation" data-cites="fda_master_protocols_2022">(<a href="references.html#ref-fda_master_protocols_2022" role="doc-biblioref">U.S. Food and Drug Administration 2022</a>)</span>.</p>
+<p>Three distinct designs operate under the master-protocol umbrella:</p>
+<ul>
+<li><p><strong>Basket trials</strong> test one drug across multiple diseases or patient subgroups that share a common molecular feature (a BRAF V600E mutation, for example). The drug remains fixed; the multiple is the patient types. The design underpinned the first tissue-agnostic FDA approvals, such as pembrolizumab for mismatch-repair-deficient tumors and larotrectinib for NTRK-fusion cancers. Large exploratory baskets such as NCI-MATCH, by contrast, were primarily signal-finding: across dozens of arms only a few showed meaningful activity.</p></li>
+<li><p><strong>Umbrella trials</strong> test multiple drugs against one disease, assigning patients to treatment arms based on their biomarker profile. The disease is fixed; the multiple is the treatments.</p></li>
+<li><p><strong>Platform trials</strong> test multiple therapies against one disease in a perpetual or long-running infrastructure where arms can enter and exit as data accumulate. The disease and the arena are fixed; the multiple is the therapies over time. Arms can read out and close while new ones enter, and the shared control arm continues throughout.</p></li>
+</ul>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TB
+    Pop((Cancer))
+    Arm1[Drug A]
+    Arm2[Drug B]
+    Arm3[Std of Care]
+    Pop --&gt; Arm1
+    Pop --&gt; Arm2
+    Pop --&gt; Arm3
+</pre>
+</div>
+<p></p><figcaption> Umbrella trial design</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TB
+    DrugA(("Drug A    "))
+    Dis1[Melanoma]
+    Dis2[Lung]
+    Dis3[Thyroid]
+    DrugA --&gt; Dis1
+    DrugA --&gt; Dis2
+    DrugA --&gt; Dis3
+</pre>
+</div>
+<p></p><figcaption> Basket trial design</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="platform-trial-mechanics" class="level3">
+<h3 class="anchored" data-anchor-id="platform-trial-mechanics">Platform Trial Mechanics</h3>
+<p>The key efficiency in a platform trial is the <em>shared control arm</em>. In five separate Phase III trials each randomizing 80 patients to active and 80 to control, 400 of the 800 total patients (50%) are on placebo, contributing no information about any of the five experimental drugs. In a platform with five concurrent arms sharing one control, about 80 patients on active per arm plus 80 shared placebo is 480 total, a 40% reduction in total enrollment, while each active-versus-control comparison retains essentially the same power <span class="citation" data-cites="saville2016platform">(<a href="references.html#ref-saville2016platform" role="doc-biblioref">Saville and Berry 2016</a>)</span>. The Healey ALS Platform Trial demonstrated this at scale: with multiple concurrent active arms sharing a common placebo group, the fraction of patients assigned to placebo is far lower than the 50% that five separate placebo-controlled trials would require.</p>
+<p>A <em>master protocol</em> is the governing document that specifies the patient experience, eligibility criteria, endpoints, and the rules by which arms behave <span class="citation" data-cites="woodcock2017master">(<a href="references.html#ref-woodcock2017master" role="doc-biblioref">Woodcock and LaVange 2017</a>)</span>. It contains nothing specific to any treatment; treatment-specific information enters through modular appendices called substudies or protocol appendices. When a treatment arm closes, the master protocol is unchanged. This modularity means a new treatment can join the platform through peer review of its appendix alone, without reconstructing the infrastructure from scratch. The time from a “yes” decision to first patient enrolled in I-SPY 2 (the breast cancer neoadjuvant platform) is substantially faster than the typical timeline for building a new standalone trial, reflecting the advantage of enrolling into existing infrastructure <span class="citation" data-cites="park2019ispy2">(<a href="references.html#ref-park2019ispy2" role="doc-biblioref">Park et al. 2019</a>)</span>.</p>
+<p>Response-adaptive randomization within platforms concentrates patients toward better-performing arms, reducing exposure to inferior treatments during the trial itself. The statistical mechanics of RAR and the conditions under which it is most beneficial are described at <a href="11-statistical-methods.html#sec-rar" class="quarto-xref"><span>Section 12.8</span></a>. The key operational safeguard is a burn-in period of equal allocation followed by adaptive weighting governed by the platform’s independent statistical center, with the sponsor blinded to comparative results across arms.</p>
+<p>Platform governance typically includes: a single DSMB overseeing all arms simultaneously; an independent statistical center that runs unblinded interim analyses; and a committee structure for approving new arm applications. This separation ensures that no sponsor has visibility into how competitor arms are performing.</p>
+</section>
+<section id="case-studies" class="level3">
+<h3 class="anchored" data-anchor-id="case-studies">Case Studies</h3>
+<p><strong>REMAP-CAP</strong> (Randomized Embedded Multifactorial Adaptive Platform for Community-Acquired Pneumonia) is the canonical pandemic-preparedness platform <span class="citation" data-cites="angus2020remapcap">(<a href="references.html#ref-angus2020remapcap" role="doc-biblioref">Angus et al. 2020</a>)</span>. Conceived after the 2009 H1N1 influenza pandemic and seeded in 2014 by the EU PREPARE (FP7) network, it enrolled its first non-pandemic CAP patient in April 2018 at a single center (UMC Utrecht) before expanding into a multi-country network, all while carrying a dormant pandemic stratum that could activate when a respiratory pathogen emerged. In February 2020, the pandemic stratum activated for COVID-19. Over its life REMAP-CAP investigated multiple therapies across several treatment domains: corticosteroids, anticoagulation, antivirals, immune modulators, and others. Its primary endpoint for the pandemic stratum was organ-support-free days over 21 days, an ordinal scale with in-hospital death as the worst outcome <span class="citation" data-cites="gordon2021remapcap">(<a href="references.html#ref-gordon2021remapcap" role="doc-biblioref">REMAP-CAP Investigators, Gordon, et al. 2021</a>)</span>. The trial demonstrated that a standing infrastructure built before a crisis is the only structure capable of producing trial-level evidence during a crisis.</p>
+<p><strong>The COVID anticoagulation multi-platform RCT</strong> took platform collaboration one step further <span class="citation" data-cites="lawler2021anticoag goligher2021anticoag">(<a href="references.html#ref-lawler2021anticoag" role="doc-biblioref">ATTACC Investigators et al. 2021</a>; <a href="references.html#ref-goligher2021anticoag" role="doc-biblioref">REMAP-CAP Investigators, ACTIV-4a Investigators, et al. 2021</a>)</span>. Three independently funded Bayesian platform trials (REMAP-CAP, ATTACC in Canada, and ACTIV-4a at the NIH) asked the same question: therapeutic-dose versus prophylactic-dose anticoagulation in COVID-19. Rather than risk conflicting results and a post-hoc meta-analysis, the three teams signed a joint prospective statistical analysis plan before enrolling and combined raw patient data in a single Bayesian hierarchical model with dynamic borrowing across severity strata. The analysis distinguished harm from therapeutic anticoagulation in critically ill patients and benefit in moderately ill patients, a conclusion that a naive pooled analysis across severity groups would have missed entirely <span class="citation" data-cites="goligher2021anticoag lawler2021anticoag">(<a href="references.html#ref-goligher2021anticoag" role="doc-biblioref">REMAP-CAP Investigators, ACTIV-4a Investigators, et al. 2021</a>; <a href="references.html#ref-lawler2021anticoag" role="doc-biblioref">ATTACC Investigators et al. 2021</a>)</span>. Guidelines adopted the finding because the subgroups were prospectively specified.</p>
+<p><strong>SNAP</strong> (Staphylococcus aureus Network Adaptive Platform) addresses a bacterium that causes hundreds of thousands of bloodstream-infection deaths per year worldwide, with bacteremia mortality that has remained high, around 20 to 30 percent, for decades <span class="citation" data-cites="tong2022snap">(<a href="references.html#ref-tong2022snap" role="doc-biblioref">Tong et al. 2022</a>)</span>. Enrolling across multiple hospitals and countries, SNAP uses three mutually exclusive patient silos by antibiotic susceptibility (MSSA, MRSA, and penicillin-susceptible) crossed with multiple treatment domains (backbone antibiotic, adjunctive therapy, early oral switch). A single patient can contribute to multiple domains simultaneously, and domains can close, reopen for subpopulations, or add new questions from the network’s investigators, including bacteriophage therapy, antiplatelet/anticoagulation, and diagnostic strategies. Because each domain reaches its own conclusion within the shared infrastructure, SNAP can settle questions such as the preferred first-line agent for MSSA or the value of adjunctive clindamycin and then retire or modify that domain, all without launching a separate standalone trial for each. The MSSA backbone question illustrates the rationale: by 2018, several large observational cohorts had found cefazolin to give outcomes at least equivalent to flucloxacillin for MSSA, yet, as the authors of the largest stressed, only a randomized trial could convincingly settle the comparison <span class="citation" data-cites="davis2018cefazolin">(<a href="references.html#ref-davis2018cefazolin" role="doc-biblioref">Davis, Turnidge, and Tong 2018</a>)</span>.</p>
+<p><strong>PANTHER</strong> (the Precision medicine Adaptive platform Network Trial in Hypoxaemic acutE Respiratory failure) illustrates precision-medicine enrichment: patients are pre-classified by inflammatory subphenotype (hyper- versus hypo-inflammatory) before randomization, addressing the long-standing problem that ARDS encompasses heterogeneous biology with potentially different treatment-response profiles. Funded by the UK’s NIHR as a Bayesian adaptive platform, it began with arms testing simvastatin and baricitinib against usual care, with the subphenotype enrichment intended to concentrate each treatment where it is most likely to work <span class="citation" data-cites="panther_trial">(<a href="references.html#ref-panther_trial" role="doc-biblioref">PANTHER Trial Investigators 2024</a>)</span>.</p>
+<p><strong>The Healey ALS Platform Trial</strong> at Massachusetts General Hospital uses two-level nested randomization: patients are randomized to one arm (not blinded across arms) but are blinded to active versus placebo within their assigned arm <span class="citation" data-cites="quintana2023healey">(<a href="references.html#ref-quintana2023healey" role="doc-biblioref">Quintana et al. 2023</a>)</span>. All patients eligible for multiple arms who receive placebo contribute their data to every eligible arm’s primary analysis. The first arms were seeded by fundraising from the ALS community, illustrating a first-arm effect in platform economics: once enrollment and data collection are demonstrated to work, the marginal cost of adding subsequent arms collapses and sponsors engage.</p>
+<p><strong>EPAD</strong> (European Prevention of Alzheimer’s Dementia) is the canonical platform failure and its lessons are as instructive as the successes <span class="citation" data-cites="ritchie2016epad">(<a href="references.html#ref-ritchie2016epad" role="doc-biblioref">Ritchie et al. 2016</a>)</span>. A 64-million-euro, 5-year IMI-funded project, EPAD built a 2,000-participant readiness cohort with deep pre-characterization (amyloid status, cognitive baselines, longitudinal follow-up) specifically to eliminate the 90% screen-failure rate that plagues Alzheimer’s prevention trials. Yet EPAD never enrolled a single treatment arm. By the project’s own post-mortem <span class="citation" data-cites="saunders2022epad">(<a href="references.html#ref-saunders2022epad" role="doc-biblioref">Saunders et al. 2022</a>)</span>, two obstacles proved decisive: intervention owners were ultimately reluctant to hand sponsorship of a critical asset to a university-run platform, and the stakeholders could never agree on a common legal framework usable and acceptable to all parties. When the project’s fixed five-year term ended in 2020, the 64-million-euro investment dissolved, because sustainability depended on sponsor payments flowing from trials, and without a trial there was no revenue. The contrast with Healey ALS is precise: Healey could fund the first arms from philanthropic donations; EPAD could not. The lesson: a platform’s first arm must be fundable independently of the commercial pipeline it is meant to serve.</p>
+<div id="tbl-design-taxonomy" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-design-taxonomy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;13.3: Clinical trial design taxonomy: key trade-offs
+</figcaption>
+<div aria-describedby="tbl-design-taxonomy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 18%">
+<col style="width: 17%">
+<col style="width: 20%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Design type</th>
+<th>Randomization</th>
+<th>Key strength</th>
+<th>Key limitation</th>
+<th>Regulatory precedent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Standard RCT</strong></td>
+<td>Concurrent, 1:1 or other fixed ratio</td>
+<td>Eliminates confounding; gold standard for causation</td>
+<td>Enrollment cost; narrow eligibility limits generalizability</td>
+<td>Established across all therapeutic areas</td>
+</tr>
+<tr class="even">
+<td><strong>Platform trial</strong></td>
+<td>Concurrent; adaptive across arms over time</td>
+<td>Shared control arm efficiency; arms enter and exit; perpetual infrastructure</td>
+<td>Governance complexity; requires pre-funded first arm; statistical modeling of concurrent arms</td>
+<td>REMAP-CAP, Healey ALS, RECOVERY; FDA master protocols guidance 2022</td>
+</tr>
+<tr class="odd">
+<td><strong>Externally controlled trial</strong></td>
+<td>None (single arm vs.&nbsp;historical or registry control)</td>
+<td>Feasible when concurrent control is unethical or impossible; all patients receive investigational drug</td>
+<td>Confounding; population drift; regulatory scrutiny; requires rigorous fit-for-purpose data</td>
+<td>FDA 2023 ECA guidance; palbociclib male breast cancer (FDA 2019); rare pediatric oncology</td>
+</tr>
+<tr class="even">
+<td><strong>Hybrid Bayesian (augmented control)</strong></td>
+<td>Reduced concurrent control; Bayesian borrowing from external data</td>
+<td>Smaller control arm; preserves causal inference of randomization</td>
+<td>Prior sensitivity; dynamic borrowing assumptions require pre-specification; inflation risk if historical data mismatch</td>
+<td>Pediatric programs (MAP prior); FDA Complex Innovative Trial Design program</td>
+</tr>
+<tr class="odd">
+<td><strong>Registry-based RCT</strong></td>
+<td>Concurrent; executed within registry infrastructure</td>
+<td>Broad population; low operational cost; representative outcomes</td>
+<td>Outcome ascertainment quality varies; registry must collect primary endpoint reliably</td>
+<td>TASTE (NEJM 2013); VALIDATE-SWEDEHEART; Scandinavian cardiac registries</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+</section>
+<section id="the-statistical-analysis-plan" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="the-statistical-analysis-plan"><span class="header-section-number">13.7</span> The Statistical Analysis Plan</h2>
+<p>Before data from a clinical trial are unblinded, the <em>statistical analysis plan (SAP)</em> should be finalized. Modern SAPs must align with the <strong>ICH E9(R1) Estimands Framework</strong> <span class="citation" data-cites="ich_e9_r1">(<a href="references.html#ref-ich_e9_r1" role="doc-biblioref">International Council for Harmonisation 2019</a>)</span>, which requires precise definition of the treatment effect of interest <em>before</em> data is collected.</p>
+<p>The estimand precisely defines the population being analyzed, the specific endpoint variable, and the strategies for handling intercurrent events (disruptions such as treatment discontinuation, death, or the use of rescue medication). ICH E9(R1) defines five such strategies. The three most commonly invoked are the treatment policy strategy, which follows the intent-to-treat principle by using all data regardless of adherence; the hypothetical strategy, which estimates outcomes as if the drug had been taken as prescribed; and the composite strategy, which incorporates the intercurrent event directly into the definition of the endpoint itself. The remaining two are the principal stratum strategy, which restricts the estimate to a causally defined subpopulation, and the while-on-treatment strategy, which analyzes outcomes only during the period a patient remains on assigned treatment.</p>
+<p>Pre-specifying the analysis is essential. A <em>p</em>-value of 0.05 means something only if the test was specified in advance.</p>
+</section>
+<section id="the-protocol" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="the-protocol"><span class="header-section-number">13.8</span> The Protocol</h2>
+<p>All design decisions are documented in the <em>protocol</em>, the foundational document that governs how the trial will be conducted. A well-written protocol leaves little room for interpretation. It specifies exactly who can participate, what treatments will be given and how, what assessments will be performed and when, and how data will be collected and analyzed.</p>
+<p>The protocol is not merely an internal document: it is reviewed by IRBs to assess participant protection, by regulatory authorities to assess scientific adequacy, and by investigators to understand their responsibilities. Once approved, deviations from the protocol are tracked and reported.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Protocol Amendments
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When design changes are needed after a trial has begun, they are implemented through <em>protocol amendments</em>. Major amendments (those affecting safety, the primary endpoint, or inclusion/exclusion criteria) must be approved by the IRB before implementation. Minor amendments may require only notification. All amendments should be carefully considered, as frequent changes can introduce operational challenges and raise questions about the scientific basis of the trial.</p>
+</div>
+</div>
+<p>AI tools for protocol authoring, feasibility screening, and design optimization are covered in <a href="24-ai-agents.html" class="quarto-xref"><span>Chapter 26</span></a>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Discussion Questions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Discussion Questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>A sponsor is developing a gene therapy for a rare pediatric muscle disease affecting approximately 300 patients in the United States annually. No approved therapy exists, and the natural history is well-characterized in a prospective registry spanning 12 years. The FDA has suggested a single-arm trial using the registry as the external control. What specific properties of the registry data must be evaluated before accepting this design, and what analytic safeguards would you pre-specify to protect against population drift between the historical registry cohort and the current trial population?</p></li>
+<li><p>Platform trials offer substantial efficiency gains but can fail for reasons unrelated to the science. Drawing on the EPAD experience and the contrast with Healey ALS, identify three structural preconditions that must be in place before a platform trial is feasible, and describe one additional failure mode not illustrated by EPAD.</p></li>
+<li><p>Suppose it is 2025 and a consortium is designing an Alzheimer’s prevention platform targeting cognitively normal adults with elevated amyloid by PET. Applying the lessons from EPAD’s collapse, what funding model, governance structure, and first-arm strategy would you recommend, and how would you handle screen failure rates given the continued scarcity of amyloid PET capacity outside academic centers?</p></li>
+<li><p>A cardiovascular outcomes trial designed around a time-to-first-event endpoint (composite of MI, stroke, and cardiovascular death) reaches a planned interim analysis at 60% of target events. Observed event rate is 30% lower than assumed in the power calculation. The DSMB must decide whether to recommend continuing to the original event count, revising the target upward, or stopping for futility. What information is needed to make this decision, and what are the statistical and operational consequences of each path?</p></li>
+<li><p>A late-stage diabetic kidney disease trial has an observed dropout rate of 45% at 36 months, substantially higher than the 25% assumed at design. The primary analysis uses a treatment policy estimand (outcomes measured regardless of treatment discontinuation). The sponsor proposes to also report a while-on-treatment analysis as a key secondary. What are the interpretive differences between these two estimands in this setting, and what sensitivity analysis would you require to evaluate the robustness of the primary result?</p></li>
+</ol>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-angus2020remapcap" class="csl-entry" role="listitem">
+Angus, Derek C., Scott Berry, Roger J. Lewis, Farah Al-Beidh, Yaseen Arabi, Wilma van Bentum-Puijk, Zahra Bhimani, et al. 2020. <span>“The <span>REMAP-CAP</span> (<span class="nocase">Randomized Embedded Multifactorial Adaptive Platform for Community-Acquired Pneumonia</span>) Study: Rationale and Design.”</span> <em>Annals of the American Thoracic Society</em> 17 (7): 879–91. <a href="https://doi.org/10.1513/AnnalsATS.202003-192SD">https://doi.org/10.1513/AnnalsATS.202003-192SD</a>.
+</div>
+<div id="ref-lawler2021anticoag" class="csl-entry" role="listitem">
+ATTACC Investigators, ACTIV-4a Investigators, REMAP-CAP Investigators, Patrick R. Lawler, Ewan C. Goligher, Jeffrey S. Berger, et al. 2021. <span>“Therapeutic Anticoagulation with Heparin in Noncritically Ill Patients with <span>Covid-19</span>.”</span> <em>New England Journal of Medicine</em> 385 (9): 790–802. <a href="https://doi.org/10.1056/NEJMoa2105911">https://doi.org/10.1056/NEJMoa2105911</a>.
+</div>
+<div id="ref-davis2018cefazolin" class="csl-entry" role="listitem">
+Davis, Joshua S., John Turnidge, and Steven Y. C. Tong. 2018. <span>“A Large Retrospective Cohort Study of Cefazolin Compared with Flucloxacillin for Methicillin-Susceptible <span class="nocase">Staphylococcus aureus</span> Bacteraemia.”</span> <em>International Journal of Antimicrobial Agents</em> 52 (2): 297–300. <a href="https://doi.org/10.1016/j.ijantimicag.2018.02.013">https://doi.org/10.1016/j.ijantimicag.2018.02.013</a>.
+</div>
+<div id="ref-ema_external_controls_2025" class="csl-entry" role="listitem">
+European Medicines Agency. 2025. <span>“Draft Concept Paper on the Development of a Reflection Paper on the Use of External Controls for Evidence Generation in Regulatory Decision-Making.”</span> <a href="https://www.ema.europa.eu/en/documents/scientific-guideline/draft-concept-paper-development-reflection-paper-use-external-controls-evidence-generation-regulatory-decision-making_en.pdf">https://www.ema.europa.eu/en/documents/scientific-guideline/draft-concept-paper-development-reflection-paper-use-external-controls-evidence-generation-regulatory-decision-making_en.pdf</a>.
+</div>
+<div id="ref-ich_e9_r1" class="csl-entry" role="listitem">
+International Council for Harmonisation. 2019. <span>“<span>ICH E9(R1)</span>: Addendum on Estimands and Sensitivity Analysis in Clinical Trials to the Guideline on Statistical Principles for Clinical Trials.”</span> <a href="https://database.ich.org/sites/default/files/E9-R1_Step4_Guideline_2019_1203.pdf">https://database.ich.org/sites/default/files/E9-R1_Step4_Guideline_2019_1203.pdf</a>.
+</div>
+<div id="ref-mhra_external_controls_2025" class="csl-entry" role="listitem">
+Medicines and Healthcare products Regulatory Agency. 2025. <span>“MHRA Draft Guideline on the Use of External Control Arms Based on Real-World Data to Support Regulatory Decisions.”</span> <a href="https://www.gov.uk/government/consultations/mhra-draft-guideline-on-the-use-of-external-control-arms-based-on-real-world-data-to-support-regulatory-decisions">https://www.gov.uk/government/consultations/mhra-draft-guideline-on-the-use-of-external-control-arms-based-on-real-world-data-to-support-regulatory-decisions</a>.
+</div>
+<div id="ref-panther_trial" class="csl-entry" role="listitem">
+PANTHER Trial Investigators. 2024. <span>“<span>PANTHER</span>: Precision Medicine Adaptive Platform Network Trial in Hypoxaemic Acute Respiratory Failure.”</span> <a href="https://www.panthertrial.org">https://www.panthertrial.org</a>.
+</div>
+<div id="ref-park2019ispy2" class="csl-entry" role="listitem">
+Park, John W., Minetta C. Liu, Douglas Yee, Christina Yau, Laura J. van ’t Veer, W. Fraser Symmans, Melissa Paoloni, et al. 2019. <span>“<span>I-SPY 2</span>: A Neoadjuvant Adaptive Clinical Trial Designed to Improve Outcomes in High-Risk Breast Cancer.”</span> <em>Current Breast Cancer Reports</em> 11 (4): 303–10. <a href="https://doi.org/10.1007/s12609-019-00334-2">https://doi.org/10.1007/s12609-019-00334-2</a>.
+</div>
+<div id="ref-quintana2023healey" class="csl-entry" role="listitem">
+Quintana, Melanie, Benjamin R. Saville, Matteo Vestrucci, Michelle A. Detry, Lori Chibnik, Jeremy Shefner, James D. Berry, et al. 2023. <span>“Design and Statistical Innovations in a Platform Trial for Amyotrophic Lateral Sclerosis.”</span> <em>Annals of Neurology</em> 94 (3): 547–60. <a href="https://doi.org/10.1002/ana.26714">https://doi.org/10.1002/ana.26714</a>.
+</div>
+<div id="ref-goligher2021anticoag" class="csl-entry" role="listitem">
+REMAP-CAP Investigators, ACTIV-4a Investigators, ATTACC Investigators, Ewan C. Goligher, Corrinne A. Bradbury, Bryan J. McVerry, et al. 2021. <span>“Therapeutic Anticoagulation with Heparin in Critically Ill Patients with <span>Covid-19</span>.”</span> <em>New England Journal of Medicine</em> 385 (9): 777–89. <a href="https://doi.org/10.1056/NEJMoa2103417">https://doi.org/10.1056/NEJMoa2103417</a>.
+</div>
+<div id="ref-gordon2021remapcap" class="csl-entry" role="listitem">
+REMAP-CAP Investigators, Anthony C. Gordon, Paul R. Mouncey, Farah Al-Beidh, Kathryn M. Rowan, Alistair D. Nichol, et al. 2021. <span>“Interleukin-6 Receptor Antagonists in Critically Ill Patients with <span>Covid-19</span>.”</span> <em>New England Journal of Medicine</em> 384 (16): 1491–1502. <a href="https://doi.org/10.1056/NEJMoa2100433">https://doi.org/10.1056/NEJMoa2100433</a>.
+</div>
+<div id="ref-ritchie2016epad" class="csl-entry" role="listitem">
+Ritchie, Craig W., José Luis Molinuevo, Luc Truyen, Andrew Satlin, Serge Van der Geyten, Simon Lovestone, and EPAD Consortium. 2016. <span>“Development of Interventions for the Secondary Prevention of <span class="nocase">Alzheimer’s</span> Dementia: The <span class="nocase">European Prevention of Alzheimer’s Dementia (EPAD)</span> Project.”</span> <em>Lancet Psychiatry</em> 3 (2): 179–86. <a href="https://doi.org/10.1016/S2215-0366(15)00454-X">https://doi.org/10.1016/S2215-0366(15)00454-X</a>.
+</div>
+<div id="ref-unlearn_mmrm_2024" class="csl-entry" role="listitem">
+Ross, Jessica L., Arman Sabbaghi, Run Zhuang, and Daniele Bertolini. 2024. <span>“Enhancing Longitudinal Clinical Trial Efficiency with Digital Twins and Prognostic Covariate-Adjusted Mixed Models for Repeated Measures (PROCOVA-MMRM).”</span> <em>arXiv Preprint arXiv:2404.17576</em>. <a href="https://arxiv.org/abs/2404.17576">https://arxiv.org/abs/2404.17576</a>.
+</div>
+<div id="ref-saunders2022epad" class="csl-entry" role="listitem">
+Saunders, Stina, Sarah Gregory, Matthew H. S. Clement, Cindy Birck, Serge Van Der Geyten, and Craig W. Ritchie. 2022. <span>“The European Prevention of Alzheimer’s Dementia Programme: An Innovative Medicines Initiative-Funded Partnership to Facilitate Secondary Prevention of Alzheimer’s Disease Dementia.”</span> <em>Frontiers in Neurology</em> 13: 1051543. <a href="https://doi.org/10.3389/fneur.2022.1051543">https://doi.org/10.3389/fneur.2022.1051543</a>.
+</div>
+<div id="ref-saville2016platform" class="csl-entry" role="listitem">
+Saville, Benjamin R., and Scott M. Berry. 2016. <span>“Efficiencies of Platform Clinical Trials: A Vision of the Future.”</span> <em>Clinical Trials</em> 13 (3): 358–66. <a href="https://doi.org/10.1177/1740774515626362">https://doi.org/10.1177/1740774515626362</a>.
+</div>
+<div id="ref-nsclc_borrowing_2024" class="csl-entry" role="listitem">
+Struebing, Alessandria, Chelsea McKibbon, Haoyao Ruan, Emma Mackay, Natalie Dennis, Russanthy Velummailum, Philip He, et al. 2024. <span>“Augmenting External Control Arms Using Bayesian Borrowing: A Case Study in First-Line Non-Small Cell Lung Cancer.”</span> <em>Journal of Comparative Effectiveness Research</em> 13 (5). <a href="https://doi.org/10.57264/cer-2023-0175">https://doi.org/10.57264/cer-2023-0175</a>.
+</div>
+<div id="ref-tong2022snap" class="csl-entry" role="listitem">
+Tong, Steven Y. C., Jocelyn Mora, Asha C. Bowen, Matthew P. Cheng, Nick Daneman, Anna L. Goodman, George S. Heriot, et al. 2022. <span>“The <span class="nocase">Staphylococcus aureus</span> Network Adaptive Platform Trial Protocol: New Tools for an Old Foe.”</span> <em>Clinical Infectious Diseases</em> 75 (11): 2027–34. <a href="https://doi.org/10.1093/cid/ciac476">https://doi.org/10.1093/cid/ciac476</a>.
+</div>
+<div id="ref-unlearn_digital_twins" class="csl-entry" role="listitem">
+Unlearn.AI. 2024. <span>“Unlearn.AI: Digital Twins for Clinical Trials.”</span> <a href="https://www.unlearn.ai">https://www.unlearn.ai</a>.
+</div>
+<div id="ref-fda_master_protocols_2022" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2022. <span>“Master Protocols: Efficient Clinical Trial Design Strategies to Expedite Development of Oncology Drugs and Biologics.”</span> U.S. Food; Drug Administration. <a href="https://www.fda.gov/media/120721/download">https://www.fda.gov/media/120721/download</a>.
+</div>
+<div id="ref-woodcock2017master" class="csl-entry" role="listitem">
+Woodcock, Janet, and Lisa M. LaVange. 2017. <span>“Master Protocols to Study Multiple Therapies, Multiple Diseases, or Both.”</span> <em>New England Journal of Medicine</em> 377 (1): 62–70. <a href="https://doi.org/10.1056/NEJMra1510062">https://doi.org/10.1056/NEJMra1510062</a>.
+</div>
+<div id="ref-helsinki_2024" class="csl-entry" role="listitem">
+World Medical Association. 2025. <span>“World Medical Association Declaration of Helsinki: Ethical Principles for Medical Research Involving Human Participants.”</span> <em>JAMA</em> 333 (1): 71–74. <a href="https://doi.org/10.1001/jama.2024.21972">https://doi.org/10.1001/jama.2024.21972</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./11-statistical-methods.html" class="pagination-link" aria-label="Adaptive and Bayesian Trial Design">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./12b-rwe-external-controls.html" class="pagination-link" aria-label="Real-World Evidence and Evidence Integration">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

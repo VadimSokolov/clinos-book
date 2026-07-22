@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>19&nbsp; Patient Recruitment and Retention – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./18-logistics.html" rel="next">
+<link href="./16-site-selection.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="19&nbsp; Patient Recruitment and Retention – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:image" content="17-recruitment_files/figure-html/fig-wcg-solutions-1.png">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="19&nbsp; Patient Recruitment and Retention – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:image" content="17-recruitment_files/figure-html/fig-wcg-solutions-1.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./17-recruitment.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#strategies-for-recruitment" id="toc-strategies-for-recruitment" class="nav-link active" data-scroll-target="#strategies-for-recruitment"><span class="header-section-number">19.1</span> Strategies for Recruitment</a></li>
+  <li><a href="#aiml-enabled-recruitment-and-patient-engagement" id="toc-aiml-enabled-recruitment-and-patient-engagement" class="nav-link" data-scroll-target="#aiml-enabled-recruitment-and-patient-engagement"><span class="header-section-number">19.2</span> AI/ML-Enabled Recruitment and Patient Engagement</a>
+  <ul class="collapse">
+  <li><a href="#making-eligibility-computable-feasibility-and-ehr-based-identification" id="toc-making-eligibility-computable-feasibility-and-ehr-based-identification" class="nav-link" data-scroll-target="#making-eligibility-computable-feasibility-and-ehr-based-identification">Making eligibility computable: feasibility and EHR-based identification</a></li>
+  <li><a href="#engagement-retention-and-equity-in-ai-mediated-workflows" id="toc-engagement-retention-and-equity-in-ai-mediated-workflows" class="nav-link" data-scroll-target="#engagement-retention-and-equity-in-ai-mediated-workflows">Engagement, retention, and equity in AI-mediated workflows</a></li>
+  </ul></li>
+  <li><a href="#barriers-to-recruitment" id="toc-barriers-to-recruitment" class="nav-link" data-scroll-target="#barriers-to-recruitment"><span class="header-section-number">19.3</span> Barriers to Recruitment</a>
+  <ul class="collapse">
+  <li><a href="#geographic-access-and-rural-populations" id="toc-geographic-access-and-rural-populations" class="nav-link" data-scroll-target="#geographic-access-and-rural-populations">Geographic Access and Rural Populations</a></li>
+  </ul></li>
+  <li><a href="#the-importance-of-retention" id="toc-the-importance-of-retention" class="nav-link" data-scroll-target="#the-importance-of-retention"><span class="header-section-number">19.4</span> The Importance of Retention</a>
+  <ul class="collapse">
+  <li><a href="#physician-participation-and-the-one-and-done-phenomenon" id="toc-physician-participation-and-the-one-and-done-phenomenon" class="nav-link" data-scroll-target="#physician-participation-and-the-one-and-done-phenomenon">Physician Participation and the “One and Done” Phenomenon</a></li>
+  <li><a href="#sec-representative-enrollment" id="toc-sec-representative-enrollment" class="nav-link" data-scroll-target="#sec-representative-enrollment">Strategic Enrollment and Generalizability</a></li>
+  <li><a href="#digital-retention-toolkit-engagement-beyond-enrollment" id="toc-digital-retention-toolkit-engagement-beyond-enrollment" class="nav-link" data-scroll-target="#digital-retention-toolkit-engagement-beyond-enrollment">Digital retention toolkit: engagement beyond enrollment</a></li>
+  </ul></li>
+  <li><a href="#metrics-and-monitoring" id="toc-metrics-and-monitoring" class="nav-link" data-scroll-target="#metrics-and-monitoring"><span class="header-section-number">19.5</span> Metrics and Monitoring</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./17-recruitment.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-recruitment" class="quarto-section-identifier"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>A trial cannot succeed without patients. This simple fact underlies one of the most persistent challenges in clinical research: recruiting enough participants, quickly enough, to complete trials on time and on budget. The recruitment challenge has grown more acute in recent decades as trials have become larger and more complex, patient populations more specialized, and competition for subjects more intense.</p>
+<p>The statistics are sobering. The Forum on Drug Discovery, Development, and Translation identifies the recruitment of clinical trial participants as one of the most “onerous” and high-risk steps in the entire development process, characterized by significant cost, time, and likelihood of failure <span class="citation" data-cites="wagner_4dm_2017">(<a href="references.html#ref-wagner_4dm_2017" role="doc-biblioref">Wagner et al. 2018</a>)</span>. Industry surveys have historically identified recruitment and staffing as the primary bottlenecks, but by 2024, the “Complexity of Clinical Trials” (38%) has emerged as the top challenge facing research sites, surpassing recruitment and retention (36%), study start-up (35%), and site staffing (31%) <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>. This complexity is having a measurable impact on site capacity: nearly half (47%) of all sites (and 50% of U.S. sites) reported that these operational challenges forced them to reduce the number of studies they agreed to participate in during the preceding year <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>.</p>
+<p>In response to these pressures, sites are implementing various strategic solutions. As shown in <a href="#fig-wcg-solutions" class="quarto-xref">Figure&nbsp;<span>19.1</span></a>, while hiring additional staff (42%) and prioritizing training (36%) are common, many sites are also electing to participate in fewer studies (27%) or selecting trials with less complex designs (21%) to maintain operational viability.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-wcg-solutions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wcg-solutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="17-recruitment_files/figure-html/fig-wcg-solutions-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wcg-solutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.1: Solutions implemented by clinical research sites to combat operational challenges (2024). Data from <span class="citation" data-cites="wcg_site_challenges_2024">WCG Clinical (<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">2024</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-wcg-challenges" class="quarto-xref">Figure&nbsp;<span>19.2</span></a> illustrates the top site concerns that drive these strategic decisions.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-wcg-challenges" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wcg-challenges-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="17-recruitment_files/figure-html/fig-wcg-challenges-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wcg-challenges-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.2: Top issues facing clinical research sites in 2024. Data from <span class="citation" data-cites="wcg_site_challenges_2024">WCG Clinical (<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">2024</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Enrollment periods that were projected to take months stretch into years. Sites that were expected to contribute dozens of patients contribute single digits. Some trials are abandoned altogether when enrollment proves impossible.</p>
+<p>The challenge has intensified as trials have grown larger. Decades of Tufts CSDD benchmarking document steadily rising protocol complexity and enrollment targets, with more procedures and stricter eligibility criteria per study <span class="citation" data-cites="tufts_csdd_2021">(<a href="references.html#ref-tufts_csdd_2021" role="doc-biblioref">Tufts Center for the Study of Drug Development 2021</a>)</span>. Meanwhile, only a small fraction of eligible patients ultimately enroll, even though public-perception surveys consistently find that most people say they would be willing to consider a trial if asked. Closing this gap between stated willingness and actual enrollment is one of the central challenges of recruitment.</p>
+<p>Slow recruitment has cascading consequences. It delays patient access to potentially beneficial therapies. It increases trial costs as sites remain open longer and oversight continues. It reduces the commercial value of successful drugs by shortening their effective patent life. And it may compromise scientific validity if the prolonged enrollment period introduces population heterogeneity.</p>
+<p>Recruitment difficulties have specific causes that can be addressed with targeted strategies, beginning with the calculus each prospective participant faces.</p>
+<p><strong>Understanding patient decisions.</strong> Patients weigh perceived risks against potential benefits when deciding whether to participate. While those with serious illnesses may see a trial as their most promising treatment option, those with well-managed conditions often weigh the uncertain medical risks against the practical burdens of frequent visits and travel. This decision is further influenced by altruistic motives and the level of trust a patient has in the healthcare system, a trust that can be impacted by a community’s historical experiences with clinical research.</p>
+<section id="strategies-for-recruitment" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="strategies-for-recruitment"><span class="header-section-number">19.1</span> Strategies for Recruitment</h2>
+<p>Effective recruitment requires reaching potential participants through multiple channels, as shown in <a href="#fig-recruitment-funnel" class="quarto-xref">Figure&nbsp;<span>19.3</span></a>. At each stage of the funnel, potential participants are lost to various barriers.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-recruitment-funnel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-recruitment-funnel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-recruitment-funnel">flowchart TB
+    subgraph row1[" "]
+        direction LR
+        A["Target Population&lt;br/&gt;&lt;i&gt;100%&lt;/i&gt;"] --&gt; B["Aware of Trial&lt;br/&gt;&lt;i&gt;≈10-20%&lt;/i&gt;"] --&gt; C["Express Interest&lt;br/&gt;&lt;i&gt;≈5-10%&lt;/i&gt;"] --&gt; D["Pre-Screened&lt;br/&gt;&lt;i&gt;≈3-7%&lt;/i&gt;"]
+    end
+    
+    subgraph row2[" "]
+        direction LR
+        E["Full Screening&lt;br/&gt;&lt;i&gt;≈2-5%&lt;/i&gt;"] --&gt; F["Eligible&lt;br/&gt;&lt;i&gt;≈1-3%&lt;/i&gt;"] --&gt; G["Enrolled&lt;br/&gt;&lt;i&gt;≈0.5-2%&lt;/i&gt;"] --&gt; H["Completed Trial&lt;br/&gt;&lt;i&gt;≈0.4-1.5%&lt;/i&gt;"]
+    end
+    
+    row1 --&gt; row2
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-recruitment-funnel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.3: Illustrative patient recruitment funnel (order-of-magnitude ranges; varies by indication and protocol)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div id="tbl-recruitment-strategies" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[25,35,25,15]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-recruitment-strategies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;19.1: Recruitment Strategies Comparison
+</figcaption>
+<div aria-describedby="tbl-recruitment-strategies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 35%">
+<col style="width: 25%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Strategy</th>
+<th>Description</th>
+<th>Best For</th>
+<th>Typical Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Provider Referral</em></td>
+<td>Physicians identify/refer eligible patients</td>
+<td>Specialty conditions; Established relationships</td>
+<td>Low-Medium</td>
+</tr>
+<tr class="even">
+<td><em>Community Outreach</em></td>
+<td>Patient groups, advocacy organizations, support groups</td>
+<td>Rare diseases; Close-knit patient communities</td>
+<td>Low-Medium</td>
+</tr>
+<tr class="odd">
+<td><em>Direct Advertising</em></td>
+<td>TV, radio, print, digital media</td>
+<td>Large trials; Common conditions</td>
+<td>High</td>
+</tr>
+<tr class="even">
+<td><em>Social Media</em></td>
+<td>Targeted campaigns on Facebook, Instagram, patient forums</td>
+<td>Younger populations; Specific demographics</td>
+<td>Medium</td>
+</tr>
+<tr class="odd">
+<td><em>Registry Databases</em></td>
+<td>Pre-screened patient lists from research networks</td>
+<td>Rare diseases; Longitudinal studies</td>
+<td>Medium</td>
+</tr>
+<tr class="even">
+<td><em>Decentralized Elements</em></td>
+<td>Remote consent, telemedicine, home visits</td>
+<td>Geographic barriers; Mobility-limited patients</td>
+<td>Medium-High</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-recruitment-strategies" class="quarto-xref">Table&nbsp;<span>19.1</span></a> compares different recruitment strategies and their typical applications.</p>
+<p><em>Provider referral</em> relies on physicians and other clinicians to identify and refer potentially eligible patients. Since most patients are not actively seeking trials, provider engagement is a primary driver of enrollment. However, busy clinicians may not think to mention trials to appropriate patients, so education and reminders are needed.</p>
+<p><em>Direct-to-patient advertising</em> uses traditional and digital media to reach potential participants directly. Television and radio advertisements, online banner ads, social media campaigns, and search engine marketing can all be employed. Regulations govern what claims can be made in such advertising.</p>
+<p><em>Decentralized trial elements</em> can reduce participant burden and reach populations that cannot easily travel to traditional research sites. Remote consent, home visits by nurses, virtual study visits, and direct-to-participant shipment of study medications all expand the potential reach of trials.</p>
+</section>
+<section id="aiml-enabled-recruitment-and-patient-engagement" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="aiml-enabled-recruitment-and-patient-engagement"><span class="header-section-number">19.2</span> AI/ML-Enabled Recruitment and Patient Engagement</h2>
+<p>AI and machine learning are most usefully understood as improving recruitment through two pragmatic routes. First, they can make eligibility and outreach more <em>computable</em>, so that organizations can find potentially eligible participants in real-world data with less manual effort. Second, they can support scalable, consistent communication that reduces friction for potential participants and helps sustain retention. In practice, these are socio-technical systems: their value depends on data quality, workflow design, and human oversight, and they can introduce new risks if deployed without governance.</p>
+<section id="making-eligibility-computable-feasibility-and-ehr-based-identification" class="level3">
+<h3 class="anchored" data-anchor-id="making-eligibility-computable-feasibility-and-ehr-based-identification">Making eligibility computable: feasibility and EHR-based identification</h3>
+<p>Before outreach begins, sponsors and sites must answer feasibility questions that determine whether a protocol is operationally plausible: how many patients are likely to qualify at a site or network, which criteria drive screen failures, and where capacity constraints will emerge. Data-driven feasibility uses historical EHR and claims data to estimate cohort size and to anticipate operational constraints such as visit cadence, laboratory requirements, and competing studies. This shifts planning from informal judgment toward testable assumptions, but the validity of estimates depends on how well eligibility criteria can be represented in data and how representative those data are of the intended trial population <span class="citation" data-cites="fda_rwd_ehr_claims_2024 hripcsak_albers_2013">(<a href="references.html#ref-fda_rwd_ehr_claims_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024b</a>; <a href="references.html#ref-hripcsak_albers_2013" role="doc-biblioref">Hripcsak and Albers 2013</a>)</span>.</p>
+<p>Automated identification from EHRs is best viewed as a pipeline rather than a single model: translating protocol criteria into a computable phenotype, executing it against clinical data, and then performing clinician or coordinator review before any contact or screening decisions. Many criteria map cleanly to <em>structured</em> elements (diagnosis codes, medications, laboratory values, procedures, and timestamps), while others reside in <em>unstructured</em> notes (symptom narratives, imaging interpretations, nuanced exclusions), making natural language processing a practical complement to rules and statistical models when assembling candidate lists <span class="citation" data-cites="hripcsak_albers_2013">(<a href="references.html#ref-hripcsak_albers_2013" role="doc-biblioref">Hripcsak and Albers 2013</a>)</span>.</p>
+<p>Two infrastructure patterns commonly support these workflows. One is standardization through common data models and cohort tooling, exemplified by OHDSI and the OMOP Common Data Model, which enables cohort definitions to be executed consistently across sites in a federated manner <span class="citation" data-cites="ohdsi_hripcsak_2015 omop_cdm_overhage_2012">(<a href="references.html#ref-ohdsi_hripcsak_2015" role="doc-biblioref">Hripcsak et al. 2015</a>; <a href="references.html#ref-omop_cdm_overhage_2012" role="doc-biblioref">Overhage et al. 2012</a>)</span>. The other is standards-based interoperability, where SMART on FHIR supports substitutable applications that retrieve patient-level data through an API, and the FHIR Bulk Data Access specification supports population-level exports for governed research workflows <span class="citation" data-cites="smart_on_fhir_mandel_2016 hl7_fhir_bulkdata">(<a href="references.html#ref-smart_on_fhir_mandel_2016" role="doc-biblioref">Mandel et al. 2016</a>; <a href="references.html#ref-hl7_fhir_bulkdata" role="doc-biblioref">Health Level Seven International 2024</a>)</span>. Because EHR data were not originally collected for research, the practical constraints are often provenance, missingness, and fitness-for-purpose rather than model choice alone; sponsors should align their use of EHR data with regulatory expectations for documentation, traceability, and data integrity in clinical investigations <span class="citation" data-cites="fda_ehr_data_2018">(<a href="references.html#ref-fda_ehr_data_2018" role="doc-biblioref">U.S. Food and Drug Administration 2018</a>)</span>.</p>
+</section>
+<section id="engagement-retention-and-equity-in-ai-mediated-workflows" class="level3">
+<h3 class="anchored" data-anchor-id="engagement-retention-and-equity-in-ai-mediated-workflows">Engagement, retention, and equity in AI-mediated workflows</h3>
+<p>Communication technologies can also support recruitment and retention by answering common questions, providing consistent study education, collecting structured pre-screening information, scheduling reminders, and routing complex concerns to humans. The design challenge is to reduce coordinator load and participant burden without creating misleading medical advice or undue influence; human-AI interaction design and clear escalation paths are therefore central <span class="citation" data-cites="amershi_hai_guidelines_2019">(<a href="references.html#ref-amershi_hai_guidelines_2019" role="doc-biblioref">Amershi et al. 2019</a>)</span>. The evidence base for conversational agents in health remains mixed and context-dependent, with systematic reviews noting that many evaluations are early-stage and heterogeneous, and often lack robust safety assessment even when user satisfaction is high <span class="citation" data-cites="laranjo_chatbots_2018">(<a href="references.html#ref-laranjo_chatbots_2018" role="doc-biblioref">Laranjo et al. 2018</a>)</span>. In trials, electronic informed consent and remote communication can reduce friction, but they must preserve comprehension, voluntariness, and proper documentation <span class="citation" data-cites="fda_econsent_2016">(<a href="references.html#ref-fda_econsent_2016" role="doc-biblioref">U.S. Food and Drug Administration 2016</a>)</span>.</p>
+<p>Because recruitment decisions shape who has access to research, governance and equity considerations are not optional. Privacy, bias, and accountability risks are amplified when models prioritize outreach or determine who is contacted first; reliance on proxies such as cost or utilization can encode structural inequities even when overall accuracy appears high <span class="citation" data-cites="obermeyer2019bias">(<a href="references.html#ref-obermeyer2019bias" role="doc-biblioref">Obermeyer et al. 2019</a>)</span>. A defensible approach therefore includes explicit inclusion goals, audit trails for cohort logic and model versions, subgroup performance checks, and clear procedures for human review and overrides <span class="citation" data-cites="nist_ai_rmf_2023 who_ai_ethics_2021 fda_diversity_action_plans_2024 fda_eligibility_2025">(<a href="references.html#ref-nist_ai_rmf_2023" role="doc-biblioref">National Institute of Standards and Technology 2023</a>; <a href="references.html#ref-who_ai_ethics_2021" role="doc-biblioref">World Health Organization 2021</a>; <a href="references.html#ref-fda_diversity_action_plans_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024a</a>, <a href="references.html#ref-fda_eligibility_2025" role="doc-biblioref">2025</a>)</span>. Reporting discipline matters as well: recruitment-facing tools should be documented with sufficient transparency for review and replication, and AI-enabled protocols and reports can be structured using emerging extensions such as SPIRIT-AI, CONSORT-AI, and TRIPOD+AI, depending on whether the system is a trial intervention, a reporting artifact, or an operational prediction model <span class="citation" data-cites="spirit_ai_2020 consort_ai_2020 tripod_ai_2024">(<a href="references.html#ref-spirit_ai_2020" role="doc-biblioref">Rivera et al. 2020</a>; <a href="references.html#ref-consort_ai_2020" role="doc-biblioref">Liu et al. 2020</a>; <a href="references.html#ref-tripod_ai_2024" role="doc-biblioref">Collins et al. 2024</a>)</span>.</p>
+</section>
+</section>
+<section id="barriers-to-recruitment" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="barriers-to-recruitment"><span class="header-section-number">19.3</span> Barriers to Recruitment</h2>
+<p>Several systemic barriers contribute to recruitment shortfalls. Lack of awareness remains a primary obstacle, as many eligible patients never learn about trials for their condition or how to access them. Even for those who are aware, restrictive eligibility criteria can exclude much of the candidate population due to common comorbidities or medications. Finally, the practical logistics of study participation (intensive testing schedules and dietary constraints) can be incompatible with daily work and family life, while cultural or linguistic misalignment can make the informed consent process feel intimidating or exclusionary.</p>
+<section id="geographic-access-and-rural-populations" class="level3">
+<h3 class="anchored" data-anchor-id="geographic-access-and-rural-populations">Geographic Access and Rural Populations</h3>
+<p>Geographic proximity represents a particularly significant barrier to trial participation. Research sites are heavily concentrated in urban academic medical centers, creating systematic exclusion of rural populations. Between 2008 and 2022, only 42.4% of U.S. counties hosted at least one Phase 1-3 cancer clinical trial, with rural counties significantly less likely to have trial sites <span class="citation" data-cites="gu2024geographic">(<a href="references.html#ref-gu2024geographic" role="doc-biblioref">Gu et al. 2024</a>)</span>. In 2022, 86% of nonmetropolitan counties had no active clinical trials, compared to 44% of metropolitan counties <span class="citation" data-cites="unger_rural_access_2025">(<a href="references.html#ref-unger_rural_access_2025" role="doc-biblioref">Unger, McAneny, and Osarogiagbon 2025</a>)</span>.</p>
+<p>This geographic concentration has measurable consequences. Nearly 17% of the U.S. population over age 35 lives more than 100 miles from an NCI-funded trial site, with this burden falling disproportionately on low-income individuals <span class="citation" data-cites="shriver2025access">(<a href="references.html#ref-shriver2025access" role="doc-biblioref">Shriver et al. 2025</a>)</span>. Travel distance, time away from work, and lack of reliable transportation create compounding barriers that effectively exclude rural patients from participation.</p>
+<p>The scientific implications are substantial. Rural populations experience higher cancer mortality rates and different disease patterns, yet remain systematically underrepresented in the trials that generate treatment evidence. However, when rural patients do gain access to trials, outcomes data suggest that treatment disparities may be largely attributable to access rather than biology: analysis of 36,995 patients in 44 SWOG trials found that rural and urban patients achieved similar survival outcomes when given uniform access to care through clinical trial participation <span class="citation" data-cites="unger_rural_survival_2018">(<a href="references.html#ref-unger_rural_survival_2018" role="doc-biblioref">Unger et al. 2018</a>)</span>.</p>
+<p><strong>Solutions that work.</strong> Evidence-based approaches to improving rural access include:</p>
+<p><em>Community-based trial networks.</em> The NCI Community Oncology Research Program (NCORP) extends trial access to community settings. Over nearly four decades of enrollment to federally sponsored network-group trials, roughly 19% of participants have come from rural areas, matching the rural share of the U.S. population and demonstrating the reach of community-based networks <span class="citation" data-cites="unger_rural_access_2025">(<a href="references.html#ref-unger_rural_access_2025" role="doc-biblioref">Unger, McAneny, and Osarogiagbon 2025</a>)</span>.</p>
+<p><em>Decentralized trial elements.</em> Telemedicine, remote monitoring, and home-based visits reduce travel burden. A small pilot comparing decentralized and conventional site models reported that 89% of patients in the decentralized arm completed the study versus 60% in the conventional arm <span class="citation" data-cites="sommer2018decentralized">(<a href="references.html#ref-sommer2018decentralized" role="doc-biblioref">Sommer et al. 2018</a>)</span>, though such comparisons may reflect selection effects, since the sites and patients willing to adopt decentralized elements may differ systematically. Remote consent, virtual assessments, and direct-to-patient drug shipment can maintain data quality while expanding access.</p>
+<p><em>Mobile health units.</em> Mobile clinics bring trial and screening activities directly to rural communities, reducing travel barriers while maintaining protocol compliance. The Ohio State University Comprehensive Cancer Center, for example, coordinates a mobile mammography program that brings breast cancer screening to women in rural areas of Appalachia <span class="citation" data-cites="unger_rural_access_2025">(<a href="references.html#ref-unger_rural_access_2025" role="doc-biblioref">Unger, McAneny, and Osarogiagbon 2025</a>)</span>.</p>
+<p>From an operational standpoint, addressing geographic barriers requires intentional site selection that extends beyond high-volume academic centers to include community hospitals, federally qualified health centers, and practices embedded in underserved regions. Sponsors must assess not only current site capability but also potential capability with appropriate infrastructure support.</p>
+</section>
+</section>
+<section id="the-importance-of-retention" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="the-importance-of-retention"><span class="header-section-number">19.4</span> The Importance of Retention</h2>
+<p>Recruiting patients is only the first stage of the challenge; maintaining their engagement throughout the trial is equally critical. High dropout rates can severely reduce a trial’s statistical power and introduce bias, particularly if the attrition is related to treatment response or side effects. Successful retention requires constant attention to participant experience, offering flexible scheduling, timely compensation, and clear, empathetic communication from the study staff. The relationship between the investigator and the participant is central to retention; patients who feel personally connected to the research team are more likely to continue through to the study’s conclusion.</p>
+<section id="physician-participation-and-the-one-and-done-phenomenon" class="level3">
+<h3 class="anchored" data-anchor-id="physician-participation-and-the-one-and-done-phenomenon">Physician Participation and the “One and Done” Phenomenon</h3>
+<p>The recruitment crisis is exacerbated by a severe contraction in the investigator pool. As detailed in <a href="16-site-selection.html" class="quarto-xref"><span>Chapter 18</span></a>, the number of unique U.S. investigators declined by more than 78% between 2020 and 2024, driven by a combination of post-pandemic normalization, biotech funding contraction, and mounting administrative burdens <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>.</p>
+<p>Investigative research is also plagued by low retention of investigators themselves. Approximately 66% of physicians who participate in a clinical trial do so only once (the so-called “one and done” phenomenon) <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>. The reasons for this lack of sustained engagement include the sheer complexity of modern protocols, the mounting technology burden, and inadequate financial structures that fail to account for the heavy time investment required relative to routine clinical care. When two-thirds of the investigator community exits the research ecosystem after their first experience, the industry loses critical expertise and forces sponsors to continually onboard new, less-experienced sites, further slowing the development process.</p>
+<p>This attrition extends beyond investigators to the broader research staff. High turnover among clinical research coordinators (CRCs) and nurses disrupts continuity and increases the risk of documentation errors. While turnover rates have stabilized somewhat in 2024, a significant portion of the industry still faces high churn, complicating the long-term viability of sites (see <a href="#fig-wcg-turnover" class="quarto-xref">Figure&nbsp;<span>19.4</span></a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-wcg-turnover" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wcg-turnover-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="17-recruitment_files/figure-html/fig-wcg-turnover-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wcg-turnover-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.4: Yearly staff turnover rates at clinical research sites (2024). Data from <span class="citation" data-cites="wcg_site_challenges_2024">WCG Clinical (<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">2024</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-representative-enrollment" class="level3">
+<h3 class="anchored" data-anchor-id="sec-representative-enrollment">Strategic Enrollment and Generalizability</h3>
+<p>Effective enrollment goes beyond meeting accrual targets: it requires enrolling participants who reflect the populations that will ultimately use the treatment. This is not merely a regulatory preference but a scientific necessity: drug metabolism, disease expression, and treatment response vary systematically across age, sex, genetic factors, and comorbidities.</p>
+<p>Consider the scientific rationale. Pharmacokinetics differ substantially by age due to changes in renal and hepatic function, body composition, and drug-drug interactions from polypharmacy. Sex differences affect drug distribution (body fat percentage), metabolism (CYP enzyme activity), and hormonal influences on disease pathways. Genetic polymorphisms in drug-metabolizing enzymes (e.g., CYP2D6, CYP2C19) vary in frequency across populations and can alter therapeutic response and toxicity profiles. Disease phenotypes themselves may differ: hypertension, diabetes, and cardiovascular disease show distinct clinical presentations and progression patterns across demographic groups.</p>
+<p>If trial enrollment systematically excludes the elderly, women, or specific genetic backgrounds, the resulting efficacy and safety data may not generalize to real-world use. A treatment optimized for a narrow trial population may be suboptimal, or even unsafe, when prescribed more broadly. Pediatric dosing cannot be reliably extrapolated from adult trials. Elderly patients with multiple comorbidities may experience different benefit-risk profiles than younger, healthier trial participants.</p>
+<p>From an operational standpoint, representative enrollment requires intentional design: site selection that reaches diverse geographies and care settings, eligibility criteria that do not unnecessarily exclude common comorbidities, and recruitment strategies that address logistical barriers (transportation, language, visit burden). Regulatory guidance increasingly expects sponsors to justify enrollment targets based on the intended use population and to monitor accrual across relevant subgroups during the trial <span class="citation" data-cites="fda_diversity_action_plans_2024">(<a href="references.html#ref-fda_diversity_action_plans_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024a</a>)</span>. The regulatory framing here has been in flux: FDA’s June 2024 draft guidance on diversity action plans was removed from the agency’s website in early 2025 and later restored by court order, but its final version was not issued by the statutory deadline <span class="citation" data-cites="fda_dap_status_2025">(<a href="references.html#ref-fda_dap_status_2025" role="doc-biblioref">Grossi 2025</a>)</span>. A separate December 2025 final guidance, <em>Enhancing Participation in Clinical Trials</em>, retains the recommendation to enroll a broader, more representative population while dropping the explicit “diversity” framing <span class="citation" data-cites="fda_eligibility_2025">(<a href="references.html#ref-fda_eligibility_2025" role="doc-biblioref">U.S. Food and Drug Administration 2025</a>)</span>. The statutory basis for representative enrollment and its scientific rationale are unchanged.</p>
+</section>
+<section id="digital-retention-toolkit-engagement-beyond-enrollment" class="level3">
+<h3 class="anchored" data-anchor-id="digital-retention-toolkit-engagement-beyond-enrollment">Digital retention toolkit: engagement beyond enrollment</h3>
+<p>Traditional retention frameworks addressed dropout and loss to follow-up through clinic visits, phone calls, and mailed reminders <span class="citation" data-cites="meinert_cth_2013">(<a href="references.html#ref-meinert_cth_2013" role="doc-biblioref">Meinert 2013</a>)</span>. In the DCT era, retention increasingly depends on digital engagement: app-based reminders, SMS check-ins, telehealth visits, and patient portals that reduce the friction of continued participation <span class="citation" data-cites="fda_dct_guidance_2024">(<a href="references.html#ref-fda_dct_guidance_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024c</a>)</span>.</p>
+<p>The operational challenge is that digital engagement requires infrastructure (validated platforms, help desk support, accessibility accommodations) and ongoing attention (message cadence, content relevance, response to participant feedback). Poorly executed digital engagement can feel intrusive or impersonal, potentially increasing dropout rather than reducing it.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Checklist: Digital Retention Toolkit">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Checklist: Digital Retention Toolkit
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><em>Platform selection</em>: validated ePRO/eCOA and patient communication platforms with accessibility features (screen reader compatibility, multilingual support, offline functionality where relevant).</li>
+<li><em>Message cadence and content</em>: prespecified reminder schedules; personalized content where feasible; clear escalation paths for non-response.</li>
+<li><em>Telehealth integration</em>: defined workflows for remote visits (scheduling, consent for recording if applicable, documentation, safety escalation).</li>
+<li><em>Help desk support</em>: accessible support for technical issues, with defined response times and escalation to site coordinators for clinical questions.</li>
+<li><em>Retention monitoring</em>: dashboards tracking visit completion, ePRO compliance, and engagement metrics; predefined thresholds for coordinator outreach.</li>
+<li><em>Participant feedback loop</em>: mechanism for participants to report burden concerns or technical issues, with documented response and protocol amendment pathways if patterns emerge.</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="metrics-and-monitoring" class="level2" data-number="19.5">
+<h2 data-number="19.5" class="anchored" data-anchor-id="metrics-and-monitoring"><span class="header-section-number">19.5</span> Metrics and Monitoring</h2>
+<p>Effective recruitment management requires close attention to metrics, summarized in <a href="#tbl-recruitment-metrics" class="quarto-xref">Table&nbsp;<span>19.2</span></a>.</p>
+<div id="tbl-recruitment-metrics" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[18,30,18,34]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-recruitment-metrics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;19.2: Key Recruitment and Retention Metrics
+</figcaption>
+<div aria-describedby="tbl-recruitment-metrics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 30%">
+<col style="width: 18%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Definition</th>
+<th>Target</th>
+<th>Action if Off Target</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Screening Rate</em></td>
+<td>Patients screened per site per week</td>
+<td>Protocol-specific</td>
+<td>Increase outreach; Boost advertising</td>
+</tr>
+<tr class="even">
+<td><em>Screen Failure Rate</em></td>
+<td>% screened who are ineligible</td>
+<td>&lt;50%</td>
+<td>Review eligibility criteria; Improve pre-screening</td>
+</tr>
+<tr class="odd">
+<td><em>Enrollment Rate</em></td>
+<td>Patients enrolled per site per month</td>
+<td>2-4 typically</td>
+<td>Additional training; Site support; Consider closing site</td>
+</tr>
+<tr class="even">
+<td><em>Retention Rate</em></td>
+<td>% enrolled completing study</td>
+<td>&gt;85%</td>
+<td>Reduce protocol burden; Improve patient engagement</td>
+</tr>
+<tr class="odd">
+<td><em>Time to First Patient</em></td>
+<td>Days from site activation to first enrollment</td>
+<td>&lt;30 days</td>
+<td>Expedite startup; Ensure materials available</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Clinical teams must monitor these metrics continuously to identify emerging enrollment problems. Low screening rates often indicate a need for broader outreach or increased advertising, while high screen-failure rates may suggest that eligibility criteria are overly restrictive or that pre-screening processes need refinement. Similarly, poor enrollment and retention rates should prompt a review of the protocol’s practical burden on patients and a potential investigation into site-level training or engagement strategies. Enrollment should also be tracked against projections so that emerging problems can be caught and corrected before delays become severe. AI agent applications across the full development lifecycle, including site identification, feasibility prediction, and decentralized trial infrastructure, are covered in <a href="24-ai-agents.html" class="quarto-xref"><span>Chapter 26</span></a>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-amershi_hai_guidelines_2019" class="csl-entry" role="listitem">
+Amershi, Saleema, Dan Weld, Mihaela Vorvoreanu, Adam Fourney, Besmira Nushi, Penny Collisson, Jina Suh, et al. 2019. <span>“Guidelines for Human-AI Interaction.”</span> In <em>Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems</em>, 1–13. <a href="https://doi.org/10.1145/3290605.3300233">https://doi.org/10.1145/3290605.3300233</a>.
+</div>
+<div id="ref-tripod_ai_2024" class="csl-entry" role="listitem">
+Collins, Gary S. et al. 2024. <span>“TRIPOD+AI Statement: Updated Guidance for Reporting Clinical Prediction Models That Use Regression or Machine Learning Methods.”</span> <em>BMJ</em> 385: e078378. <a href="https://www.bmj.com/content/385/bmj-2023-078378">https://www.bmj.com/content/385/bmj-2023-078378</a>.
+</div>
+<div id="ref-fda_dap_status_2025" class="csl-entry" role="listitem">
+Grossi, Giuliana. 2025. <span>“FDA Quietly Removes Draft Guidance on Diversity in Clinical Trials Following Executive Order on DEI.”</span> The American Journal of Managed Care (AJMC). <a href="https://www.ajmc.com/view/fda-quietly-removes-draft-guidance-on-diversity-in-clinical-trials-following-executive-order-on-dei">https://www.ajmc.com/view/fda-quietly-removes-draft-guidance-on-diversity-in-clinical-trials-following-executive-order-on-dei</a>.
+</div>
+<div id="ref-gu2024geographic" class="csl-entry" role="listitem">
+Gu, Ningzhou, Zizi Elsisi, Ryan Suk, and Meng Li. 2024. <span>“Geographic Disparity in the Distribution of Cancer Clinical Trials in the United States and the Associated Factors.”</span> <em>Journal of Managed Care &amp; Specialty Pharmacy</em> 30 (4): 376–85. <a href="https://doi.org/10.18553/jmcp.2024.30.4.376">https://doi.org/10.18553/jmcp.2024.30.4.376</a>.
+</div>
+<div id="ref-hl7_fhir_bulkdata" class="csl-entry" role="listitem">
+Health Level Seven International. 2024. <span>“HL7 FHIR Bulk Data Access (Flat FHIR).”</span> <a href="https://hl7.org/fhir/uv/bulkdata/">https://hl7.org/fhir/uv/bulkdata/</a>.
+</div>
+<div id="ref-hripcsak_albers_2013" class="csl-entry" role="listitem">
+Hripcsak, George, and David J. Albers. 2013. <span>“Next-Generation Phenotyping of Electronic Health Records.”</span> <em>Journal of the American Medical Informatics Association</em> 20 (1): 117–21. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3555337/">https://pmc.ncbi.nlm.nih.gov/articles/PMC3555337/</a>.
+</div>
+<div id="ref-ohdsi_hripcsak_2015" class="csl-entry" role="listitem">
+Hripcsak, George, Jon D. Duke, Nigam H. Shah, Christian G. Reich, Vojtech Huser, Martijn J. Schuemie, Marc A. Suchard, et al. 2015. <span>“Observational Health Data Sciences and Informatics (OHDSI): Opportunities for Observational Researchers.”</span> <em>Studies in Health Technology and Informatics</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4815923/">https://pmc.ncbi.nlm.nih.gov/articles/PMC4815923/</a>.
+</div>
+<div id="ref-laranjo_chatbots_2018" class="csl-entry" role="listitem">
+Laranjo, Liliana, Adam G. Dunn, Huong Ly Tong, A. Baki Kocaballi, Jessica Chen, Rabia Bashir, Didi Surian, et al. 2018. <span>“Conversational Agents in Healthcare: A Systematic Review.”</span> <em>Journal of the American Medical Informatics Association</em> 25 (9): 1248–58. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6118869/">https://pmc.ncbi.nlm.nih.gov/articles/PMC6118869/</a>.
+</div>
+<div id="ref-consort_ai_2020" class="csl-entry" role="listitem">
+Liu, Xiaoxuan et al. 2020. <span>“CONSORT-AI Extension: Reporting Guidelines for Clinical Trials Evaluating Artificial Intelligence Interventions.”</span> <em>BMJ</em> 370: m3164. <a href="https://www.bmj.com/content/370/bmj.m3164">https://www.bmj.com/content/370/bmj.m3164</a>.
+</div>
+<div id="ref-smart_on_fhir_mandel_2016" class="csl-entry" role="listitem">
+Mandel, Joshua C., David A. Kreda, Kenneth D. Mandl, Isaac S. Kohane, and Rachel B. Ramoni. 2016. <span>“SMART on FHIR: A Standards-Based, Interoperable Apps Platform for Electronic Health Records.”</span> <em>Journal of the American Medical Informatics Association</em> 23 (5): 899–908. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4997036/">https://pmc.ncbi.nlm.nih.gov/articles/PMC4997036/</a>.
+</div>
+<div id="ref-meinert_cth_2013" class="csl-entry" role="listitem">
+Meinert, Curtis L. 2013. <em>Clinical Trials Handbook: Design and Conduct</em>. Hoboken, NJ: John Wiley &amp; Sons.
+</div>
+<div id="ref-nist_ai_rmf_2023" class="csl-entry" role="listitem">
+National Institute of Standards and Technology. 2023. <span>“Artificial Intelligence Risk Management Framework (AI RMF 1.0).”</span> <a href="https://www.nist.gov/itl/ai-risk-management-framework">https://www.nist.gov/itl/ai-risk-management-framework</a>.
+</div>
+<div id="ref-obermeyer2019bias" class="csl-entry" role="listitem">
+Obermeyer, Ziad, Brian Powers, Christine Vogeli, and Sendhil Mullainathan. 2019. <span>“Dissecting Racial Bias in an Algorithm Used to Manage the Health of Populations.”</span> <em>Science</em> 366 (6464): 447–53. <a href="https://doi.org/10.1126/science.aax2342">https://doi.org/10.1126/science.aax2342</a>.
+</div>
+<div id="ref-omop_cdm_overhage_2012" class="csl-entry" role="listitem">
+Overhage, J. Marc, Patrick B. Ryan, Christian G. Reich, Abraham G. Hartzema, and Paul E. Stang. 2012. <span>“Validation of a Common Data Model for Active Safety Surveillance Research.”</span> <em>Journal of the American Medical Informatics Association</em> 19 (1): 54–60. <a href="https://doi.org/10.1136/amiajnl-2011-000376">https://doi.org/10.1136/amiajnl-2011-000376</a>.
+</div>
+<div id="ref-spirit_ai_2020" class="csl-entry" role="listitem">
+Rivera, Samantha Cruz et al. 2020. <span>“SPIRIT-AI Extension: Guidance for Clinical Trial Protocols for Interventions Involving Artificial Intelligence.”</span> <em>BMJ</em> 370: m3210. <a href="https://www.bmj.com/content/370/bmj.m3210">https://www.bmj.com/content/370/bmj.m3210</a>.
+</div>
+<div id="ref-shriver2025access" class="csl-entry" role="listitem">
+Shriver, Sharon P., Liora Sahar, Vanhvilai L. Douangchai Wills, Devon V. Adams, and Mark E. Fleury. 2025. <span>“Assessing Populations with Access to National Cancer Institute-Funded Sites Using Local Distance-Based Service Areas.”</span> <em>Journal of Clinical and Translational Science</em> 9 (1): e218. <a href="https://doi.org/10.1017/cts.2025.10148">https://doi.org/10.1017/cts.2025.10148</a>.
+</div>
+<div id="ref-sommer2018decentralized" class="csl-entry" role="listitem">
+Sommer, C., D. Zuccolin, V. Arnera, N. Schmitz, P. Adolfsson, N. Colombo, R. Gilg, and B. McDowell. 2018. <span>“Building Clinical Trials Around Patients: Evaluation and Comparison of Decentralized and Conventional Site Models in Patients with Low Back Pain.”</span> <em>Contemporary Clinical Trials Communications</em> 11: 120–26. <a href="https://doi.org/10.1016/j.conctc.2018.06.008">https://doi.org/10.1016/j.conctc.2018.06.008</a>.
+</div>
+<div id="ref-tufts_csdd_2021" class="csl-entry" role="listitem">
+Tufts Center for the Study of Drug Development. 2021. <span>“Tufts Center for the Study of Drug Development Impact Reports.”</span> <a href="https://csdd.tufts.edu/publications/impact-reports">https://csdd.tufts.edu/publications/impact-reports</a>.
+</div>
+<div id="ref-unger_rural_access_2025" class="csl-entry" role="listitem">
+Unger, Joseph M., Barbara L. McAneny, and Raymond U. Osarogiagbon. 2025. <span>“Cancer in Rural America: Improving Access to Clinical Trials and Quality of Oncologic Care.”</span> <em>CA: A Cancer Journal for Clinicians</em> 75 (4): 341–61. <a href="https://doi.org/10.3322/caac.70006">https://doi.org/10.3322/caac.70006</a>.
+</div>
+<div id="ref-unger_rural_survival_2018" class="csl-entry" role="listitem">
+Unger, Joseph M., Adrienne Moseley, Beulah Symington, Mariana Chavez-MacGregor, Scott D. Ramsey, and Dawn L. Hershman. 2018. <span>“Geographic Distribution and Survival Outcomes for Rural Patients with Cancer Treated in Clinical Trials.”</span> <em>JAMA Network Open</em> 1 (4): e181235. <a href="https://doi.org/10.1001/jamanetworkopen.2018.1235">https://doi.org/10.1001/jamanetworkopen.2018.1235</a>.
+</div>
+<div id="ref-fda_econsent_2016" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2016. <span>“Use of Electronic Informed Consent in Clinical Investigations: Questions and Answers.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-electronic-informed-consent-clinical-investigations-questions-and-answers">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-electronic-informed-consent-clinical-investigations-questions-and-answers</a>.
+</div>
+<div id="ref-fda_ehr_data_2018" class="csl-entry" role="listitem">
+———. 2018. <span>“Use of Electronic Health Record Data in Clinical Investigations: Guidance for Industry.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-electronic-health-record-data-clinical-investigations-guidance-industry">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-electronic-health-record-data-clinical-investigations-guidance-industry</a>.
+</div>
+<div id="ref-fda_diversity_action_plans_2024" class="csl-entry" role="listitem">
+———. 2024a. <span>“Diversity Action Plans to Improve Enrollment of Participants from Underrepresented Populations in Clinical Studies: Guidance for Industry.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/diversity-action-plans-improve-enrollment-participants-underrepresented-populations-clinical-studies">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/diversity-action-plans-improve-enrollment-participants-underrepresented-populations-clinical-studies</a>.
+</div>
+<div id="ref-fda_rwd_ehr_claims_2024" class="csl-entry" role="listitem">
+———. 2024b. <span>“Real-World Data: Assessing Electronic Health Records and Medical Claims Data to Support Regulatory Decision-Making for Drug and Biological Products.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/real-world-data-assessing-electronic-health-records-and-medical-claims-data-support-regulatory">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/real-world-data-assessing-electronic-health-records-and-medical-claims-data-support-regulatory</a>.
+</div>
+<div id="ref-fda_dct_guidance_2024" class="csl-entry" role="listitem">
+———. 2024c. <span>“Conducting Clinical Trials with Decentralized Elements.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/conducting-clinical-trials-decentralized-elements">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/conducting-clinical-trials-decentralized-elements</a>.
+</div>
+<div id="ref-fda_eligibility_2025" class="csl-entry" role="listitem">
+———. 2025. <span>“Enhancing Participation in Clinical Trials: Eligibility Criteria, Enrollment Practices, and Trial Designs.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/enhancing-participation-clinical-trials-eligibility-criteria-enrollment-practices-and-trial-designs">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/enhancing-participation-clinical-trials-eligibility-criteria-enrollment-practices-and-trial-designs</a>.
+</div>
+<div id="ref-wagner_4dm_2017" class="csl-entry" role="listitem">
+Wagner, John, Andrew M. Dahlem, Lynn D. Hudson, Sharon F. Terry, Russ B. Altman, C. Taylor Gilliland, Christopher DeFeo, and Christopher P. Austin. 2018. <span>“A Dynamic Map for Learning, Communicating, Navigating and Improving Therapeutic Development.”</span> <em>Nature Reviews Drug Discovery</em> 17 (2): 150. <a href="https://doi.org/10.1038/nrd.2017.217">https://doi.org/10.1038/nrd.2017.217</a>.
+</div>
+<div id="ref-wcg_site_challenges_2024" class="csl-entry" role="listitem">
+WCG Clinical. 2024. <span>“2024 Clinical Research Site Challenges Report: Data-Driven Insights on Current Site Challenges and Strategic Recommendations to Overcome Barriers and Boost Clinical Trial Efficiency.”</span> <a href="https://www.wcgclinical.com/wp-content/uploads/2024/10/WCG_2024_Clinical_Research_Site_Challenges_Report.pdf">https://www.wcgclinical.com/wp-content/uploads/2024/10/WCG_2024_Clinical_Research_Site_Challenges_Report.pdf</a>.
+</div>
+<div id="ref-who_ai_ethics_2021" class="csl-entry" role="listitem">
+World Health Organization. 2021. <span>“Ethics and Governance of Artificial Intelligence for Health.”</span> <a href="https://iris.who.int/handle/10665/341996">https://iris.who.int/handle/10665/341996</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./16-site-selection.html" class="pagination-link" aria-label="Site Selection and Feasibility">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./18-logistics.html" class="pagination-link" aria-label="Logistics and Project Management">
+        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

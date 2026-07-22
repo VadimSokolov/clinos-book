@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>17&nbsp; Endpoints and Outcomes – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./16-site-selection.html" rel="next">
+<link href="./14-randomization.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="17&nbsp; Endpoints and Outcomes – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="17&nbsp; Endpoints and Outcomes – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./15-endpoints.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-endpoint-hierarchy" id="toc-the-endpoint-hierarchy" class="nav-link active" data-scroll-target="#the-endpoint-hierarchy"><span class="header-section-number">17.1</span> The Endpoint Hierarchy</a></li>
+  <li><a href="#clinical-endpoints" id="toc-clinical-endpoints" class="nav-link" data-scroll-target="#clinical-endpoints"><span class="header-section-number">17.2</span> Clinical Endpoints</a></li>
+  <li><a href="#surrogate-endpoints" id="toc-surrogate-endpoints" class="nav-link" data-scroll-target="#surrogate-endpoints"><span class="header-section-number">17.3</span> Surrogate Endpoints</a></li>
+  <li><a href="#primary-and-secondary-endpoints" id="toc-primary-and-secondary-endpoints" class="nav-link" data-scroll-target="#primary-and-secondary-endpoints"><span class="header-section-number">17.4</span> Primary and Secondary Endpoints</a></li>
+  <li><a href="#composite-endpoints" id="toc-composite-endpoints" class="nav-link" data-scroll-target="#composite-endpoints"><span class="header-section-number">17.5</span> Composite Endpoints</a></li>
+  <li><a href="#time-to-event-endpoints" id="toc-time-to-event-endpoints" class="nav-link" data-scroll-target="#time-to-event-endpoints"><span class="header-section-number">17.6</span> Time-to-Event Endpoints</a></li>
+  <li><a href="#ordinal-endpoints" id="toc-ordinal-endpoints" class="nav-link" data-scroll-target="#ordinal-endpoints"><span class="header-section-number">17.7</span> Ordinal Endpoints</a></li>
+  <li><a href="#the-win-ratio-and-door" id="toc-the-win-ratio-and-door" class="nav-link" data-scroll-target="#the-win-ratio-and-door"><span class="header-section-number">17.8</span> The Win Ratio and DOOR</a></li>
+  <li><a href="#estimands-and-death-as-an-intercurrent-event" id="toc-estimands-and-death-as-an-intercurrent-event" class="nav-link" data-scroll-target="#estimands-and-death-as-an-intercurrent-event"><span class="header-section-number">17.9</span> Estimands and Death as an Intercurrent Event</a></li>
+  <li><a href="#endpoint-selection-in-practice" id="toc-endpoint-selection-in-practice" class="nav-link" data-scroll-target="#endpoint-selection-in-practice"><span class="header-section-number">17.10</span> Endpoint Selection in Practice</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./15-endpoints.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-endpoints" class="quarto-section-identifier"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In 1987, the FDA approved zidovudine (AZT) for HIV based on a trial showing improved survival at 24 weeks. In 2011, the FDA revoked accelerated approval for bevacizumab in breast cancer after confirmatory trials failed to show the survival benefit the surrogate endpoint had predicted. In 2021, the approval of aducanumab for Alzheimer’s disease sparked controversy because the drug reduced amyloid plaques (the surrogate) but did not clearly improve cognition (the clinical outcome).</p>
+<p>These cases illustrate a fundamental challenge: what should we measure to determine whether a drug works? The answer shapes trial design, determines sample size, affects regulatory strategy, and ultimately decides whether patients gain access to new therapies.</p>
+<p>An <em>endpoint</em> is a defined outcome that a clinical trial is designed to measure. It is the variable that answers the trial’s central question: did the treatment work? The term “endpoint” reflects the fact that these measurements typically occur at the end of treatment or follow-up, though some endpoints are measured continuously throughout the trial.</p>
+<p>Endpoints must be specified before the trial begins. The <em>primary endpoint</em> is the main outcome on which the trial will be judged: the result that determines whether the trial “succeeded” or “failed.” A Phase III trial might have survival as its primary endpoint, meaning the trial succeeds if the treatment group lives significantly longer than the control group. Secondary endpoints provide additional information but do not determine the trial’s overall success.</p>
+<p>Choosing the right endpoint requires balancing what matters clinically (does the patient feel better? live longer?) with what is practical (can we measure it reliably? in a reasonable timeframe? with an affordable sample size?). This tension between clinical meaningfulness and operational feasibility runs through every endpoint decision.</p>
+<section id="the-endpoint-hierarchy" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="the-endpoint-hierarchy"><span class="header-section-number">17.1</span> The Endpoint Hierarchy</h2>
+<p><a href="#tbl-endpoint-hierarchy" class="quarto-xref">Table&nbsp;<span>17.1</span></a> summarizes the endpoint hierarchy with examples across therapeutic areas.</p>
+<div id="tbl-endpoint-hierarchy" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,20,25,20,20]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-endpoint-hierarchy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;17.1: Clinical Trial Endpoint Hierarchy
+</figcaption>
+<div aria-describedby="tbl-endpoint-hierarchy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Level</th>
+<th>Definition</th>
+<th>Examples</th>
+<th>Regulatory Acceptance</th>
+<th>Trial Implications</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Clinical Endpoints</em></td>
+<td>Direct patient outcomes</td>
+<td>Survival, symptomatic improvement, functional status</td>
+<td>Gold standard for approval</td>
+<td>Large trials, long follow-up</td>
+</tr>
+<tr class="even">
+<td><em>Surrogate Endpoints</em></td>
+<td>Predict clinical outcomes</td>
+<td>Blood pressure -&gt; CV events; HbA1c -&gt; diabetes complications</td>
+<td>Validated or reasonably likely</td>
+<td>Smaller trials, faster readout</td>
+</tr>
+<tr class="odd">
+<td><em>Biomarkers</em></td>
+<td>Biological process indicators</td>
+<td>Drug concentration, receptor occupancy, gene expression</td>
+<td>Generally not for approval</td>
+<td>Early development, dose selection</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>At the apex of the endpoint hierarchy sits what we ultimately care about: whether patients live longer, feel better, or function more effectively. These <em>clinical endpoints</em> (sometimes called <em>hard endpoints</em>) directly measure patient outcomes. Survival is the paradigm: either the patient is alive or they are not. There is no ambiguity, no measurement error, no room for interpretation.</p>
+<p>Below clinical endpoints sit <em>surrogate endpoints</em>: measurements that are not themselves clinical outcomes but that are reasonably expected to predict clinical outcomes. Blood pressure is a surrogate for stroke and heart attack. Viral load is a surrogate for AIDS progression. Tumor shrinkage is a surrogate for cancer survival.</p>
+<p>Further down the hierarchy are <em>biomarkers</em>: measurable characteristics that indicate biological processes, disease states, or responses to intervention. Some biomarkers may also be surrogates, but not all. A biomarker that reliably reflects drug activity might not predict clinical benefit.</p>
+</section>
+<section id="clinical-endpoints" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="clinical-endpoints"><span class="header-section-number">17.2</span> Clinical Endpoints</h2>
+<p>The most compelling endpoint is one that directly measures what matters to patients. In oncology, <em>overall survival</em> (OS) is the gold standard: the most reliable way to determine whether a cancer treatment extends life. In heart failure, the composite of <em>cardiovascular death and heart failure hospitalization</em> captures both mortality and major morbidity.</p>
+<p><em>Progression-free survival</em> (PFS), the time from randomization to radiographic tumor progression or death, is often used as a primary oncology endpoint when waiting for OS would make a trial impractically long. FDA accepts PFS as a basis for approval in many settings, but treats it as a judgment call rather than an automatic substitute for clinical benefit: the magnitude of the delay, whether tumor-related symptoms improve, and the drug’s toxicity all matter, because a longer time to progression does not by itself establish that patients live longer or feel better <span class="citation" data-cites="fda_cancer_endpoints_2018">(<a href="references.html#ref-fda_cancer_endpoints_2018" role="doc-biblioref">U.S. Food and Drug Administration 2018</a>)</span>.</p>
+<p>But clinical endpoints come with practical challenges. They may require large trials because events are relatively rare. They may require long follow-up because outcomes develop slowly. A trial with survival as its primary endpoint in a slowly progressing cancer might need thousands of patients followed for years, a massive undertaking with implications for cost, time to approval, and patient access to therapy.</p>
+<p><em>Patient-reported outcomes (PROs)</em> represent another category of clinical endpoints. How does the patient feel? What is their quality of life? Can they perform daily activities? These outcomes are measured through standardized questionnaires and reflect the patient’s perspective, which may differ from what objective measurements suggest.</p>
+<p>PROs are increasingly important to regulators and payers. A drug that improves a biomarker but does not make patients feel better is less valuable than one that produces symptomatic improvement. However, PROs introduce measurement challenges: responses can be influenced by expectations, mood, and cultural factors, and the validity of PRO instruments must be established.</p>
+<p>Unlike a blood test, a questionnaire cannot be calibrated against a physical standard. Instead, PROs must undergo psychometric validation to prove they measure what they claim to measure. Content validity establishes that the instrument covers the relevant symptoms, typically through qualitative interviews with patients. Reliability ensures the measure is stable and reproducible. Construct validity checks whether the score correlates with other known measures of the disease, while sensitivity to change confirms the instrument can detect meaningful improvements. Regulators require this evidence to approve labeling claims based on PROs <span class="citation" data-cites="fda_pfdd_coa_2023">(<a href="references.html#ref-fda_pfdd_coa_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023b</a>)</span>.</p>
+<p>The proliferation of smartphones and wearables has produced a new category of endpoints: those derived from Digital Health Technologies (DHTs). DHTs offer the promise of moving from snapshot medicine to continuous, real-world monitoring. This includes digital biomarkers (such as subtle changes in gait or voice that may predict disease progression) and continuous monitoring that replaces brief clinical assessments with long-term data collection.</p>
+<p>While promising, DHTs face significant validation hurdles. Regulators must be convinced that the device measures the concept accurately, that the measurement correlates with clinical status, and that the data is secure and attributable <span class="citation" data-cites="fda_dht_guidance_2023">(<a href="references.html#ref-fda_dht_guidance_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023a</a>)</span>. The FDA has established a specific Digital Health Center of Excellence to guide the integration of these novel tools into regulatory decision-making.</p>
+</section>
+<section id="surrogate-endpoints" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="surrogate-endpoints"><span class="header-section-number">17.3</span> Surrogate Endpoints</h2>
+<p>Given the challenges of clinical endpoints, surrogates offer an attractive alternative. They can often be measured sooner and in fewer patients, potentially accelerating development and reducing costs.</p>
+<p>The concept behind surrogates is straightforward: if intervention A lowers blood pressure more than intervention B, and lower blood pressure reduces cardiovascular events, then intervention A should reduce cardiovascular events more than intervention B.</p>
+<p>But this logic can fail. The relationship between surrogate and outcome may not hold under all circumstances. An intervention might affect the surrogate through a pathway that does not influence clinical outcomes. Or it might have effects on clinical outcomes that are not mediated by the surrogate.</p>
+<p>The history of medicine includes instructive failures. The CAST trial of the late 1980s tested antiarrhythmic drugs in post-heart attack patients. The drugs effectively suppressed the abnormal heart rhythms they were designed to treat: the surrogate looked excellent. But the trial was stopped early when it became clear that treated patients were <em>more</em> likely to die than those on placebo. The rhythm abnormalities were a marker of underlying heart damage, not a cause of death; suppressing them did nothing to address the underlying disease and may have introduced new cardiac risks.</p>
+<p>Similarly, hormone replacement therapy improved lipid profiles and was widely prescribed for cardiovascular prevention based on surrogate reasoning and observational data. The Women’s Health Initiative randomized trial showed that, despite the favorable lipid effects, hormone therapy actually increased cardiovascular events <span class="citation" data-cites="rossouw2002whi">(<a href="references.html#ref-rossouw2002whi" role="doc-biblioref">Rossouw et al. 2002</a>)</span>. The surrogate had predicted the wrong outcome.</p>
+<p>The FDA distinguishes between <em>validated surrogates</em> (where the relationship to clinical outcome is well established) and <em>reasonably likely surrogates</em> (where the relationship is plausible but not fully established). The latter can support <em>accelerated approval</em> for serious conditions, but sponsors must subsequently confirm the clinical benefit through post-marketing studies.</p>
+<p>Modern molecular surrogates are now moving through exactly this accelerated-approval pathway. In blood cancers, <em>minimal residual disease (MRD)</em>, the small population of cancer cells that highly sensitive assays can detect after treatment, has emerged as a candidate surrogate for long-term survival. In April 2024, the FDA’s Oncologic Drugs Advisory Committee voted unanimously (12-0) that MRD is an appropriate endpoint to support accelerated approval in multiple myeloma, where confirming a progression-free or overall survival benefit can take many years <span class="citation" data-cites="landgren2024mrd">(<a href="references.html#ref-landgren2024mrd" role="doc-biblioref">Landgren and Devlin 2025</a>)</span>. In solid tumors, <em>circulating tumor DNA (ctDNA)</em> clearance is being studied as an analogous early signal in adjuvant trials. These molecular markers promise dramatically smaller and faster trials, but they carry the same obligation as every surrogate before them: the effect on the marker must ultimately be confirmed to predict the effect on how patients live and feel.</p>
+</section>
+<section id="primary-and-secondary-endpoints" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="primary-and-secondary-endpoints"><span class="header-section-number">17.4</span> Primary and Secondary Endpoints</h2>
+<p><a href="#tbl-endpoint-roles" class="quarto-xref">Table&nbsp;<span>17.2</span></a> defines the roles of different endpoint categories in clinical trials.</p>
+<div id="tbl-endpoint-roles" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,25,30,30]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-endpoint-roles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;17.2: Endpoint Categories and Their Roles
+</figcaption>
+<div aria-describedby="tbl-endpoint-roles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 25%">
+<col style="width: 30%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Role</th>
+<th>Statistical Handling</th>
+<th>Interpretive Rules</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Primary</em></td>
+<td>Main outcome for trial success/failure</td>
+<td>Fully powered; Controls Type I error</td>
+<td>Trial succeeds or fails on this</td>
+</tr>
+<tr class="even">
+<td><em>Key Secondary</em></td>
+<td>Pre-specified important outcomes</td>
+<td>Part of testing hierarchy; Multiplicity-adjusted</td>
+<td>Interpret only if primary positive</td>
+</tr>
+<tr class="odd">
+<td><em>Secondary</em></td>
+<td>Additional efficacy/safety info</td>
+<td>May be multiplicity-adjusted</td>
+<td>Supportive; Interpret with caution</td>
+</tr>
+<tr class="even">
+<td><em>Exploratory</em></td>
+<td>Hypothesis-generating</td>
+<td>No multiplicity adjustment</td>
+<td>Signals for future studies only</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The <em>primary endpoint</em> is the outcome that the trial is designed and powered to assess. It is the basis for the primary analysis and typically the endpoint that regulatory decisions rest upon. A trial succeeds or fails based primarily on its primary endpoint.</p>
+<p><em>Secondary endpoints</em> provide additional information. They may address different aspects of efficacy, safety, or tolerability. They may assess outcomes in subpopulations. They may evaluate the durability of effects over time.</p>
+<p>The relationship between primary and secondary endpoints requires careful thought. If the primary endpoint is negative (no statistically significant difference between treatment groups), positive secondary endpoints are difficult to interpret: they may represent chance findings from multiple comparisons. If the primary endpoint is positive, secondary endpoints provide useful confirmation and characterization.</p>
+<p><em>Multiplicity</em> is the statistical challenge that arises from testing multiple endpoints. With a conventional significance threshold of 0.05, one in twenty tests will be “positive” by chance alone. When multiple endpoints are tested, the overall probability of false positive findings increases. Statistical methods for <em>multiplicity adjustment</em> (such as hierarchical testing, gatekeeping procedures, or graphical approaches) control this inflation of false positives.</p>
+</section>
+<section id="composite-endpoints" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="composite-endpoints"><span class="header-section-number">17.5</span> Composite Endpoints</h2>
+<p>A <em>composite endpoint</em> combines multiple outcomes into a single measure. A participant might be counted as having an event if they experience any one of: death, heart attack, stroke, or hospitalization for unstable angina. In the standard time-to-first-event analysis, each participant contributes only their first component event, and all components carry equal weight regardless of clinical severity (a hospitalization counts the same as a death). Because death precludes any later event, it acts as a competing risk for the non-fatal components.</p>
+<p>Composites offer statistical efficiency: because events are more common (many participants will have at least one component), smaller sample sizes may suffice. They also provide a more complete picture of disease burden, capturing multiple manifestations of benefit or harm.</p>
+<p>But composites introduce interpretive challenges. If the composite is positive overall, which components are driving the effect? Is a treatment that reduces hospitalizations but has no effect on death meaningfully beneficial? Should a drug that reduces minor events but not major ones be approved?</p>
+<p>The components of a composite should be clinically related and of roughly similar importance. A composite that includes both death and mild headache is problematic because the components have vastly different clinical significance.</p>
+</section>
+<section id="time-to-event-endpoints" class="level2" data-number="17.6">
+<h2 data-number="17.6" class="anchored" data-anchor-id="time-to-event-endpoints"><span class="header-section-number">17.6</span> Time-to-Event Endpoints</h2>
+<p>Many outcomes are measured not as binary events but as <em>time-to-event</em>: how long until a participant experiences the outcome. Time-to-event analyses can distinguish between treatments that reduce eventual event rates versus treatments that delay events.</p>
+<p><em>Survival analysis</em> methods (Kaplan-Meier curves, log-rank tests, Cox proportional hazards models) are designed for time-to-event data. They can handle participants who have not yet experienced an event (they are <em>censored</em> at the time of analysis) and can incorporate participants who drop out before experiencing an event.</p>
+<p>A key assumption in many time-to-event analyses is <em>proportional hazards</em>: the hazard ratio is constant over time. If a treatment reduces risk by 30% at month 6, it should also reduce risk by 30% at month 12. When this assumption is violated (as when a treatment takes time to work, or when its effects wane over time) alternative methods may be needed.</p>
+</section>
+<section id="ordinal-endpoints" class="level2" data-number="17.7">
+<h2 data-number="17.7" class="anchored" data-anchor-id="ordinal-endpoints"><span class="header-section-number">17.7</span> Ordinal Endpoints</h2>
+<p>Many outcomes that appear binary are actually ordered. A patient with heart failure does not simply have “a cardiovascular event” or “no event.” They may die, be hospitalized, remain symptomatic but outpatient, or be nearly asymptomatic. Collapsing this spectrum into a binary endpoint discards clinically meaningful information.</p>
+<p><em>Ordinal endpoints</em> preserve the ordering by treating the outcome as a ranked scale rather than a yes/no measurement. The <em>modified Rankin Scale (mRS)</em> in stroke trials is the canonical example: it runs from 0 (no symptoms) through 6 (death), with each step representing a clinically distinct level of functional disability <span class="citation" data-cites="saver2007mrs">(<a href="references.html#ref-saver2007mrs" role="doc-biblioref">Saver 2007</a>)</span>. The WHO Clinical Progression Scale used in COVID-19 trials similarly ranked patients from “uninfected” (score 0) to “dead” (score 10), with intermediate levels for different levels of oxygen support and hospitalization <span class="citation" data-cites="who_covid_ordinal_2020">(<a href="references.html#ref-who_covid_ordinal_2020" role="doc-biblioref">WHO Working Group on the Clinical Characterisation and Management of COVID-19 infection 2020</a>)</span>.</p>
+<p>The standard statistical analysis for ordinal outcomes is the <em>proportional-odds (PO) model</em>, a generalization of logistic regression <span class="citation" data-cites="agresti2010analysis">(<a href="references.html#ref-agresti2010analysis" role="doc-biblioref">Agresti 2010</a>)</span>. The PO model assumes that the treatment odds ratio is the same at every cut-point of the ordinal scale (a patient on treatment is <span class="math inline">\(OR\)</span>-times more likely to be in a better category than the reference, regardless of where the cut-point is placed). When this assumption holds, the PO model uses all the information in the ordinal scale rather than dichotomizing at an arbitrary threshold. If the PO assumption is violated, it can be checked with a score test and, if needed, replaced by a proportional-hazards model on discrete time or by non-parametric rank tests.</p>
+<p>For sponsors, the practical benefit is statistical power: for a given sample size, an ordinal analysis is typically more powerful than a binary analysis of the same data, because the ordinal outcome contains more information. For regulators, the benefit is interpretability: an effect that shifts the entire distribution toward better categories is clinically meaningful, not just one that moves patients across a single threshold.</p>
+</section>
+<section id="the-win-ratio-and-door" class="level2" data-number="17.8">
+<h2 data-number="17.8" class="anchored" data-anchor-id="the-win-ratio-and-door"><span class="header-section-number">17.8</span> The Win Ratio and DOOR</h2>
+<p>Two related methods address a limitation of composite endpoints: all components are treated as equally important even when they are not. A composite of “death or hospitalization” that counts a 2-day readmission the same as death misrepresents clinical priority.</p>
+<p><strong>The win ratio.</strong> For each possible pair of patients (one from the treatment arm, one from the control arm), the pair is adjudicated based on a hierarchy of outcomes: check the most severe outcome first (death), and if one patient wins on that outcome, that patient’s arm wins the pair; if tied on death, check the next outcome (hospitalization), and so on <span class="citation" data-cites="pocock2012winratio">(<a href="references.html#ref-pocock2012winratio" role="doc-biblioref">Pocock et al. 2012</a>)</span>. The win ratio is the number of pairs where the treatment arm patient “wins” divided by the number of pairs where the control arm patient wins. Tied pairs are excluded. The clinical priority hierarchy is set by the investigators before the trial, making the clinical value judgment explicit and transparent. Win ratio analyses have been used in heart failure, oncology, and COVID-19 trials.</p>
+<p><strong>Desirability of Outcome Ranking (DOOR).</strong> DOOR extends the win ratio concept to continuous outcomes and patient-reported data <span class="citation" data-cites="evans2015door">(<a href="references.html#ref-evans2015door" role="doc-biblioref">Evans et al. 2015</a>)</span>. Every patient receives a score (their DOOR) based on a pre-specified combination of clinical outcomes, adverse events, and, optionally, patient preferences. Patients are then ranked from worst to best DOOR score, and the probability that a randomly selected treatment patient has a better DOOR than a randomly selected control patient (<span class="math inline">\(P[T &gt; C]\)</span>) is the summary statistic. A <span class="math inline">\(P[T &gt; C] &gt; 0.5\)</span> means a randomly chosen treated patient is more likely than not to have a better outcome than a randomly chosen control patient, summarizing benefit across the entire outcome spectrum.</p>
+<p>DOOR is particularly valuable when the goal is to summarize benefit and harm simultaneously, as in antibiotic trials where the endpoint should capture cure, adverse events, and resistance emergence in a single measure.</p>
+</section>
+<section id="estimands-and-death-as-an-intercurrent-event" class="level2" data-number="17.9">
+<h2 data-number="17.9" class="anchored" data-anchor-id="estimands-and-death-as-an-intercurrent-event"><span class="header-section-number">17.9</span> Estimands and Death as an Intercurrent Event</h2>
+<p>The ICH E9(R1) estimands framework <span class="citation" data-cites="ich_e9_r1">(<a href="references.html#ref-ich_e9_r1" role="doc-biblioref">International Council for Harmonisation 2019</a>)</span> formalized a question that had long been implicit in trial design: what treatment effect, precisely, is the trial trying to estimate? An <em>estimand</em> is the complete specification of the treatment comparison: the population, the treatment and control, the endpoint variable, how intercurrent events are handled, and the population-level summary measure.</p>
+<p><em>Intercurrent events</em> are events that occur after treatment initiation and affect either the interpretation or the observability of the endpoint. Treatment discontinuation, rescue medication use, and crossover to the other arm are common examples. Death is the hardest case.</p>
+<p>When the primary endpoint is a non-fatal outcome (symptom score, functional status, quality of life), death is an intercurrent event that makes the outcome unobservable: a dead patient has no quality-of-life score. ICH E9(R1) defines five strategies for handling intercurrent events, and the choice among them for death fundamentally changes the estimand:</p>
+<ul>
+<li><strong>Composite (variable) strategy:</strong> treat death as a component of the endpoint itself, typically by assigning it the worst possible score. This estimates the effect on the composite of survival and the non-fatal outcome.</li>
+<li><strong>Hypothetical strategy:</strong> estimate what the outcome would have been if the patient had survived (not died and not discontinued). This is a counterfactual that requires modeling assumptions.</li>
+<li><strong>Principal stratum strategy:</strong> restrict the estimate to the subpopulation of patients who would survive under either treatment assignment (the survivor average causal effect).</li>
+<li><strong>While on treatment strategy:</strong> estimate the effect only during the period when patients remain on assigned treatment, excluding post-discontinuation data. This estimates treatment effect while the patient is actually taking the drug.</li>
+<li><strong>Treatment policy strategy:</strong> use the endpoint value regardless of whether the patient discontinued treatment or took rescue medication. Unlike the strategies above, it offers no way to handle death, because a non-fatal outcome such as quality of life simply does not exist once the patient has died.</li>
+</ul>
+<p>For clinical trial teams, the practical consequence is that endpoint selection cannot proceed without simultaneously specifying the estimand: a quality-of-life endpoint and a symptom-improvement endpoint are the same measurement but potentially different estimands, depending on how death is handled. Pre-specifying the estimand prevents post-hoc ambiguity about what the trial demonstrated, and aligns the analysis with the clinical question that motivated the trial.</p>
+</section>
+<section id="endpoint-selection-in-practice" class="level2" data-number="17.10">
+<h2 data-number="17.10" class="anchored" data-anchor-id="endpoint-selection-in-practice"><span class="header-section-number">17.10</span> Endpoint Selection in Practice</h2>
+<p>Selecting the optimal endpoint requires balancing regulatory acceptability, clinical meaningfulness, and operational feasibility. Regulators generally favor well-validated clinical outcomes, but sponsors must also confirm that the endpoint captures benefit that patients and payers recognize. On the operational side, the endpoint must be measurable with enough precision to maintain statistical power, and its timing must avoid unnecessary delays while still providing a reliable prediction of long-term benefit. For patient-reported outcomes in particular, using established and validated instruments is the most direct way to produce findings that are reproducible and credible to external stakeholders. AI-based endpoint assessment, including automated image scoring, wearable-derived digital biomarkers, and NLP extraction of outcomes from clinical notes, is covered in <a href="24-ai-agents.html" class="quarto-xref"><span>Chapter 26</span></a>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-agresti2010analysis" class="csl-entry" role="listitem">
+Agresti, Alan. 2010. <em>Analysis of Ordinal Categorical Data</em>. 2nd ed. Wiley. <a href="https://doi.org/10.1002/9780470594001">https://doi.org/10.1002/9780470594001</a>.
+</div>
+<div id="ref-evans2015door" class="csl-entry" role="listitem">
+Evans, Scott R., David Rubin, Dean Follmann, Gene Pennello, W. Charles Huskins, John H. Powers, Jerry Rhorer, et al. 2015. <span>“Desirability of Outcome Ranking (<span>DOOR</span>) and Response Adjusted for Duration of Antibiotic Risk (<span>RADAR</span>).”</span> <em>Clinical Infectious Diseases</em> 61 (5): 800–806. <a href="https://doi.org/10.1093/cid/civ495">https://doi.org/10.1093/cid/civ495</a>.
+</div>
+<div id="ref-ich_e9_r1" class="csl-entry" role="listitem">
+International Council for Harmonisation. 2019. <span>“<span>ICH E9(R1)</span>: Addendum on Estimands and Sensitivity Analysis in Clinical Trials to the Guideline on Statistical Principles for Clinical Trials.”</span> <a href="https://database.ich.org/sites/default/files/E9-R1_Step4_Guideline_2019_1203.pdf">https://database.ich.org/sites/default/files/E9-R1_Step4_Guideline_2019_1203.pdf</a>.
+</div>
+<div id="ref-landgren2024mrd" class="csl-entry" role="listitem">
+Landgren, Ola, and Sean M. Devlin. 2025. <span>“Minimal Residual Disease as an Early Endpoint for Accelerated Drug Approval in Myeloma: A Roadmap.”</span> <em>Blood Cancer Discovery</em> 6 (1): 13–22. <a href="https://doi.org/10.1158/2643-3230.BCD-24-0292">https://doi.org/10.1158/2643-3230.BCD-24-0292</a>.
+</div>
+<div id="ref-pocock2012winratio" class="csl-entry" role="listitem">
+Pocock, Stuart J., Cono A. Ariti, Timothy J. Collier, and Duolao Wang. 2012. <span>“The Win Ratio: A New Approach to the Analysis of Composite Endpoints in Clinical Trials Based on Clinical Priorities.”</span> <em>European Heart Journal</em> 33 (2): 176–82. <a href="https://doi.org/10.1093/eurheartj/ehr352">https://doi.org/10.1093/eurheartj/ehr352</a>.
+</div>
+<div id="ref-rossouw2002whi" class="csl-entry" role="listitem">
+Rossouw, Jacques E., Garnet L. Anderson, Ross L. Prentice, Andrea Z. LaCroix, Charles Kooperberg, Marcia L. Stefanick, Rebecca D. Jackson, et al. 2002. <span>“Risks and Benefits of Estrogen Plus Progestin in Healthy Postmenopausal Women: Principal Results from the Women’s Health Initiative Randomized Controlled Trial.”</span> <em>JAMA</em> 288 (3): 321–33. <a href="https://doi.org/10.1001/jama.288.3.321">https://doi.org/10.1001/jama.288.3.321</a>.
+</div>
+<div id="ref-saver2007mrs" class="csl-entry" role="listitem">
+Saver, Jeffrey L. 2007. <span>“Novel End Point Analytic Techniques and Interpreting Shifts Across the Entire Range of Outcome Scales in Acute Stroke Trials.”</span> <em>Stroke</em> 38 (11): 3055–62. <a href="https://doi.org/10.1161/STROKEAHA.107.488536">https://doi.org/10.1161/STROKEAHA.107.488536</a>.
+</div>
+<div id="ref-fda_cancer_endpoints_2018" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2018. <span>“Clinical Trial Endpoints for the Approval of Cancer Drugs and Biologics.”</span> <a href="https://www.fda.gov/media/71195/download">https://www.fda.gov/media/71195/download</a>.
+</div>
+<div id="ref-fda_dht_guidance_2023" class="csl-entry" role="listitem">
+———. 2023a. <span>“Digital Health Technologies for Remote Data Acquisition in Clinical Investigations: Guidance for Industry, Investigators, and Other Stakeholders.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/digital-health-technologies-remote-data-acquisition-clinical-investigations">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/digital-health-technologies-remote-data-acquisition-clinical-investigations</a>.
+</div>
+<div id="ref-fda_pfdd_coa_2023" class="csl-entry" role="listitem">
+———. 2023b. <span>“Patient-Focused Drug Development: Incorporating Clinical Outcome Assessments into Endpoints for Regulatory Decision-Making.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/patient-focused-drug-development-incorporating-clinical-outcome-assessments-endpoints-regulatory">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/patient-focused-drug-development-incorporating-clinical-outcome-assessments-endpoints-regulatory</a>.
+</div>
+<div id="ref-who_covid_ordinal_2020" class="csl-entry" role="listitem">
+WHO Working Group on the Clinical Characterisation and Management of COVID-19 infection. 2020. <span>“A Minimal Common Outcome Measure Set for <span>COVID-19</span> Clinical Research.”</span> <em>Lancet Infectious Diseases</em> 20 (8): e192–97. <a href="https://doi.org/10.1016/S1473-3099(20)30483-7">https://doi.org/10.1016/S1473-3099(20)30483-7</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./14-randomization.html" class="pagination-link" aria-label="Randomization and Blinding">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./16-site-selection.html" class="pagination-link" aria-label="Site Selection and Feasibility">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

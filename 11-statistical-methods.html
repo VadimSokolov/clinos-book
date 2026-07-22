@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>12&nbsp; Adaptive and Bayesian Trial Design – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./12-study-design.html" rel="next">
+<link href="./11-statistical-foundations.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="12&nbsp; Adaptive and Bayesian Trial Design – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:image" content="11-statistical-methods_files/figure-html/fig-beta-updating-1.png">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="12&nbsp; Adaptive and Bayesian Trial Design – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:image" content="11-statistical-methods_files/figure-html/fig-beta-updating-1.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./11-statistical-methods.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#preliminaries" id="toc-preliminaries" class="nav-link active" data-scroll-target="#preliminaries"><span class="header-section-number">12.1</span> Preliminaries</a></li>
+  <li><a href="#sec-bayesian-basics" id="toc-sec-bayesian-basics" class="nav-link" data-scroll-target="#sec-bayesian-basics"><span class="header-section-number">12.2</span> Bandit Problems: The Theoretical Foundation</a>
+  <ul class="collapse">
+  <li><a href="#bayesian-bandit-problems-updating-beliefs" id="toc-bayesian-bandit-problems-updating-beliefs" class="nav-link" data-scroll-target="#bayesian-bandit-problems-updating-beliefs">Bayesian Bandit Problems: Updating Beliefs</a></li>
+  </ul></li>
+  <li><a href="#the-first-wave-of-bayesian-adaptive-trials-proving-the-concept" id="toc-the-first-wave-of-bayesian-adaptive-trials-proving-the-concept" class="nav-link" data-scroll-target="#the-first-wave-of-bayesian-adaptive-trials-proving-the-concept"><span class="header-section-number">12.3</span> The First Wave of Bayesian Adaptive Trials: Proving the Concept</a>
+  <ul class="collapse">
+  <li><a href="#calgb-49907-predicting-trial-outcomes" id="toc-calgb-49907-predicting-trial-outcomes" class="nav-link" data-scroll-target="#calgb-49907-predicting-trial-outcomes">CALGB 49907: Predicting Trial Outcomes</a></li>
+  <li><a href="#astin-adaptive-dose-finding-in-stroke" id="toc-astin-adaptive-dose-finding-in-stroke" class="nav-link" data-scroll-target="#astin-adaptive-dose-finding-in-stroke">ASTIN: Adaptive Dose-Finding in Stroke</a></li>
+  </ul></li>
+  <li><a href="#sec-seamless" id="toc-sec-seamless" class="nav-link" data-scroll-target="#sec-seamless"><span class="header-section-number">12.4</span> Seamless Designs: Combining Phases</a>
+  <ul class="collapse">
+  <li><a href="#award-5-from-seven-doses-to-blockbuster-drug" id="toc-award-5-from-seven-doses-to-blockbuster-drug" class="nav-link" data-scroll-target="#award-5-from-seven-doses-to-blockbuster-drug">AWARD-5: From Seven Doses to Blockbuster Drug</a></li>
+  <li><a href="#lecanemab-perfect-phase-ii-prediction" id="toc-lecanemab-perfect-phase-ii-prediction" class="nav-link" data-scroll-target="#lecanemab-perfect-phase-ii-prediction">Lecanemab: Perfect Phase II Prediction</a></li>
+  </ul></li>
+  <li><a href="#sec-platform" id="toc-sec-platform" class="nav-link" data-scroll-target="#sec-platform"><span class="header-section-number">12.5</span> Platform Trials</a>
+  <ul class="collapse">
+  <li><a href="#i-spy-2-prototype-for-a-new-paradigm" id="toc-i-spy-2-prototype-for-a-new-paradigm" class="nav-link" data-scroll-target="#i-spy-2-prototype-for-a-new-paradigm">I-SPY 2: Prototype for a New Paradigm</a></li>
+  <li><a href="#the-regulatory-evolution" id="toc-the-regulatory-evolution" class="nav-link" data-scroll-target="#the-regulatory-evolution">The Regulatory Evolution</a></li>
+  <li><a href="#the-one-trial-standard" id="toc-the-one-trial-standard" class="nav-link" data-scroll-target="#the-one-trial-standard">The One-Trial Standard</a></li>
+  </ul></li>
+  <li><a href="#sec-borrowing" id="toc-sec-borrowing" class="nav-link" data-scroll-target="#sec-borrowing"><span class="header-section-number">12.6</span> Mathematical Foundations: Hierarchical Modeling</a></li>
+  <li><a href="#practical-implementation-challenges" id="toc-practical-implementation-challenges" class="nav-link" data-scroll-target="#practical-implementation-challenges"><span class="header-section-number">12.7</span> Practical Implementation Challenges</a>
+  <ul class="collapse">
+  <li><a href="#sec-predictive-prob" id="toc-sec-predictive-prob" class="nav-link" data-scroll-target="#sec-predictive-prob">Computing Predictive Probabilities</a></li>
+  <li><a href="#administrative-analyses-for-funding" id="toc-administrative-analyses-for-funding" class="nav-link" data-scroll-target="#administrative-analyses-for-funding">Administrative Analyses for Funding</a></li>
+  <li><a href="#sec-simulation-oc" id="toc-sec-simulation-oc" class="nav-link" data-scroll-target="#sec-simulation-oc">Simulation and Operating Characteristics</a></li>
+  <li><a href="#type-i-error-frequentist-standards-in-bayesian-trials" id="toc-type-i-error-frequentist-standards-in-bayesian-trials" class="nav-link" data-scroll-target="#type-i-error-frequentist-standards-in-bayesian-trials">Type I Error: Frequentist Standards in Bayesian Trials</a></li>
+  </ul></li>
+  <li><a href="#sec-rar" id="toc-sec-rar" class="nav-link" data-scroll-target="#sec-rar"><span class="header-section-number">12.8</span> Response-Adaptive Randomization</a></li>
+  <li><a href="#the-new-standard" id="toc-the-new-standard" class="nav-link" data-scroll-target="#the-new-standard"><span class="header-section-number">12.9</span> The New Standard</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./11-statistical-methods.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-adaptive-bayesian" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The frequentist foundations of clinical trial statistics (hypothesis testing, Type I and II error control, survival analysis, repeated-measures models, group-sequential designs, and causal inference methods) are covered in <a href="11-statistical-foundations.html" class="quarto-xref"><span>Chapter 11</span></a>. This chapter builds on those foundations with the adaptive and Bayesian methods that have reshaped drug development over the past three decades.</p>
+<p>For most of the 20th century, trials followed a rigid paradigm: fix the sample size in advance, randomize patients equally to treatment and control, analyze the data once at the end, and never peek at accumulating results. This framework was designed to control the probability of false positive conclusions, and it succeeded admirably at that goal.</p>
+<p>But it came at a cost. Patients in trials sometimes continued receiving inferior treatments long after the evidence favored the alternative. Promising drugs took years to reach patients because trials could not accelerate when results were compelling. Trials that were clearly failing could not be stopped early without inflating false positive rates. The methodology prioritized the conclusions drawn after the trial over the welfare of patients during it.</p>
+<p>The past three decades have seen a fundamental rethinking of this paradigm. <em>Adaptive designs</em> (trials that modify themselves based on pre-specified rules as data accumulates) allow adjustment of sample sizes, dropping of ineffective treatment arms, and shifting of randomization toward better-performing treatments. <em>Bayesian methods</em> provide a coherent framework for updating probability estimates as evidence accumulates. <em>Platform trials</em> test multiple treatments simultaneously within a single protocol, graduating successes and eliminating failures in real time. These innovations do not abandon statistical rigor; they achieve rigor through different means. (For practical implementation of randomization methods, see <a href="14-randomization.html" class="quarto-xref"><span>Chapter 16</span></a>.)</p>
+<p>For a modern, practitioner-oriented synthesis of how these ideas fit together, see Berry’s review of adaptive Bayesian clinical trials <span class="citation" data-cites="berry2025adaptive">(<a href="references.html#ref-berry2025adaptive" role="doc-biblioref">D. A. Berry 2025</a>)</span>.</p>
+<p>The shift from fixed to adaptive methods spans nearly a century, from theoretical foundations in decision theory to modern platform trials testing dozens of treatments simultaneously. This chapter traces that evolution.</p>
+<p>The Belmont Report, published in 1979, established the ethical framework for clinical research <span class="citation" data-cites="belmont1979">(<a href="references.html#ref-belmont1979" role="doc-biblioref">National Commission for the Protection of Human Subjects of Biomedical and Behavioral Research 1979</a>)</span>. It drew a sharp distinction: “The purpose of medical or behavioral practice is to provide diagnosis, preventive treatment or therapy to particular individuals. By contrast, the term”research” designates an activity designed to test an hypothesis, permit conclusions to be drawn, and thereby to develop or contribute to generalizable knowledge.”</p>
+<p>This dichotomy shaped clinical trial design for decades. Research was about generalizable knowledge; treatment was about helping patients. The two were separate. A patient in a clinical trial was participating in science, not necessarily receiving optimal therapy.</p>
+<p>Traditional trials embodied this philosophy. They specified a fixed sample size calculated to control Type I error (the probability of falsely concluding a drug works when it does not). Randomization was equally balanced throughout. Investigators were blinded to accumulating results. Analysis occurred once, at the end, after all data were collected.</p>
+<p>This framework controlled Type I error rigorously. It was well understood by regulators and statisticians. But it had costs. <em>Treating a patient in a clinical trial was considered as important as treating a patient after the trial</em>, yet traditional designs ignored this principle. If early results showed one arm performing poorly, patients continued being randomized to it. The design could not adapt. Information accumulating during the trial was deliberately hidden until the very end.</p>
+<p>Consider the fundamental irony: as results accumulate showing one treatment superior, continuing to assign patients equally to both arms becomes progressively more <em>unethical</em>. Yet traditional methodology demanded exactly that.</p>
+<section id="preliminaries" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="preliminaries"><span class="header-section-number">12.1</span> Preliminaries</h2>
+<p>Clinical trials operate in a domain fundamentally different from laboratory experiments in physics or chemistry. D.R. Cox, in his foundational <em>Planning of Experiments</em> <span class="citation" data-cites="cox1958planning">(<a href="references.html#ref-cox1958planning" role="doc-biblioref">Cox 1958</a>)</span>, calls this the domain of “large uncontrolled variations.” In a physics experiment, once the technique is mastered and the apparatus is working correctly, closely reproducible results are obtained: the uncontrolled variations are small compared with the effects being measured. If the system is altered and the observation changes, the imposed alteration can safely be assumed to be the cause.</p>
+<p>Clinical trials face a different reality. A patient’s condition fluctuates due to the natural history of disease, environmental factors, psychological responses to treatment (the placebo effect), and the supportive care they receive. Even if all patients in a trial received identical treatment, their outcomes would still vary substantially. The effect of a new drug (often a modest improvement over existing therapy) must be detected against this background of inherent variability. As soon as the effects under investigation become comparable in size to the uncontrolled variations, the statistical methods described in this chapter become essential.</p>
+<p>In such an environment, absolute outcomes are rarely informative. A five-year survival rate of 40% tells us little unless we know what would have happened without the treatment. For this reason, clinical trials are designed for <em>comparison</em> rather than absolute determination. A new therapy is approved not because it produces some absolute response rate, but because it produces a <em>better</em> response than the alternative. This comparative focus has a practical advantage: differences between treatments often remain relatively stable even when mean outcomes fluctuate substantially across time, geography, or patient populations.</p>
+<p>The need for concurrent controls (a group of patients receiving placebo or standard therapy, enrolled in the same trial under the same conditions) follows directly from this logic. It is tempting to compare a new treatment’s results against historical data: “Patients with this disease used to have 30% survival; now with our drug they have 45% survival.” But such comparisons are perilous. Medical practice changes over time. Diagnostic criteria evolve, often detecting disease earlier (lead-time bias). Supportive care improves. Patient populations shift. These “secular changes” can easily produce apparent improvements that have nothing to do with the investigational drug. The classical solution is to include control patients <em>in the same trial</em>, managed under identical conditions, so that the only systematic difference between groups is the treatment itself.</p>
+<p>An instructive historical example illustrates this principle. In the early 20th century, a researcher studying inheritance in rats trained animals to perform a task, then bred from them across multiple generations, measuring how quickly each generation learned the task. He observed steady improvement across generations, apparently supporting a theory that acquired traits could be inherited. But there were no controls: no rats bred under identical conditions from untrained parents. When other researchers repeated the experiment <em>with</em> controls, they found that both trained and untrained lineages showed the same improvement over time. The apparent effect was due to secular changes in the health of the rat colony, not inherited learning. Without concurrent controls, this confounding factor was invisible.</p>
+<p>This principle applies directly to clinical trials. Unless a treatment effect is dramatic (what statisticians sometimes call a “penicillin effect,” where the improvement is so large it overwhelms any background variation), the comparison must be made against concurrent controls. Except in rare circumstances (such as diseases with 100% mortality and no existing treatment), historical controls cannot provide the certainty needed for regulatory approval.</p>
+<p>The structure of a clinical trial follows from its comparative nature. Patients are assigned to <em>treatment arms</em> (the groups being compared). The <em>investigational arm</em> receives the new therapy being tested. The <em>control arm</em> receives either a <em>placebo</em> (an inactive substance designed to be indistinguishable from the active drug) or an <em>active control</em> (the current standard-of-care treatment). The <em>endpoint</em> is the outcome measured to determine whether the treatment worked, for example, survival time, tumor shrinkage, or improvement on a symptom scale. The <em>treatment effect</em> is what we are trying to estimate: the true difference in outcomes between the investigational arm and the control arm.</p>
+<p>The <em>population</em> refers to the entire universe of patients with the condition of interest (all the people who might eventually receive the drug if approved). The <em>sample</em> is the much smaller subset actually enrolled in the trial. Because we can only study a sample, our conclusions about the population are always uncertain. This uncertainty is quantified using <em>probability</em>, a number between 0 and 1 (or equivalently, 0% to 100%) that expresses how likely something is to occur. A probability of 0 means impossible; a probability of 1 means certain.</p>
+<p><em>Efficacy</em> refers to the treatment’s ability to produce the desired beneficial effect under the controlled conditions of a trial. This is distinct from <em>effectiveness</em>, which refers to how well the treatment works in routine clinical practice, where patients may be older, sicker, or less adherent to the prescribed regimen than those carefully selected for a trial.</p>
+<p>A valid clinical trial must satisfy several requirements, which translate directly into regulatory standards.</p>
+<p><em>Absence of systematic error (bias).</em> Patients receiving different treatments must not differ systematically in ways that could affect outcomes. If healthier patients are assigned to the investigational arm and sicker patients to the control arm, any observed benefit might be due to patient selection rather than the drug. The difficulty is that such <em>bias</em> cannot be removed by statistical analysis after the fact. No calculation of statistical significance can distinguish a treatment effect from a confounding factor: it can only tell us that <em>something</em> caused the observed difference, not <em>what</em> caused it.</p>
+<p>The solution is <em>randomization</em>: using a chance mechanism (like a computer-generated random number) to assign each patient to a treatment arm <span class="citation" data-cites="cox2009randomization">(<a href="references.html#ref-cox2009randomization" role="doc-biblioref">Cox 2009</a>)</span>. Randomization serves three purposes: it avoids selection and other biases in a publicly convincing way; it provides a unified basis for estimating statistical error across different trial designs; and it enables formally exact tests of significance. Of these, bias avoidance is largely uncontroversial: randomization ensures that any differences between groups, whether known factors like age and disease severity or unknown factors we have not even thought to measure, are distributed randomly rather than systematically. This allows us to attribute observed differences to the treatment itself with quantifiable confidence.</p>
+<p>A related principle: patients in each treatment arm must respond <em>independently</em> of one another. If all patients receiving the new drug are treated at one hospital and all control patients at another, we cannot separate the drug effect from differences between hospitals. The experimental unit must be the individual patient, not the site.</p>
+<p><em>Precision.</em> Even when systematic error is eliminated through randomization, our estimate of the treatment effect will differ from its true value due to <em>random error</em> (the natural fluctuation that occurs when studying a sample rather than the entire population). The <em>standard error</em> measures the expected magnitude of this random error. A rough interpretation: in about one case out of three, the estimate will err by more than <span class="math inline">\(\pm 1\)</span> standard error; in about one case out of twenty, by more than <span class="math inline">\(\pm 2\)</span> standard errors; in about one case out of a hundred, by more than <span class="math inline">\(\pm 2.5\)</span> standard errors.</p>
+<p>The standard error follows a <em>square-root law</em>: it is proportional to <span class="math inline">\(1/\sqrt{n}\)</span>, where <span class="math inline">\(n\)</span> is the number of patients per treatment arm (the drug group, placebo group, etc.). This mathematical relationship has direct practical consequences. To halve the standard error (to double the precision of our estimate) we must quadruple the number of patients in each arm. To reduce the standard error by a factor of ten requires a hundredfold increase in patients. This explains why confirmatory trials (the large Phase III studies required for regulatory approval) are so expensive: precision is costly. It also explains why improved trial design (using techniques like stratification or crossover to reduce variability) can be more efficient than simply enrolling more patients.</p>
+<p><em>Range of validity.</em> The conclusions drawn from a trial strictly apply only to the specific patients and conditions studied. This is <em>internal validity</em>. But the scientific and public health value of a trial depends on <em>external validity</em> (also called <em>generalizability</em>): the extent to which findings can be extrapolated to broader patient populations.</p>
+<p>These goals are in tension. A trial restricted to young, otherwise healthy patients will have less outcome variability and therefore require fewer subjects to achieve a given precision. But its results may not apply to elderly patients with multiple conditions, the very patients who will receive the drug in routine practice. Conversely, a trial with broad enrollment criteria produces more generalizable results but requires more patients to achieve the same precision because outcomes are more variable.</p>
+<p><em>Simplicity.</em> The trial should be as simple as practical. Complex protocols with frequent treatment changes are difficult for research staff to execute correctly. Operational difficulties can compromise data quality. Nevertheless, some complexity may be advantageous (adaptive designs that modify treatment assignments based on accumulating data, for instance), and it is a matter of judgment how far to go.</p>
+<p><em>Quantifiable uncertainty.</em> It must be possible to calculate the uncertainty in the conclusions, ideally from the trial data themselves. This is what statistical analysis provides: not just an estimate of the treatment effect, but a measure of how confident we can be in that estimate. The use of randomization to eliminate systematic differences automatically makes remaining differences random, which justifies the statistical analysis under weak assumptions.</p>
+<p>These requirements translate into specific regulatory standards. Regulators focus primarily on two types of decision error.</p>
+<p><em>Type I error</em> (also called a <em>false positive</em>) occurs when a trial concludes that an ineffective drug works. The drug does not actually help patients, but random variation in the trial data made it appear effective. This is the primary regulatory concern: approving ineffective or harmful drugs exposes patients to risk without benefit. Regulators mandate a strict limit on this probability, denoted <span class="math inline">\(\alpha\)</span> (<em>alpha</em>), conventionally set at 2.5% for one-sided tests or 5% for two-sided tests. This means regulators accept, at most, a 2.5% or 5% chance of approving a drug that does not work.</p>
+<p>When a trial result is described as “statistically significant,” it means the probability of seeing such a result by chance alone (if the drug truly had no effect) is below this <span class="math inline">\(\alpha\)</span> threshold. The <em>null hypothesis</em> is the default assumption that there is no treatment difference. The <em>p-value</em> is the probability of observing results as extreme as those seen, assuming the null hypothesis is true. If the p-value falls below <span class="math inline">\(\alpha\)</span>, we reject the null hypothesis and conclude the treatment has an effect.</p>
+<p><em>Type II error</em> (also called a <em>false negative</em>) occurs when a trial fails to demonstrate the benefit of a drug that actually works. The drug genuinely helps patients, but random variation obscured its effect, leading to the incorrect conclusion that it does not work. The probability of <em>avoiding</em> Type II error is called <em>power</em>: the trial’s ability to detect a true treatment effect when one exists. If a trial has 90% power, there is a 90% probability it will correctly identify an effective drug (and a 10% probability of a false negative). Trials are typically designed to have 80% or 90% power.</p>
+<p><em>Sample size</em> is the lever that balances these risks. The <em>minimum clinically important difference</em> (MCID) is the smallest treatment effect considered worth detecting: the threshold below which a benefit would not justify approval or change clinical practice. Given the target power (e.g., 90%), the Type I error rate (e.g., 2.5%), and the MCID, statisticians can calculate the required sample size. This creates what some call the “iron triangle” of clinical trials: to detect a smaller effect or increase power, you must increase sample size. In a traditional <em>fixed design</em>, the sample size is determined before the trial begins and cannot be changed once enrollment starts.</p>
+<p>For decades, the <em>Intent-to-Treat</em> (ITT) principle governed how trials were analyzed: include every patient according to their original randomization assignment, regardless of whether they actually received the treatment, completed the study, or followed the protocol. A patient randomized to the drug arm who never took a single dose is still analyzed as part of the drug arm. ITT is conservative (it tends to underestimate treatment effects) but it preserves the benefits of randomization and prevents manipulation of results by selectively excluding patients.</p>
+<p>However, ITT does not always answer the clinical question of greatest interest. In 2019, the ICH E9(R1) addendum introduced the <em>Estimands Framework</em> <span class="citation" data-cites="ich_e9_r1">(<a href="references.html#ref-ich_e9_r1" role="doc-biblioref">International Council for Harmonisation 2019</a>)</span>, requiring sponsors to explicitly define what they are estimating and how to handle <em>intercurrent events</em> (things that happen after randomization that affect interpretation, such as patients discontinuing treatment, switching to a different therapy, or using rescue medication). Different strategies for handling these events answer different clinical questions; the addendum defines five, detailed in <a href="11-statistical-foundations.html" class="quarto-xref"><span>Chapter 11</span></a>. Two illustrate the contrast: the <em>treatment policy strategy</em> analyzes outcomes regardless of what happened (similar to ITT), while the <em>hypothetical strategy</em> estimates what would have happened if the intercurrent event had not occurred. By forcing clarity on these choices upfront, the framework ensures the statistical analysis aligns with the clinical question that actually matters to patients and prescribers.</p>
+<p><em>The frequentist framework.</em> The statistical machinery described above (null hypothesis, p-value, Type I and Type II error, power) constitutes the <em>frequentist</em> approach to inference (so named because it interprets probability as the frequency of outcomes over many repeated trials). This framework has dominated regulatory decision-making for decades. The logic is worth understanding clearly.</p>
+<p>The frequentist framework does not directly answer the question sponsors and regulators care about most: “Given the trial data, what is the probability that this drug works?” Instead, it answers a different question: “If the drug had no effect, what is the probability of observing data as extreme as what we saw?” This probability is the p-value. If the p-value is very small (below <span class="math inline">\(\alpha\)</span>), we conclude that the observed result would be very unlikely under the assumption of no effect, and therefore we reject that assumption.</p>
+<p>This indirect logic has important implications <span class="citation" data-cites="wasserstein2016asa_pvalue goodman2008dirty_dozen">(<a href="references.html#ref-wasserstein2016asa_pvalue" role="doc-biblioref">Wasserstein and Lazar 2016</a>; <a href="references.html#ref-goodman2008dirty_dozen" role="doc-biblioref">Goodman 2008</a>)</span>. A p-value of 0.01 does <em>not</em> mean there is a 99% chance the drug works. It means that if the drug truly had no effect, we would see results this extreme only 1% of the time by chance. The distinction is subtle but consequential, and surveys show that even experienced researchers frequently misinterpret p-values. The frequentist framework controls error rates over many hypothetical repetitions of the trial: if we ran thousands of trials on ineffective drugs and used <span class="math inline">\(\alpha = 0.05\)</span>, we would falsely approve about 5% of them. But it does not directly tell us the probability that <em>this particular drug</em> is effective.</p>
+<p>The framework is rigid by design. Sample size is calculated before the trial begins based on assumptions about the treatment effect, variability, desired power, and acceptable Type I error. Once the trial starts, these parameters are fixed. Looking at accumulating data and deciding to enroll more patients if results are borderline (a natural impulse) inflates the Type I error rate. Stopping early when results look promising, without pre-specified rules, does the same. The price of controlling error rates is inflexibility. The mathematical foundations for analyzing sequential decisions were laid by Abraham Wald, who developed the Sequential Probability Ratio Test during World War II for industrial quality control <span class="citation" data-cites="wald1947sequential">(<a href="references.html#ref-wald1947sequential" role="doc-biblioref">Wald 1947</a>)</span>, and later formalized in optimal stopping theory by Albert Shiryaev <span class="citation" data-cites="shiryaev1978optimal_stopping">(<a href="references.html#ref-shiryaev1978optimal_stopping" role="doc-biblioref">Shiryaev 1978</a>)</span>. Peter Armitage recognized in 1954 that these methods could address an ethical tension in clinical trials <span class="citation" data-cites="armitage1954sequential armitage1960sequential">(<a href="references.html#ref-armitage1954sequential" role="doc-biblioref">Armitage 1954</a>, <a href="references.html#ref-armitage1960sequential" role="doc-biblioref">1960</a>)</span>. If one treatment is clearly superior, continuing to randomize patients to the inferior arm is unjustifiable. Sequential methods allow trials to stop early while maintaining valid statistical inference, but they require the stopping rules to be specified in advance.</p>
+<p><em>When traditional designs break down.</em> The five requirements for a valid trial (absence of bias, precision, range of validity, simplicity, and quantifiable uncertainty) were developed in an era of relatively homogeneous patient populations and treatments with broad applicability. Modern medicine increasingly operates in a different world <span class="citation" data-cites="berry2011adaptive_oncology">(<a href="references.html#ref-berry2011adaptive_oncology" role="doc-biblioref">D. A. Berry 2012</a>)</span>, and regulators have responded with new guidance frameworks to address these challenges.</p>
+<p>Consider <em>precision medicine</em> (also called <em>personalized medicine</em>), where treatments are targeted to patients with specific characteristics <span class="citation" data-cites="fda_enrichment_2019 zhou2017bayesian_biomarker">(<a href="references.html#ref-fda_enrichment_2019" role="doc-biblioref">U.S. Food and Drug Administration 2019c</a>; <a href="references.html#ref-zhou2017bayesian_biomarker" role="doc-biblioref">Zhou et al. 2008</a>)</span>. A <em>biomarker</em> is a measurable biological indicator (such as a genetic mutation, a protein level in the blood, or a molecular characteristic of a tumor) that can predict whether a patient will respond to a particular treatment. A drug may work extraordinarily well in 15% of patients who carry a particular genetic mutation and have no effect in the other 85% who lack it. The traditional framework (randomize patients equally, analyze the average treatment effect across all patients) will dramatically underestimate the benefit for the responsive subgroup while exposing non-responders to ineffective treatment. The FDA’s enrichment strategies guidance addresses this challenge by describing <em>predictive enrichment</em> (selecting patients likely to respond based on biomarker status) and <em>prognostic enrichment</em> (selecting patients at higher risk of the outcome), but these approaches create new tensions. The “range of validity” requirement becomes paradoxical: a trial enrolling all patients has broad generalizability but may miss a genuine effect in the responsive subgroup; a trial restricted to biomarker-positive patients (those with the predictive characteristic) may have insufficient patients for adequate precision. <em>Adaptive enrichment designs</em> address this by starting with broad enrollment and using interim data to identify responsive subgroups, restricting subsequent enrollment accordingly <span class="citation" data-cites="simon2013adaptive_enrichment pallmann2018adaptive_enrichment_review">(<a href="references.html#ref-simon2013adaptive_enrichment" role="doc-biblioref">Simon and Simon 2013</a>; <a href="references.html#ref-pallmann2018adaptive_enrichment_review" role="doc-biblioref">Pallmann et al. 2018</a>)</span>. Recent advances in <em>covariate-adaptive randomization</em> allow trials to balance treatment assignments across patient characteristics more efficiently, with unified frameworks that can handle continuous covariates and complex covariate structures <span class="citation" data-cites="atkinson2002covariate ma2022unified_car">(<a href="references.html#ref-atkinson2002covariate" role="doc-biblioref">Atkinson 2002</a>; <a href="references.html#ref-ma2022unified_car" role="doc-biblioref">Ma et al. 2024</a>)</span>.</p>
+<p><em>Rare diseases</em> present an even starker challenge <span class="citation" data-cites="ema_small_populations fda_rdep_2024">(<a href="references.html#ref-ema_small_populations" role="doc-biblioref">European Medicines Agency 2006</a>; <a href="references.html#ref-fda_rdep_2024" role="doc-biblioref">U.S. Food and Drug Administration 2025</a>)</span>. If only 5,000 patients worldwide have a condition, enrolling 1,000 patients for a Phase III trial (a modest size for common diseases) would require recruiting 20% of the entire patient population. The square-root law governing precision becomes an insurmountable barrier here: there simply are not enough patients to achieve traditional power levels for modest effect sizes. The requirement for “precision” collides directly with the reality of small populations. Recognizing this, regulators have developed alternative evidentiary standards: the FDA’s Rare Disease Evidence Principles (RDEP) allow approval based on a single well-controlled study supplemented with confirmatory evidence for diseases affecting fewer than 1,000 U.S. patients, while the EMA’s guideline on small populations explicitly addresses alternative study designs including non-randomized approaches and external controls.</p>
+<p><em>Multiple treatment options</em> compound the difficulty <span class="citation" data-cites="fda_master_protocols_2022 redman2020lungmap renfro2017master_protocols">(<a href="references.html#ref-fda_master_protocols_2022" role="doc-biblioref">U.S. Food and Drug Administration 2022</a>; <a href="references.html#ref-redman2020lungmap" role="doc-biblioref">Redman et al. 2020</a>; <a href="references.html#ref-renfro2017master_protocols" role="doc-biblioref">Renfro and Sargent 2017</a>)</span>. Modern oncology trials may need to evaluate several drugs, each potentially combined with several others, across multiple biomarker-defined subgroups. A traditional approach (separate trials for each combination in each subgroup) would take decades and hundreds of thousands of patients. The requirement for “simplicity” becomes impossible when the clinical reality is inherently complex. The FDA’s master protocols guidance describes innovative designs: <em>basket trials</em> (studying one drug across multiple tumor types sharing a biomarker), <em>umbrella trials</em> (studying multiple drugs within one tumor type based on biomarkers), and <em>platform trials</em> (flexible frameworks that can add or remove treatment arms over time). These allow multiple treatments or multiple patient populations to be studied within a single trial infrastructure.</p>
+<p>In these settings, the traditional design (fixed sample size, equal randomization, single analysis at the end) is not merely suboptimal but potentially unethical or infeasible. Continuing to randomize patients equally to a clearly inferior arm wastes their contribution. Conducting <em>underpowered</em> trials (trials with too few patients to reliably detect a true treatment effect) in rare diseases wastes resources and patient willingness to participate. Testing one combination at a time when patients are dying delays potentially life-saving treatments for years.</p>
+<p><em>The case for adaptive designs.</em> These challenges have driven the development of <em>adaptive trial designs</em> (trials that modify themselves based on accumulating data according to pre-specified rules) <span class="citation" data-cites="berry2010bayesian_adaptive">(<a href="references.html#ref-berry2010bayesian_adaptive" role="doc-biblioref">S. M. Berry et al. 2010</a>)</span>. Instead of fixing everything before the first patient enrolls, adaptive designs allow the trial to learn and adjust. Landmark oncology trials have demonstrated the power of this approach: the BATTLE trial used Bayesian adaptive randomization to match lung cancer patients to targeted therapies based on their tumor biomarkers <span class="citation" data-cites="kim2011battle">(<a href="references.html#ref-kim2011battle" role="doc-biblioref">Kim et al. 2011</a>)</span>, while the I-SPY 2 platform trial has evaluated dozens of neoadjuvant breast cancer treatments, graduating effective drugs to Phase III while dropping ineffective ones <span class="citation" data-cites="park2019ispy2">(<a href="references.html#ref-park2019ispy2" role="doc-biblioref">Park et al. 2019</a>)</span>.</p>
+<p>The rigidity of traditional designs is not inherent to valid inference: it is a consequence of the frequentist framework’s requirement to control error rates. If we can pre-specify the rules by which adaptations will occur (writing them into the protocol before the trial begins) and use computer simulations to verify that the trial still controls Type I error under various scenarios, we can maintain regulatory standards while gaining flexibility. The adaptation rules become part of the design, not modifications made after seeing the data.</p>
+<p>Adaptive designs can drop ineffective treatment arms early, concentrating resources on promising therapies. They can increase sample size if <em>interim results</em> (analyses conducted partway through the trial, before all patients have completed) suggest the treatment effect is smaller than anticipated. They can shift randomization toward better-performing treatments, reducing the number of patients assigned to inferior arms. They can identify subgroups defined by biomarkers where the drug works best.</p>
+<p>A complementary approach uses <em>Bayesian</em> statistical methods. Where the frequentist approach asks “If the drug had no effect, how unlikely would these results be?”, the Bayesian approach directly answers the question clinicians and regulators actually want to know: “Given the data we have observed, what is the probability that this drug works?” Bayesian methods naturally accommodate accumulating evidence, updating probability estimates as each new patient’s data arrives, making them well-suited for adaptive designs. They also provide a coherent framework for <em>borrowing</em> information (using data from previous trials, from other patient subgroups, or from external sources to supplement the current trial’s data), which is especially valuable in rare diseases where every patient’s data is precious.</p>
+<p>The following sections explore these innovations: the theoretical foundations of adaptive randomization (the multi-armed bandit problem), Bayesian updating, and the practical implementation of adaptive and platform trials that have transformed drug development over the past two decades.</p>
+<p><a href="appendix-glossary.html" class="quarto-xref"><span>Chapter 30</span></a> provides definitions of key terms used throughout this chapter.</p>
+</section>
+<section id="sec-bayesian-basics" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="sec-bayesian-basics"><span class="header-section-number">12.2</span> Bandit Problems: The Theoretical Foundation</h2>
+<p>The challenges outlined above (precision medicine requiring biomarker-driven allocation, rare diseases demanding maximum learning from limited patients, and multiple treatment options needing simultaneous evaluation) share a common mathematical structure. Each involves a fundamental tradeoff: learning which treatment works best versus treating patients with what currently appears best. This is the <em>exploration-exploitation tradeoff</em>, and its formal study provides the theoretical foundation for adaptive trial designs.</p>
+<p>In 1933, statistician W.R. Thompson proposed a radical idea <span class="citation" data-cites="thompson1933likelihood">(<a href="references.html#ref-thompson1933likelihood" role="doc-biblioref">Thompson 1933</a>)</span>. When testing two treatments with unknown efficacy, assign the next patient to treatment A with probability equal to the current probability that A is better than B. Thompson was motivated by ethics: avoiding patients being “sacrificed to the inferior treatment.” His proposal predated Austin Bradford Hill’s first randomized controlled trial by 15 years.</p>
+<p>Thompson had discovered what mathematicians would later call a <em>multi-armed bandit problem</em>, a fundamental challenge in decision theory. Imagine slot machines (bandits) with unknown payout rates. You want to maximize total winnings over many pulls. Each pull gives information (which machine pays better?) and potentially gives a reward (you might win). The dilemma: should you <em>exploit</em> by playing the machine that seems best, or <em>explore</em> by trying other machines to learn more?</p>
+<p>Clinical trials are bandit problems. Each patient assignment is a “pull.” Some pulls give information about treatment efficacy (explore). Some give effective therapy to the patient (exploit). The goal is maximizing successful outcomes across all patients, both those in the trial and those who will be treated after the trial based on its results.</p>
+<p>Early statisticians recognized that fixed randomization (ignoring accumulating data) was clearly suboptimal. If you know which treatment works better, use it. But in trials, you don’t know; you learn as you go. The question becomes: what strategy adapts optimally as evidence accumulates?</p>
+<p>Finding the mathematically optimal strategy is computationally demanding, and the difficulty grows explosively as the number of arms and the length of the trial increase. For a small number of arms, though, the optimal strategy can still be computed exactly through <em>dynamic programming</em>, working backward from the last patient. For patient N, the decision is easy: choose whichever arm has higher probability of success. For patient N-1, choose the arm that maximizes expected total successes for the last two patients, accounting for what will be learned. Work backward to patient 1.</p>
+<p>A simple example illustrates the power of this approach. Consider testing two treatments with unknown success rates in four patients. Starting with uniform prior beliefs (complete uncertainty about both treatments), an optimal adaptive strategy achieves an expected success rate of 56.9%, compared to 50% for any fixed randomization scheme. The benefit grows with sample size: at 100 patients, the adaptive strategy reaches 64.9%; with infinite patients, it approaches 66.7%, a 16.7 percentage point gain representing the <em>expected value of perfect information</em>.</p>
+<p>Thompson’s strategy (randomize each patient with probability equal to the current probability that each arm is better) turns out to be effective in practice, especially when testing many treatments simultaneously. It is not mathematically optimal, but it is practical, intuitive, and performs well. After 70 years of obscurity, Thompson’s 1933 paper has seen explosive growth in citations, driven by applications ranging from search engine ad placement to modern platform trials.</p>
+<section id="bayesian-bandit-problems-updating-beliefs" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-bandit-problems-updating-beliefs">Bayesian Bandit Problems: Updating Beliefs</h3>
+<p>The mathematical foundation of bandit problems rests on <em>Bayesian updating</em>, the process of revising probability distributions as evidence accumulates <span class="citation" data-cites="berry2025adaptive">(<a href="references.html#ref-berry2025adaptive" role="doc-biblioref">D. A. Berry 2025</a>)</span>. Consider a simple two-armed trial where both treatments have unknown success probabilities <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span>. Before observing any data, we might assume complete uncertainty: both success rates follow uniform distributions on [0, 1], which is equivalent to a Beta(1, 1) distribution.</p>
+<p>As outcomes are observed, beliefs update according to Bayes’ rule:</p>
+<p><span class="math display">\[ P(\theta|D) = \frac{P(D|\theta)P(\theta)}{P(D)} \]</span></p>
+<p>For a binary outcome (success/failure), if a treatment produces <span class="math inline">\(s\)</span> successes and <span class="math inline">\(f\)</span> failures, and we start with a Beta(1,1) prior, the posterior distribution for its success rate <span class="math inline">\(p\)</span> becomes Beta(<span class="math inline">\(\alpha_{post}, \beta_{post}\)</span>), where:</p>
+<p><span class="math display">\[ \alpha_{post} = 1 + s, \quad \beta_{post} = 1 + f \]</span></p>
+<p>The posterior mean, representing our updated best estimate of the success rate, is given by <span class="math inline">\(\frac{\alpha_{post}}{\alpha_{post} + \beta_{post}}\)</span>, and the variance, representing our uncertainty, is <span class="math inline">\(\frac{\alpha_{post}\beta_{post}}{(\alpha_{post}+\beta_{post})^2 (\alpha_{post}+\beta_{post}+1)}\)</span>. This elegant conjugacy enables exact updating without numerical approximation.</p>
+<p><a href="#fig-beta-updating" class="quarto-xref">Figure&nbsp;<span>12.1</span></a> illustrates this updating process for a four-patient bandit problem, showing how the probability distribution for <span class="math inline">\(p_1\)</span> evolves while <span class="math inline">\(p_2\)</span> (with no observations yet) remains uniform:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-beta-updating" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-beta-updating-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="11-statistical-methods_files/figure-html/fig-beta-updating-1.png" class="img-fluid figure-img" width="768">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-beta-updating-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.1: Bayesian updating of success probability distributions in a two-armed bandit. Panel A shows uniform priors for both arms. Panels B-D show how the distribution for p1 evolves after observing a success (B), a failure (C), or one success followed by one failure (D). The distribution for p2 remains uniform throughout since no observations have been made on that arm.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>With uniform priors, a single success shifts the mean from 0.5 to 2/3, while a failure shifts it to 1/3. After one success and one failure, the mean returns to 0.5, but the distribution is no longer uniform. It is now peaked at 0.5 with less variance, reflecting the additional information that the true rate is unlikely to be extreme.</p>
+<p>This updating mechanism enables optimal decision-making: at each patient assignment, select the arm with higher expected success probability, accounting for future patients and the value of information gained.</p>
+<p>Despite elegant theory, Bayesian adaptive trials remained theoretical curiosities for decades. Biostatisticians in the 1970s and 1980s considered them naive. Randomization was sacrosanct, considered the gold standard of medical research. The idea of varying randomization probabilities based on accumulating data was viewed with deep suspicion.</p>
+<p>One investigator remarked that Bayesians were “loosey-goosey” in adhering to rules. The concern was legitimate: if you look at data repeatedly and adjust your trial, don’t you inflate Type I error? Can such trials be trusted?</p>
+<p>The path forward required demonstrating mastery of <em>traditional</em> trial design first, gaining credibility in the clinical research community, then introducing innovations incrementally. It required advances in computing power and statistical software to make complex calculations feasible. And it required regulators willing to embrace innovation while maintaining rigorous standards.</p>
+<p>By the late 1990s, these pieces were falling into place. The FDA’s Center for Devices and Radiological Health (CDRH) led early adoption, commissioning white papers on Bayesian approaches in medical device development. Early successes in late-phase device trials demonstrated that Bayesian methods could work in practice, maintaining control of Type I error while providing decision-makers with more intuitive, actionable information.</p>
+</section>
+</section>
+<section id="the-first-wave-of-bayesian-adaptive-trials-proving-the-concept" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="the-first-wave-of-bayesian-adaptive-trials-proving-the-concept"><span class="header-section-number">12.3</span> The First Wave of Bayesian Adaptive Trials: Proving the Concept</h2>
+<p>The first wave of real-world Bayesian adaptive trials (late 1990s through the 2010s) did not set out to replace frequentist practice. They succeeded by embedding Bayesian quantities inside conservative, auditable decision rules that stakeholders already understood: stop or continue enrollment, drop unpromising doses, or graduate a regimen to confirmatory testing. The common thread is operational: these designs turned interim data into actionable forecasts (especially predictive probabilities) while still demonstrating familiar operating characteristics through simulation and error-rate control. The examples below became proof points because they were clinically consequential, computationally feasible, and easy to explain to sponsors and regulators in plain language.</p>
+<section id="calgb-49907-predicting-trial-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="calgb-49907-predicting-trial-outcomes">CALGB 49907: Predicting Trial Outcomes</h3>
+<p>In 1999, a fully Bayesian trial was designed for the Cancer and Leukemia Group B (CALGB) testing whether capecitabine could replace standard chemotherapy in elderly breast cancer patients <span class="citation" data-cites="Berry2009CALGB">(<a href="references.html#ref-Berry2009CALGB" role="doc-biblioref">Muss et al. 2009</a>)</span>. The sponsor insisted on 1800 patients to answer the question adequately. The statistical team estimated this would take 15 years to accrue, by which time the question might no longer be interesting.</p>
+<p>The compromise: enroll 1800 patients <em>only if needed</em>. Starting at 600 patients, calculate Bayesian <em>predictive probabilities</em>: given current data, what is the probability that further follow-up (without additional enrollment) will answer the question conclusively? If this probability exceeds 80%, stop enrollment and continue follow-up.</p>
+<p>The trial stopped at the first interim analysis with 633 patients enrolled. Additional 16-month follow-up delivered a compelling answer: capecitabine cannot replace chemotherapy in this population. The trial achieved its scientific goal with one-third the planned sample size.</p>
+<p>By Berry’s account, this was the first fully Bayesian randomized trial published in the <em>New England Journal of Medicine</em> (2009). It demonstrated a key principle: <em>predictive probabilities</em> answer the question sponsors and clinicians actually care about (“Will this trial give us a definitive answer?”) more directly than traditional power calculations.</p>
+</section>
+<section id="astin-adaptive-dose-finding-in-stroke" class="level3">
+<h3 class="anchored" data-anchor-id="astin-adaptive-dose-finding-in-stroke">ASTIN: Adaptive Dose-Finding in Stroke</h3>
+<p>Pfizer’s ASTIN trial (Acute Stroke Therapy by Inhibition of Neutrophils) tested 15 doses plus placebo of an investigational neutrophil inhibitor in stroke patients <span class="citation" data-cites="krams2003astin">(<a href="references.html#ref-krams2003astin" role="doc-biblioref">Krams et al. 2003</a>)</span>. Rather than fixing allocation probabilities upfront, the trial analyzed data daily, using Bayesian modeling to determine which doses to assign the next day.</p>
+<p>The algorithm smoothed estimates across doses and used longitudinal models to predict 90-day outcomes from earlier measurements. It started focusing on low doses and placebo, observing little effect. As evidence accumulated, it progressively concentrated on higher doses.</p>
+<p>By the time 500 patients completed 90-day follow-up, the algorithm had concluded the drug was ineffective across all doses and stopped the trial. The trial randomized 966 patients total, substantially fewer than the 1300 maximum, and delivered a clear answer efficiently.</p>
+<p>This was dose-finding implemented as a bandit problem: continuously learning which doses were most promising and concentrating resources there, while maintaining sufficient exploration to avoid missing an effective dose.</p>
+</section>
+</section>
+<section id="sec-seamless" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="sec-seamless"><span class="header-section-number">12.4</span> Seamless Designs: Combining Phases</h2>
+<p>Seamless designs take the adaptive logic one step further by linking decisions that are traditionally separated by years and organizational boundaries. Instead of running a Phase II dose-finding study and then starting a new Phase III trial with a fresh protocol, seamless Phase II/III designs use interim learning (often supported by Bayesian modeling and predictive thinking) to select doses or regimens early and then continue accrual into a confirmatory stage under prespecified rules. The practical motivation is economic and ethical: reduce “dead time” between phases, avoid overcommitting to weak doses, and generate decision-grade evidence sooner without sacrificing interpretability.</p>
+<section id="award-5-from-seven-doses-to-blockbuster-drug" class="level3">
+<h3 class="anchored" data-anchor-id="award-5-from-seven-doses-to-blockbuster-drug">AWARD-5: From Seven Doses to Blockbuster Drug</h3>
+<p>Eli Lilly’s AWARD-5 trial for dulaglutide (Trulicity) in type 2 diabetes, designed in collaboration with the FDA as part of the Critical Path Initiative, demonstrated the power of combining Phase II dose-finding with Phase III confirmation in a single seamless trial <span class="citation" data-cites="berry2025adaptive">(<a href="references.html#ref-berry2025adaptive" role="doc-biblioref">D. A. Berry 2025</a>)</span>.</p>
+<p>The trial began in 2008 testing seven doses (0.25 to 3.0 mg) plus two controls. <em>Stage 1</em> used response-adaptive randomization with biweekly interim analyses. A composite <em>clinical utility index</em> combined HbA1c, weight loss, heart rate, and blood pressure, capturing both efficacy and safety in a single metric.</p>
+<p>Longitudinal modeling predicted 12-month outcomes from early data. This allowed dose selection before any patient reached the primary endpoint. The algorithm selected two non-adjacent doses (0.75 and 1.50 mg) at the earliest allowed timepoint and shifted directly to <em>Stage 2</em>: fixed randomization comparing these doses to controls.</p>
+<p>The Data Safety Monitoring Board remarked that they could not overrule the algorithm’s decisions, but that if they could, they would do exactly what the algorithm had done.</p>
+<p>Both doses received FDA approval in 2014. Trulicity became Lilly’s best-selling drug, reaching peak annual revenue of $7.4 billion in 2022 according to Lilly’s financial reporting. The seamless design saved at least one year compared to running separate Phase II and III trials.</p>
+<p>The 3.0 mg dose, though not advanced to Stage 2, showed mean weight loss of 10 pounds in AWARD-5, foreshadowing the modern use of GLP-1 agonists for obesity, even though Trulicity itself was never approved for weight loss.</p>
+</section>
+<section id="lecanemab-perfect-phase-ii-prediction" class="level3">
+<h3 class="anchored" data-anchor-id="lecanemab-perfect-phase-ii-prediction">Lecanemab: Perfect Phase II Prediction</h3>
+<p>When Eisai designed their Phase II trial (Study 201) for lecanemab (Leqembi) in Alzheimer’s disease in 2011, they aimed to avoid a common failure mode: Phase II trials that give false signals, leading to failed Phase III trials <span class="citation" data-cites="swanson2021lecanemab vandyck2023lecanemab berry2025adaptive">(<a href="references.html#ref-swanson2021lecanemab" role="doc-biblioref">Swanson et al. 2021</a>; <a href="references.html#ref-vandyck2023lecanemab" role="doc-biblioref">Dyck et al. 2023</a>; <a href="references.html#ref-berry2025adaptive" role="doc-biblioref">D. A. Berry 2025</a>)</span>.</p>
+<p>The trial tested six dose regimens including placebo. Initially, 2/7 of patients were randomized to placebo and 1/7 to each dose. At 14 interim analyses, the proportion assigned to placebo was adjusted to match the proportion for the most likely Phase III dose. This focused learning on the dose most likely to advance.</p>
+<p>Early data favored the highest doses. By trial end, 48% of patients had received the two highest doses, while only 12% received the two lowest doses. The trial was maximally informative about the regimens of greatest interest.</p>
+<p>A critical challenge: Alzheimer’s trials have &gt;30% missing data. Traditional “last observation carried forward” (LOCF) imputation would have estimated only 13% reduction in disease progression, probably insufficient to justify Phase III. Bayesian multiple imputation, prospectively specified, learned patterns of missingness. It recognized that dropouts on placebo were due to treatment failure, while dropouts on the highest dose were often due to regulatory mandates unrelated to efficacy. The Bayesian model estimated 27% reduction.</p>
+<p>Eisai proceeded to Phase III. The confirmatory trial showed exactly 27% reduction at the highest dose. The perfect prediction was somewhat accidental (both are point estimates with uncertainty), but it reflected a well-designed Phase II trial delivering accurate efficacy estimates that right-sized the Phase III trial, neither too large nor too small.</p>
+<p>The FDA granted accelerated approval, then full approval. Lecanemab became the first disease-modifying therapy for Alzheimer’s disease with clear efficacy evidence.</p>
+</section>
+</section>
+<section id="sec-platform" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="sec-platform"><span class="header-section-number">12.5</span> Platform Trials</h2>
+<p>Platform trials extend the adaptive logic from a single experiment to a standing infrastructure: multiple therapies can enter and exit over time, a shared control arm reduces redundant randomization, and Bayesian hierarchical models support learning across biomarker-defined subgroups while controlling false positives through pre-specified decision thresholds. Beyond efficiency, the statistical promise is continuity. Evidence is accumulated in a coherent framework across calendar time, while operational machinery (data pipelines, governance, DSMB processes, endpoint adjudication) stays stable. I-SPY 2 is the canonical illustration because it combines all of these elements (adaptive randomization, biomarker stratification, predictive-probability graduation, and borrowing via common controls) into a platform that actually ran long enough to cycle many agents through the same trial “engine.”</p>
+<section id="i-spy-2-prototype-for-a-new-paradigm" class="level3">
+<h3 class="anchored" data-anchor-id="i-spy-2-prototype-for-a-new-paradigm">I-SPY 2: Prototype for a New Paradigm</h3>
+<p>The I-SPY 2 trial in neoadjuvant breast cancer, running from 2010 to 2022, synthesized decades of innovation into a single platform <span class="citation" data-cites="park2016ispy2 berry2025adaptive">(<a href="references.html#ref-park2016ispy2" role="doc-biblioref">Park et al. 2016</a>; <a href="references.html#ref-berry2025adaptive" role="doc-biblioref">D. A. Berry 2025</a>)</span>. It fundamentally challenged the Belmont Report’s separation of research and treatment.</p>
+<p>Patients were classified into eight molecular subtypes based on hormone receptor status, HER2 status, and genomic markers. Each experimental therapy was evaluated within relevant subtypes, up to ten possible “signatures” (potential regulatory indications). The trial used response-adaptive randomization, assigning 20% to control (or 50% if only one experimental arm was available) and distributing the remainder based on performance.</p>
+<p>Over its lifetime, I-SPY 2 tested 23 investigational therapies from 18 pharmaceutical companies. Nine graduated to Phase III based on high Bayesian predictive probability of success (<span class="math inline">\(\geq 85\%\)</span> probability of success in a confirmatory trial). Four have received FDA marketing approval.</p>
+<p>The trial’s success stems from several adaptive innovations used together. By using a common control arm (incorporating both concurrently randomized and historical controls through a “time machine” approach), I-SPY 2 created a control cohort an order of magnitude larger than traditional Phase II studies. Monthly continuous learning updated probability distributions across all arms and subtypes. Longitudinal modeling used tumor volume measurements to predict pathologic complete response well before patients reached their final assessments. Nested factorials within these continuing control arms allowed simultaneous testing of combination therapies, letting researchers isolate the effects of individual components more efficiently than separate trials would permit.</p>
+<p><em>Ethical optimization</em>: Consider neratinib, which graduated in the HER2+ signature. Across all 115 patients assigned to neratinib, pCR rate was 37% versus 20% for controls, a 17% absolute difference. Modeling decomposed this: 7% was the drug’s inherent efficacy, and 10% was due to adaptive randomization concentrating assignments in responsive subtypes.</p>
+<p>Said differently: patients in I-SPY 2 simultaneously participated in rigorous research <em>and</em> received optimized therapy. The trial merged science and treatment, rendering the Belmont Report’s dichotomy obsolete.</p>
+<p>I-SPY 2 served as prototype for platform trials across diseases: BATTLE in lung cancer, GBM AGILE in glioblastoma, REMAP-CAP in community-acquired pneumonia (which proved critical during COVID-19), and Precision Promise in pancreatic cancer.</p>
+</section>
+<section id="the-regulatory-evolution" class="level3">
+<h3 class="anchored" data-anchor-id="the-regulatory-evolution">The Regulatory Evolution</h3>
+<p>The FDA’s attitude toward adaptive designs and Bayesian methods evolved dramatically during this period <span class="citation" data-cites="berry2025adaptive">(<a href="references.html#ref-berry2025adaptive" role="doc-biblioref">D. A. Berry 2025</a>)</span>. In 2010, their draft guidance said simulations “might be useful” but expressed concerns: “Using simulations to demonstrate control of the Type I error rate, however, is controversial and not fully understood.”</p>
+<p>By 2019, they had fully embraced the approach <span class="citation" data-cites="fda2019adaptive">(<a href="references.html#ref-fda2019adaptive" role="doc-biblioref">U.S. Food and Drug Administration 2019a</a>)</span>: “The guidance also advises sponsors on the types of information to submit to facilitate FDA evaluation of clinical trials with adaptive designs, including Bayesian adaptive and complex trials that rely on computer simulations for their design.”</p>
+<p>The 2019 guidance addressed practical issues like <em>post-simulation</em>: if operating characteristics were evaluated under certain assumptions (e.g., expected accrual rates) but the trial experienced different conditions, additional simulations after the trial could verify that conclusions remain valid.</p>
+<p>The FDA’s January 2026 draft guidance on Bayesian methodology in clinical trials (<a href="https://www.fda.gov/media/190505/download" class="uri">https://www.fda.gov/media/190505/download</a>) is explicit about what is expected when Bayesian methods are used in submissions. In particular, it emphasizes prespecification of Bayesian success criteria and decision thresholds, evaluation of operating characteristics (often through simulation), careful justification of prior distributions (especially when borrowing external information), and planned sensitivity analyses that examine prior-data conflict and other key assumptions. It also stresses documentation and reporting practices sufficient for regulatory review and reproducibility, including clear statements of what was prespecified and how computation was performed <span class="citation" data-cites="fda_bayesian_2026">(<a href="references.html#ref-fda_bayesian_2026" role="doc-biblioref">U.S. Food and Drug Administration 2026b</a>)</span>.</p>
+<p>Operationally, this guidance is useful because it turns Bayesian “acceptability” into reviewable components rather than a broad philosophical debate. A sponsor must be able to show, in a structured way <span class="citation" data-cites="fda_bayesian_2026">(<a href="references.html#ref-fda_bayesian_2026" role="doc-biblioref">U.S. Food and Drug Administration 2026b</a>)</span>:</p>
+<ul>
+<li>how the decision rule maps to error control and interpretability</li>
+<li>how prior influence is understood and bounded (including concepts such as effective sample size and discounting when borrowing)</li>
+<li>how estimands and missing data are treated in a Bayesian setting</li>
+<li>how results can be reproduced (software reliability and, when relevant, convergence diagnostics for simulation-based inference)</li>
+</ul>
+<p>The draft ICH E20 guideline on adaptive clinical trials provides international harmonization <span class="citation" data-cites="ich_e20">(<a href="references.html#ref-ich_e20" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>. Its scope centers on pre-specification, simulation-based operating-characteristic demonstration, and Type I error control, and does not address the full range of Bayesian adaptive applications covered by the FDA Bayesian guidance.</p>
+<p>ICH E20 and some regulatory commentary have framed Bayesian adaptive trials primarily in terms of borrowing from external data using informative priors. The vast majority of Bayesian adaptive trials use <em>minimally informative priors</em> that are rapidly overwhelmed by accumulating data; the benefits come from the coherent inferential framework, the interpretability of decision rules based on posterior probabilities, and predictive probabilities <span class="citation" data-cites="fda2019adaptive">(<a href="references.html#ref-fda2019adaptive" role="doc-biblioref">U.S. Food and Drug Administration 2019a</a>)</span>.</p>
+<p>Modern Bayesian borrowing employs <em>dynamic</em> approaches where the degree of borrowing depends on observed consistency between external and new data, reducing the bias risk of static borrowing. The Bayesian framework is well suited for sophisticated borrowing, but borrowing and Bayesian analysis are conceptually separate <span class="citation" data-cites="ich_e20">(<a href="references.html#ref-ich_e20" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>.</p>
+</section>
+<section id="the-one-trial-standard" class="level3">
+<h3 class="anchored" data-anchor-id="the-one-trial-standard">The One-Trial Standard</h3>
+<p>One notable evolution: increasing openness to a single highly stringent trial as substantial evidence of efficacy, rather than requiring two independent Phase III trials <span class="citation" data-cites="fda_substantial_evidence_2019 fdama1997">(<a href="references.html#ref-fda_substantial_evidence_2019" role="doc-biblioref">U.S. Food and Drug Administration 2019b</a>; <a href="references.html#ref-fdama1997" role="doc-biblioref">United States Congress 1997</a>)</span>. FDA’s 1997 modernization act codified the exception and the agency’s 2019 guidance describes the conditions under which a single trial may suffice: a hard clinical endpoint, a substantially lower p-value threshold than the conventional two-trial 0.025, large multicenter enrollment, and internal consistency across pre-specified subgroups. In June 2026, FDA issued a revised draft guidance that repositions the single-trial-plus-confirmatory-evidence approach from a bounded exception toward the default expectation and drops the earlier framing that treated one such trial as equivalent to two; because it remains a draft open for public comment (through September 22, 2026), it signals regulatory direction rather than settled policy <span class="citation" data-cites="fda_single_trial_2026">(<a href="references.html#ref-fda_single_trial_2026" role="doc-biblioref">U.S. Food and Drug Administration 2026a</a>)</span> (see <a href="27-regulatory-submission.html#sec-one-trial" class="quarto-xref"><span>Section 29.7</span></a>).</p>
+<p>This shift aligns well with adaptive designs. A seamless Phase II/III trial with extremely conservative success criteria could provide both dose optimization and confirmatory evidence in a single study, saving years of development time.</p>
+<p>However, the one-trial approach has implications. Drug approvals tied to narrowly defined populations may restrict labeled indications, placing burdens on clinicians to extrapolate off-label or requiring sponsors to conduct “label expansion” trials post-approval. From a development strategy perspective, the change could accelerate time to market but emphasize post-approval research and multi-cohort basket architectures.</p>
+<p>The optimal evidence standard should arguably depend on context: disease severity, unmet medical need, and patient impact. For fatal rare diseases, a more flexible bar may be justified; for high-prevalence, lower-risk conditions, standards should be stricter. While context-varying standards represent good science, their regulatory implementation will be challenging.</p>
+<p>The FDA’s evolution was aided by successful examples. When Lilly’s AWARD-5 data were presented, when device trials using Bayesian predictive probabilities supported marketing approvals, when I-SPY 2 demonstrated that adaptive trials could maintain scientific rigor while improving patient care, resistance gave way to acceptance.</p>
+</section>
+</section>
+<section id="sec-borrowing" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="sec-borrowing"><span class="header-section-number">12.6</span> Mathematical Foundations: Hierarchical Modeling</h2>
+<p>Modern adaptive trials often employ <em>Bayesian hierarchical models</em> (probability distributions of probability distributions) <span class="citation" data-cites="berry2025adaptive">(<a href="references.html#ref-berry2025adaptive" role="doc-biblioref">D. A. Berry 2025</a>)</span>. These are essential for basket trials testing one therapy across multiple tumor types, and for platform trials testing multiple therapies across patient subtypes.</p>
+<p>Consider a therapy tested in <span class="math inline">\(K\)</span> tumor types. For each type <span class="math inline">\(k\)</span>, let <span class="math inline">\(\theta_k\)</span> denote the true response rate. A hierarchical model specifies:</p>
+<p><span class="math display">\[
+\theta_k \sim \text{Beta}(\alpha, \beta) \quad \text{for } k = 1, \ldots, K
+\]</span></p>
+<p>where <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are themselves unknown parameters with their own prior distributions (hyperpriors). If we observe <span class="math inline">\(y_k\)</span> responders out of <span class="math inline">\(n_k\)</span> patients in tumor type <span class="math inline">\(k\)</span>, the likelihood is:</p>
+<p><span class="math display">\[
+y_k \mid \theta_k \sim \text{Binomial}(n_k, \theta_k)
+\]</span></p>
+<p>The posterior distribution for each <span class="math inline">\(\theta_k\)</span> depends not only on the data from type <span class="math inline">\(k\)</span> but also on data from all other types, through the shared hyperparameters. If nine tumor types show 40% response rates and one shows 10%, the model “shrinks” all estimates toward a common mean, but the outlier is shrunk less because the observed heterogeneity increases the estimated variance of the population distribution.</p>
+<p>Charles Stein proved in the 1950s that failing to borrow information across related groups is mathematically “inadmissible”: there always exist uniformly better estimates <span class="citation" data-cites="stein1956inadmissibility">(<a href="references.html#ref-stein1956inadmissibility" role="doc-biblioref">Stein 1956</a>)</span>. The <em>James-Stein estimator</em> demonstrated that even when estimating unrelated parameters, shrinking toward a common mean reduces total squared error. For related parameters like tumor-type response rates, the gains are larger.</p>
+<p>The amount of borrowing is governed by the estimated between-group variance <span class="math inline">\(\tau^2\)</span>. When <span class="math inline">\(\tau^2\)</span> is small (tumor types respond similarly), the model borrows heavily and each type’s estimate is pulled toward the overall mean. When <span class="math inline">\(\tau^2\)</span> is large (responses are heterogeneous), the model borrows cautiously and each type’s estimate stays closer to its observed rate. Mathematically, the posterior mean for <span class="math inline">\(\theta_k\)</span> can be approximated as:</p>
+<p><span class="math display">\[
+\hat{\theta}_k \approx \lambda_k \bar{\theta} + (1 - \lambda_k) \hat{\theta}_k^{\text{MLE}}
+\]</span></p>
+<p>where <span class="math inline">\(\bar{\theta}\)</span> is the pooled estimate across types, <span class="math inline">\(\hat{\theta}_k^{\text{MLE}} = y_k / n_k\)</span> is the maximum likelihood estimate for type <span class="math inline">\(k\)</span>, and <span class="math inline">\(\lambda_k\)</span> is a shrinkage weight that increases with <span class="math inline">\(\tau^2\)</span> and decreases with the sample size <span class="math inline">\(n_k\)</span>.</p>
+<p>This framework enables basket trials to identify responder populations and support regulatory approvals in molecular subsets, even when some subsets have modest sample sizes, by pooling evidence across the full trial.</p>
+<p>The theoretical foundations described above (bandit problems, response-adaptive randomization, Bayesian updating, and hierarchical modeling) provide the conceptual toolkit for adaptive trial design. But translating theory into practice requires solving a different set of problems: computing the probabilities that guide decisions, satisfying funding constraints, ensuring reproducibility, and navigating regulatory acceptance. These implementation challenges often determine whether an adaptive design succeeds or fails in the real world.</p>
+</section>
+<section id="practical-implementation-challenges" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="practical-implementation-challenges"><span class="header-section-number">12.7</span> Practical Implementation Challenges</h2>
+<p>The case studies above show <em>why</em> adaptive Bayesian ideas are attractive. The next step is operationalizing them under real trial constraints: decision rules must be computable fast enough to support interim looks (sometimes daily), robust to missing and delayed outcomes, and transparent enough that a DSMB, sponsor, and regulator can reproduce results from the same locked dataset. In practice, these requirements turn many “simple” theoretical quantities into engineering problems, especially when decisions are driven by predictive probabilities that integrate over uncertainty in both current estimates and future data.</p>
+<section id="sec-predictive-prob" class="level3">
+<h3 class="anchored" data-anchor-id="sec-predictive-prob">Computing Predictive Probabilities</h3>
+<p>Predictive probabilities are central to adaptive trial decision-making, but their calculation presents computational challenges <span class="citation" data-cites="berry1989monitoring">(<a href="references.html#ref-berry1989monitoring" role="doc-biblioref">D. A. Berry 1989</a>)</span>. The standard approach uses Monte Carlo simulation: for each possible future dataset, draw many random samples, analyze each, and calculate the proportion showing success. With thousands of future scenarios and thousands of Monte Carlo iterations per scenario, trial simulation can become computationally intensive.</p>
+<p>Recent methodological advances offer a solution <span class="citation" data-cites="predictive_probabilities2025">(<a href="references.html#ref-predictive_probabilities2025" role="doc-biblioref">Marion et al. 2025</a>)</span>. Rather than simulating thousands of future datasets, an approximation uses the current p-value or posterior probability to estimate the predictive probability directly. This approach shows high concordance with full Monte Carlo methods across diverse settings (dichotomous endpoints, time-to-event analyses, ordinal outcomes, historical borrowing, and longitudinal modeling) while dramatically reducing computational time.</p>
+<p>The practical benefit: trial designers can simulate many more virtual trials to achieve greater precision in estimating operating characteristics. What might have taken days of computing time can now be accomplished in hours, enabling more thorough exploration of design alternatives and robustness to assumptions.</p>
+<p>This computational efficiency enables the iterative refinement essential to building well-tested adaptive designs. Sponsors can test hundreds of scenarios, exploring sensitivity to accrual rates, effect size assumptions, heterogeneity, and decision thresholds, verifying that the design performs well across the plausible range.</p>
+</section>
+<section id="administrative-analyses-for-funding" class="level3">
+<h3 class="anchored" data-anchor-id="administrative-analyses-for-funding">Administrative Analyses for Funding</h3>
+<p>A practical challenge: sponsors often cannot commit upfront to funding an entire large trial. Venture funds, private equity, or pharmaceutical partners need evidence the drug is working before committing tens of millions more.</p>
+<p><em>Administrative analyses</em> provide a solution. These are interim analyses conducted solely for funding decisions, completely firewalled from the trial’s scientific conduct. An independent statistical group (often an external CRO) examines interim data against predefined criteria and reports a simple yes/no: has the funding trigger been met? The FDA adaptive design guidance requires that any such firewalled interim leave the trial’s conduct and blinding intact <span class="citation" data-cites="fda2019adaptive">(<a href="references.html#ref-fda2019adaptive" role="doc-biblioref">U.S. Food and Drug Administration 2019a</a>)</span>.</p>
+<p>The most common metric is Bayesian <em>predictive probability of trial success</em>: given current data and all its uncertainty, what is the probability that the final analysis will meet significance <span class="citation" data-cites="predictive_probabilities2025">(<a href="references.html#ref-predictive_probabilities2025" role="doc-biblioref">Marion et al. 2025</a>)</span>? This is a dynamic measure that updates at each interim look. It contrasts sharply with traditional <em>power</em>, which is fixed at the design stage based on an assumed true effect and never changes as data accumulate.</p>
+<p>For funding partners, predictive probability is immediately relatable. They routinely use dynamic risk forecasts in their own fields. Seeing a predictive probability at an interim point enables invest-or-wait decisions, quantifying risk and reward in familiar terms.</p>
+<p>Defining objective criteria often requires simulation. The design team presents realistic datasets and visualizations, asking: “If the results looked like this, would you fund the next phase?” Eventually, a pattern emerges and quantitative decision thresholds can be written into funding triggers.</p>
+<p>These analyses do not influence trial conduct. The trial continues under pre-specified rules. The operational team remains blinded. The funding decision is external to trial integrity. Careful terminology is essential: administrative analyses should <em>not</em> be labeled “futility analyses,” which risks confusion with efficacy/futility analyses intended to stop the trial itself.</p>
+</section>
+<section id="sec-simulation-oc" class="level3">
+<h3 class="anchored" data-anchor-id="sec-simulation-oc">Simulation and Operating Characteristics</h3>
+<p>Adaptive designs require extensive <em>clinical trial simulation</em> before the first patient enrolls. Thousands of scenarios are simulated: different true effect sizes, different dose-response curves, different patient accrual rates, different amounts of heterogeneity.</p>
+<p>For each scenario, operating characteristics are calculated: Type I error rate (probability of false-positive conclusion), power (probability of correct positive conclusion), expected sample size, expected trial duration, probability of selecting the correct dose.</p>
+<p>These simulations verify that the design performs well across plausible scenarios and maintains Type I error control. They also guide refinement of decision thresholds and sample size caps.</p>
+<p>Traditional trials specify operating characteristics analytically. Adaptive trials determine them through simulation, a shift that initially concerned regulators but is now fully accepted.</p>
+</section>
+<section id="type-i-error-frequentist-standards-in-bayesian-trials" class="level3">
+<h3 class="anchored" data-anchor-id="type-i-error-frequentist-standards-in-bayesian-trials">Type I Error: Frequentist Standards in Bayesian Trials</h3>
+<p>Even Bayesian trials must address Type I error for regulatory acceptance. The typical approach: simulate the trial under the null hypothesis (no treatment effect) and verify that the probability of a false-positive conclusion is <span class="math inline">\(\leq 5\%\)</span>.</p>
+<p>Bayesian decision rules (e.g., “graduate if posterior probability of benefit &gt;95%”) are chosen to achieve this frequentist property. The design is Bayesian in its continuous learning and probabilistic reasoning, but demonstrates traditional operating characteristics.</p>
+<p>Some trialists add a disclaimer when reporting Bayesian trials in journals: “All p-values and confidence intervals in this article are descriptive and have no inferential content.” This acknowledges that Bayesian posteriors provide the inferential basis, while frequentist measures are reported for consistency with convention.</p>
+</section>
+</section>
+<section id="sec-rar" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="sec-rar"><span class="header-section-number">12.8</span> Response-Adaptive Randomization</h2>
+<p>Response-adaptive randomization (RAR) changes allocation probabilities during the trial in response to accumulating outcome data: arms that appear to be performing better receive a larger share of future enrollments. The mechanism is a direct implementation of Thompson sampling (see <a href="#sec-bayesian-basics" class="quarto-xref"><span>Section 12.2</span></a>): allocate the next patient to arm <span class="math inline">\(k\)</span> with probability equal to the current posterior probability that arm <span class="math inline">\(k\)</span> is the best <span class="citation" data-cites="thompson1933likelihood hu2006response_adaptive">(<a href="references.html#ref-thompson1933likelihood" role="doc-biblioref">Thompson 1933</a>; <a href="references.html#ref-hu2006response_adaptive" role="doc-biblioref">Hu and Rosenberger 2006</a>)</span>.</p>
+<p>The appeal is straightforward. If interim data suggest that one dose is substantially better than another, continuing to assign equal fractions to both arms concentrates patients on an inferior treatment. RAR adjusts allocation toward better-performing arms throughout enrollment rather than waiting until the trial ends to act on that information.</p>
+<p><strong>RAR and alpha.</strong> Unlike a group-sequential design, where each interim superiority look spends part of the alpha budget, RAR adds no interim hypothesis tests and so carries no alpha-spending penalty of that kind. It does not follow that RAR is automatically safe for Type I error. Because allocation becomes data-dependent, a naive analysis that ignores how patients were assigned can distort the false positive rate, especially when outcomes drift over time (the temporal-trend bias discussed below). Preserving Type I error depends on a pre-specified analysis that accounts for the adaptive allocation, with operating characteristics confirmed by simulation.</p>
+<p><strong>The debate in practice.</strong> RAR’s attractive logic has generated a sustained methodological debate whose practical implications matter for clinical trial design:</p>
+<p><em>Temporal-trend bias.</em> When patients enrolled later in a trial are systematically different from those enrolled earlier (improving standard of care, viral variants, changes in patient mix), RAR can create imbalanced patient characteristics across arms. If, for example, enrollment of healthier patients rises over time and allocation is simultaneously shifting toward the better-looking arm, the arm receiving more late enrollees will appear to perform better than it actually does. The standard rebuttal is to include a time covariate in the primary analysis: because both arms are present throughout the trial, the time effect is estimable and the adjusted treatment comparison remains valid, provided that the treatment effect is approximately additive over time and no treatment-by-time interaction is present. This additivity assumption deserves scrutiny in infectious-disease trials, where pathogen variants and background-care improvements can change the nature of the disease itself during the trial <span class="citation" data-cites="korn2011rar proschan2020rar">(<a href="references.html#ref-korn2011rar" role="doc-biblioref">Korn and Freidlin 2011</a>; <a href="references.html#ref-proschan2020rar" role="doc-biblioref">Proschan and Evans 2020</a>)</span>.</p>
+<p><em>Power in two-arm trials.</em> Equal (1:1) randomization maximizes statistical power in a two-arm comparison. Unequal allocation, whether 3:1 or 9:1, reduces power. For a standard two-arm superiority trial, RAR therefore requires a non-statistical justification (typically the ethical argument that more patients should receive the better-performing arm) to offset the power cost <span class="citation" data-cites="proschan2020rar">(<a href="references.html#ref-proschan2020rar" role="doc-biblioref">Proschan and Evans 2020</a>)</span>. Most statisticians advise caution about RAR in two-arm Phase III confirmatory trials.</p>
+<p><em>Multi-arm settings.</em> RAR’s strongest case is in multi-arm dose-finding or “king of the hill” settings where the goal is to identify the best-performing arm and concentrate learning on it. A Phase II trial with five doses can allocate progressively more patients to the most promising doses, reducing waste on clearly inferior doses while still maintaining the shared control arm <span class="citation" data-cites="berry2025adaptive">(<a href="references.html#ref-berry2025adaptive" role="doc-biblioref">D. A. Berry 2025</a>)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Practical safeguards for RAR">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Practical safeguards for RAR
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Two design safeguards appear in virtually every well-run RAR trial:</p>
+<ol type="1">
+<li><p><strong>Burn-in period.</strong> Run conventional equal randomization for an initial cohort (often 10-20% of total patients) before activating the adaptive algorithm. Early outcome data are too sparse to drive allocation reliably; the burn-in ensures the first adaptations are based on reasonable evidence.</p></li>
+<li><p><strong>Protect the control arm.</strong> Adapting allocation among experimental arms while holding the control at a fixed fraction (e.g., always 25-33% of enrollment) preserves the common comparator that all treatment comparisons depend on. Reducing control allocation degrades the entire trial’s inferential base and can lead to misleading arm-level estimates.</p></li>
+</ol>
+<p>Simulation across a range of true effect sizes, enrollment rates, and temporal-trend magnitudes is required to verify that the chosen RAR rule achieves the operating characteristics (power, expected sample size, probability of correct arm selection) claimed in the protocol.</p>
+</div>
+</div>
+<p>The ethical intuition behind RAR (giving more patients the better-looking arm) is compelling but does not straightforwardly resolve into a design recommendation. A less powerful trial harms future patients by producing less reliable evidence. A trial that over-allocates to the winner-so-far and then encounters a temporal trend can produce misleading results that also harm future patients. The strongest case for RAR is in settings with many experimental arms, a fast endpoint relative to enrollment rate, and a primary goal of selecting the best arm rather than estimating treatment effects with high precision for a regulatory submission.</p>
+<hr>
+</section>
+<section id="the-new-standard" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="the-new-standard"><span class="header-section-number">12.9</span> The New Standard</h2>
+<p>Adaptive and Bayesian methods have moved from exotic to mainstream. The shift is driven by recognition of simple truths:</p>
+<p>We should <em>learn from data as soon as we have it</em>, not years later when it’s too late to adjust. Patients in trials deserve effective treatment, not just contribution to generalizable knowledge. And because resources are limited and questions urgent, we should use those resources efficiently and answer the questions quickly.</p>
+<p>Traditional methods served well for decades. They established the principle of rigorous evidence and Type I error control. But as computing power grew, statistical methodology advanced, and regulatory understanding deepened, a better way emerged.</p>
+<p>Platform trials now test dozens of treatments in years instead of decades. Seamless designs combine phases, saving years of development time. Response-adaptive randomization improves patient care during trials. Hierarchical models extract maximum information from complex data. Predictive probabilities guide decisions in the language decision-makers think in naturally.</p>
+<p>The future maintains traditional rigor while gaining enormous efficiency. As one analysis put it, citations to Thompson’s 1933 paper on adaptive randomization have grown exponentially in recent years, 70 years after publication, driven by applications from search engines to clinical trials to artificial intelligence.</p>
+<p>The Belmont Report’s nearly half-century-old distinction between research and treatment is obsolete. Clinical trials <em>are</em> treatment. They should be designed accordingly. Adaptive Bayesian methods provide the framework to merge rigorous science with ethical patient care.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-armitage1954sequential" class="csl-entry" role="listitem">
+Armitage, Peter. 1954. <span>“Sequential Tests in Prophylactic and Therapeutic Trials.”</span> <em>Quarterly Journal of Medicine</em> 23 (91): 255–74.
+</div>
+<div id="ref-armitage1960sequential" class="csl-entry" role="listitem">
+———. 1960. <em>Sequential Medical Trials</em>. Oxford: Blackwell Scientific Publications.
+</div>
+<div id="ref-atkinson2002covariate" class="csl-entry" role="listitem">
+Atkinson, A. C. 2002. <span>“The Comparison of Designs for Sequential Clinical Trials with Covariate Information.”</span> <em>Journal of the Royal Statistical Society: Series A</em> 165 (2): 349–73. <a href="https://doi.org/10.1111/1467-985X.00564">https://doi.org/10.1111/1467-985X.00564</a>.
+</div>
+<div id="ref-berry1989monitoring" class="csl-entry" role="listitem">
+Berry, Donald A. 1989. <span>“Monitoring Accumulating Data in a Clinical Trial.”</span> <em>Biometrics</em> 45 (4): 1197–1211. <a href="https://doi.org/10.2307/2531771">https://doi.org/10.2307/2531771</a>.
+</div>
+<div id="ref-berry2011adaptive_oncology" class="csl-entry" role="listitem">
+———. 2012. <span>“Adaptive Clinical Trials in Oncology.”</span> <em>Nature Reviews Clinical Oncology</em> 9 (4): 199–207. <a href="https://doi.org/10.1038/nrclinonc.2011.165">https://doi.org/10.1038/nrclinonc.2011.165</a>.
+</div>
+<div id="ref-berry2025adaptive" class="csl-entry" role="listitem">
+———. 2025. <span>“Adaptive Bayesian Clinical Trials: The Past, Present, and Future of Clinical Research.”</span> <em>Journal of Clinical Medicine</em> 14 (15): 5267. <a href="https://doi.org/10.3390/jcm14155267">https://doi.org/10.3390/jcm14155267</a>.
+</div>
+<div id="ref-berry2010bayesian_adaptive" class="csl-entry" role="listitem">
+Berry, Scott M., Bradley P. Carlin, J. Jack Lee, and Peter Müller. 2010. <em>Bayesian Adaptive Methods for Clinical Trials</em>. Chapman &amp; Hall/CRC Biostatistics Series. Boca Raton, FL: CRC Press. <a href="https://doi.org/10.1201/EBK1439825488">https://doi.org/10.1201/EBK1439825488</a>.
+</div>
+<div id="ref-cox1958planning" class="csl-entry" role="listitem">
+Cox, D. R. 1958. <em>Planning of Experiments</em>. New York: John Wiley &amp; Sons.
+</div>
+<div id="ref-cox2009randomization" class="csl-entry" role="listitem">
+———. 2009. <span>“Randomization in the Design of Experiments.”</span> <em>International Statistical Review</em> 77 (3): 415–29. <a href="https://doi.org/10.1111/j.1751-5823.2009.00084.x">https://doi.org/10.1111/j.1751-5823.2009.00084.x</a>.
+</div>
+<div id="ref-vandyck2023lecanemab" class="csl-entry" role="listitem">
+Dyck, Christopher H. van, Chad J. Swanson, Paul Aisen, Randall J. Bateman, Christopher Chen, Michelle Gee, Michio Kanekiyo, et al. 2023. <span>“Lecanemab in Early Alzheimer’s Disease.”</span> <em>New England Journal of Medicine</em> 388 (1): 9–21. <a href="https://doi.org/10.1056/NEJMoa2212948">https://doi.org/10.1056/NEJMoa2212948</a>.
+</div>
+<div id="ref-ema_small_populations" class="csl-entry" role="listitem">
+European Medicines Agency. 2006. <span>“Guideline on Clinical Trials in Small Populations.”</span> <a href="https://www.ema.europa.eu/en/clinical-trials-small-populations-scientific-guideline">https://www.ema.europa.eu/en/clinical-trials-small-populations-scientific-guideline</a>.
+</div>
+<div id="ref-goodman2008dirty_dozen" class="csl-entry" role="listitem">
+Goodman, Steven. 2008. <span>“A Dirty Dozen: Twelve <span class="math inline">\(P\)</span>-Value Misconceptions.”</span> <em>Seminars in Hematology</em> 45 (3): 135–40. <a href="https://doi.org/10.1053/j.seminhematol.2008.04.003">https://doi.org/10.1053/j.seminhematol.2008.04.003</a>.
+</div>
+<div id="ref-hu2006response_adaptive" class="csl-entry" role="listitem">
+Hu, Feifang, and William F. Rosenberger. 2006. <em>The Theory of Response-Adaptive Randomization in Clinical Trials</em>. Hoboken, NJ: John Wiley &amp; Sons. <a href="https://doi.org/10.1002/047005588X">https://doi.org/10.1002/047005588X</a>.
+</div>
+<div id="ref-ich_e9_r1" class="csl-entry" role="listitem">
+International Council for Harmonisation. 2019. <span>“<span>ICH E9(R1)</span>: Addendum on Estimands and Sensitivity Analysis in Clinical Trials to the Guideline on Statistical Principles for Clinical Trials.”</span> <a href="https://database.ich.org/sites/default/files/E9-R1_Step4_Guideline_2019_1203.pdf">https://database.ich.org/sites/default/files/E9-R1_Step4_Guideline_2019_1203.pdf</a>.
+</div>
+<div id="ref-ich_e20" class="csl-entry" role="listitem">
+———. 2025. <span>“E20 Adaptive Designs for Clinical Trials.”</span> <a href="https://www.ema.europa.eu/en/ich-e20-adaptive-designs-clinical-trials-scientific-guideline">https://www.ema.europa.eu/en/ich-e20-adaptive-designs-clinical-trials-scientific-guideline</a>.
+</div>
+<div id="ref-kim2011battle" class="csl-entry" role="listitem">
+Kim, Edward S., Roy S. Herbst, Ignacio I. Wistuba, J. Jack Lee, George R. Blumenschein, Anne Tsao, David J. Stewart, et al. 2011. <span>“The <span>BATTLE</span> Trial: Personalizing Therapy for Lung Cancer.”</span> <em>Cancer Discovery</em> 1 (1): 44–53. <a href="https://doi.org/10.1158/2159-8274.CD-10-0010">https://doi.org/10.1158/2159-8274.CD-10-0010</a>.
+</div>
+<div id="ref-korn2011rar" class="csl-entry" role="listitem">
+Korn, Edward L., and Boris Freidlin. 2011. <span>“Outcome-Adaptive Randomization: Is It Useful?”</span> <em>Journal of Clinical Oncology</em> 29 (6): 771–76. <a href="https://doi.org/10.1200/JCO.2010.31.1423">https://doi.org/10.1200/JCO.2010.31.1423</a>.
+</div>
+<div id="ref-krams2003astin" class="csl-entry" role="listitem">
+Krams, Michael, Kennedy R. Lees, Werner Hacke, Andrew P. Grieve, Jean-Marc Orgogozo, and Gary A. Ford. 2003. <span>“Acute Stroke Therapy by Inhibition of Neutrophils (ASTIN): An Adaptive Dose-Response Study of UK-279,276 in Acute Ischemic Stroke.”</span> <em>Stroke</em> 34 (11): 2543–48. <a href="https://doi.org/10.1161/01.STR.0000092527.33910.89">https://doi.org/10.1161/01.STR.0000092527.33910.89</a>.
+</div>
+<div id="ref-ma2022unified_car" class="csl-entry" role="listitem">
+Ma, Wei, Ping Li, Li-Xin Zhang, and Feifang Hu. 2024. <span>“A New and Unified Family of Covariate Adaptive Randomization Procedures and Their Properties.”</span> <em>Journal of the American Statistical Association</em> 119 (545): 151–62. <a href="https://doi.org/10.1080/01621459.2022.2102986">https://doi.org/10.1080/01621459.2022.2102986</a>.
+</div>
+<div id="ref-predictive_probabilities2025" class="csl-entry" role="listitem">
+Marion, Joe, Elizabeth Lorenzi, Cora Allen-Savietta, Scott Berry, and Kert Viele. 2025. <span>“Predictive Probabilities Made Simple: A Fast and Accurate Method for Clinical Trial Decision-Making.”</span> <em>Statistics in Medicine</em> 44 (13-14): e70120. <a href="https://doi.org/10.1002/sim.70120">https://doi.org/10.1002/sim.70120</a>.
+</div>
+<div id="ref-Berry2009CALGB" class="csl-entry" role="listitem">
+Muss, Hyman B., Donald A. Berry, Constance T. Cirrincione, Maria Theodoulou, Ann M. Mauer, Alice B. Kornblith, Ann H. Partridge, et al. 2009. <span>“Adjuvant Chemotherapy in Older Women with Early-Stage Breast Cancer.”</span> <em>New England Journal of Medicine</em> 360 (20): 2055–65. <a href="https://doi.org/10.1056/NEJMoa0810266">https://doi.org/10.1056/NEJMoa0810266</a>.
+</div>
+<div id="ref-belmont1979" class="csl-entry" role="listitem">
+National Commission for the Protection of Human Subjects of Biomedical and Behavioral Research. 1979. <span>“The Belmont Report: Ethical Principles and Guidelines for the Protection of Human Subjects of Research.”</span> <a href="https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html">https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html</a>.
+</div>
+<div id="ref-pallmann2018adaptive_enrichment_review" class="csl-entry" role="listitem">
+Pallmann, Philip, Alun W. Bedding, Babak Choodari-Oskooei, Munyaradzi Dimairo, Laura Flight, Lisa V. Hampson, Jane Holmes, et al. 2018. <span>“Adaptive Designs in Clinical Trials: Why Use Them, and How to Run and Report Them.”</span> <em>BMC Medicine</em> 16 (1): 29. <a href="https://doi.org/10.1186/s12916-018-1017-7">https://doi.org/10.1186/s12916-018-1017-7</a>.
+</div>
+<div id="ref-park2016ispy2" class="csl-entry" role="listitem">
+Park, John W., Minetta C. Liu, Douglas Yee, Christina Yau, Laura J. van ’t Veer, W. Fraser Symmans, Melissa Paoloni, et al. 2016. <span>“Adaptive Randomization of Neratinib in Early Breast Cancer.”</span> <em>New England Journal of Medicine</em> 375 (1): 11–22. <a href="https://doi.org/10.1056/NEJMoa1513750">https://doi.org/10.1056/NEJMoa1513750</a>.
+</div>
+<div id="ref-park2019ispy2" class="csl-entry" role="listitem">
+Park, John W., Minetta C. Liu, Douglas Yee, Christina Yau, Laura J. van ’t Veer, W. Fraser Symmans, Melissa Paoloni, et al. 2019. <span>“<span>I-SPY 2</span>: A Neoadjuvant Adaptive Clinical Trial Designed to Improve Outcomes in High-Risk Breast Cancer.”</span> <em>Current Breast Cancer Reports</em> 11 (4): 303–10. <a href="https://doi.org/10.1007/s12609-019-00334-2">https://doi.org/10.1007/s12609-019-00334-2</a>.
+</div>
+<div id="ref-proschan2020rar" class="csl-entry" role="listitem">
+Proschan, Michael A., and Scott R. Evans. 2020. <span>“Resist the Temptation of Response-Adaptive Randomization.”</span> <em>Clinical Infectious Diseases</em> 71 (11): 3002–4. <a href="https://doi.org/10.1093/cid/ciaa334">https://doi.org/10.1093/cid/ciaa334</a>.
+</div>
+<div id="ref-redman2020lungmap" class="csl-entry" role="listitem">
+Redman, Mary W., Vassiliki A. Papadimitrakopoulou, Glenwood D. Goss, et al. 2020. <span>“Biomarker-Driven Therapies for Previously Treated Squamous Non-Small-Cell Lung Cancer (Lung-MAP SWOG S1400): A Biomarker-Driven Master Protocol.”</span> <em>The Lancet Oncology</em> 21 (12): 1589–1601. <a href="https://doi.org/10.1016/S1470-2045(20)30475-7">https://doi.org/10.1016/S1470-2045(20)30475-7</a>.
+</div>
+<div id="ref-renfro2017master_protocols" class="csl-entry" role="listitem">
+Renfro, Lindsay A., and Daniel J. Sargent. 2017. <span>“Statistical Controversies in Clinical Research: Basket Trials, Umbrella Trials, and Other Master Protocols: A Review and Examples.”</span> <em>Annals of Oncology</em> 28 (1): 34–43. <a href="https://doi.org/10.1093/annonc/mdw413">https://doi.org/10.1093/annonc/mdw413</a>.
+</div>
+<div id="ref-shiryaev1978optimal_stopping" class="csl-entry" role="listitem">
+Shiryaev, Albert N. 1978. <em>Optimal Stopping Rules</em>. Berlin: Springer-Verlag.
+</div>
+<div id="ref-simon2013adaptive_enrichment" class="csl-entry" role="listitem">
+Simon, Noah, and Richard Simon. 2013. <span>“Adaptive Enrichment Designs for Clinical Trials.”</span> <em>Biostatistics</em> 14 (4): 613–25. <a href="https://doi.org/10.1093/biostatistics/kxt010">https://doi.org/10.1093/biostatistics/kxt010</a>.
+</div>
+<div id="ref-stein1956inadmissibility" class="csl-entry" role="listitem">
+Stein, Charles. 1956. <span>“Inadmissibility of the Usual Estimator for the Mean of a Multivariate Normal Distribution.”</span> In <em>Proceedings of the Third Berkeley Symposium on Mathematical Statistics and Probability</em>, 1:197–206. <a href="https://www.degruyter.com/document/doi/10.1525/9780520313880-018/html">https://www.degruyter.com/document/doi/10.1525/9780520313880-018/html</a>.
+</div>
+<div id="ref-swanson2021lecanemab" class="csl-entry" role="listitem">
+Swanson, Chad J., Yong Zhang, Shobha Dhadda, Jianing Wang, June Kaplow, Robert Y. K. Lai, Lars Lannfelt, et al. 2021. <span>“A Randomized, Double-Blind, Phase 2b Proof-of-Concept Clinical Trial in Early <span class="nocase">Alzheimer’s</span> Disease with Lecanemab, an Anti-a<span class="math inline">\(\beta\)</span> Protofibril Antibody.”</span> <em>Alzheimer’s Research and Therapy</em> 13 (1): 80. <a href="https://doi.org/10.1186/s13195-021-00813-8">https://doi.org/10.1186/s13195-021-00813-8</a>.
+</div>
+<div id="ref-thompson1933likelihood" class="csl-entry" role="listitem">
+Thompson, William R. 1933. <span>“On the Likelihood That One Unknown Probability Exceeds Another in View of the Evidence of Two Samples.”</span> <em>Biometrika</em> 25 (3/4): 285–94. <a href="https://doi.org/10.2307/2332286">https://doi.org/10.2307/2332286</a>.
+</div>
+<div id="ref-fdama1997" class="csl-entry" role="listitem">
+United States Congress. 1997. <span>“<span class="nocase">Food and Drug Administration Modernization Act of 1997</span>.”</span>
+</div>
+<div id="ref-fda2019adaptive" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2019a. <span>“Adaptive Designs for Clinical Trials of Drugs and Biologics: Guidance for Industry.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/adaptive-design-clinical-trials-drugs-and-biologics-guidance-industry">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/adaptive-design-clinical-trials-drugs-and-biologics-guidance-industry</a>.
+</div>
+<div id="ref-fda_substantial_evidence_2019" class="csl-entry" role="listitem">
+———. 2019b. <span>“Demonstrating Substantial Evidence of Effectiveness for Human Drug and Biological Products.”</span> U.S. Food; Drug Administration. <a href="https://www.fda.gov/media/133660/download">https://www.fda.gov/media/133660/download</a>.
+</div>
+<div id="ref-fda_enrichment_2019" class="csl-entry" role="listitem">
+———. 2019c. <span>“Enrichment Strategies for Clinical Trials to Support Approval of Human Drugs and Biological Products.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/enrichment-strategies-clinical-trials-support-approval-human-drugs-and-biological-products">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/enrichment-strategies-clinical-trials-support-approval-human-drugs-and-biological-products</a>.
+</div>
+<div id="ref-fda_master_protocols_2022" class="csl-entry" role="listitem">
+———. 2022. <span>“Master Protocols: Efficient Clinical Trial Design Strategies to Expedite Development of Oncology Drugs and Biologics.”</span> U.S. Food; Drug Administration. <a href="https://www.fda.gov/media/120721/download">https://www.fda.gov/media/120721/download</a>.
+</div>
+<div id="ref-fda_rdep_2024" class="csl-entry" role="listitem">
+———. 2025. <span>“CDER/CBER Rare Disease Evidence Principles (RDEP).”</span> <a href="https://www.fda.gov/industry/fda-rare-disease-innovation-hub/cdercber-rare-disease-evidence-principles-rdep">https://www.fda.gov/industry/fda-rare-disease-innovation-hub/cdercber-rare-disease-evidence-principles-rdep</a>.
+</div>
+<div id="ref-fda_single_trial_2026" class="csl-entry" role="listitem">
+———. 2026a. <span>“Demonstrating Substantial Evidence of Effectiveness for Human Drug and Biological Products.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/demonstrating-substantial-evidence-effectiveness-human-drug-and-biological-products">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/demonstrating-substantial-evidence-effectiveness-human-drug-and-biological-products</a>.
+</div>
+<div id="ref-fda_bayesian_2026" class="csl-entry" role="listitem">
+———. 2026b. <span>“Use of <span>Bayesian</span> Methodology in Clinical Trials of Drug and Biological Products.”</span> U.S. Food; Drug Administration. <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-bayesian-methodology-clinical-trials-drug-and-biological-products">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-bayesian-methodology-clinical-trials-drug-and-biological-products</a>.
+</div>
+<div id="ref-wald1947sequential" class="csl-entry" role="listitem">
+Wald, Abraham. 1947. <em>Sequential Analysis</em>. New York: John Wiley &amp; Sons.
+</div>
+<div id="ref-wasserstein2016asa_pvalue" class="csl-entry" role="listitem">
+Wasserstein, Ronald L., and Nicole A. Lazar. 2016. <span>“The <span>ASA</span> Statement on <span class="math inline">\(p\)</span>-Values: Context, Process, and Purpose.”</span> <em>The American Statistician</em> 70 (2): 129–33. <a href="https://doi.org/10.1080/00031305.2016.1154108">https://doi.org/10.1080/00031305.2016.1154108</a>.
+</div>
+<div id="ref-zhou2017bayesian_biomarker" class="csl-entry" role="listitem">
+Zhou, Xian, Suyu Liu, Edward S. Kim, Roy S. Herbst, and J. Jack Lee. 2008. <span>“Bayesian Adaptive Design for Targeted Therapy Development in Lung Cancer.”</span> <em>Clinical Trials</em> 5 (3): 181–93. <a href="https://doi.org/10.1177/1740774508091815">https://doi.org/10.1177/1740774508091815</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./11-statistical-foundations.html" class="pagination-link" aria-label="Statistical Methods for Clinical Trials">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./12-study-design.html" class="pagination-link" aria-label="Study Design">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>29&nbsp; Regulatory Submission – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./appendix-glossary.html" rel="next">
+<link href="./26-csr.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="29&nbsp; Regulatory Submission – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="29&nbsp; Regulatory Submission – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./25-closeout.html">Part IV: Trial Completion and Beyond</a></li><li class="breadcrumb-item"><a href="./27-regulatory-submission.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#building-the-submission" id="toc-building-the-submission" class="nav-link active" data-scroll-target="#building-the-submission"><span class="header-section-number">29.1</span> Building the Submission</a></li>
+  <li><a href="#pre-submission-interactions" id="toc-pre-submission-interactions" class="nav-link" data-scroll-target="#pre-submission-interactions"><span class="header-section-number">29.2</span> Pre-Submission Interactions</a></li>
+  <li><a href="#expedited-regulatory-pathways" id="toc-expedited-regulatory-pathways" class="nav-link" data-scroll-target="#expedited-regulatory-pathways"><span class="header-section-number">29.3</span> Expedited Regulatory Pathways</a></li>
+  <li><a href="#the-review-process" id="toc-the-review-process" class="nav-link" data-scroll-target="#the-review-process"><span class="header-section-number">29.4</span> The Review Process</a></li>
+  <li><a href="#bioresearch-monitoring-bimo-inspections" id="toc-bioresearch-monitoring-bimo-inspections" class="nav-link" data-scroll-target="#bioresearch-monitoring-bimo-inspections"><span class="header-section-number">29.5</span> Bioresearch Monitoring (BIMO) Inspections</a></li>
+  <li><a href="#the-decision" id="toc-the-decision" class="nav-link" data-scroll-target="#the-decision"><span class="header-section-number">29.6</span> The Decision</a></li>
+  <li><a href="#sec-one-trial" id="toc-sec-one-trial" class="nav-link" data-scroll-target="#sec-one-trial"><span class="header-section-number">29.7</span> Single-Trial Substantial Evidence</a>
+  <ul class="collapse">
+  <li><a href="#the-statistical-argument" id="toc-the-statistical-argument" class="nav-link" data-scroll-target="#the-statistical-argument">The Statistical Argument</a></li>
+  <li><a href="#when-fda-accepts-a-single-trial" id="toc-when-fda-accepts-a-single-trial" class="nav-link" data-scroll-target="#when-fda-accepts-a-single-trial">When FDA Accepts a Single Trial</a></li>
+  <li><a href="#the-breadth-tradeoff" id="toc-the-breadth-tradeoff" class="nav-link" data-scroll-target="#the-breadth-tradeoff">The Breadth Tradeoff</a></li>
+  </ul></li>
+  <li><a href="#sec-international-pathways" id="toc-sec-international-pathways" class="nav-link" data-scroll-target="#sec-international-pathways"><span class="header-section-number">29.8</span> International Regulatory Pathways</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./25-closeout.html">Part IV: Trial Completion and Beyond</a></li><li class="breadcrumb-item"><a href="./27-regulatory-submission.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-regulatory-submission" class="quarto-section-identifier"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The culmination of years of research, billions of dollars in investment (see <a href="06-economics.html" class="quarto-xref"><span>Chapter 6</span></a>), and thousands of patients’ participation comes down to a single question: will regulators approve the drug? The regulatory submission is where sponsors present their case: the accumulated evidence from preclinical studies and clinical trials that, they hope, demonstrates the product is safe and effective.</p>
+<p>Different types of applications serve different products and circumstances:</p>
+<ul>
+<li><em>New Drug Application (NDA)</em>: the primary vehicle for small-molecule drugs in the United States, containing complete data on chemistry, manufacturing, preclinical studies, and clinical trials</li>
+<li><em>Biologics License Application (BLA)</em>: for biological products such as proteins, vaccines, and cellular therapies, following a similar structure but with additional manufacturing details specific to biologics</li>
+<li><em>Marketing Authorization Application (MAA)</em>: the equivalent submission in the European Union, submitted centrally or through national procedures</li>
+<li><em>Abbreviated New Drug Application (ANDA)</em>: facilitates approval of generic drugs by relying on reference products</li>
+<li><em>Biosimilar applications</em>: demonstrate similarity to an approved reference biologic</li>
+<li><em>Supplements and variations</em>: allow sponsors to modify existing approvals for new indications or manufacturing changes</li>
+</ul>
+<p>International harmonization has established a standardized format for regulatory submissions known as the Common Technical Document (CTD). The CTD organizes information into five distinct modules, as summarized in <a href="#tbl-ctd-modules" class="quarto-xref">Table&nbsp;<span>29.1</span></a>.</p>
+<div id="tbl-ctd-modules" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[10,35,55]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ctd-modules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;29.1: Common Technical Document (CTD) Structure
+</figcaption>
+<div aria-describedby="tbl-ctd-modules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 35%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Module</th>
+<th>Name</th>
+<th>Content Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1</strong></td>
+<td>Regional Administrative</td>
+<td>Forms, labeling, and jurisdiction-specific materials</td>
+</tr>
+<tr class="even">
+<td><strong>2</strong></td>
+<td>Summaries &amp; Overviews</td>
+<td>Integrated quality, nonclinical, and clinical summaries</td>
+</tr>
+<tr class="odd">
+<td><strong>3</strong></td>
+<td>Quality (CMC)</td>
+<td>Chemistry, Manufacturing, and Controls documentation</td>
+</tr>
+<tr class="even">
+<td><strong>4</strong></td>
+<td>Nonclinical</td>
+<td>Reports from toxicology and pharmacology studies</td>
+</tr>
+<tr class="odd">
+<td><strong>5</strong></td>
+<td>Clinical</td>
+<td>Clinical study reports and related data materials</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>This standardized modularity allows sponsors to prepare a single “core dossier” (comprising Modules 2 through 5) for submission to multiple global regulatory agencies simultaneously. Only Module 1 requires region-specific adaptation, significantly streamlining the process of bringing a new therapy to multiple international markets.</p>
+<section id="building-the-submission" class="level2" data-number="29.1">
+<h2 data-number="29.1" class="anchored" data-anchor-id="building-the-submission"><span class="header-section-number">29.1</span> Building the Submission</h2>
+<p>Assembling a major regulatory application requires close coordination across multiple specialized functions. Regulatory affairs teams lead the effort, managing the submission strategy and maintaining direct communication with agencies to ensure every legal and technical requirement is met. The clinical development group manages the compilation and interpretation of all clinical data, while CMC specialists document the manufacturing and quality controls that guarantee product stability. Simultaneously, nonclinical researchers provide foundational toxicology data, and medical writers synthesize these disparate streams into clear summaries that help agency reviewers navigate thousands of pages of technical information. The final submission is packaged as an electronic CTD (eCTD) for secure transmission to regulatory authorities worldwide.</p>
+</section>
+<section id="pre-submission-interactions" class="level2" data-number="29.2">
+<h2 data-number="29.2" class="anchored" data-anchor-id="pre-submission-interactions"><span class="header-section-number">29.2</span> Pre-Submission Interactions</h2>
+<p>Smart sponsors do not simply submit applications and hope for the best. They engage with regulatory agencies throughout development and especially before major submissions.</p>
+<p>Pre-IND meetings occur before first-in-human studies to clarify the data needed to support clinical development. End-of-Phase 2 meetings are a key checkpoint for discussing Phase III plans, where sponsors present their design and evidentiary standards for agency feedback. Finally, Pre-NDA/BLA meetings (or Pre-MAA in Europe) are conducted before the major submission to confirm that the dossier is complete and free of critical unresolved issues.</p>
+<p>These meetings, typically conducted as formal written exchanges or in-person discussions, help align sponsor and agency expectations. Different meeting types have different timelines and objectives, as summarized in <a href="#tbl-fda-meetings" class="quarto-xref">Table&nbsp;<span>29.3</span></a>. Discovering a major issue <em>before</em> submission is far better than discovering it during review.</p>
+</section>
+<section id="expedited-regulatory-pathways" class="level2" data-number="29.3">
+<h2 data-number="29.3" class="anchored" data-anchor-id="expedited-regulatory-pathways"><span class="header-section-number">29.3</span> Expedited Regulatory Pathways</h2>
+<p>In response to the urgent need for treatments for serious conditions, regulatory agencies have established specific pathways designed to accelerate the development and review of promising therapies. These pathways do not lower the evidentiary standard for safety or efficacy; rather, they intensify the interaction between the sponsor and the regulator, and in some cases allow for the use of surrogate endpoints reasonably likely to predict clinical benefit.</p>
+<p>Fast Track designation is intended for drugs that treat serious conditions and fill an unmet medical need. This status allows for more frequent meetings with the FDA and the potential for rolling review, where the sponsor submits completed sections of the application before the entire dossier is finalized. Breakthrough Therapy is a more intensive designation for drugs where preliminary clinical evidence indicates the drug may demonstrate substantial improvement over available therapy on a clinically significant endpoint. Accelerated Approval allows approval based on a surrogate endpoint or an intermediate clinical endpoint that is reasonably likely to predict clinical benefit. The Food and Drug Omnibus Reform Act of 2022 (FDORA) tightened this pathway: FDA may now require that a confirmatory trial be underway before or shortly after accelerated approval is granted, and it can use expedited procedures to withdraw an approval when the confirmatory trial fails to verify benefit or is not conducted with due diligence <span class="citation" data-cites="fdora2022">(<a href="references.html#ref-fdora2022" role="doc-biblioref">U.S. Congress 2022</a>)</span>. Finally, Priority Review represents a commitment by the FDA to complete review within six months for drugs that would provide significant improvements in safety or effectiveness.</p>
+<p><a href="#tbl-expedited-pathways" class="quarto-xref">Table&nbsp;<span>29.2</span></a> contrasts these distinct mechanisms. Note that a single drug program may utilize multiple pathways simultaneously (e.g., a Breakthrough Therapy that receives Accelerated Approval and Priority Review).</p>
+<div id="tbl-expedited-pathways" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-expedited-pathways-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;29.2: FDA Expedited Programs for Serious Conditions <span class="citation" data-cites="fda_expedited_2014">(<a href="references.html#ref-fda_expedited_2014" role="doc-biblioref">U.S. Food and Drug Administration 2014</a>)</span>
+</figcaption>
+<div aria-describedby="tbl-expedited-pathways-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Designation</th>
+<th style="text-align: left;">Criteria</th>
+<th style="text-align: left;">Key Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Fast Track</strong></td>
+<td style="text-align: left;">Serious condition + unmet need</td>
+<td style="text-align: left;">Rolling review, frequent communication</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Breakthrough</strong></td>
+<td style="text-align: left;">Serious condition + substantial improvement</td>
+<td style="text-align: left;">Intensive guidance, organizational commitment</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Accelerated Approval</strong></td>
+<td style="text-align: left;">Serious condition + surrogate endpoint</td>
+<td style="text-align: left;">Approval based on surrogate (requires confirmation)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Priority Review</strong></td>
+<td style="text-align: left;">Significant improvement</td>
+<td style="text-align: left;">6-month review clock (vs 10 months)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div id="tbl-fda-meetings" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,20,35,30]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-fda-meetings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;29.3: FDA Meeting Types and Timelines
+</figcaption>
+<div aria-describedby="tbl-fda-meetings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 35%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Meeting Type</th>
+<th>Purpose</th>
+<th>Examples</th>
+<th>FDA Scheduling Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>INTERACT</em></td>
+<td>Early advice, before pre-IND</td>
+<td>Novel technology or complex manufacturing questions</td>
+<td>75 days</td>
+</tr>
+<tr class="even">
+<td><em>Type A</em></td>
+<td>Critical path issues; stalled development</td>
+<td>Dispute resolution; clinical hold discussion</td>
+<td>30 days</td>
+</tr>
+<tr class="odd">
+<td><em>Type B</em></td>
+<td>Key development milestones</td>
+<td>Pre-IND, Pre-NDA/BLA</td>
+<td>60 days</td>
+</tr>
+<tr class="even">
+<td><em>Type B (EOP)</em></td>
+<td>End-of-phase milestones</td>
+<td>End-of-Phase 1, End-of-Phase 2</td>
+<td>70 days</td>
+</tr>
+<tr class="odd">
+<td><em>Type C</em></td>
+<td>General guidance</td>
+<td>Protocol design review; new indication discussion</td>
+<td>75 days</td>
+</tr>
+<tr class="even">
+<td><em>Type D</em></td>
+<td>Narrow, focused issues</td>
+<td>Follow-up on one or two tightly related topics</td>
+<td>50 days</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="the-review-process" class="level2" data-number="29.4">
+<h2 data-number="29.4" class="anchored" data-anchor-id="the-review-process"><span class="header-section-number">29.4</span> The Review Process</h2>
+<p>Once submitted, applications enter formal review shown in <a href="#fig-nda-review-cycle" class="quarto-xref">Figure&nbsp;<span>29.1</span></a>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-nda-review-cycle" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nda-review-cycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-nda-review-cycle">flowchart TD
+    Sub["NDA/BLA Submission"] --&gt; Admit{"Filing Review&lt;br/&gt;(60 days)"}
+    Admit --&gt;|RTF| Refuse["Refusal to File (RTF)"]
+    Admit --&gt;|Accepted| Review["Technical Review&lt;br/&gt;(Medical, Stat, CMC, etc.)"]
+    
+    Review --&gt; Inspect["BIMO Inspections"]
+    Review --&gt; IR["Information Requests&lt;br/&gt;(IRs)"]
+    IR -.-&gt; Review
+    
+    Review --&gt; AdCom["Advisory Committee&lt;br/&gt;(if needed)"]
+    AdCom --&gt; Final["Final Review &amp; Labeling"]
+    Inspect --&gt; Final
+    
+    Final --&gt; Decision{"Action Letter"}
+    Decision --&gt;|Approval| Market["Marketing Approval"]
+    Decision --&gt;|CRL| Response["Complete Response&lt;br/&gt;Letter (CRL)"]
+    
+    Response --&gt; Resub["Class 1/2 Resubmission"]
+    Resub --&gt; Review
+    
+    Market --&gt; Post["Post-Marketing Data&lt;br/&gt;(Phase IV / REMS)"]
+    
+    style Market fill:#e8f5e9,stroke:#1b5e20
+    style Response fill:#ffebee,stroke:#c62828
+    style Refuse fill:#ffebee,stroke:#c62828
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nda-review-cycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;29.1: The NDA/BLA Regulatory Review Cycle
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In the United States, FDA first determines whether the submission is <em>complete</em> (that is, whether it contains enough information to permit substantive review). Applications deemed incomplete may be refused to file and returned without review.</p>
+<p>If accepted, the application enters a review queue. Review timelines are governed by <em>user fee goals</em>, performance targets established under the Prescription Drug User Fee Act (PDUFA). Standard review targets roughly 10 months from the filing date, about 12 months from the original submission; priority review targets 6 months <span class="citation" data-cites="fda_expedited_2014">(<a href="references.html#ref-fda_expedited_2014" role="doc-biblioref">U.S. Food and Drug Administration 2014</a>)</span>.</p>
+<p>Review is multidisciplinary: medical officers evaluate clinical efficacy and safety; pharmacologists assess pharmacokinetics; chemists review manufacturing; statisticians verify the analyses; toxicologists examine nonclinical safety.</p>
+</section>
+<section id="bioresearch-monitoring-bimo-inspections" class="level2" data-number="29.5">
+<h2 data-number="29.5" class="anchored" data-anchor-id="bioresearch-monitoring-bimo-inspections"><span class="header-section-number">29.5</span> Bioresearch Monitoring (BIMO) Inspections</h2>
+<p>Parallel to the scientific review of the data, the FDA conducts on-site inspections through its Bioresearch Monitoring (BIMO) program to verify the integrity of the data and compliance with regulations. Positive data are worthless if the agency cannot trust that they were collected accurately and ethically.</p>
+<p>BIMO inspections typically target clinical sites, the sponsor, and the involved Institutional Review Boards. At clinical sites, inspectors compare source documents against the data submitted in the case report forms, looking for discrepancies or evidence of fraud. Sponsor inspections evaluate the oversight of the trial, checking monitoring reports, data management systems, and safety reporting processes. IRB inspections ensure that ethical oversight was maintained appropriately throughout the study.</p>
+<p>Significant findings during a BIMO inspection can result in a Form 483 (listing observations) or a Warning Letter <span class="citation" data-cites="cfr21_312">(<a href="references.html#ref-cfr21_312" role="doc-biblioref">U.S. Food and Drug Administration 2024a</a>)</span>. In severe cases, the FDA may invoke the “Application Integrity Policy,” pausing the review until the data’s reliability can be re-established. Consequently, “inspection readiness” is a continuous activity for clinical operations teams, not just a pre-submission drill.</p>
+<p>Reviewers may issue <em>information requests</em>, which require the sponsor to clarify or supplement the submission. Sponsors must respond promptly to avoid delays.</p>
+<p>For novel or complex applications, FDA may convene an <em>Advisory Committee</em>, a panel of outside experts who discuss the application in a public meeting and vote on approval recommendations. While advisory committee recommendations are not binding, FDA usually follows them.</p>
+</section>
+<section id="the-decision" class="level2" data-number="29.6">
+<h2 data-number="29.6" class="anchored" data-anchor-id="the-decision"><span class="header-section-number">29.6</span> The Decision</h2>
+<p>At the conclusion of review, FDA issues an action letter.</p>
+<p>An <em>approval letter</em> authorizes marketing. The product may now be sold, but usually with specific labeling, potentially with post-marketing requirements or commitments, and subject to ongoing safety monitoring.</p>
+<p>A <em>complete response letter (CRL)</em> indicates that the application cannot be approved in its current form. The letter specifies deficiencies that must be addressed. Sponsors may then submit a response, addressing each deficiency. Multiple review cycles may be needed before approval is achieved, or the sponsor may ultimately abandon the product.</p>
+<p>Similar decision frameworks exist in other jurisdictions: Europe uses marketing authorization and requests for supplementary information; Japan and other markets have analogous processes.</p>
+</section>
+<section id="sec-one-trial" class="level2" data-number="29.7">
+<h2 data-number="29.7" class="anchored" data-anchor-id="sec-one-trial"><span class="header-section-number">29.7</span> Single-Trial Substantial Evidence</h2>
+<p>The traditional interpretation of “substantial evidence” (introduced at <a href="09-phase3-overview.html" class="quarto-xref"><span>Chapter 9</span></a>) requires replication across at least two adequate and well-controlled trials. But the statistical basis for this two-trial rule is less absolute than it appears, and in practice FDA has regularly approved drugs on the basis of a single trial.</p>
+<section id="the-statistical-argument" class="level3">
+<h3 class="anchored" data-anchor-id="the-statistical-argument">The Statistical Argument</h3>
+<p>If two independent trials each require a one-sided p-value below 0.025 to succeed, and both just reach that threshold, the combined evidence has a p-value of approximately <span class="math inline">\(0.025^2 = 0.000625\)</span>. This is the actual combined evidence threshold the two-trial rule demands from a sponsor who runs two trials, each at exactly <span class="math inline">\(p &lt; 0.025\)</span>. The implication: a sponsor who designs a single trial to achieve <span class="math inline">\(p &lt; 0.000625\)</span> matches the combined false-positive probability of a two-trial program, at potentially lower overall sample size.</p>
+<p>The efficiency arithmetic is concrete. Two trials each powered at 90% give the development program <span class="math inline">\(0.90 \times 0.90 = 81\%\)</span> power. A single trial designed to the combined threshold can achieve equivalent program power with approximately 80% of the total sample size of the two-trial program, because the experiment is unified rather than split. The two-trial rule also creates a classification problem: a program where trial 1 achieves <span class="math inline">\(p = 0.001\)</span> and trial 2 achieves <span class="math inline">\(p = 0.026\)</span> technically “wins one and loses one,” yet the combined evidence (<span class="math inline">\(0.001 \times 0.026 = 0.000026\)</span>) substantially outperforms two trials each achieving <span class="math inline">\(p = 0.024\)</span> (combined evidence <span class="math inline">\(0.024^2 = 0.000576\)</span>, which barely clears the <span class="math inline">\(0.000625\)</span> two-trial bar). Analyzed by pooling the evidence rather than by pass/fail of each trial, the evidence ordering reverses.</p>
+</section>
+<section id="when-fda-accepts-a-single-trial" class="level3">
+<h3 class="anchored" data-anchor-id="when-fda-accepts-a-single-trial">When FDA Accepts a Single Trial</h3>
+<p>FDA has codified the single-trial exception in statute (FDAMA 1997, 21 U.S.C. § 355(d)) and in guidance <span class="citation" data-cites="fda_substantial_evidence_2019">(<a href="references.html#ref-fda_substantial_evidence_2019" role="doc-biblioref">U.S. Food and Drug Administration 2019</a>)</span>. Many recent approvals have been based on a single trial together with confirmatory evidence rather than two fully independent replications.</p>
+<p>The conditions that support a single-trial submission are:</p>
+<ul>
+<li><strong>Hard clinical endpoint.</strong> Survival, cardiovascular death, or other endpoints where the biological connection to patient outcome is unambiguous. Surrogate endpoints carry more risk of false-positive results that would not replicate.</li>
+<li><strong>Strong p-value.</strong> The trial must achieve a substantially lower threshold than the two-trial rule’s conventional 0.025, reflecting the equivalent combined-evidence standard. FDA interactions for specific programs determine the pre-agreed threshold.</li>
+<li><strong>Large multicenter enrollment.</strong> Demonstrates generalizability and reduces the risk that results are site-specific.</li>
+<li><strong>Internal consistency.</strong> Pre-specified subgroup analyses should show that the overall result is not driven by one atypical subgroup, effectively providing the within-trial replication that two trials provided across trials.</li>
+<li><strong>Confirmatory mechanistic or surrogate evidence.</strong> Biological plausibility and supportive Phase II data strengthen the case.</li>
+</ul>
+<p>As this book goes to press, the regulatory ground beneath this section is shifting. In June 2026 FDA issued a revised draft of its substantial-evidence guidance <span class="citation" data-cites="fda_single_trial_2026">(<a href="references.html#ref-fda_single_trial_2026" role="doc-biblioref">U.S. Food and Drug Administration 2026</a>)</span> that repositions a single adequate and well-controlled trial plus confirmatory evidence from a bounded exception toward a stated default, presented as applicable across disease areas rather than reserved for special cases. The revision is one piece of a broader HHS initiative (Operation TrialBlazer) aimed at accelerating U.S. drug development. Notably, the draft steps back from framing a single trial as the formal equivalent of two trials, emphasizing instead the strength and quantity of the confirmatory evidence a program can marshal. It remains a draft open for public comment (through September 22, 2026) rather than final policy, so the two-trial expectation still governs in practice, but the direction of travel is clear, and sponsors designing pivotal programs in this window should track where the guidance lands.</p>
+</section>
+<section id="the-breadth-tradeoff" class="level3">
+<h3 class="anchored" data-anchor-id="the-breadth-tradeoff">The Breadth Tradeoff</h3>
+<p>The genuine statistical cost of the one-trial approach is breadth. When sponsors run two trials in different but related patient populations, approval covers both, and labeling reflects evidence in each. A single trial in one population yields a label limited to that population, with off-label use carrying no safety or efficacy guarantee.</p>
+<p>For sponsors designing around the one-trial standard, this argues for enrolling a broader population within the single trial and pre-specifying subgroup analyses that function like a basket, demonstrating that the effect is consistent across the range of patients who will use the drug in practice. A narrow initial label followed by post-marketing expansion trials is a common outcome when a single pivotal trial supports the first approval. The breadth question bears directly on labeling negotiations with FDA at the pre-BLA meeting, and sponsors should resolve the population scope before the pivotal trial is designed.</p>
+</section>
+</section>
+<section id="sec-international-pathways" class="level2" data-number="29.8">
+<h2 data-number="29.8" class="anchored" data-anchor-id="sec-international-pathways"><span class="header-section-number">29.8</span> International Regulatory Pathways</h2>
+<p>While the U.S. NDA/BLA process is a central reference point, sponsors pursuing global registration must navigate parallel pathways in other major markets.</p>
+<p><strong>European Medicines Agency (EMA).</strong> The <em>centralized procedure</em> allows sponsors to submit a single Marketing Authorization Application (MAA) to obtain a marketing authorization valid in all EU/EEA member states. The centralized procedure is mandatory for certain product categories (biotechnology-derived products, orphan medicines, advanced therapy medicinal products) and optional for other innovative therapies. The Committee for Medicinal Products for Human Use (CHMP) conducts the scientific assessment, with a standard timeline of 210 active review days <span class="citation" data-cites="ec_726_2004">(<a href="references.html#ref-ec_726_2004" role="doc-biblioref">European Parliament and Council of the European Union 2004</a>)</span>. Sponsors may also use decentralized or mutual-recognition procedures for products not requiring centralized authorization.</p>
+<p><strong>Pharmaceuticals and Medical Devices Agency (PMDA, Japan).</strong> Japan’s regulatory pathway involves the <em>J-NDA</em> (new drug application) submitted to PMDA, which conducts both the scientific review and GMP inspections. Japan historically required local clinical data, and <em>bridging studies</em> under ICH E5 <span class="citation" data-cites="ich_e5">(<a href="references.html#ref-ich_e5" role="doc-biblioref">International Council for Harmonisation 1998</a>)</span> remain common to demonstrate that foreign data apply to the Japanese population. However, Japan’s participation in ICH and acceptance of multi-regional clinical trial data under ICH E17 has increasingly enabled global submissions.</p>
+<p><strong>National Medical Products Administration (NMPA, China).</strong> China’s regulatory framework has undergone substantial reform since 2017, including acceptance of international multi-center clinical trial data for registration, elimination of the mandatory clinical trial import license delay, and alignment with ICH guidelines (China became an ICH member in 2017). These reforms have contributed to China’s emergence as a major clinical trial market (see <a href="06-economics.html" class="quarto-xref"><span>Chapter 6</span></a>). The NMPA still generally requires inclusion of Chinese patients in pivotal trials, and local regulatory expertise remains essential for navigating evolving requirements.</p>
+<p><strong>ICH harmonization and multi-regional submissions.</strong> The Common Technical Document (CTD/eCTD) format, maintained by ICH (M4), enables sponsors to prepare a single core dossier (Modules 2-5) for submission across ICH member regions, adapting only Module 1 for region-specific administrative requirements. ICH E17 provides the scientific framework for designing multi-regional clinical trials that can simultaneously support regulatory decisions in multiple jurisdictions, reducing the need for duplicative regional studies while preserving the ability to assess consistency of treatment effects across populations <span class="citation" data-cites="ich_e17 ich_m4">(<a href="references.html#ref-ich_e17" role="doc-biblioref">International Council for Harmonisation 2017</a>, <a href="references.html#ref-ich_m4" role="doc-biblioref">2016</a>)</span>.</p>
+<p><strong>Concurrent oncology review.</strong> For cancer therapies, two FDA Oncology Center of Excellence programs have compressed timelines and coordinated approvals across borders. Real-Time Oncology Review (RTOR), piloted in 2018, lets sponsors submit key data components before the complete application so reviewers can begin their analysis earlier <span class="citation" data-cites="fda_rtor">(<a href="references.html#ref-fda_rtor" role="doc-biblioref">U.S. Food and Drug Administration, Oncology Center of Excellence 2024b</a>)</span>. Project Orbis, launched in 2019, provides a framework for concurrent submission and review of oncology products among international partner regulators, so that a single dossier can support near-simultaneous decisions in several countries <span class="citation" data-cites="fda_project_orbis">(<a href="references.html#ref-fda_project_orbis" role="doc-biblioref">U.S. Food and Drug Administration, Oncology Center of Excellence 2024a</a>)</span>.</p>
+<p>Regulatory obligations continue well beyond the initial approval. Sponsors are often required to conduct post-marketing requirements (PMRs) or agree to post-marketing commitments (PMCs), which can involve additional safety studies or trials in specialized populations. For therapies with significant identified risks, a Risk Evaluation and Mitigation Strategy (REMS) may be mandated to ensure safe use through communication plans or restricted distribution <span class="citation" data-cites="fda_rems">(<a href="references.html#ref-fda_rems" role="doc-biblioref">U.S. Food and Drug Administration 2024b</a>)</span>. Throughout the product’s marketed life, sponsors must monitor safety and submit periodic reports to regulatory authorities, confirming that the benefit-risk balance remains favorable as real-world experience accumulates.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-ec_726_2004" class="csl-entry" role="listitem">
+European Parliament and Council of the European Union. 2004. <span>“Regulation (EC) No 726/2004 Laying down Community Procedures for the Authorisation and Supervision of Medicinal Products for Human and Veterinary Use and Establishing a European Medicines Agency.”</span> <a href="https://eur-lex.europa.eu/eli/reg/2004/726/oj/eng">https://eur-lex.europa.eu/eli/reg/2004/726/oj/eng</a>.
+</div>
+<div id="ref-ich_e5" class="csl-entry" role="listitem">
+International Council for Harmonisation. 1998. <span>“ICH Harmonised Tripartite Guideline: Ethnic Factors in the Acceptability of Foreign Clinical Data E5(R1).”</span> <a href="https://www.ema.europa.eu/en/documents/scientific-guideline/ich-e-5-r1-ethnic-factors-acceptability-foreign-clinical-data-step-5_en.pdf">https://www.ema.europa.eu/en/documents/scientific-guideline/ich-e-5-r1-ethnic-factors-acceptability-foreign-clinical-data-step-5_en.pdf</a>.
+</div>
+<div id="ref-ich_m4" class="csl-entry" role="listitem">
+———. 2016. <span>“ICH M4: Organisation of the Common Technical Document for the Registration of Pharmaceuticals for Human Use.”</span> <a href="https://www.ich.org/page/ctd">https://www.ich.org/page/ctd</a>.
+</div>
+<div id="ref-ich_e17" class="csl-entry" role="listitem">
+———. 2017. <span>“ICH Harmonised Guideline: General Principles for Planning and Design of Multi-Regional Clinical Trials E17.”</span> <a href="https://www.ema.europa.eu/en/documents/scientific-guideline/ich-guideline-e17-general-principles-planning-and-design-multi-regional-clinical-trials-step-5-first-version_en.pdf">https://www.ema.europa.eu/en/documents/scientific-guideline/ich-guideline-e17-general-principles-planning-and-design-multi-regional-clinical-trials-step-5-first-version_en.pdf</a>.
+</div>
+<div id="ref-fdora2022" class="csl-entry" role="listitem">
+U.S. Congress. 2022. <span>“Food and Drug Omnibus Reform Act (<span>FDORA</span>) of 2022.”</span> <a href="https://www.fda.gov/regulatory-information/selected-amendments-fdc-act/food-and-drug-omnibus-reform-act-fdora-2022">https://www.fda.gov/regulatory-information/selected-amendments-fdc-act/food-and-drug-omnibus-reform-act-fdora-2022</a>.
+</div>
+<div id="ref-fda_expedited_2014" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2014. <span>“Expedited Programs for Serious Conditions – Drugs and Biologics: Guidance for Industry.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/expedited-programs-serious-conditions-drugs-and-biologics">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/expedited-programs-serious-conditions-drugs-and-biologics</a>.
+</div>
+<div id="ref-fda_substantial_evidence_2019" class="csl-entry" role="listitem">
+———. 2019. <span>“Demonstrating Substantial Evidence of Effectiveness for Human Drug and Biological Products.”</span> U.S. Food; Drug Administration. <a href="https://www.fda.gov/media/133660/download">https://www.fda.gov/media/133660/download</a>.
+</div>
+<div id="ref-cfr21_312" class="csl-entry" role="listitem">
+———. 2024a. <span>“21 CFR Part 312: Investigational New Drug Application.”</span> <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-D/part-312">https://www.ecfr.gov/current/title-21/chapter-I/subchapter-D/part-312</a>.
+</div>
+<div id="ref-fda_rems" class="csl-entry" role="listitem">
+———. 2024b. <span>“Risk Evaluation and Mitigation Strategies (REMS).”</span> <a href="https://www.fda.gov/drugs/drug-safety-and-availability/risk-evaluation-and-mitigation-strategies-rems">https://www.fda.gov/drugs/drug-safety-and-availability/risk-evaluation-and-mitigation-strategies-rems</a>.
+</div>
+<div id="ref-fda_single_trial_2026" class="csl-entry" role="listitem">
+———. 2026. <span>“Demonstrating Substantial Evidence of Effectiveness for Human Drug and Biological Products.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/demonstrating-substantial-evidence-effectiveness-human-drug-and-biological-products">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/demonstrating-substantial-evidence-effectiveness-human-drug-and-biological-products</a>.
+</div>
+<div id="ref-fda_project_orbis" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration, Oncology Center of Excellence. 2024a. <span>“Project Orbis.”</span> <a href="https://www.fda.gov/about-fda/oncology-center-excellence/project-orbis">https://www.fda.gov/about-fda/oncology-center-excellence/project-orbis</a>.
+</div>
+<div id="ref-fda_rtor" class="csl-entry" role="listitem">
+———. 2024b. <span>“Real-Time Oncology Review (RTOR).”</span> <a href="https://www.fda.gov/about-fda/oncology-center-excellence/real-time-oncology-review">https://www.fda.gov/about-fda/oncology-center-excellence/real-time-oncology-review</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./26-csr.html" class="pagination-link" aria-label="The Clinical Study Report">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./appendix-glossary.html" class="pagination-link" aria-label="Glossary and Abbreviations">
+        <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

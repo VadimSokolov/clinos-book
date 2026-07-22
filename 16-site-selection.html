@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>18&nbsp; Site Selection and Feasibility – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./17-recruitment.html" rel="next">
+<link href="./15-endpoints.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="18&nbsp; Site Selection and Feasibility – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:image" content="16-site-selection_files/figure-html/fig-wcg-site-types-1.png">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="18&nbsp; Site Selection and Feasibility – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:image" content="16-site-selection_files/figure-html/fig-wcg-site-types-1.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./16-site-selection.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#site-identification" id="toc-site-identification" class="nav-link active" data-scroll-target="#site-identification"><span class="header-section-number">18.1</span> Site Identification</a></li>
+  <li><a href="#feasibility-assessment" id="toc-feasibility-assessment" class="nav-link" data-scroll-target="#feasibility-assessment"><span class="header-section-number">18.2</span> Feasibility Assessment</a></li>
+  <li><a href="#the-enrollment-prediction-problem" id="toc-the-enrollment-prediction-problem" class="nav-link" data-scroll-target="#the-enrollment-prediction-problem"><span class="header-section-number">18.3</span> The Enrollment Prediction Problem</a></li>
+  <li><a href="#financial-and-contractual-negotiations" id="toc-financial-and-contractual-negotiations" class="nav-link" data-scroll-target="#financial-and-contractual-negotiations"><span class="header-section-number">18.4</span> Financial and Contractual Negotiations</a>
+  <ul class="collapse">
+  <li><a href="#operational-bottlenecks-by-site-type" id="toc-operational-bottlenecks-by-site-type" class="nav-link" data-scroll-target="#operational-bottlenecks-by-site-type">Operational Bottlenecks by Site Type</a></li>
+  </ul></li>
+  <li><a href="#site-initiation" id="toc-site-initiation" class="nav-link" data-scroll-target="#site-initiation"><span class="header-section-number">18.5</span> Site Initiation</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./16-site-selection.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-site-selection" class="quarto-section-identifier"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>A clinical trial exists only on paper until it enrolls patients. Those patients must be identified, recruited, and treated at clinical sites (hospitals, academic medical centers, private practices, or specialty clinics where investigators conduct the research). The selection and qualification of these sites is primary: the wrong sites can doom a trial to slow enrollment, poor data quality, and ultimately failure.</p>
+<p>For a Phase III trial requiring 1,000 patients, a sponsor might need 100 or more sites across multiple countries. Each site must be capable of identifying eligible patients, conducting the study procedures competently, maintaining regulatory compliance, and producing high-quality data. Finding sites that meet all these criteria, and that are genuinely committed to the trial, is harder than it might appear.</p>
+<p>Industry surveys consistently show that patient recruitment is among the most common reasons for trial delays. Historically, benchmarks have found that roughly 11% of investigative sites fail to enroll a single patient, with an additional 37% under-enrolling relative to their targets <span class="citation" data-cites="getz_site_metrics_2024">(<a href="references.html#ref-getz_site_metrics_2024" role="doc-biblioref">Tufts Center for the Study of Drug Development 2024</a>)</span>. This means that for a significant portion of activated sites, the substantial investment in startup and training yields little to no scientific data. More recent Tufts CSDD benchmarking is somewhat more encouraging: comparing site-activation and enrollment metrics across 2012, 2019, and 2023, Lamberti and colleagues found that actual enrollment exceeded planned enrollment for a majority of studies and that timelines were often shorter than expected, though achievement varied by region and site type <span class="citation" data-cites="lamberti_enrollment_2024">(<a href="references.html#ref-lamberti_enrollment_2024" role="doc-biblioref">Lamberti et al. 2024</a>)</span>.</p>
+<section id="site-identification" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="site-identification"><span class="header-section-number">18.1</span> Site Identification</h2>
+<p>The search for potential sites begins with identifying investigators who have access to the target patient population. In an era of specialty care, this often means specific types of clinical practices. A rheumatoid arthritis trial needs rheumatologists. An advanced lung cancer trial needs oncologists at centers that see late-stage disease. A rare disease trial may need to identify the handful of specialists worldwide who see enough patients to meaningfully contribute.</p>
+<p>Several factors guide site identification. <em>Geographic distribution</em> matters for global trials, where regulatory authorities may require data from relevant populations and where sponsors want to understand drug effects across regions. <em>Prior experience</em> with the sponsor, the therapeutic area, or clinical research generally can indicate capability. <em>Access to patients</em> matters most: a distinguished investigator who rarely sees the target population will not enroll patients.</p>
+<p>Databases of investigators, clinical trial registries, publication records, and prior trial performance all inform site identification. Sponsor relationships with key opinion leaders and clinical networks also play important roles. The clinical research site landscape is diverse, ranging from large academic medical centers (AMCs) and integrated health systems to small, independent physician practices and site networks (see <a href="#fig-wcg-site-types" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-wcg-site-types" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wcg-site-types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="16-site-selection_files/figure-html/fig-wcg-site-types-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wcg-site-types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.1: Distribution of Clinical Research Site Types (2024). Data from <span class="citation" data-cites="wcg_site_challenges_2024">WCG Clinical (<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">2024</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>However, the pool of available investigators is smaller than the total physician population and has faced significant contraction in recent years. While a 2004 survey found that about 13% of physicians actively served as clinical investigators <span class="citation" data-cites="harris2004poll">(<a href="references.html#ref-harris2004poll" role="doc-biblioref">Harris Interactive 2004</a>)</span>, the 2024 WCG Clinical Research Site Challenges Report documents a sharp contraction: the number of unique U.S. investigators fell roughly <strong>78%</strong>, from a pandemic-inflated peak of over 28,000 in 2020 to approximately 6,200 in 2024, alongside a <strong>57% decrease in U.S. trial starts</strong> over the same period <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>. Because 2020 was a pandemic-inflated peak, this headline overstates the structural trend: measured from the pre-pandemic level of about 23,000 investigators, the decline is closer to 73%, still a steep erosion of the base. These 2024 investigator and trial-start counts are preliminary, drawn from a partial-year ClinSphere snapshot that exaggerates the single-year drop from 2023; WCG’s more recent site-challenges reporting has continued to show the same downward direction of travel.</p>
+<p>As shown in <a href="#fig-wcg-investigators" class="quarto-xref">Figure&nbsp;<span>18.2</span></a>, the trends for investigators and trial starts are distinct. While the investigator pool experienced a transient pandemic-related surge in 2020 followed by a crash, the number of new trial starts remained relatively stable (peaking near 2,000 in 2021) before beginning a precipitous decline to fewer than 800 in 2024. This downturn is driven by a combination of factors: - <strong>Post-Pandemic Normalization</strong>: A significant reduction in COVID-19-related clinical activity, which peaked in 2021. - <strong>Biotech Funding Pressure</strong>: After a sharp slowdown in 2022, biopharma funding only partially rebounded in 2023 and remained well below its 2020-21 pandemic peak, constraining emerging-biopharma companies and contributing to fewer trial starts <span class="citation" data-cites="iqvia_success_2024">(<a href="references.html#ref-iqvia_success_2024" role="doc-biblioref">IQVIA Institute for Human Data Science 2024</a>)</span>. - <strong>Rising R&amp;D Costs</strong>: With the capitalized cost of a single novel asset now estimated at $2.2-2.6 billion <span class="citation" data-cites="deloitte_rd_return_2025 tufts_cost_2016">(<a href="references.html#ref-deloitte_rd_return_2025" role="doc-biblioref">Deloitte Centre for Health Solutions 2025</a>; <a href="references.html#ref-tufts_cost_2016" role="doc-biblioref">DiMasi, Grabowski, and Hansen 2016</a>)</span>, sponsors are becoming more risk-averse, focusing capital on existing late-stage pipelines rather than initiating new early-phase starts. - <strong>Operational Complexity</strong>: Mounting regulatory hurdles and administrative burdens have extended site activation timelines to 3-6 months, discouraging new starts during periods of economic uncertainty <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>.</p>
+<p>These drivers are also structural. Increasing clinical demands leave physicians with limited bandwidth for research, while research team staffing shortages further strain site capacity. This has exacerbated the <strong>“one and done” phenomenon</strong>, where approximately <strong>66% of physicians</strong> who participate in a clinical trial do so only once before exiting the research ecosystem <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>. The consequences of this investigator attrition for recruitment and retention are discussed further in <a href="17-recruitment.html" class="quarto-xref"><span>Chapter 19</span></a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-wcg-investigators" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wcg-investigators-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="16-site-selection_files/figure-html/fig-wcg-investigators-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wcg-investigators-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.2: U.S. Investigators Participating in Clinical Trials Compared to New Trial Starts (2018-2024). Data from <span class="citation" data-cites="wcg_site_challenges_2024">WCG Clinical (<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">2024</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In that same 2004 survey, among physicians not involved in clinical trials, <strong>38% cited lack of opportunity</strong> as the main reason for not serving as a Principal or Sub-Investigator, while <strong>32% indicated that the time commitment is prohibitive</strong> <span class="citation" data-cites="harris2004poll">(<a href="references.html#ref-harris2004poll" role="doc-biblioref">Harris Interactive 2004</a>)</span>. These constraints, compounded by the current exit of experienced investigators, mean that site identification is not just about finding expertise, but finding the rare combination of expertise, patient access, and operational bandwidth.</p>
+<p>Historically, clinical trials have often failed to represent the diverse populations that will ultimately use the investigated therapies. This lack of representation compromises the external validity of trial results and can obscure important differences in safety or efficacy across demographic groups. The passage of the Food and Drug Omnibus Reform Act of 2022 (FDORA) has fundamentally altered the regulatory landscape, requiring sponsors to submit Diversity Action Plans for Phase III trials (and certain other pivotal studies) to the FDA <span class="citation" data-cites="fdora2022">(<a href="references.html#ref-fdora2022" role="doc-biblioref">U.S. Congress 2022</a>)</span>. The statutory requirement itself stands, but its implementing guidance has been in flux: FDA’s June 2024 draft Diversity Action Plans guidance was withdrawn following a January 2025 executive order on diversity, equity, and inclusion, then restored under court order weeks later, and its final version was not issued by the statutory deadline <span class="citation" data-cites="fda_dap_status_2025">(<a href="references.html#ref-fda_dap_status_2025" role="doc-biblioref">Grossi 2025</a>)</span>. A separate December 2025 final guidance, <em>Enhancing Participation in Clinical Trials</em>, kept the emphasis on representative enrollment while dropping the “diversity” framing <span class="citation" data-cites="fda_eligibility_2025">(<a href="references.html#ref-fda_eligibility_2025" role="doc-biblioref">U.S. Food and Drug Administration 2025</a>)</span>. Sponsors should therefore confirm the current enforcement posture rather than treat the mandate as fully settled.</p>
+<p>Site selection is the primary operational lever for achieving diversity goals. A sophisticated site selection strategy moves beyond simply identifying high-volume academic centers to engaging sites embedded in underrepresented communities. This may involve selecting community hospitals, federally qualified health centers (FQHCs), or practices in specific geographic areas with high demographic density of the target populations.</p>
+<p>However, selecting diverse sites presents specific operational challenges that must be managed. Sites in underresourced areas may lack the dedicated research infrastructure (study coordinators, -80°C freezers, secure storage) found in major academic centers. Sponsors must therefore assess not just the current capability of a site, but its potential capability if provided with appropriate support. The goal is to build a site network that geographically and demographically mirrors the epidemiology of the disease, ensuring that the trial data are generalizable and compliant with modern regulatory mandates.</p>
+</section>
+<section id="feasibility-assessment" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="feasibility-assessment"><span class="header-section-number">18.2</span> Feasibility Assessment</h2>
+<p>Once potential sites are identified, a <em>feasibility assessment</em> evaluates whether each site can realistically conduct the study. This assessment typically involves questionnaires completed by site staff and may be supplemented by in-person or virtual visits.</p>
+<p>The feasibility assessment asks several critical questions, summarized in <a href="#tbl-site-evaluation" class="quarto-xref">Table&nbsp;<span>18.1</span></a>.</p>
+<div id="tbl-site-evaluation" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[18,40,42]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-site-evaluation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;18.1: Site Feasibility Evaluation Criteria
+</figcaption>
+<div aria-describedby="tbl-site-evaluation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 40%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Key Questions</th>
+<th>Red Flags</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Patient Access</em></td>
+<td>How many target patients per year? Competing trials?</td>
+<td>&lt;10 eligible patients/year; Multiple competing studies</td>
+</tr>
+<tr class="even">
+<td><em>Investigator</em></td>
+<td>Prior trial experience? Enrollment track record?</td>
+<td>No research experience; History of poor enrollment</td>
+</tr>
+<tr class="odd">
+<td><em>Infrastructure</em></td>
+<td>Dedicated research staff? Equipment? Data systems?</td>
+<td>No study coordinator; Inadequate facilities</td>
+</tr>
+<tr class="even">
+<td><em>Regulatory</em></td>
+<td>IRB timeline? Institutional requirements?</td>
+<td>IRB backlog &gt;3 months; Complex approval layers</td>
+</tr>
+<tr class="odd">
+<td><em>Commitment</em></td>
+<td>PI availability? Staff turnover?</td>
+<td>Part-time PI; High coordinator turnover</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The feasibility assessment explores several critical operational dimensions:</p>
+<ul>
+<li><em>Patient access</em>: confirm the site has sufficient access to the target patient population and that these patients are not already committed to competing trials</li>
+<li><em>Investigator qualifications</em>: scrutinize licensure, research experience, and historical enrollment track record to ensure capability and genuine commitment</li>
+<li><em>Physical infrastructure</em>: verify dedicated research staff, space for study procedures, and laboratory capabilities</li>
+<li><em>Regulatory readiness</em>: assess the efficiency of the local IRB and identify any institutional requirements that could delay startup</li>
+<li><em>Commitment</em>: gauge PI availability and the site’s staff and coordinator turnover history, since a part-time PI or high turnover can undermine execution even at an otherwise well-resourced site</li>
+</ul>
+</section>
+<section id="the-enrollment-prediction-problem" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="the-enrollment-prediction-problem"><span class="header-section-number">18.3</span> The Enrollment Prediction Problem</h2>
+<p>Perhaps the most vexing challenge in site selection is predicting how many patients each site will actually enroll. Sites are notoriously over-optimistic. An investigator who claims to see 50 eligible patients per month and predicts enrolling 30 may ultimately enroll 3.</p>
+<p>Several factors contribute to this gap. Investigators may not accurately know how many of their patients meet eligibility criteria: the criteria are often more restrictive than general clinical practice. Patients who appear eligible on paper may decline participation or prove ineligible upon screening. Competing trials may draw away potential participants. Staff turnover or other operational issues may limit enrollment capacity.</p>
+<p>Experienced sponsors apply skepticism to site predictions, often discounting stated estimates by 50% or more. Historical data on site performance in prior trials provides a more reliable guide than investigator optimism.</p>
+</section>
+<section id="financial-and-contractual-negotiations" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="financial-and-contractual-negotiations"><span class="header-section-number">18.4</span> Financial and Contractual Negotiations</h2>
+<p>Between the identification of a qualified site and its activation lies a complex administrative hurdle: the negotiation of the Clinical Trial Agreement (CTA) and the site budget. This phase is a consistent bottleneck: industry benchmarks show that the cycle time from site selection to site initiation is driven more often by contract execution than by regulatory approval <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>.</p>
+<p>The Clinical Trial Agreement is a legally binding contract that governs the relationship between the sponsor and the institution. It addresses liability, indemnification, intellectual property rights, data ownership, and publication policy. Negotiations can be protracted, particularly with large academic medical centers that adhere to rigid institutional policies regarding indemnification and subject injury. For global trials, these agreements must also align with local laws regarding data privacy and anti-bribery regulations.</p>
+<p>The site budget is equally complex, requiring a granular accounting of both per-patient costs and overhead fees. A well-constructed budget typically includes per-subject costs for clinical procedures, investigator time, and pharmacy services. It also incorporates startup fees to cover administrative effort in regulatory submission and staff training. Pass-through costs reimburse variable expenses such as IRB fees and participant travel. Finally, an institutional overhead surcharge is applied to direct costs.</p>
+<p>A related exercise, especially for U.S. sites, is the <em>coverage analysis</em>. Before a trial opens, the site reviews each protocol-required procedure to determine which costs may be billed to a participant’s insurance as routine clinical care and which must be paid by the sponsor as research costs. In the United States this determination rests on the Medicare Clinical Trial Policy (National Coverage Determination 310.1, “Routine Costs in Clinical Trials”) and, for commercial plans, the Affordable Care Act’s requirement that the routine patient costs of qualifying clinical trials be covered. Getting it wrong exposes the institution to double-billing and false-claims liability, so it demands specialized revenue-cycle expertise. Coverage analysis is one component of the study start-up work (alongside budgets and contracts) that sites most often identify as their leading source of start-up delay <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>.</p>
+<section id="operational-bottlenecks-by-site-type" class="level3">
+<h3 class="anchored" data-anchor-id="operational-bottlenecks-by-site-type">Operational Bottlenecks by Site Type</h3>
+<p>The administrative burden of study start-up (coverage analysis, budgets, and contracts) is not distributed evenly across the research ecosystem. According to the 2024 WCG Clinical Research Site Challenges Report, “Study Start-up” remains the single largest operational obstacle for larger institutions (academic medical centers, health systems, and community hospitals), with 43% of these sites identifying it as a primary challenge <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>. In contrast, smaller independent sites, physician practices, and site networks report start-up as a top challenge only 24% of the time, focusing instead on recruitment and retention as their primary burden (39%).</p>
+<p>This disparity results in significantly different trial initiation timelines. Approximately 60% of independent sites and physician practices report the ability to initiate studies in under 60 days. At larger institutions, however, the process is far more protracted: 77% of academic medical centers, health systems, and community hospitals report start-up timelines exceeding 60 days, often due to the complexity of managing multiple internal stakeholders, lack of centralized research administration, and bureaucratic regulatory layers <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>. Across all site types in the United States, “Budgets and Contracts” remain the single largest bottleneck, cited by 77% of sites as the primary contributor to start-up delays (see <a href="#fig-wcg-ssu-contributors" class="quarto-xref">Figure&nbsp;<span>18.3</span></a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-wcg-ssu-contributors" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wcg-ssu-contributors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="16-site-selection_files/figure-html/fig-wcg-ssu-contributors-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wcg-ssu-contributors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.3: Largest Contributors to Study Start-Up Timelines in the U.S. (2024). Data from <span class="citation" data-cites="wcg_site_challenges_2024">WCG Clinical (<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">2024</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Sponsors must account for these different performance profiles when designing their site selection and activation strategy, often favoring independent networks for rapid enrollment while relying on academic centers for complex therapeutic areas or highly specialized patient populations.</p>
+<p>Budget negotiation requires balancing fiscal discipline with the reality that sites must cover their costs to remain viable. Underfunding sites invariably leads to poor attention to the study, slow data entry, and lack of prioritization relative to other, better-funded trials.</p>
+</section>
+</section>
+<section id="site-initiation" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="site-initiation"><span class="header-section-number">18.5</span> Site Initiation</h2>
+<p>Once a site is selected and regulatory approvals are obtained, the site must be <em>initiated</em>: prepared to enroll patients and conduct the study. <a href="#fig-site-lifecycle" class="quarto-xref">Figure&nbsp;<span>18.4</span></a> illustrates the complete site lifecycle from identification through closeout.</p>
+<div class="cell" data-eval="false" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+
+</div>
+<p></p><figcaption> Clinical trial site lifecycle from identification through study closeout</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div id="fig-site-lifecycle" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-site-lifecycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig/fig-site-lifecycle.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-site-lifecycle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.4: Clinical trial site lifecycle from identification through study closeout
+</figcaption>
+</figure>
+</div>
+<p>The <em>Site Initiation Visit (SIV)</em> formalizes the training process. During the SIV, study personnel review the protocol in detail, walk through study procedures, demonstrate equipment, set up data systems, and ensure that essential supplies are in place. The investigator and key site staff must participate; their engagement (or lack thereof) often signals future performance.</p>
+<p>Following the SIV, the site is authorized to begin screening and enrolling patients. The time from site selection to first patient enrolled (the <em>site activation time</em>) can range from weeks to months depending on regulatory complexity, contract negotiations, and site responsiveness.</p>
+<p>Managing a global network of sites requires operational infrastructure. Training must be delivered consistently across various languages and time zones, often utilizing a combination of e-learning platforms and regional investigator meetings. Communication strategies must strike a balance: providing enough information to keep sites aligned without overwhelming staff with unnecessary updates. Simultaneously, performance management systems must track real-time metrics (enrollment rates, data quality, and query resolution times) to identify sites that need additional support or, in extreme cases, closure. Sponsors view high-performing sites as long-term partners, and investing in these relationships through transparent communication and professional support improves enrollment, data quality, and site retention across the drug development program.</p>
+<p>Global trials introduce additional complexity beyond these core operational elements. Regulatory requirements differ by country, and language barriers affect training and documentation. Cultural factors influence patient willingness to participate in research, expectations about investigator relationships, and approaches to adverse event reporting. Standard of care may differ across regions, affecting choice of comparator and interpretation of results, while patient populations may differ in disease characteristics, comorbidities, and concomitant medications. Some regions may have limited research infrastructure requiring more intensive support, while others may have mature research environments but intense competition for investigators and patients. These differences must be considered in trial design and analysis.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-deloitte_rd_return_2025" class="csl-entry" role="listitem">
+Deloitte Centre for Health Solutions. 2025. <span>“Measuring the Return from Pharmaceutical Innovation.”</span> <a href="https://www2.deloitte.com/us/en/pages/life-sciences-and-health-care/articles/measuring-return-from-pharmaceutical-innovation.html">https://www2.deloitte.com/us/en/pages/life-sciences-and-health-care/articles/measuring-return-from-pharmaceutical-innovation.html</a>.
+</div>
+<div id="ref-tufts_cost_2016" class="csl-entry" role="listitem">
+DiMasi, Joseph A., Henry G. Grabowski, and Ronald W. Hansen. 2016. <span>“Innovation in the Pharmaceutical Industry: New Estimates of r&amp;d Costs.”</span> <em>Journal of Health Economics</em> 47: 20–33. <a href="https://doi.org/10.1016/j.jhealeco.2016.01.012">https://doi.org/10.1016/j.jhealeco.2016.01.012</a>.
+</div>
+<div id="ref-fda_dap_status_2025" class="csl-entry" role="listitem">
+Grossi, Giuliana. 2025. <span>“FDA Quietly Removes Draft Guidance on Diversity in Clinical Trials Following Executive Order on DEI.”</span> The American Journal of Managed Care (AJMC). <a href="https://www.ajmc.com/view/fda-quietly-removes-draft-guidance-on-diversity-in-clinical-trials-following-executive-order-on-dei">https://www.ajmc.com/view/fda-quietly-removes-draft-guidance-on-diversity-in-clinical-trials-following-executive-order-on-dei</a>.
+</div>
+<div id="ref-harris2004poll" class="csl-entry" role="listitem">
+Harris Interactive. 2004. <span>“Most Physicians Do Not Participate in Clinical Trials Because of Lack of Opportunity, Time, Personnel Support and Resources.”</span> <a href="https://www.biospace.com/b-harris-interactive-b-release-most-physicians-do-not-participate-in-clinical-trials-because-of-lack-of-opportunity-time-personnel-support-and-r">https://www.biospace.com/b-harris-interactive-b-release-most-physicians-do-not-participate-in-clinical-trials-because-of-lack-of-opportunity-time-personnel-support-and-r</a>.
+</div>
+<div id="ref-iqvia_success_2024" class="csl-entry" role="listitem">
+IQVIA Institute for Human Data Science. 2024. <span>“Global Trends in r&amp;d 2024: Activity, Productivity, and Enablers.”</span> <a href="https://www.iqvia.com/insights/the-iqvia-institute/reports-and-publications/reports/global-trends-in-r-and-d-2024-activity-productivity-and-enablers">https://www.iqvia.com/insights/the-iqvia-institute/reports-and-publications/reports/global-trends-in-r-and-d-2024-activity-productivity-and-enablers</a>.
+</div>
+<div id="ref-lamberti_enrollment_2024" class="csl-entry" role="listitem">
+Lamberti, Mary Jo, Abigail Dirks, Nicholas Kikuchi, Neha Patel Cervantes, and Kenneth Getz. 2024. <span>“Benchmarking Site Activation and Patient Enrollment.”</span> <em>Therapeutic Innovation &amp; Regulatory Science</em> 58 (4): 696–703. <a href="https://doi.org/10.1007/s43441-024-00638-1">https://doi.org/10.1007/s43441-024-00638-1</a>.
+</div>
+<div id="ref-getz_site_metrics_2024" class="csl-entry" role="listitem">
+Tufts Center for the Study of Drug Development. 2024. <span>“Site Performance Metrics and Benchmarks.”</span> <a href="https://csdd.tufts.edu/publications/impact-reports">https://csdd.tufts.edu/publications/impact-reports</a>.
+</div>
+<div id="ref-fdora2022" class="csl-entry" role="listitem">
+U.S. Congress. 2022. <span>“Food and Drug Omnibus Reform Act (<span>FDORA</span>) of 2022.”</span> <a href="https://www.fda.gov/regulatory-information/selected-amendments-fdc-act/food-and-drug-omnibus-reform-act-fdora-2022">https://www.fda.gov/regulatory-information/selected-amendments-fdc-act/food-and-drug-omnibus-reform-act-fdora-2022</a>.
+</div>
+<div id="ref-fda_eligibility_2025" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2025. <span>“Enhancing Participation in Clinical Trials: Eligibility Criteria, Enrollment Practices, and Trial Designs.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/enhancing-participation-clinical-trials-eligibility-criteria-enrollment-practices-and-trial-designs">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/enhancing-participation-clinical-trials-eligibility-criteria-enrollment-practices-and-trial-designs</a>.
+</div>
+<div id="ref-wcg_site_challenges_2024" class="csl-entry" role="listitem">
+WCG Clinical. 2024. <span>“2024 Clinical Research Site Challenges Report: Data-Driven Insights on Current Site Challenges and Strategic Recommendations to Overcome Barriers and Boost Clinical Trial Efficiency.”</span> <a href="https://www.wcgclinical.com/wp-content/uploads/2024/10/WCG_2024_Clinical_Research_Site_Challenges_Report.pdf">https://www.wcgclinical.com/wp-content/uploads/2024/10/WCG_2024_Clinical_Research_Site_Challenges_Report.pdf</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./15-endpoints.html" class="pagination-link" aria-label="Endpoints and Outcomes">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./17-recruitment.html" class="pagination-link" aria-label="Patient Recruitment and Retention">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

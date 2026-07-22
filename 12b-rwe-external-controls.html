@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>14&nbsp; Real-World Evidence and Evidence Integration – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./13-protocol-benchmarks.html" rel="next">
+<link href="./12-study-design.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="14&nbsp; Real-World Evidence and Evidence Integration – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="14&nbsp; Real-World Evidence and Evidence Integration – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./12b-rwe-external-controls.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-regulatory-framework" id="toc-the-regulatory-framework" class="nav-link active" data-scroll-target="#the-regulatory-framework"><span class="header-section-number">14.1</span> The Regulatory Framework</a>
+  <ul class="collapse">
+  <li><a href="#statutory-authority-and-fdas-program" id="toc-statutory-authority-and-fdas-program" class="nav-link" data-scroll-target="#statutory-authority-and-fdas-program">Statutory Authority and FDA’s Program</a></li>
+  <li><a href="#ema-and-international-harmonization" id="toc-ema-and-international-harmonization" class="nav-link" data-scroll-target="#ema-and-international-harmonization">EMA and International Harmonization</a></li>
+  <li><a href="#fit-for-purpose-the-governing-concept" id="toc-fit-for-purpose-the-governing-concept" class="nav-link" data-scroll-target="#fit-for-purpose-the-governing-concept">Fit-for-Purpose: The Governing Concept</a></li>
+  <li><a href="#hta-and-payer-frameworks" id="toc-hta-and-payer-frameworks" class="nav-link" data-scroll-target="#hta-and-payer-frameworks">HTA and Payer Frameworks</a></li>
+  </ul></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources"><span class="header-section-number">14.2</span> Data Sources</a>
+  <ul class="collapse">
+  <li><a href="#outcome-ascertainment-the-critical-quality-issue" id="toc-outcome-ascertainment-the-critical-quality-issue" class="nav-link" data-scroll-target="#outcome-ascertainment-the-critical-quality-issue">Outcome Ascertainment: The Critical Quality Issue</a></li>
+  </ul></li>
+  <li><a href="#study-design-taxonomy" id="toc-study-design-taxonomy" class="nav-link" data-scroll-target="#study-design-taxonomy"><span class="header-section-number">14.3</span> Study Design Taxonomy</a>
+  <ul class="collapse">
+  <li><a href="#observational-comparative-effectiveness-research" id="toc-observational-comparative-effectiveness-research" class="nav-link" data-scroll-target="#observational-comparative-effectiveness-research">Observational Comparative Effectiveness Research</a></li>
+  <li><a href="#natural-history-and-registry-studies" id="toc-natural-history-and-registry-studies" class="nav-link" data-scroll-target="#natural-history-and-registry-studies">Natural History and Registry Studies</a></li>
+  <li><a href="#external-control-arms-and-synthetic-control-arms" id="toc-external-control-arms-and-synthetic-control-arms" class="nav-link" data-scroll-target="#external-control-arms-and-synthetic-control-arms">External Control Arms and Synthetic Control Arms</a></li>
+  <li><a href="#hybrid-randomized-designs-and-bayesian-augmented-controls" id="toc-hybrid-randomized-designs-and-bayesian-augmented-controls" class="nav-link" data-scroll-target="#hybrid-randomized-designs-and-bayesian-augmented-controls">Hybrid Randomized Designs and Bayesian Augmented Controls</a></li>
+  <li><a href="#registry-based-randomized-controlled-trials" id="toc-registry-based-randomized-controlled-trials" class="nav-link" data-scroll-target="#registry-based-randomized-controlled-trials">Registry-Based Randomized Controlled Trials</a></li>
+  <li><a href="#platform-trials-and-external-data" id="toc-platform-trials-and-external-data" class="nav-link" data-scroll-target="#platform-trials-and-external-data">Platform Trials and External Data</a></li>
+  <li><a href="#embedded-and-pragmatic-trials" id="toc-embedded-and-pragmatic-trials" class="nav-link" data-scroll-target="#embedded-and-pragmatic-trials">Embedded and Pragmatic Trials</a></li>
+  </ul></li>
+  <li><a href="#pharmacoepidemiology-design-principles" id="toc-pharmacoepidemiology-design-principles" class="nav-link" data-scroll-target="#pharmacoepidemiology-design-principles"><span class="header-section-number">14.4</span> Pharmacoepidemiology Design Principles</a></li>
+  <li><a href="#statistical-methods-for-real-world-evidence" id="toc-statistical-methods-for-real-world-evidence" class="nav-link" data-scroll-target="#statistical-methods-for-real-world-evidence"><span class="header-section-number">14.5</span> Statistical Methods for Real-World Evidence</a>
+  <ul class="collapse">
+  <li><a href="#causal-diagrams-as-the-starting-point" id="toc-causal-diagrams-as-the-starting-point" class="nav-link" data-scroll-target="#causal-diagrams-as-the-starting-point">Causal Diagrams as the Starting Point</a></li>
+  <li><a href="#propensity-score-and-doubly-robust-methods" id="toc-propensity-score-and-doubly-robust-methods" class="nav-link" data-scroll-target="#propensity-score-and-doubly-robust-methods">Propensity Score and Doubly Robust Methods</a></li>
+  <li><a href="#instrumental-variables" id="toc-instrumental-variables" class="nav-link" data-scroll-target="#instrumental-variables">Instrumental Variables</a></li>
+  <li><a href="#difference-in-differences-and-regression-discontinuity" id="toc-difference-in-differences-and-regression-discontinuity" class="nav-link" data-scroll-target="#difference-in-differences-and-regression-discontinuity">Difference-in-Differences and Regression Discontinuity</a></li>
+  <li><a href="#unmeasured-confounding-assessment" id="toc-unmeasured-confounding-assessment" class="nav-link" data-scroll-target="#unmeasured-confounding-assessment">Unmeasured Confounding Assessment</a></li>
+  </ul></li>
+  <li><a href="#landmark-applications" id="toc-landmark-applications" class="nav-link" data-scroll-target="#landmark-applications"><span class="header-section-number">14.6</span> Landmark Applications</a>
+  <ul class="collapse">
+  <li><a href="#oncology-ibrance-for-male-breast-cancer" id="toc-oncology-ibrance-for-male-breast-cancer" class="nav-link" data-scroll-target="#oncology-ibrance-for-male-breast-cancer">Oncology: Ibrance for Male Breast Cancer</a></li>
+  <li><a href="#covid-19-vaccine-effectiveness-at-scale" id="toc-covid-19-vaccine-effectiveness-at-scale" class="nav-link" data-scroll-target="#covid-19-vaccine-effectiveness-at-scale">COVID-19 Vaccine Effectiveness at Scale</a></li>
+  <li><a href="#registry-based-trials-taste-and-swedeheart" id="toc-registry-based-trials-taste-and-swedeheart" class="nav-link" data-scroll-target="#registry-based-trials-taste-and-swedeheart">Registry-Based Trials: TASTE and SWEDEHEART</a></li>
+  </ul></li>
+  <li><a href="#infrastructure-omop-ohdsi-and-federated-analytics" id="toc-infrastructure-omop-ohdsi-and-federated-analytics" class="nav-link" data-scroll-target="#infrastructure-omop-ohdsi-and-federated-analytics"><span class="header-section-number">14.7</span> Infrastructure: OMOP, OHDSI, and Federated Analytics</a></li>
+  <li><a href="#generalizability-and-transportability" id="toc-generalizability-and-transportability" class="nav-link" data-scroll-target="#generalizability-and-transportability"><span class="header-section-number">14.8</span> Generalizability and Transportability</a></li>
+  <li><a href="#when-does-rwe-belong-in-a-development-program" id="toc-when-does-rwe-belong-in-a-development-program" class="nav-link" data-scroll-target="#when-does-rwe-belong-in-a-development-program"><span class="header-section-number">14.9</span> When Does RWE Belong in a Development Program?</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./12b-rwe-external-controls.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-rwe-external-controls" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The randomized controlled trial is the most reliable instrument for establishing that a treatment causes its observed effect. But randomization is not always possible, ethical, or sufficient. A new drug approved in women with hormone receptor-positive metastatic breast cancer may need a label extension for men with the same disease, a population of roughly 2,670 annual U.S. cases, too few to power a randomized trial. A vaccine approved in a clinical trial of healthy volunteers needs its effectiveness measured across a diverse population receiving it in community pharmacies. A drug studied in a three-year trial needs its long-term safety assessed over a decade. A rare pediatric disease may have only a few hundred patients worldwide, none of whom can ethically be assigned to placebo.</p>
+<p>These situations are not edge cases. They describe a large and growing fraction of the evidence questions that drug development must answer. The response (drawing on data collected outside of controlled trials to generate evidence about drugs) has evolved over fifty years from an informal practice into a regulated discipline with its own methodology, infrastructure, and regulatory framework.</p>
+<p>This chapter covers that discipline. <em>Real-world evidence</em> (RWE) is clinical evidence about the usage and potential benefits or risks of a medical product derived from analysis of <em>real-world data</em> (RWD): data collected outside of traditional randomized clinical trials, including electronic health records, insurance claims, disease registries, patient-reported outcomes, and wearable devices. The distinction matters: RWD is the raw data; RWE is the clinical evidence derived from rigorous analysis of it. Both terms appear in FDA guidance and are often used interchangeably in conversation, but the distinction reflects an important analytic step.</p>
+<section id="the-regulatory-framework" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="the-regulatory-framework"><span class="header-section-number">14.1</span> The Regulatory Framework</h2>
+<p>Regulatory acceptance of real-world evidence was not granted all at once; it was built statute by statute and guidance by guidance, and it still varies across jurisdictions. This section begins with the U.S. statutory mandate and FDA’s program, then turns to the EMA and international harmonization.</p>
+<section id="statutory-authority-and-fdas-program" class="level3">
+<h3 class="anchored" data-anchor-id="statutory-authority-and-fdas-program">Statutory Authority and FDA’s Program</h3>
+<p>The modern regulatory basis for RWE in the U.S. is Section 3022 of the 21st Century Cures Act (2016), which directed FDA to evaluate the potential use of RWE to support approval of new indications and to satisfy post-approval study requirements. This was not a broad authorization but a specific mandate: FDA was required to develop a framework and an implementation program, with congressional reporting on what it accepted and what it rejected.</p>
+<p>FDA published its <em>Framework for FDA’s Real-World Evidence Program</em> in 2018, establishing two evaluative dimensions for any RWD source. <em>Relevance</em>: does the data cover the population, setting, outcomes, and time period pertinent to the regulatory question? <em>Reliability</em>: is the data complete, accurate, and consistent, with sufficient provenance and quality control to be trusted? These two questions (relevance and reliability) remain the organizing lens for every FDA RWE review.</p>
+<p>Since 2018, FDA has issued a substantial suite of guidance documents (see <a href="#tbl-fda-rwe-guidance" class="quarto-xref">Table&nbsp;<span>14.1</span></a>) that progressively operationalize this framework. The practical endpoints of this regulatory evolution are: the 2023 guidance on externally controlled trials, which directly specifies what sponsors must document when using RWD as a control arm; the 2023 guidance on RWD/RWE considerations more broadly; the 2024 updated guidance on assessing EHR and medical claims data; and the 2024 guidance specifically on non-interventional studies. Under the PDUFA VII (Prescription Drug User Fee Act) commitments, FDA’s “Advancing Real-World Evidence Program” explicitly targets RWE for <em>effectiveness</em> labeling changes, the historically most resistant application.</p>
+<div id="tbl-fda-rwe-guidance" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-fda-rwe-guidance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;14.1: FDA Real-World Evidence Guidance Documents (selected)
+</figcaption>
+<div aria-describedby="tbl-fda-rwe-guidance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Year</th>
+<th>Document</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2018</td>
+<td>Framework for FDA’s RWE Program</td>
+<td>Overarching; defines RWD/RWE, relevance/reliability criteria</td>
+</tr>
+<tr class="even">
+<td>2022</td>
+<td>Submitting Documents Utilizing RWD/RWE to FDA</td>
+<td>Procedural: what submissions must contain</td>
+</tr>
+<tr class="odd">
+<td>2023</td>
+<td>Externally Controlled Trials for Drug and Biological Products</td>
+<td>ECA design, comparability, bias mitigation (draft)</td>
+</tr>
+<tr class="even">
+<td>2023</td>
+<td>Considerations for Using RWD and RWE</td>
+<td>Overarching study design and data quality</td>
+</tr>
+<tr class="odd">
+<td>2023</td>
+<td>Assessing Registries to Support Regulatory Decision-Making</td>
+<td>Disease/product registry fit-for-purpose assessment</td>
+</tr>
+<tr class="even">
+<td>2024</td>
+<td>Assessing EHR and Medical Claims Data</td>
+<td>EHR/claims data quality requirements (updates 2021 draft)</td>
+</tr>
+<tr class="odd">
+<td>2024</td>
+<td>Non-Interventional Studies for Drug and Biological Products</td>
+<td>Observational study design expectations (draft)</td>
+</tr>
+<tr class="even">
+<td>2024</td>
+<td>Integrating RCTs Into Routine Clinical Practice</td>
+<td>Embedded/pragmatic trial design (draft)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="ema-and-international-harmonization" class="level3">
+<h3 class="anchored" data-anchor-id="ema-and-international-harmonization">EMA and International Harmonization</h3>
+<p>The EMA’s approach is infrastructure-centric rather than document-centric. Rather than issuing guidance for sponsors to follow, EMA established <strong>DARWIN EU</strong> (Data Analysis and Real World Interrogation Network) as a coordination center for regulatory-led RWD studies. DARWIN EU pulls from healthcare databases across European healthcare systems, including the UK’s CPRD (Clinical Practice Research Datalink, &gt;60 million patient records), Spain’s BIFAP, Italy’s HSD, and the Danish national registries. These studies are commissioned by EMA scientific committees and fed to national competent authorities and HTA bodies; sponsors cannot commission DARWIN EU studies directly.</p>
+<p>EMA’s April 2024 guide (EMA/152628/2024) describes how regulators can request RWD studies and what study types are available. In parallel, ICH published its first harmonization signal on RWE in May 2024: a reflection paper on “Pursuing Opportunities for Harmonisation in Using Real-World Data to Generate Real-World Evidence,” marking the beginning of international regulatory alignment on what has been a jurisdiction-by-jurisdiction conversation.</p>
+<p>ICH E6(R3) (2025) <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>, the updated Good Clinical Practice guideline, explicitly addresses hybrid designs that incorporate EHR and RWD within interventional trials, extending principles of data integrity and traceability to these sources.</p>
+</section>
+<section id="fit-for-purpose-the-governing-concept" class="level3">
+<h3 class="anchored" data-anchor-id="fit-for-purpose-the-governing-concept">Fit-for-Purpose: The Governing Concept</h3>
+<p>Both FDA and EMA converge on the phrase <em>fit for purpose</em> as the evaluative standard: not “is this data from a rigorous source?” but “is this data adequate for this specific regulatory question?” A registry dataset that is fit for purpose as an external control for a natural history comparison in a rare pediatric disease may not be fit for purpose as the primary comparator for a Phase III efficacy claim in a common chronic condition.</p>
+<p>The fit-for-purpose assessment evaluates data relevance (population, setting, outcomes, time period), data reliability (completeness, accuracy, consistency, provenance), and analytic validity (whether the proposed analysis can extract the target estimand from the available data without biases that exceed what is acceptable for the regulatory purpose). Sponsors who engage with FDA early (through pre-submission meetings under the Advancing RWE Program) have substantially better outcomes than those who submit RWE for the first time in a marketing application.</p>
+</section>
+<section id="hta-and-payer-frameworks" class="level3">
+<h3 class="anchored" data-anchor-id="hta-and-payer-frameworks">HTA and Payer Frameworks</h3>
+<p>Regulatory approval and market access are separate decisions, governed by different evidence standards. FDA determines whether a drug is safe and effective for the proposed indication. HTA bodies such as NICE (National Institute for Health and Care Excellence, UK) determine whether it is cost-effective relative to standard of care, for a specific patient population in a specific healthcare system. These require different evidence and create different RWE demands.</p>
+<div id="tbl-regulatory-vs-hta" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regulatory-vs-hta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;14.2: Regulatory vs.&nbsp;HTA evidence requirements
+</figcaption>
+<div aria-describedby="tbl-regulatory-vs-hta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 38%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimension</th>
+<th>Regulatory (FDA/EMA)</th>
+<th>HTA/Payers (NICE, payers)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Central question</td>
+<td>Does it work under trial conditions or real-world use?</td>
+<td>Is it cost-effective in this health system?</td>
+</tr>
+<tr class="even">
+<td>Comparator</td>
+<td>Placebo or trial-specified active comparator</td>
+<td>Actual standard of care in that country</td>
+</tr>
+<tr class="odd">
+<td>Time horizon</td>
+<td>Trial duration</td>
+<td>Lifetime (requires extrapolation)</td>
+</tr>
+<tr class="even">
+<td>Population</td>
+<td>Label indication</td>
+<td>Patients who will receive reimbursement</td>
+</tr>
+<tr class="odd">
+<td>RWE role</td>
+<td>Label expansion, post-approval commitments</td>
+<td>Fills long-term effectiveness gaps; informs HTA models</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>NICE’s RWE framework (ECD9, June 2022) provides structured guidance for RWE studies submitted in technology appraisals. The concept of <em>managed entry agreements</em> (MEAs), conditional reimbursement contingent on accumulation of real-world evidence confirming effectiveness in routine practice, has become common in Europe. Under MEAs, the drug is initially reimbursed at a discounted price while an agreed-upon RWE study collects data; if the study confirms effectiveness, full reimbursement is established; if not, the agreement is revised. This creates a regulatory-HTA interface where the same RWE study must meet the evidentiary standards of both bodies.</p>
+</section>
+</section>
+<section id="data-sources" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="data-sources"><span class="header-section-number">14.2</span> Data Sources</h2>
+<p>The quality of real-world evidence is only as good as the data it comes from. Understanding the major RWD source types (what they contain, what they lack, and what biases they introduce) is prerequisite to evaluating any RWE study.</p>
+<p><strong>Electronic Health Records</strong> capture diagnoses, procedures, medications, laboratory values, vital signs, and clinical notes. They are the richest source of clinical detail, but their coverage is bounded by the patient’s engagement with a particular healthcare system: a patient who sees a cardiologist at a different hospital does not appear in the EHR. U.S. EHR networks of regulatory-grade scale include Flatiron Health (&gt;5 million oncology patients across ~220 oncology practices, with structured abstraction of tumor response and genomic data), Epic Cosmos (&gt;200 million patients across Epic-using health systems), and PCORnet (100+ health systems). In the UK, CPRD provides &gt;60 million patient records from UK general practice. Critically, EHR data are collected for clinical care, not research: coding completeness and measurement fidelity are driven by billing incentives and workflow conventions, not study protocols.</p>
+<p><strong>Administrative claims and insurance data</strong> capture billing transactions: ICD diagnosis codes, procedure codes, drug dispensing (NDC codes), and enrollment periods. Coverage is population-level for the insured population; data are complete within the coverage period; and follow-up can be long. U.S. sources include Medicare (CMS, covering &gt;65 million beneficiaries), Medicaid, and commercial claims (e.g., Optum Clinformatics, Merative MarketScan, and IQVIA). The tradeoff is clinical depth: claims capture what was billed, not what the patient’s hemoglobin was or how advanced their tumor was.</p>
+<p><strong>Disease and condition registries</strong> are purpose-built prospective or retrospective data systems that collect uniform data on populations defined by a disease, exposure, or condition. They sit between clinical trials and EHR in terms of data quality: enrollment criteria are defined, data elements are standardized, and outcomes are often adjudicated. The Surveillance, Epidemiology, and End Results (SEER) program covers ~48% of the U.S. population across its core registries. The Scandinavian cardiac registries (SCAAR, SWEDEHEART) have been the foundation for large-scale registry-based randomized trials. Natural history registries (the Pompe Registry, the Cystic Fibrosis Foundation Patient Registry, rare disease-specific databases) serve a distinct role in rare drug development as the comparator population for single-arm trials.</p>
+<p><strong>Linked databases</strong> combine two or more data sources using patient identifiers. SEER-Medicare links cancer diagnoses with complete Medicare claims, enabling studies of both clinical outcomes and health service utilization in a population where both are relevant. Flatiron Health linked its EHR with Foundation Medicine’s comprehensive genomic profiling (Flatiron+FMI), enabling studies of genomic markers as predictors of real-world treatment outcomes. Linkage quality, whether the linkage is deterministic (exact identifier match) or probabilistic and what the linkage error rate is, directly affects bias.</p>
+<p><strong>Global RWD networks</strong> enable federated analysis across many institutions. The FDA’s <strong>Sentinel System</strong> maintains over 1.3 billion person-years of U.S. administrative claims data (covering more than 371 million individuals as of 2024) for active post-market safety surveillance; it is now expanding to some effectiveness analyses. <strong>DARWIN EU</strong> (described above) serves the analogous function for EMA. The <strong>OHDSI/OMOP network</strong> is a global open-science consortium of 544 data sources across 54 countries representing &gt;974 million unique patient records, standardized to the OMOP Common Data Model. OMOP standardizes the vocabulary (SNOMED, RxNorm, LOINC) and table structure, enabling identical analysis code to be run across distributed sites without patient data leaving any institution. <strong>PCORnet</strong> links &gt;100 U.S. health systems using its own PCORnet Common Data Model (derived from the FDA Sentinel CDM) and serves as the infrastructure for embedded pragmatic trials.</p>
+<p><strong>Patient-level data sharing platforms</strong> provide access to IPD (individual patient data) from completed clinical trials, enabling external control construction from historical trial patients. Vivli hosts &gt;6,000 clinical trials; the YODA Project (Yale Open Data Access) provides third-party review of data sharing requests for J&amp;J and Medtronic datasets; Project Data Sphere focuses on oncology trial control arm data. These are qualitatively different from EHR or claims because the data were collected under trial conditions with standardized protocols.</p>
+<section id="outcome-ascertainment-the-critical-quality-issue" class="level3">
+<h3 class="anchored" data-anchor-id="outcome-ascertainment-the-critical-quality-issue">Outcome Ascertainment: The Critical Quality Issue</h3>
+<p>A structural weakness of most RWD sources is that outcomes were not designed to be measured. The diagnosis code for “disease progression” in an EHR reflects what a physician documented for billing purposes, not a protocol-specified assessment against RECIST criteria at a pre-specified timepoint. The gap between <em>documented</em> and <em>protocol-adjudicated</em> outcomes is the source of what are called real-world endpoints: rwOS (real-world overall survival), rwPFS (real-world progression-free survival), and rwTR (real-world tumor response). These are not equivalent to their trial-measured counterparts.</p>
+<p>The Friends of Cancer Research established a framework for validating real-world endpoints: the correlation between the real-world endpoint and the regulatory-standard trial endpoint must be demonstrated empirically before the real-world endpoint is used in a regulatory submission, not assumed. Flatiron Health has published validation studies comparing rwOS and rwPFS against clinical trial outcomes across multiple tumor types.</p>
+<p><em>Phenotyping algorithms</em> (computable definitions of conditions, exposures, and outcomes applied to RWD) require validation against chart review. The positive predictive value of ICD coding for specific conditions varies widely (excellent for hip fracture, poor for depression subtypes) and varies across care settings. Non-differential outcome misclassification biases effect estimates toward the null; differential misclassification (where the misclassification rate differs between treatment groups) can bias in either direction. Any serious RWE study should report its phenotyping algorithm, validation statistics (PPV, sensitivity, F1 against chart review), and a sensitivity analysis for outcome misclassification.</p>
+</section>
+</section>
+<section id="study-design-taxonomy" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="study-design-taxonomy"><span class="header-section-number">14.3</span> Study Design Taxonomy</h2>
+<p>RWE studies span a wide range of designs. Understanding the taxonomy is essential because the design determines the appropriate analytic strategy, the achievable estimand, and the regulatory evidence tier.</p>
+<section id="observational-comparative-effectiveness-research" class="level3">
+<h3 class="anchored" data-anchor-id="observational-comparative-effectiveness-research">Observational Comparative Effectiveness Research</h3>
+<p>In observational CER, both treatment groups are drawn from RWD; there is no randomization. Patients who received Drug A in routine clinical practice are compared to patients who received Drug B. The central challenge is confounding: patients and their physicians chose their treatments for reasons that may also predict outcomes. Analytic methods (propensity scores, outcome regression, doubly robust estimators) attempt to control for measured confounders; unmeasured confounders remain the irreducible limitation.</p>
+<p>Observational CER is most credible when: the outcome is objective and reliably captured in routine care (overall survival is better than symptom scores); the treatment comparison is between two established alternatives rather than between treated and untreated (which concentrates confounding by indication); the database is large enough to achieve covariate balance after matching or weighting; and sensitivity analyses demonstrate that the result is robust to plausible unmeasured confounding.</p>
+</section>
+<section id="natural-history-and-registry-studies" class="level3">
+<h3 class="anchored" data-anchor-id="natural-history-and-registry-studies">Natural History and Registry Studies</h3>
+<p>Natural history studies characterize disease progression, event rates, and mortality in untreated or standard-of-care populations. They do not compare treatments; they establish the baseline against which a new treatment’s effect will be measured. In rare disease drug development, a well-designed natural history study is often the indispensable prerequisite for a single-arm trial: without a reliable characterization of the untreated disease course, there is no benchmark against which the single arm’s outcomes can be interpreted.</p>
+<p>FDA has issued guidance on registry fit-for-purpose assessment (2023), addressing the data elements, follow-up duration, and outcome adjudication needed for a registry to serve as a regulatory-grade external control comparator.</p>
+</section>
+<section id="external-control-arms-and-synthetic-control-arms" class="level3">
+<h3 class="anchored" data-anchor-id="external-control-arms-and-synthetic-control-arms">External Control Arms and Synthetic Control Arms</h3>
+<p>An <strong>external control arm</strong> (ECA) replaces the concurrent randomized control arm with a control population constructed from RWD. Patients in the single-arm trial receive the investigational treatment; their outcomes are compared to a pre-specified external control cohort drawn from historical trials, registries, EHR, or claims. The FDA’s 2023 guidance on externally controlled trials <span class="citation" data-cites="fda_external_controls_2023">(<a href="references.html#ref-fda_external_controls_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023</a>)</span> specifies that ECAs are most appropriate when: concurrent randomization is infeasible or unethical; the disease has a well-characterized natural history; outcomes can be measured reliably in the external data source; and the comparison population is demonstrably similar to the trial population at baseline.</p>
+<p>A <strong>synthetic control arm</strong> (SCA) is a specific implementation in which patient-level data from historical trials (often proprietary datasets) are statistically matched to the current trial’s population using propensity score or covariate-matching algorithms. Medidata’s platform, drawing on &gt;38,000 trials and 12 million patients, is one of the largest commercial SCA systems. In a widely cited application around 2020, Medicenna Therapeutics gained FDA support to use a synthetic control arm within a hybrid Phase 3 registrational trial of MDNA55 for recurrent glioblastoma, in which matched external controls supplied roughly two-thirds of the pooled control arm, reducing the number of patients randomized to standard of care <span class="citation" data-cites="medidata_sca">(<a href="references.html#ref-medidata_sca" role="doc-biblioref">Medidata Solutions 2024</a>)</span>. SCAs drawn from historical RCT patient data are generally stronger than ECAs from EHR or claims because the data were collected under controlled conditions.</p>
+</section>
+<section id="hybrid-randomized-designs-and-bayesian-augmented-controls" class="level3">
+<h3 class="anchored" data-anchor-id="hybrid-randomized-designs-and-bayesian-augmented-controls">Hybrid Randomized Designs and Bayesian Augmented Controls</h3>
+<p>Hybrid designs randomize a <em>reduced</em> concurrent control arm while borrowing information from external data to increase effective sample size. The borrowing is implemented through Bayesian methods that “discount” the external data based on how consistent it is with the emerging concurrent control data.</p>
+<p>Three Bayesian borrowing frameworks dominate:</p>
+<p><strong>The power prior</strong> <span class="citation" data-cites="ibrahim2000power">(<a href="references.html#ref-ibrahim2000power" role="doc-biblioref">Ibrahim and Chen 2000</a>)</span> modifies the likelihood of the historical data by a parameter <span class="math inline">\(\alpha \in [0,1]\)</span>: <span class="math inline">\(\alpha = 0\)</span> borrows nothing, <span class="math inline">\(\alpha = 1\)</span> fully pools historical and current data. A fixed <span class="math inline">\(\alpha\)</span> chosen before the trial controls the degree of borrowing; a data-adaptive <span class="math inline">\(\alpha\)</span> estimated from the data consistency is more robust to historical-current heterogeneity but introduces operational complexity.</p>
+<p><strong>The Meta-Analytic-Predictive (MAP) prior</strong> <span class="citation" data-cites="neuenschwander2010map">(<a href="references.html#ref-neuenschwander2010map" role="doc-biblioref">Neuenschwander et al. 2010</a>)</span> derives the prior from a meta-analysis of multiple historical studies, accounting for between-study heterogeneity through a hierarchical model. The resulting prior distribution on the control event rate reflects both the central estimate from historical data and the uncertainty about how much the current trial population may differ. MAP priors are implemented in the <code>RBesT</code> R package and have been used in pediatric trials, where adult trial data informs the prior for smaller pediatric randomized comparisons.</p>
+<p><strong>Commensurate priors</strong> <span class="citation" data-cites="hobbs2011commensurate">(<a href="references.html#ref-hobbs2011commensurate" role="doc-biblioref">Hobbs et al. 2011</a>)</span> make the amount of borrowing a function of the observed similarity between historical and current control arm data, updating dynamically as current data accumulates. When historical and current control arms are concordant, borrowing is high; when they diverge, borrowing shrinks. This dynamic adaptation provides protection against the principal risk of Bayesian borrowing: inadvertently introducing bias by over-weighting historical data that is not representative of the current population.</p>
+<p>The effective sample size contributed by borrowed external data depends on the discount applied; regulatory agencies expect pre-specified borrowing parameters with operating characteristics evaluated through simulation across scenarios of historical-current concordance and discordance. FDA’s January 2026 draft guidance on the use of Bayesian methodology in trials of drugs and biological products <span class="citation" data-cites="fda_bayesian_2026">(<a href="references.html#ref-fda_bayesian_2026" role="doc-biblioref">U.S. Food and Drug Administration 2026</a>)</span> speaks directly to this setting, asking that borrowed information be valid, reliable, and interpretable, judged through five factors that include data quality, pre-specification of the borrowing, and the relevance and design of the contributing studies.</p>
+</section>
+<section id="registry-based-randomized-controlled-trials" class="level3">
+<h3 class="anchored" data-anchor-id="registry-based-randomized-controlled-trials">Registry-Based Randomized Controlled Trials</h3>
+<p>A <strong>registry-based RCT</strong> (RRCT) conducts randomization within an existing clinical registry, using registry-collected outcomes rather than dedicated trial data collection. The TASTE trial (2010-2013) randomized 7,244 patients with ST-elevation myocardial infarction to thrombus aspiration versus conventional PCI within the SCAAR Swedish cardiac registry; outcomes were collected from registry records without source data verification. The VALIDATE-SWEDEHEART trial compared bivalirudin versus heparin in acute coronary syndrome within the same registry infrastructure. Both trials were published in the <em>New England Journal of Medicine</em> and combined the operational efficiency of registry-based data collection with the inferential validity of randomization.</p>
+<p>RRCTs are most powerful when: an existing registry covers the relevant disease and collects the primary outcome reliably; the randomization can be executed at the point of care within the registry interface; and the registry’s outcome ascertainment is sufficiently standardized for the primary comparison. The Scandinavian registries (supported by universal personal identification numbers enabling linkage across data sources) have been the paradigmatic setting, but RRCT methodology is applicable wherever a well-maintained registry exists.</p>
+</section>
+<section id="platform-trials-and-external-data" class="level3">
+<h3 class="anchored" data-anchor-id="platform-trials-and-external-data">Platform Trials and External Data</h3>
+<p>Platform trials (multi-arm adaptive protocols that can add and remove treatment arms over time) intersect with RWE in three distinct ways. (The full treatment of platform trial design is in <a href="11-statistical-methods.html" class="quarto-xref"><span>Chapter 12</span></a>; this section addresses the RWE-specific aspects.)</p>
+<p><strong>External control arms in biomarker-selected platforms.</strong> Basket trials study one drug across multiple tumor types sharing a molecular alteration; umbrella trials study multiple drugs in one tumor type stratified by biomarker. Individual biomarker-defined cohorts may be too small for internal randomization. In these settings, the platform uses an external control arm (a historical or registry-based comparator) for the subgroup too small to randomize. The FDA master protocols guidance <span class="citation" data-cites="fda_master_protocols_2022">(<a href="references.html#ref-fda_master_protocols_2022" role="doc-biblioref">U.S. Food and Drug Administration 2022</a>)</span> explicitly addresses the design requirements for external controls within basket and umbrella structures, including pre-specification of the external population and comparability requirements. Oncology platforms such as NCI-MATCH and LUNG-MAP have assessed molecularly selected cohorts against historical or external benchmarks when the cohort was too small to randomize.</p>
+<p><strong>Registry-based outcome collection in platform designs.</strong> The RECOVERY trial (Randomised Evaluation of COVID-19 Therapy) enrolled &gt;40,000 patients across NHS hospitals in the UK and collected primary outcomes through NHS electronic records rather than dedicated data collection, an embedded pragmatic design at platform scale. This approach reduces operational burden dramatically: coordinators enroll patients electronically, treatment is assigned, and outcomes are collected automatically from the health system’s administrative records. The REMAP-CAP trial (Randomised, Embedded, Multifactorial Adaptive Platform trial for Community-Acquired Pneumonia) similarly collected outcomes through ICU data systems. These designs achieve the representativeness of registry data combined with the inferential validity of randomization, the RRCT concept applied to a multi-arm adaptive platform.</p>
+<p><strong>Bayesian borrowing across platform domains.</strong> In multi-domain platforms that test multiple interventions simultaneously (immunological, anticoagulation, and antiviral domains in REMAP-CAP), the shared concurrent control arm accumulates data across all enrolled patients regardless of which domain they participate in. Bayesian hierarchical models can borrow information across concurrent substudies, effectively treating the platform as generating external-control-equivalent data for each sub-comparison. This is the adaptive trial version of the dynamic borrowing concepts described above, applied within a single protocol infrastructure rather than across separate trials.</p>
+</section>
+<section id="embedded-and-pragmatic-trials" class="level3">
+<h3 class="anchored" data-anchor-id="embedded-and-pragmatic-trials">Embedded and Pragmatic Trials</h3>
+<p><em>Pragmatic trials</em> assess treatments under conditions approximating routine clinical practice: broad eligibility criteria, usual care comparators, real-world outcomes, and heterogeneous patient populations. <em>Embedded pragmatic trials</em> (EPTs) go further: they are embedded within healthcare system infrastructure, using EHR for recruitment, randomization, and outcome collection. IMPACT-AFib is a canonical U.S. example: claims data flowing through FDA’s Sentinel distributed database identified atrial fibrillation patients who had never received anticoagulation, patients (not practices) were individually randomized to receive or not receive a mailed educational outreach, and outcomes (anticoagulation initiation) were collected from claims without research staff involvement.</p>
+<p>FDA’s 2024 guidance “Integrating Randomized Controlled Trials for Drug and Biological Products Into Routine Clinical Practice” specifically addresses EPTs, clarifying the regulatory requirements for EHR-based recruitment and outcome collection. PCORnet (the U.S. patient-centered clinical research network covering &gt;100 health systems) and the NIH Health Care Systems Research Collaboratory have built the infrastructure enabling EPTs at scale.</p>
+</section>
+</section>
+<section id="pharmacoepidemiology-design-principles" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="pharmacoepidemiology-design-principles"><span class="header-section-number">14.4</span> Pharmacoepidemiology Design Principles</h2>
+<p>Observational RWE studies are subject to a set of biases that have no analog in randomized trials. These biases arise from the way treatment is assigned in clinical practice and from the structure of RWD sources. Understanding them is prerequisite to critically reading or designing an RWE study.</p>
+<p><strong>Confounding by indication</strong> is the most pervasive. Physicians assign treatments based on patient characteristics that may also predict outcomes: sicker patients get more aggressive treatment; frail patients get less. If those characteristics are not fully captured in the RWD, the treatment comparison is contaminated by the indication. The <em>active comparator, new user</em> (ACNU) design is the principal design-level solution.</p>
+<p><strong>The active comparator design</strong> restricts the comparator population to patients who received a different active treatment for the same indication at the same time, rather than patients who received no treatment. If both drugs are used for the same condition in the same clinical context, much of the confounding by indication cancels: the decision between Drug A and Drug B is less driven by disease severity than the decision to prescribe <em>any</em> drug. Active comparator designs substantially reduce unmeasured confounding relative to treated/untreated comparisons.</p>
+<p><strong>The new user design</strong> restricts the cohort to patients who newly initiated treatment (no use in a washout period, typically 6-12 months). It eliminates <em>prevalent user bias</em>: prevalent users have already survived early adverse events, been selected as tolerating the drug, and represent a systematically different population than incident users. The new user restriction aligns cohort entry with the start of treatment, enabling correct measurement of baseline covariates before exposure and mirroring the structure of a randomized trial where treatment-naïve patients are enrolled.</p>
+<p><strong>Immortal time bias</strong> occurs when the interval between cohort entry and first treatment exposure is incorrectly classified as follow-up time in the treated group. During this interval, the patient could not have died (they are still alive to receive treatment), creating an artificial survival advantage for the treated group. Suissa’s 2008 paper is the definitive description <span class="citation" data-cites="suissa2008immortal">(<a href="references.html#ref-suissa2008immortal" role="doc-biblioref">Suissa 2008</a>)</span>; the target trial emulation framework (see <a href="11-statistical-foundations.html" class="quarto-xref"><span>Chapter 11</span></a>) prevents immortal time bias by construction through explicit alignment of the eligibility date with the treatment start date.</p>
+<p><strong>Index date alignment</strong> requires that baseline covariates be measured <em>before</em> the index date (treatment initiation) and outcomes be measured <em>after</em>. Measuring a covariate that could have been caused by treatment (post-initiation lab value) and using it for confounder adjustment induces collider bias. This sounds straightforward but is routinely violated in practice when analysts use “all available” data without strict time-ordering.</p>
+<p><strong>Depletion of susceptibles</strong> (also called prevalent user bias in the context of comparisons): in studies comparing two drugs, if early users of Drug A who experienced adverse events subsequently switched to Drug B, the Drug B user population is enriched with tolerators and depleted of susceptibles, creating an apparent safety advantage for Drug B. The new user restriction applied to both exposure groups eliminates this.</p>
+</section>
+<section id="statistical-methods-for-real-world-evidence" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="statistical-methods-for-real-world-evidence"><span class="header-section-number">14.5</span> Statistical Methods for Real-World Evidence</h2>
+<p>The statistical toolkit for RWE is broader and more methodologically heterogeneous than for randomized trials. <a href="11-statistical-foundations.html" class="quarto-xref"><span>Chapter 11</span></a> covers the foundational methods; this section situates them in the RWE context and introduces the additional methods specific to observational causal inference.</p>
+<section id="causal-diagrams-as-the-starting-point" class="level3">
+<h3 class="anchored" data-anchor-id="causal-diagrams-as-the-starting-point">Causal Diagrams as the Starting Point</h3>
+<p>Before choosing an analytic method, the analyst must understand the causal structure of the problem: which variables are confounders (shared causes of treatment and outcome that must be controlled), mediators (on the causal pathway from treatment to outcome, where controlling them would block the effect of interest), and colliders (common effects of treatment and outcome, where controlling them opens a spurious association). <em>Directed Acyclic Graphs</em> (DAGs) provide the formal language for this <span class="citation" data-cites="pearl2009causality">(<a href="references.html#ref-pearl2009causality" role="doc-biblioref">Pearl 2009</a>)</span>. A DAG-based analysis specifies the minimum sufficient adjustment set for the causal estimand, and identifies which variables should not be controlled (mediators in many contexts, colliders in all contexts).</p>
+<p>DAGs are now standard in pharmacoepidemiology training and are increasingly expected in regulatory submissions involving RWE. The software tool DAGitty makes DAG construction and analysis accessible without requiring formal training in graphical models.</p>
+</section>
+<section id="propensity-score-and-doubly-robust-methods" class="level3">
+<h3 class="anchored" data-anchor-id="propensity-score-and-doubly-robust-methods">Propensity Score and Doubly Robust Methods</h3>
+<p>Propensity score (PS) methods (covered in <a href="11-statistical-foundations.html" class="quarto-xref"><span>Chapter 11</span></a>) are the workhorses of observational RWE. In the RWE context, the PS model should be fitted to predict treatment assignment from baseline covariates measured before the index date, with attention to variable selection (include all variables associated with outcome; exclude instruments; be cautious about variables associated only with treatment). Balance diagnostics, specifically standardized mean differences (SMD) before and after adjustment with SMD &lt; 0.1 considered acceptable, should be reported and not assumed.</p>
+<p>Doubly robust estimators (AIPW, g-computation with IPW, TMLE) are more resistant to model misspecification than PS-only or outcome-model-only approaches, and should be preferred for primary analyses when the analysis is high-stakes. Targeted Maximum Likelihood Estimation (TMLE) combines machine learning-based estimation of both the PS and the outcome model with a targeted bias-correction step that guarantees valid inference even when data-adaptive models are used.</p>
+</section>
+<section id="instrumental-variables" class="level3">
+<h3 class="anchored" data-anchor-id="instrumental-variables">Instrumental Variables</h3>
+<p>When unmeasured confounding is suspected, <em>instrumental variables</em> (IV) provide an alternative identification strategy. An instrument is a variable that: (1) affects treatment; (2) affects the outcome only through its effect on treatment; (3) is not caused by any unmeasured confounders. In pharmacoepidemiology, instruments include physician prescribing preference (some physicians systematically prefer Drug A, independent of patient characteristics), formulary changes that shift prescribing toward one drug based on calendar time, and geographic discontinuities in access.</p>
+<p>IV identifies the <em>local average treatment effect</em> (LATE), the effect in the subpopulation whose treatment status is changed by the instrument, not the average treatment effect in the full population. This limitation matters for generalizability. IV is most useful when a strong instrument can be identified and when the LATE is clinically meaningful; weak instruments produce imprecise estimates.</p>
+</section>
+<section id="difference-in-differences-and-regression-discontinuity" class="level3">
+<h3 class="anchored" data-anchor-id="difference-in-differences-and-regression-discontinuity">Difference-in-Differences and Regression Discontinuity</h3>
+<p><strong>Difference-in-differences</strong> (DiD) compares the pre-to-post change in outcomes in a treated group to the pre-to-post change in an untreated group. It controls for time-invariant unmeasured confounders by differencing them out. The key identifying assumption is <em>parallel trends</em>: absent the treatment, the treated and untreated groups would have followed the same trajectory. This assumption is testable using pre-treatment periods and should be reported, not assumed. DiD is common in policy evaluation and increasingly used in pharmacoepidemiology for studies of formulary changes, guideline implementations, or drug market entries.</p>
+<p><strong>Regression discontinuity</strong> (RD) exploits threshold-based treatment assignment: patients scoring just above a clinical cutoff receive treatment; patients just below do not. Near the cutoff, treated and untreated patients are approximately comparable. RD identifies a local treatment effect at the threshold, useful when such thresholds exist in clinical practice (APACHE score thresholds for ICU admission, lipid level thresholds for statin prescribing, age-based eligibility cutoffs).</p>
+</section>
+<section id="unmeasured-confounding-assessment" class="level3">
+<h3 class="anchored" data-anchor-id="unmeasured-confounding-assessment">Unmeasured Confounding Assessment</h3>
+<p>No observational method fully eliminates unmeasured confounding. The appropriate response is to quantify how strong an unmeasured confounder would need to be to explain away the observed result.</p>
+<p>The <strong>E-value</strong> (VanderWeele &amp; Ding, 2017, covered in <a href="11-statistical-foundations.html" class="quarto-xref"><span>Chapter 11</span></a>) is now standard reporting practice in high-quality RWE studies. A large E-value means the observed result could only be explained away by a very strong unmeasured confounder, increasing confidence in the causal interpretation.</p>
+<p><strong>Negative control outcomes and exposures</strong> are outcomes or exposures known to have no causal relationship with the treatment under study. If the analysis finds an association with a negative control, the analytic method is producing spurious results (systematic bias), and the estimate for the primary outcome is unreliable. Negative controls are a powerful validity check that is underutilized in RWE submissions.</p>
+<p><strong>Quantitative bias analysis</strong> (QBA) uses probabilistic sensitivity analysis, specifically Monte Carlo simulation over plausible values of unmeasured confounder prevalence and effect size, to produce a bias-adjusted distribution of the effect estimate rather than a single point estimate assuming no unmeasured confounding.</p>
+</section>
+</section>
+<section id="landmark-applications" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="landmark-applications"><span class="header-section-number">14.6</span> Landmark Applications</h2>
+<p>The methods described so far are best understood through the cases that established them. Three applications show real-world evidence moving from theory into regulatory and clinical practice: a label expansion for a cancer too rare to randomize, vaccine-effectiveness measurement at population scale, and randomized trials run inside national registries.</p>
+<section id="oncology-ibrance-for-male-breast-cancer" class="level3">
+<h3 class="anchored" data-anchor-id="oncology-ibrance-for-male-breast-cancer">Oncology: Ibrance for Male Breast Cancer</h3>
+<p>The 2019 FDA acceptance of Pfizer’s supplemental NDA for palbociclib (Ibrance) to include male breast cancer in the indication is the canonical landmark case for RWE-supported label expansion. Male breast cancer occurs in approximately 2,670 U.S. patients annually, far too few to power a randomized trial against placebo or even an active comparator. Pfizer assembled real-world evidence from three sources: Flatiron Health’s oncology EHR (real-world tumor response, treatment patterns), IQVIA insurance data (treatment patterns, concomitant medications), and Pfizer’s global post-marketing safety database (adverse event profiles in male patients).</p>
+<p>FDA accepted this package as primary evidence to support the supplemental approval, with label language noting it was “based on limited data from post-marketing reports and electronic health records.” The label language is instructive: FDA did not characterize the evidence as equivalent to a randomized trial; it was transparent about the evidence basis while accepting its adequacy for the specific regulatory question (whether the drug’s pharmacology and clinical profile in men are consistent with benefit in women, where randomized evidence exists).</p>
+</section>
+<section id="covid-19-vaccine-effectiveness-at-scale" class="level3">
+<h3 class="anchored" data-anchor-id="covid-19-vaccine-effectiveness-at-scale">COVID-19 Vaccine Effectiveness at Scale</h3>
+<p>The COVID-19 pandemic produced the largest-scale rapid deployment of RWE in regulatory history. As vaccines were authorized under Emergency Use Authorization based on clinical trial data in 2020-2021, real-world effectiveness needed to be measured across diverse populations, viral variants, and healthcare settings, questions the trials could not answer in time.</p>
+<p>The dominant design was the <em>test-negative design</em> (TND): among all individuals tested for COVID-19 with PCR, compare vaccination status between those who tested positive and those who tested negative. The TND controls for healthcare-seeking behavior (both positive and negative test results come from people who sought testing) while estimating vaccine effectiveness against symptomatic disease. Lopez Bernal et al.&nbsp;used this design in England’s national surveillance data to estimate BNT162b2 effectiveness against the Delta variant <span class="citation" data-cites="lopezber2021vaccine">(<a href="references.html#ref-lopezber2021vaccine" role="doc-biblioref">Lopez Bernal et al. 2021</a>)</span>. Dickerman et al.&nbsp;used target trial emulation in U.S. veterans data to compare BNT162b2 versus mRNA-1273 effectiveness directly, demonstrating the methodology at continental scale <span class="citation" data-cites="dickerman2022comparative">(<a href="references.html#ref-dickerman2022comparative" role="doc-biblioref">Dickerman et al. 2022</a>)</span>.</p>
+<p>Waning immunity was documented observationally months before any randomized follow-up data was available, directly informing booster policy decisions. The COVID-19 experience established that RWE can provide actionable regulatory-grade evidence in a compressed timeframe when the methodological infrastructure is in place.</p>
+</section>
+<section id="registry-based-trials-taste-and-swedeheart" class="level3">
+<h3 class="anchored" data-anchor-id="registry-based-trials-taste-and-swedeheart">Registry-Based Trials: TASTE and SWEDEHEART</h3>
+<p>The TASTE trial <span class="citation" data-cites="taste2013">(<a href="references.html#ref-taste2013" role="doc-biblioref">Fröbert et al. 2013</a>)</span> and VALIDATE-SWEDEHEART demonstrated that randomized evidence could be generated at massive scale (7,000+ patients) within existing cardiac registry infrastructure in Sweden, with outcomes collected entirely from registry records. Operational costs were a fraction of traditional Phase III, and the enrolled population was more representative of clinical practice than the carefully selected populations in traditional trials.</p>
+<p>These trials opened a methodological option that is now being replicated internationally: where a well-characterized registry exists, the marginal cost of randomization (a software feature added to the registry interface) is low. The resulting evidence has all the inferential advantages of randomization combined with the population representativeness of observational data.</p>
+</section>
+</section>
+<section id="infrastructure-omop-ohdsi-and-federated-analytics" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="infrastructure-omop-ohdsi-and-federated-analytics"><span class="header-section-number">14.7</span> Infrastructure: OMOP, OHDSI, and Federated Analytics</h2>
+<p>The methodological machinery of RWE requires computational infrastructure to execute at scale. The OHDSI (Observational Health Data Sciences and Informatics) community has developed an open-science ecosystem built on the OMOP Common Data Model that makes large-scale, multi-database, standardized RWE feasible.</p>
+<p>The <strong>OMOP Common Data Model</strong> standardizes the structure and vocabulary of observational databases: the same table structure and the same coding system (SNOMED CT for conditions, RxNorm for drugs, LOINC for measurements) across all network sites. Identical analysis code (written once) can be run across all 544+ OHDSI network sites representing &gt;974 million unique patients in 54 countries. Patient data never leave the institution; only aggregate results are shared.</p>
+<p>The <strong>HADES</strong> toolkit (Health Analytics Data-to-Evidence Suite) provides 37 R packages for executing standardized epidemiological analyses on OMOP-format data: cohort construction, propensity score estimation, outcome modeling, negative control calibration, and diagnostics. <strong>PhenotypeLibrary</strong> maintains a repository of validated phenotype algorithms with distributed validation statistics from multiple sites.</p>
+<p>For cases where even aggregate results create privacy risk (rare diseases, small populations, genomic data), <em>federated learning</em> provides an alternative: a machine learning model is trained across distributed sites without sharing patient data, with only model gradients (not data) transmitted. This is more complex than distributed analytics but enables model-level analysis in privacy-sensitive settings. Owkin has applied this approach to construct external control arms from real-world data distributed across hospital networks (see <a href="24-ai-agents.html" class="quarto-xref"><span>Chapter 26</span></a>).</p>
+<p>The DARWIN EU network uses OMOP-compatible standards across EU member states, enabling FDA-aligned analytic methods to be applied to European data in a regulatory-grade framework.</p>
+</section>
+<section id="generalizability-and-transportability" class="level2" data-number="14.8">
+<h2 data-number="14.8" class="anchored" data-anchor-id="generalizability-and-transportability"><span class="header-section-number">14.8</span> Generalizability and Transportability</h2>
+<p>Even a perfectly unconfounded RWE study estimates the treatment effect in the study population. Whether that estimate generalizes to the target population (the patients who will actually receive the drug) is a distinct question, called <em>generalizability</em> (from the study sample to the study population) and <em>transportability</em> (from the study population to a different target population).</p>
+<p>Dahabreh and colleagues developed a formal framework for combining evidence from randomized trials and observational data to estimate treatment effects in a target population that extends beyond the trial’s eligibility criteria <span class="citation" data-cites="dahabreh2019generalizing dahabreh2020extending">(<a href="references.html#ref-dahabreh2019generalizing" role="doc-biblioref">Dahabreh et al. 2019</a>, <a href="references.html#ref-dahabreh2020extending" role="doc-biblioref">2020</a>)</span>. The key idea: if the factors that make the trial population differ from the target population are measured and modeled, inverse probability of sampling weights can be used to re-weight the trial evidence to represent the target population.</p>
+<p>This matters for drug development in two ways. First, trial eligibility criteria systematically exclude older patients, those with comorbidities, and those on concomitant medications, but these patients will receive the drug after approval. Transportability methods provide a principled way to estimate whether the trial effect size translates to the real-world population, which has implications for both labeling claims and post-market commitments. Second, when a drug is approved in one country and sought for approval or HTA in another, the evidence from the approval trial may not transport directly to the target country’s patient population; MAIC (Matching-Adjusted Indirect Comparison) is the widely used HTA implementation of this idea.</p>
+</section>
+<section id="when-does-rwe-belong-in-a-development-program" class="level2" data-number="14.9">
+<h2 data-number="14.9" class="anchored" data-anchor-id="when-does-rwe-belong-in-a-development-program"><span class="header-section-number">14.9</span> When Does RWE Belong in a Development Program?</h2>
+<p>The conditions that maximize RWE credibility have an underlying logic: confounding is the irreducible threat, and each favorable condition reduces it in a different way.</p>
+<p>The most powerful reduction comes when the outcome itself is not subject to differential ascertainment. Overall survival (death is reliably recorded regardless of which arm the patient was in), hospitalization (a billing event that appears in administrative data for all patients), and treatment dispensing (a pharmacy record) are captured with near-complete ascertainment in most RWD sources. Symptom scores, imaging-defined tumor progression, and patient-reported outcomes depend on protocol-mandated assessments that do not exist in routine care. When the outcome is objective, the main confounding challenge shifts fully to treatment selection; when the outcome is also subjectively ascertained, outcome measurement bias compounds the confounding problem.</p>
+<p>Rare diseases and rare populations reduce confounding by narrowing treatment options. When there is no effective standard of care, comparing treated patients against natural history concentrates far less confounding by indication than comparing two marketed alternatives where physicians select treatment based on prognosis. Pediatric oncology and rare hereditary diseases, where the natural history is the only available comparison, represent the settings where regulatory agencies have been most receptive.</p>
+<p>External validation of internal evidence is stronger than either alone. An RCT demonstrating efficacy supplemented by RWE demonstrating real-world effectiveness is substantially more compelling than RWE as the primary evidence. FDA’s endorsement of emulation benchmarking studies, which test whether RWE analyses can replicate the findings of completed RCTs in the same setting, reflects this logic: where concordance has been established, regulatory confidence in RWE for similar questions increases.</p>
+<p>All of this depends on pre-specification. FDA and EMA expect the external control population, the analytic methods, the confounders to be controlled, and the sensitivity analyses to be specified before any unblinding of the internal trial data. A retrospective RWE analysis decided after seeing the trial result provides much weaker evidence than a prospectively specified analysis completed before the primary result is known.</p>
+<p>The Advancing RWE Program’s explicit goal is to extend regulatory acceptance of RWE into effectiveness labeling changes, a domain where it has historically been resisted. The Ibrance precedent, the COVID-19 vaccine experience, and the growing body of emulation benchmarking studies are collectively moving the evidentiary floor, most clearly in oncology with hard endpoints.</p>
+<hr>
+<p>Real-world evidence does not replace randomized trials. It answers the questions that trials cannot: what happens to a broader population over a longer period under the conditions of clinical practice, using endpoints that routine care can measure. The methodological and regulatory infrastructure for generating credible RWE is now substantial, and its role in drug development (from informing trial design through supporting regulatory submissions to satisfying post-market commitments and HTA requirements) will continue to expand as that infrastructure matures.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Discussion Questions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Discussion Questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>A sponsor is preparing a supplemental NDA for a targeted therapy in a rare solid tumor (approximately 800 annual U.S. cases) and plans to use Flatiron Health oncology EHR data as the primary external control. FDA’s fit-for-purpose framework requires evaluation of data relevance and reliability. Walk through the specific questions FDA would ask about this data source for the proposed regulatory question, and identify the two most likely reasons the submission could be rejected on data-quality grounds.</p></li>
+<li><p>A retrospective study comparing a newer oral anticoagulant to warfarin uses a prevalent-user cohort (patients who have been on treatment for a median of 14 months at baseline) and starts follow-up from the date of first database capture rather than from treatment initiation. Explain why prevalent user bias and immortal time bias are present in this design, how each one would bias the effect estimate, and what design changes would correct both.</p></li>
+<li><p>An analyst emulating a hypothetical RCT comparing two antihypertensive drug classes using claims data sets the index date as the date of the first dispensing of the study drug. A reviewer notes that some patients have lab values recorded between the first prescription date and the first dispensing date, which the analyst included as baseline covariates. Why does this violate the target trial emulation framework’s requirement for correct time-zero alignment, and what specific bias does it introduce?</p></li>
+<li><p>A hybrid Bayesian design for a rare hematologic malignancy uses a MAP prior derived from three historical trials. The concurrent control arm enrolls 30 patients. At the interim analysis, the observed control arm event rate is 40% higher than the historical mean. The prior has a relatively narrow effective sample size of 25. Describe what happens to the posterior estimate of the control arm event rate, how commensurate versus fixed power priors would respond differently to this discordance, and what you would recommend the DSMB do with this information.</p></li>
+<li><p>NICE is evaluating a KRAS G12C inhibitor for second-line non-small cell lung cancer under a managed entry agreement. The sponsor must design a real-world evidence study to confirm effectiveness in routine NHS practice within 24 months of conditional reimbursement. What study design would you propose (specifying data source, population, comparator, outcome, and analytic method), and what are the two greatest threats to the study’s ability to produce a result that NICE will accept as confirmatory?</p></li>
+</ol>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-dahabreh2020extending" class="csl-entry" role="listitem">
+Dahabreh, Issa J., Sarah E. Robertson, Jon A. Steingrimsson, Elizabeth A. Stuart, and Miguel A. Hernan. 2020. <span>“Extending Inferences from a Randomized Trial to a New Target Population.”</span> <em>Statistics in Medicine</em> 39 (14): 1999–2014. <a href="https://doi.org/10.1002/sim.8426">https://doi.org/10.1002/sim.8426</a>.
+</div>
+<div id="ref-dahabreh2019generalizing" class="csl-entry" role="listitem">
+Dahabreh, Issa J., Sarah E. Robertson, Eric J. Tchetgen Tchetgen, Elizabeth A. Stuart, and Miguel A. Hernan. 2019. <span>“Generalizing Causal Inferences from Individuals in Randomized Trials to All Trial-Eligible Individuals.”</span> <em>Biometrics</em> 75 (2): 685–94. <a href="https://doi.org/10.1111/biom.13009">https://doi.org/10.1111/biom.13009</a>.
+</div>
+<div id="ref-dickerman2022comparative" class="csl-entry" role="listitem">
+Dickerman, Barbra A., Hanna Gerlovin, Arin L. Madenci, Katherine E. Kurgansky, Brian R. Ferolito, Mariantonia Figueroa Munõz, David R. Gagnon, et al. 2022. <span>“Comparative Effectiveness of <span>BNT162b2</span> and <span class="nocase">mRNA-1273</span> Vaccines in <span>U.S.</span> Veterans.”</span> <em>New England Journal of Medicine</em> 386 (2): 105–15. <a href="https://doi.org/10.1056/NEJMoa2115463">https://doi.org/10.1056/NEJMoa2115463</a>.
+</div>
+<div id="ref-taste2013" class="csl-entry" role="listitem">
+Fröbert, Ole, Bo Lagerqvist, Göran K. Olivecrona, Elmir Omerovic, Thorarinn Gudnason, Michael Maeng, Mikael Aasa, et al. 2013. <span>“Thrombus Aspiration During <span>ST</span>-Segment Elevation Myocardial Infarction.”</span> <em>New England Journal of Medicine</em> 369 (17): 1587–97. <a href="https://doi.org/10.1056/NEJMoa1308789">https://doi.org/10.1056/NEJMoa1308789</a>.
+</div>
+<div id="ref-hobbs2011commensurate" class="csl-entry" role="listitem">
+Hobbs, Brian P., Bradley P. Carlin, Sumithra J. Mandrekar, and Daniel J. Sargent. 2011. <span>“Hierarchical Commensurate and Power Prior Models for Adaptive Incorporation of Historical Information in Clinical Trials.”</span> <em>Biometrics</em> 67 (3): 1047–56. <a href="https://doi.org/10.1111/j.1541-0420.2011.01564.x">https://doi.org/10.1111/j.1541-0420.2011.01564.x</a>.
+</div>
+<div id="ref-ibrahim2000power" class="csl-entry" role="listitem">
+Ibrahim, Joseph G., and Ming-Hui Chen. 2000. <span>“Power Prior Distributions for Regression Models.”</span> <em>Statistical Science</em> 15 (1): 46–60. <a href="https://doi.org/10.1214/ss/1009212673">https://doi.org/10.1214/ss/1009212673</a>.
+</div>
+<div id="ref-ich_e6r3_2025" class="csl-entry" role="listitem">
+International Council for Harmonisation. 2025. <span>“<span>ICH E6(R3)</span>: Guideline for Good Clinical Practice (GCP).”</span> <a href="https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf">https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf</a>.
+</div>
+<div id="ref-lopezber2021vaccine" class="csl-entry" role="listitem">
+Lopez Bernal, Jamie, Nick Andrews, Charlotte Gower, Eileen Gallagher, Ruth Simmons, Simon Thelwall, Julia Stowe, et al. 2021. <span>“Effectiveness of <span>Covid-19</span> Vaccines Against the <span>B.1.617.2</span> (<span>Delta</span>) Variant.”</span> <em>New England Journal of Medicine</em> 385 (7): 585–94. <a href="https://doi.org/10.1056/NEJMoa2108891">https://doi.org/10.1056/NEJMoa2108891</a>.
+</div>
+<div id="ref-medidata_sca" class="csl-entry" role="listitem">
+Medidata Solutions. 2024. <span>“Medidata Synthetic Control Arm.”</span> <a href="https://medidata.com/en/clinical-trial-products/medidata-ai/real-world-data/synthetic-control-arm">https://medidata.com/en/clinical-trial-products/medidata-ai/real-world-data/synthetic-control-arm</a>.
+</div>
+<div id="ref-neuenschwander2010map" class="csl-entry" role="listitem">
+Neuenschwander, Beat, Gorana Capkun-Niggli, Michael Branson, and David J. Spiegelhalter. 2010. <span>“Summarizing Historical Information on Controls in Clinical Trials.”</span> <em>Clinical Trials</em> 7 (1): 5–18. <a href="https://doi.org/10.1177/1740774509356002">https://doi.org/10.1177/1740774509356002</a>.
+</div>
+<div id="ref-pearl2009causality" class="csl-entry" role="listitem">
+Pearl, Judea. 2009. <em>Causality: Models, Reasoning, and Inference</em>. 2nd ed. Cambridge: Cambridge University Press.
+</div>
+<div id="ref-suissa2008immortal" class="csl-entry" role="listitem">
+Suissa, Samy. 2008. <span>“Immortal Time Bias in Pharmacoepidemiology.”</span> <em>American Journal of Epidemiology</em> 167 (4): 492–99. <a href="https://doi.org/10.1093/aje/kwm324">https://doi.org/10.1093/aje/kwm324</a>.
+</div>
+<div id="ref-fda_master_protocols_2022" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2022. <span>“Master Protocols: Efficient Clinical Trial Design Strategies to Expedite Development of Oncology Drugs and Biologics.”</span> U.S. Food; Drug Administration. <a href="https://www.fda.gov/media/120721/download">https://www.fda.gov/media/120721/download</a>.
+</div>
+<div id="ref-fda_external_controls_2023" class="csl-entry" role="listitem">
+———. 2023. <span>“Considerations for the Design and Conduct of Externally Controlled Trials for Drug and Biological Products.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-design-and-conduct-externally-controlled-trials-drug-and-biological-products">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-design-and-conduct-externally-controlled-trials-drug-and-biological-products</a>.
+</div>
+<div id="ref-fda_bayesian_2026" class="csl-entry" role="listitem">
+———. 2026. <span>“Use of <span>Bayesian</span> Methodology in Clinical Trials of Drug and Biological Products.”</span> U.S. Food; Drug Administration. <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-bayesian-methodology-clinical-trials-drug-and-biological-products">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-bayesian-methodology-clinical-trials-drug-and-biological-products</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./12-study-design.html" class="pagination-link" aria-label="Study Design">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./13-protocol-benchmarks.html" class="pagination-link" aria-label="Protocol Design Benchmarks">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
