@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+
+<title>20&nbsp; Logistics and Project Management – Clinical Trials in Practice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./19-data-management.html" rel="next">
+<link href="./17-recruitment.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-e2074dde144e2c19a278b28938e665f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="20&nbsp; Logistics and Project Management – Clinical Trials in Practice">
+<meta property="og:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta property="og:image" content="18-logistics_files/figure-html/fig-wcg-startup-times-1.png">
+<meta property="og:site_name" content="Clinical Trials in Practice">
+<meta name="twitter:title" content="20&nbsp; Logistics and Project Management – Clinical Trials in Practice">
+<meta name="twitter:description" content="A practical introduction to clinical trial methodology, from foundations through Phase III operations, with a modern view on AI agents in clinical development.">
+<meta name="twitter:image" content="18-logistics_files/figure-html/fig-wcg-startup-times-1.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./18-logistics.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Clinical Trials in Practice</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: Foundations of Clinical Trials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Historical Context and Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-lifecycle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lifecycle of a Clinical Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-regulatory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Regulatory Framework</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Ethical Principles</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: Clinical Trial Phases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-drug-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview of Drug Development</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-economics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Economics of a Trial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-phase1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Phase I: Human Pharmacology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-phase2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Phase II: Exploratory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-phase3-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Phase III: Confirmatory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-phase4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Phase IV: Post-Marketing Studies and Surveillance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part III: Phase III Deep Dive</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Statistical Methods for Clinical Trials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adaptive and Bayesian Trial Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-study-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Study Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12b-rwe-external-controls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Real-World Evidence and Evidence Integration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-protocol-benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Protocol Design Benchmarks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Randomization and Blinding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Endpoints and Outcomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-site-selection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Site Selection and Feasibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-recruitment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-logistics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Clinical Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Safety Monitoring and Reporting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-essential-docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Essential Documents and the Trial Master File</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-clinical-it.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Clinical Trial IT Infrastructure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-ai-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">AI Agents in Clinical Development</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part IV: Trial Completion and Beyond</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-closeout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Trial Closeout and Analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-csr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">The Clinical Study Report</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-regulatory-submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regulatory Submission</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Glossary and Abbreviations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#organizational-framework-and-roles" id="toc-organizational-framework-and-roles" class="nav-link active" data-scroll-target="#organizational-framework-and-roles"><span class="header-section-number">20.1</span> Organizational Framework and Roles</a>
+  <ul class="collapse">
+  <li><a href="#the-key-players" id="toc-the-key-players" class="nav-link" data-scroll-target="#the-key-players">The Key Players</a></li>
+  <li><a href="#delegation-accountability-and-partner-selection" id="toc-delegation-accountability-and-partner-selection" class="nav-link" data-scroll-target="#delegation-accountability-and-partner-selection">Delegation, Accountability, and Partner Selection</a></li>
+  </ul></li>
+  <li><a href="#biospecimen-logistics" id="toc-biospecimen-logistics" class="nav-link" data-scroll-target="#biospecimen-logistics"><span class="header-section-number">20.2</span> Biospecimen Logistics</a></li>
+  <li><a href="#trial-governance-and-documentation" id="toc-trial-governance-and-documentation" class="nav-link" data-scroll-target="#trial-governance-and-documentation"><span class="header-section-number">20.3</span> Trial Governance and Documentation</a>
+  <ul class="collapse">
+  <li><a href="#the-protocol-as-governing-document" id="toc-the-protocol-as-governing-document" class="nav-link" data-scroll-target="#the-protocol-as-governing-document">The Protocol as Governing Document</a></li>
+  <li><a href="#sec-protocol-sops" id="toc-sec-protocol-sops" class="nav-link" data-scroll-target="#sec-protocol-sops">The Protocol and the SOPs</a></li>
+  <li><a href="#the-flow-of-documents" id="toc-the-flow-of-documents" class="nav-link" data-scroll-target="#the-flow-of-documents">The Flow of Documents</a></li>
+  </ul></li>
+  <li><a href="#scale-timelines-and-global-execution" id="toc-scale-timelines-and-global-execution" class="nav-link" data-scroll-target="#scale-timelines-and-global-execution"><span class="header-section-number">20.4</span> Scale, Timelines, and Global Execution</a>
+  <ul class="collapse">
+  <li><a href="#development-timelines-and-success-rates" id="toc-development-timelines-and-success-rates" class="nav-link" data-scroll-target="#development-timelines-and-success-rates">Development Timelines and Success Rates</a></li>
+  <li><a href="#multi-regional-trials-and-regulatory-framework" id="toc-multi-regional-trials-and-regulatory-framework" class="nav-link" data-scroll-target="#multi-regional-trials-and-regulatory-framework">Multi-Regional Trials and Regulatory Framework</a></li>
+  <li><a href="#operational-friction-and-the-activation-bottleneck" id="toc-operational-friction-and-the-activation-bottleneck" class="nav-link" data-scroll-target="#operational-friction-and-the-activation-bottleneck">Operational Friction and the Activation Bottleneck</a></li>
+  <li><a href="#operational-challenges-and-execution-models" id="toc-operational-challenges-and-execution-models" class="nav-link" data-scroll-target="#operational-challenges-and-execution-models">Operational Challenges and Execution Models</a></li>
+  </ul></li>
+  <li><a href="#project-management-and-execution-flow" id="toc-project-management-and-execution-flow" class="nav-link" data-scroll-target="#project-management-and-execution-flow"><span class="header-section-number">20.5</span> Project Management and Execution Flow</a>
+  <ul class="collapse">
+  <li><a href="#site-initiation-and-monitoring" id="toc-site-initiation-and-monitoring" class="nav-link" data-scroll-target="#site-initiation-and-monitoring">Site Initiation and Monitoring</a></li>
+  <li><a href="#site-team-roles-and-relationships" id="toc-site-team-roles-and-relationships" class="nav-link" data-scroll-target="#site-team-roles-and-relationships">Site Team Roles and Relationships</a></li>
+  </ul></li>
+  <li><a href="#modern-logistics-and-innovation" id="toc-modern-logistics-and-innovation" class="nav-link" data-scroll-target="#modern-logistics-and-innovation"><span class="header-section-number">20.6</span> Modern Logistics and Innovation</a>
+  <ul class="collapse">
+  <li><a href="#sec-logistics-ai-automation" id="toc-sec-logistics-ai-automation" class="nav-link" data-scroll-target="#sec-logistics-ai-automation">AI and Automation in Trial Logistics</a></li>
+  <li><a href="#direct-to-patient-and-decentralized-trials" id="toc-direct-to-patient-and-decentralized-trials" class="nav-link" data-scroll-target="#direct-to-patient-and-decentralized-trials">Direct-to-Patient and Decentralized Trials</a></li>
+  <li><a href="#project-management-fundamentals" id="toc-project-management-fundamentals" class="nav-link" data-scroll-target="#project-management-fundamentals">Project Management Fundamentals</a></li>
+  </ul></li>
+  <li><a href="#publication-and-data-sharing-policies" id="toc-publication-and-data-sharing-policies" class="nav-link" data-scroll-target="#publication-and-data-sharing-policies"><span class="header-section-number">20.7</span> Publication and Data Sharing Policies</a>
+  <ul class="collapse">
+  <li><a href="#publication-policy-gpp-2022-and-modern-transparency-expectations" id="toc-publication-policy-gpp-2022-and-modern-transparency-expectations" class="nav-link" data-scroll-target="#publication-policy-gpp-2022-and-modern-transparency-expectations">Publication policy: GPP 2022 and modern transparency expectations</a></li>
+  <li><a href="#ancillary-study-policy-alignment-with-nih-data-management-and-sharing-requirements" id="toc-ancillary-study-policy-alignment-with-nih-data-management-and-sharing-requirements" class="nav-link" data-scroll-target="#ancillary-study-policy-alignment-with-nih-data-management-and-sharing-requirements">Ancillary study policy: alignment with NIH Data Management and Sharing requirements</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-statistical-foundations.html">Part III: Phase III Deep Dive</a></li><li class="breadcrumb-item"><a href="./18-logistics.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-logistics" class="quarto-section-identifier"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Logistics and Project Management</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>A large Phase III trial might involve 200 clinical sites across 25 countries, 3,000 patients, half a dozen specialized vendors, and a timeline of 4 years. Each patient visit generates data that must be captured, cleaned, and locked. Each site requires contracts, regulatory approvals, training, monitoring, and closeout, and each country applies its own regulatory requirements, language considerations, and import procedures for investigational drugs. Temperature-sensitive biologics must be shipped in validated cold chains that hold -70°C across continents, and randomization systems must be available 24/7 to assign treatments the moment a patient qualifies. All of it has to happen without compromising the scientific integrity that makes the trial’s results meaningful.</p>
+<p>This is the domain of clinical trial logistics: the practical coordination of people, documents, supplies, and processes that converts a protocol on paper into executed research. A brilliant study design means nothing if the drug never reaches the patient, if the data are lost in transmission, or if the site closes before enrollment completes.</p>
+<section id="organizational-framework-and-roles" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="organizational-framework-and-roles"><span class="header-section-number">20.1</span> Organizational Framework and Roles</h2>
+<p>A clinical trial runs on delegated work. Accountability does not travel with it. Sponsors hand work to CROs and specialized vendors, principal investigators hand tasks to coordinators and sub-investigators, and each transfer moves the work without moving the ultimate responsibility for it.</p>
+<section id="the-key-players" class="level3">
+<h3 class="anchored" data-anchor-id="the-key-players">The Key Players</h3>
+<p>The <em>sponsor</em> initiates, manages, and finances the trial. Pharmaceutical companies, biotech firms, academic institutions, and government agencies all serve as sponsors. The sponsor owns the trial and bears ultimate responsibility for its conduct, including investigator selection, monitoring, and regulatory compliance (21 CFR 312.50).</p>
+<p>The <em>investigator</em>, usually a physician designated as the <em>Principal Investigator (PI)</em>, takes responsibility for the trial at a specific site. The PI supervises the research team, ensures patient safety, obtains informed consent, and guarantees that the protocol is followed faithfully. Though the PI may delegate tasks to coordinators and sub-investigators, regulatory accountability cannot be delegated: the PI who signs FDA Form 1572 is held responsible for all trial conduct at that site.</p>
+<p><em>Contract Research Organizations (CROs)</em> are specialized service providers that sponsors hire to conduct trial activities. CROs may provide anything from a single service (such as monitoring or data management) to full end-to-end trial management. Grand View Research estimated the global healthcare CRO market at $59.6 billion in 2025 <span class="citation" data-cites="grandview_healthcare_cro_2026">(<a href="references.html#ref-grandview_healthcare_cro_2026" role="doc-biblioref">Grand View Research 2026</a>)</span>.</p>
+<p>The <em>study coordinator</em>, also called the Clinical Research Coordinator (CRC), works at the site under the PI’s supervision. Coordinators are the workhorses of clinical research, managing patient visits, collecting data, maintaining regulatory documents, and serving as the primary point of contact between the site and the sponsor or CRO.</p>
+<p><em>Vendors</em> provide specialized services: central laboratories analyze specimens, electronic data capture companies provide software platforms, imaging core labs review scans, and interactive response technology vendors manage randomization and drug supply.</p>
+</section>
+<section id="delegation-accountability-and-partner-selection" class="level3">
+<h3 class="anchored" data-anchor-id="delegation-accountability-and-partner-selection">Delegation, Accountability, and Partner Selection</h3>
+<p>Delegation follows specific rules. Sponsors may transfer obligations to CROs through written agreements (21 CFR 312.52); once transferred, the CRO assumes regulatory responsibility for those tasks, while the sponsor must still oversee the CRO’s performance, review monitoring reports, and verify that delegated tasks are executed properly. As industry observers note, the sponsor remains captain of the ship even when the CRO handles navigation: the sponsor is still responsible for reaching the destination safely. At the site, a <em>delegation log</em> documents which coordinators, sub-investigators, and nurses perform which tasks, and the PI remains accountable for all of it.</p>
+<p>Selecting the right partner is therefore a critical project management task, and it typically follows a path defined by internal SOPs. Before contacting vendors, the sponsor must define exactly what is being outsourced, ranging from a specific functional service (such as data management alone) to a full-service model where the CRO handles everything from site selection to the final clinical study report. The sponsor then issues a <em>Request for Proposal (RFP)</em> outlining study specifications (protocol synopsis, number of patients, number of sites, timeline) and asking vendors to provide detailed budgets and proposals. Vague requirements produce vague, incomparable bids.</p>
+<p>Top candidates are then invited to a <em>bid defense</em> meeting. Price is on the table, but so is chemistry: the sponsor meets the team who will run the project, not the salespeople, and assesses their experience in the therapeutic area, their available staffing, and whether their systems (EDC, CTMS) are compatible with the sponsor’s infrastructure.</p>
+<p>The contract that follows formalizes a scope of work, and managing that scope is a primary duty of the project manager: work outside it triggers a change order to adjust budget and timeline, and uncontrolled scope creep is a common cause of budget overruns.</p>
+</section>
+</section>
+<section id="biospecimen-logistics" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="biospecimen-logistics"><span class="header-section-number">20.2</span> Biospecimen Logistics</h2>
+<p>In many modern trials, particularly in oncology and rare diseases, the collection, processing, and transport of <strong>biospecimens</strong> (blood, tissue, urine, or other biological materials) is a primary logistical thread. Clinical data can be captured electronically; biospecimens are physical assets that require sophisticated chain-of-custody and stability controls.</p>
+<p>The chain has several links, and each of them can fail. Sites collect under strict protocol-defined procedures that fix the timing relative to dosing and the collection tubes or kits to be used. Many specimens then require immediate processing at the site (centrifugation, aliquoting) before freezing. Storage means calibrated -20°C or -80°C freezers with alarm systems, since an unnoticed temperature excursion loses the sample. Specialized couriers move the material in dry ice or liquid nitrogen to central laboratories or biorepositories. Throughout, a “Biospecimen Log” or specialized software tracks each sample from the patient to the final analysis, maintaining the link between the participant and their biological data while preserving confidentiality.</p>
+<p>A missed collection window or a temperature excursion during transit can lose critical exploratory or primary endpoint data, which makes biospecimen management a high-risk component of the trial’s operational design.</p>
+</section>
+<section id="trial-governance-and-documentation" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="trial-governance-and-documentation"><span class="header-section-number">20.3</span> Trial Governance and Documentation</h2>
+<p>A trial is governed by a pyramid of documents, from the protocol at the top to the daily records of every patient interaction and drug shipment, and by the standing procedures of the organizations that run it.</p>
+<section id="the-protocol-as-governing-document" class="level3">
+<h3 class="anchored" data-anchor-id="the-protocol-as-governing-document">The Protocol as Governing Document</h3>
+<p>The protocol is the constitution of a clinical trial. It specifies everything: the scientific rationale, the objectives, the study design, the patient population, the treatments, the assessments, the endpoints, and the statistical analysis.</p>
+<p>The sponsor develops the protocol, often with input from investigators and CROs. Once finalized, the protocol needs ethics approval, and whatever regulatory submission or authorization the jurisdiction requires, before any patient can be enrolled. Any later change requires a formal amendment. Most amendments need ethics approval before they are implemented, and the more significant ones must also be submitted to or authorized by regulators first; changes needed to eliminate an immediate hazard to participants are among the exceptions (see <a href="12-study-design.html#sec-protocol-amendments" class="quarto-xref"><span>Section 13.8.1</span></a>).</p>
+<p>The PI and site agree to follow the protocol by signing it (or a separate agreement). ICH E6(R3) section 2.5 (Compliance with Protocol) directs the investigator to comply with the protocol, GCP, and applicable regulatory requirements <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>. Deviations are documented and reported; systematic deviations trigger regulatory scrutiny.</p>
+</section>
+<section id="sec-protocol-sops" class="level3">
+<h3 class="anchored" data-anchor-id="sec-protocol-sops">The Protocol and the SOPs</h3>
+<p>A monitor on a site visit works from two sets of instructions. The protocol says what this trial does to its participants and when, which is also what makes any departure from it a deviation. The sponsor’s <em>standard operating procedures</em> (SOPs) say how every monitoring visit is prepared, conducted, reported, and followed up, whatever the trial. ICH E6(R3) defines SOPs as “detailed, documented instructions to achieve uniformity of the performance of a specific activity” and keeps them next to the protocol as a yardstick for conduct. Monitors follow “the sponsor’s monitoring plan and applicable monitoring procedures”, audits check activities against “the protocol, applicable standard operating procedures (SOPs), Good Clinical Practice (GCP) and the applicable regulatory requirement(s)”, and noncompliance with the protocol or the SOPs calls for proportionate action by the sponsor <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>.</p>
+<p>Keeping such procedures is a sponsor duty. E6(R2) made the sponsor responsible for quality assurance and quality control systems “with written SOPs” <span class="citation" data-cites="ich_e6r2_2016">(<a href="references.html#ref-ich_e6r2_2016" role="doc-biblioref">International Council for Harmonisation 2016</a>)</span>. E6(R3) asks for “documented procedures” and names several that a sponsor needs: for auditing, for the content and frequency of monitoring reports, for unblinding, for reporting incidents such as security breaches, and for developing, maintaining, and using computerized systems <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>. The other parties keep procedures too. FDA requires every IRB to follow written procedures, including ones that keep changes to approved research from starting before the IRB has approved them, except to eliminate apparent immediate hazards <span class="citation" data-cites="cfr21_56">(<a href="references.html#ref-cfr21_56" role="doc-biblioref">U.S. Food and Drug Administration 2023b</a>)</span>. CROs and sites have SOPs for the work they do, and <a href="20-monitoring.html" class="quarto-xref"><span>Chapter 22</span></a> describes the families a clinical research operation keeps. A single trial therefore runs under several organizations’ procedures at once.</p>
+<p><a href="#tbl-protocol-sop" class="quarto-xref">Table&nbsp;<span>20.1</span></a> sets the two documents side by side. In practice they differ most in who approves a change and when it takes effect. A change to the protocol is an amendment. It usually needs IRB approval before it is implemented, and a significant change must also go to regulators first; each site switches to the new version only once its own approvals are in place, so sites can work under different versions of the same protocol for months <span class="citation" data-cites="getz_protocol_amendments_2024">(<a href="references.html#ref-getz_protocol_amendments_2024" role="doc-biblioref">Getz et al. 2024</a>)</span>. An SOP changes by internal revision, approved by the organization’s line management and quality assurance, and no IRB or regulator approves it. From its effective date the new version governs everyone who performs the activity, on every trial. Outsiders see an SOP when a sponsor assesses a vendor, an auditor examines a process, or an inspector asks which procedure was in force <span class="citation" data-cites="ich_e6r3_2025 epa_sop_2007">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>; <a href="references.html#ref-epa_sop_2007" role="doc-biblioref">U.S. Environmental Protection Agency 2007</a>)</span>.</p>
+<div id="tbl-protocol-sop" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[16,42,42]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-protocol-sop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;20.1: How a Protocol and an SOP Differ <span class="citation" data-cites="ich_e6r3_2025 epa_sop_2007">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>; <a href="references.html#ref-epa_sop_2007" role="doc-biblioref">U.S. Environmental Protection Agency 2007</a>)</span>
+</figcaption>
+<div aria-describedby="tbl-protocol-sop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 42%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>Protocol</th>
+<th>SOP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Scope</em></td>
+<td>One trial</td>
+<td>One activity, across every trial the organization runs</td>
+</tr>
+<tr class="even">
+<td><em>Written by</em></td>
+<td>The sponsor, with clinical, statistical, regulatory, and operational input</td>
+<td>The organization that performs the activity: sponsor, CRO, site, or IRB</td>
+</tr>
+<tr class="odd">
+<td><em>Signed or approved by</em></td>
+<td>The sponsor’s authorized signatories and each investigator; approved by IRBs; submitted to or authorized by regulators</td>
+<td>The organization’s line management and quality assurance</td>
+</tr>
+<tr class="even">
+<td><em>Changed by</em></td>
+<td>Protocol amendment, approved before implementation except in narrow cases</td>
+<td>A new version under the organization’s change control</td>
+</tr>
+<tr class="odd">
+<td><em>Takes effect</em></td>
+<td>Site by site, as each site’s approvals arrive</td>
+<td>From the version’s effective date, for everyone who performs the activity</td>
+</tr>
+<tr class="even">
+<td><em>Afterward</em></td>
+<td>Kept with the trial’s essential records</td>
+<td>Superseded versions archived out of use but available for review</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>An SOP usually opens with its purpose and scope, defines its terms, assigns qualifications and responsibilities, and sets out the steps in order, with the checklists and forms that document each completed action attached where they are used. Each page generally carries the document’s ID, revision number, and date <span class="citation" data-cites="epa_sop_2007">(<a href="references.html#ref-epa_sop_2007" role="doc-biblioref">U.S. Environmental Protection Agency 2007</a>)</span>. The completed forms are how a trial later shows that a procedure was followed. E6(R3)’s example is a database lock checklist produced by following the data management SOPs, which belongs among the trial’s essential records; the SOPs themselves are essential records too, kept outside any single trial’s files alongside master services agreements and validation records <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>.</p>
+<p>The organization’s procedure for writing procedures, the “SOP on SOPs”, sets the lifecycle. People who do the work write the draft, in enough detail that someone with a basic grasp of the work but little experience of the procedure could carry it out unsupervised. Others with experience of the process review it and ideally try it out, and line management and quality assurance approve it. The SOP is revised and re-approved whenever the process changes, reviewed at set intervals even when it has not, and withdrawn when the process is no longer followed. Superseded and withdrawn versions are archived where they cannot be used by mistake but can still be consulted. That matters because an inspection may come years after the work, and the revision number and date establish which procedure governed a task on the day it was done <span class="citation" data-cites="epa_sop_2007">(<a href="references.html#ref-epa_sop_2007" role="doc-biblioref">U.S. Environmental Protection Agency 2007</a>)</span>. Staff are trained on each new version, and their training records are part of the evidence that the people doing trial work were qualified for it <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>.</p>
+<p>What varies from trial to trial is carried by a layer between the two documents: trial-specific plans for risk management, monitoring, safety, data management, data validation, and statistical analysis. E6(R3) lists them among a trial’s essential records and expects them to be as clear, concise, and operationally feasible as the protocol they carry out. The monitoring plan shows how the layers divide the work. It is tailored to the risks of one protocol, focuses on the aspects critical to quality, describes the monitoring strategy, methods, and tools with the rationale for them, and references the sponsor’s applicable procedures. Committees are set up the same way: a DSMB or an endpoint adjudication committee operates under written procedures such as a charter <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>. The SOPs can stay stable while each trial adds what its design needs, and the plans, like the consent form and the case report forms, have to follow the protocol whenever it changes.</p>
+<p>Two situations test whose procedures apply. Regulatory requirements differ by country (<a href="#tbl-regional-regulatory" class="quarto-xref">Table&nbsp;<span>20.3</span></a>), so a sponsor’s global SOPs either meet the stricter national rule where one applies or are supplemented by country-level procedures that do. And when a sponsor hands obligations to a CRO, FDA requires the transfer to be described in writing; any obligation the description leaves out stays with the sponsor <span class="citation" data-cites="cfr21_312">(<a href="references.html#ref-cfr21_312" role="doc-biblioref">U.S. Food and Drug Administration 2024a</a>)</span>. E6(R3) keeps ultimate responsibility with the sponsor in any case and expects it to have access to a service provider’s SOPs to select and oversee it <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>. A sponsor that outsources monitoring therefore has to know whose procedures the CRO’s monitors work to, and to check that the work matches them.</p>
+<p>The protocol’s own life runs through SOPs as well. A sponsor’s procedures typically set how a protocol is drafted, reviewed, signed, and amended, and E6(R3) asks that the protocol name the persons authorized to sign it and its amendments for the sponsor, and that every amendment carry its own number and date <span class="citation" data-cites="ich_e6r3_2025">(<a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">International Council for Harmonisation 2025</a>)</span>. <a href="12-study-design.html" class="quarto-xref"><span>Chapter 13</span></a> follows a protocol from synopsis to signature, and <a href="12-study-design.html#sec-protocol-amendments" class="quarto-xref"><span>Section 13.8.1</span></a> follows an amendment from the decision to change to the last site that adopts it.</p>
+</section>
+<section id="the-flow-of-documents" class="level3">
+<h3 class="anchored" data-anchor-id="the-flow-of-documents">The Flow of Documents</h3>
+<p>The <em>Trial Master File (TMF)</em> is the sponsor’s collection of essential documents, defined by ICH GCP as the archive demonstrating that the trial was conducted according to GCP and regulatory requirements. It includes the protocol and its amendments, regulatory approvals, ethics committee correspondence, investigator agreements, monitoring reports, and safety data.</p>
+<p>The <em>Investigator Site File (ISF)</em> is the site’s equivalent, maintained at each clinical trial site, and includes the site’s copy of the protocol, regulatory approvals, IRB correspondence, delegation logs, training records, and source document worksheets.</p>
+<p>The pathways between them are regulated. The sponsor provides the <em>Investigator’s Brochure</em> containing preclinical and clinical information about the investigational product; the site returns signed agreements and regulatory forms. Informed consent forms, developed by the sponsor, are reviewed and approved by each site’s IRB before use. Safety reports flow from sites to sponsors, and from sponsors to regulators and to every participating site.</p>
+<p>ICH E6(R2) organized the <em>essential documents</em> into three categories, and TMF practice still follows that temporal structure even though E6(R3) replaced R2’s minimum list, which could already be supplemented or reduced where justified, with a risk-proportionate essential-records table (see <a href="22-essential-docs.html" class="quarto-xref"><span>Chapter 24</span></a>): protocol, approvals, and CVs before trial initiation; monitoring reports, updated consents, and serious adverse event reports during the trial; final reports, final reconciliations, and archiving records after completion.</p>
+</section>
+</section>
+<section id="scale-timelines-and-global-execution" class="level2" data-number="20.4">
+<h2 data-number="20.4" class="anchored" data-anchor-id="scale-timelines-and-global-execution"><span class="header-section-number">20.4</span> Scale, Timelines, and Global Execution</h2>
+<p>The protocol and the essential documents are a framework on paper. Execution means holding that framework across immense geographies and multi-year timelines.</p>
+<section id="development-timelines-and-success-rates" class="level3">
+<h3 class="anchored" data-anchor-id="development-timelines-and-success-rates">Development Timelines and Success Rates</h3>
+<p>Nearly half of all clinical research sites reported that operational challenges forced them to reduce the number of studies they participated in during the past year, a pattern <a href="17-recruitment.html" class="quarto-xref"><span>Chapter 19</span></a> examines in detail <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>. Long durations and high attrition rates compound the logistical challenge (<a href="#tbl-dev-timeline" class="quarto-xref">Table&nbsp;<span>20.2</span></a>). Total clinical trial starts declined from the 2021 peak, returning to 2019 levels by 2024, driven largely by the fading of COVID-19-related research (which declined 62% in 2024) but also by lower non-COVID trial starts from both larger companies and Emerging Biopharma (EBP) firms, concentrated in 2022 and 2023, with Phase I starts rebounding for both segments in 2024 <span class="citation" data-cites="iqvia_rd_trends_2025">(<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>)</span>.</p>
+<div id="tbl-dev-timeline" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[34,30,36]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dev-timeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;20.2: Current Drug Development Timeline and Success Metrics <span class="citation" data-cites="iqvia_rd_trends_2025 fda_drug_development">(<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>; <a href="references.html#ref-fda_drug_development" role="doc-biblioref">U.S. Food and Drug Administration 2018</a>)</span>
+</figcaption>
+<div aria-describedby="tbl-dev-timeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 30%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Current Data (2023-2024)</th>
+<th>Context</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Total development time</em></td>
+<td>10-15 years</td>
+<td>Discovery through FDA approval</td>
+</tr>
+<tr class="even">
+<td><em>Clinical phase duration</em></td>
+<td>9.3 years (2024; sum of phase medians)</td>
+<td>Phase I through NDA approval</td>
+</tr>
+<tr class="odd">
+<td><em>Inter-trial intervals</em></td>
+<td>17 months (2024)</td>
+<td>Gaps between research phases; recovered from pandemic peak of 32 months <span class="citation" data-cites="iqvia_rd_trends_2025">(<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>)</span></td>
+</tr>
+<tr class="even">
+<td><em>Overall clinical success</em></td>
+<td>6-7%</td>
+<td>Phase I to market launch (composite success rate)</td>
+</tr>
+<tr class="odd">
+<td><em>Phase I success</em></td>
+<td>47% (2024)</td>
+<td>Safety and dosing assessment</td>
+</tr>
+<tr class="even">
+<td><em>Phase II success</em></td>
+<td><strong>25%</strong> (2024)</td>
+<td>Proof-of-concept; lowest success rate</td>
+</tr>
+<tr class="odd">
+<td><em>Phase III success</em></td>
+<td>59% (2024)</td>
+<td>Confirmatory efficacy trials</td>
+</tr>
+<tr class="even">
+<td><em>NDA/BLA approval rate</em></td>
+<td>98% (2024)</td>
+<td>Post-submission to approval</td>
+</tr>
+<tr class="odd">
+<td><em>First-cycle approval</em></td>
+<td>74% (2024)</td>
+<td>Approved without major deficiencies</td>
+</tr>
+<tr class="even">
+<td><em>Expedited programs</em></td>
+<td>79% (2024)</td>
+<td>Launches using fast track, breakthrough, priority review, or accelerated approval</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>In Deloitte’s 2024 analysis, total cycle time from Phase I through regulatory filing had reached 100.4 months, over 8.3 years, with all stages of development lengthening over the preceding five years <span class="citation" data-cites="deloitte_rd_return_2025">(<a href="references.html#ref-deloitte_rd_return_2025" role="doc-biblioref">Deloitte Centre for Health Solutions 2025</a>)</span>. Phase III had expanded the most, by 12.0% over those same five years, reflecting the rising complexity of late-stage global trials and stricter regulatory requirements.</p>
+<p>Total development time also reflects <strong>inter-trial intervals</strong>: the gaps from the end of treatment in one trial to the start of enrollment in the next (or to regulatory submission), where data are analyzed, funding is secured, and subsequent protocols are finalized. These intervals contributed 17 months to overall medicine development time in 2024, a recovery from the pandemic-driven peak of 32 months in 2022, which makes further interval reduction one of the most significant opportunities for accelerating patient access <span class="citation" data-cites="iqvia_rd_trends_2025">(<a href="references.html#ref-iqvia_rd_trends_2025" role="doc-biblioref">IQVIA Institute for Human Data Science 2025</a>)</span>.</p>
+<p>China, India, and Eastern Europe offer large patient pools at the cost of varying regulatory timelines, language barriers, and complex global supply chains. The standard a sponsor has to hold is that a site initiation in Brazil is as rigorous as one in Boston.</p>
+</section>
+<section id="multi-regional-trials-and-regulatory-framework" class="level3">
+<h3 class="anchored" data-anchor-id="multi-regional-trials-and-regulatory-framework">Multi-Regional Trials and Regulatory Framework</h3>
+<p>Late-stage programs are increasingly executed as <em>multi-regional clinical trials (MRCTs)</em>, conducted across multiple countries and regulatory jurisdictions. This geographic scope is driven by practical and regulatory considerations: access to larger patient populations, faster enrollment through diversification, and regulatory expectations that evidence should be relevant to the populations in which a drug will be used <span class="citation" data-cites="getz_delay_day_2024 ich_e17">(<a href="references.html#ref-getz_delay_day_2024" role="doc-biblioref">Smith, DiMasi, and Getz 2024</a>; <a href="references.html#ref-ich_e17" role="doc-biblioref">International Council for Harmonisation 2017</a>)</span>.</p>
+<p><em>ICH E5 (Ethnic Factors)</em> addresses when clinical data generated in one region can support approval in another. It distinguishes between <em>intrinsic</em> ethnic factors (genetics, body weight, organ function) and <em>extrinsic</em> factors (medical practice, diet, environment). When these factors are likely to affect drug response, regulators may require local data or <em>bridging studies</em> to extrapolate from foreign trials <span class="citation" data-cites="ich_e5">(<a href="references.html#ref-ich_e5" role="doc-biblioref">International Council for Harmonisation 1998</a>)</span>.</p>
+<p><em>ICH E17 (Multi-Regional Clinical Trials)</em> provides fuller guidance on designing a single trial to support approval across multiple regions simultaneously. In practice, it pushes teams to treat “global” as a prespecified design choice: the trial should be structured so that, if the pooled result is positive, regulators can assess whether the evidence is sufficiently consistent and interpretable across regions (even when individual regions are not powered for standalone hypothesis tests). It also emphasizes planning regional representation prospectively and prespecifying regional analyses and decision-relevant summaries rather than discovering “regional stories” after the fact <span class="citation" data-cites="ich_e17">(<a href="references.html#ref-ich_e17" role="doc-biblioref">International Council for Harmonisation 2017</a>)</span>.</p>
+<p>Although ICH harmonization has aligned much of clinical trial regulation, important differences remain. In the European Union, for example, the Clinical Trials Regulation (CTR) and its CTIS portal standardize much of the submission and coordination process across member states, while still leaving meaningful national operational differences in how ethics and competent-authority review are executed <span class="citation" data-cites="ema_ctr_ctis">(<a href="references.html#ref-ema_ctr_ctis" role="doc-biblioref">European Medicines Agency 2022</a>)</span>.</p>
+<p>Submission pathways, ethics committee structures, inspection practices, and expectations for local participation can differ across regions in ways that directly affect startup timelines and monitoring models. “One global trial” therefore behaves like a portfolio of region-specific startup and oversight workflows, and its operational controls have to absorb local requirements without fragmenting data standards or protocol interpretation <span class="citation" data-cites="ich_e17">(<a href="references.html#ref-ich_e17" role="doc-biblioref">International Council for Harmonisation 2017</a>)</span>. <a href="#tbl-regional-regulatory" class="quarto-xref">Table&nbsp;<span>20.3</span></a> summarizes the differences across major regulatory regions.</p>
+<div id="tbl-regional-regulatory" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[20,20,20,20,20]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regional-regulatory-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;20.3: Regional Regulatory Differences in Multi-Regional Trials. <em>Note: Regulatory frameworks evolve; verify current requirements with applicable authorities.</em>
+</figcaption>
+<div aria-describedby="tbl-regional-regulatory-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>FDA (US)</th>
+<th>EMA (EU)</th>
+<th>PMDA (Japan)</th>
+<th>NMPA (China)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Application type</em></td>
+<td>IND</td>
+<td>CTA (national or centralized)</td>
+<td>CTN</td>
+<td>IND</td>
+</tr>
+<tr class="even">
+<td><em>GCP standard</em></td>
+<td>ICH E6(R3)</td>
+<td>ICH E6(R3) + local annexes</td>
+<td>J-GCP (ICH E6 + local)</td>
+<td>China GCP (ICH E6 + local)</td>
+</tr>
+<tr class="odd">
+<td><em>Local data requirement</em></td>
+<td>Flexible</td>
+<td>Flexible</td>
+<td>Bridging often required</td>
+<td>Local patients required for registration</td>
+</tr>
+<tr class="even">
+<td><em>IRB/EC structure</em></td>
+<td>Central IRB common</td>
+<td>National EC per member state</td>
+<td>Central + local</td>
+<td>Local EC per site</td>
+</tr>
+<tr class="odd">
+<td><em>Inspection authority</em></td>
+<td>FDA</td>
+<td>National competent authorities</td>
+<td>PMDA</td>
+<td>NMPA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>A multi-regional trial may require separate regulatory submissions in each country, with different timelines and documentation requirements. The United States permits central IRBs that cover multiple sites; many other countries require local ethics approval at each institution.</p>
+</section>
+<section id="operational-friction-and-the-activation-bottleneck" class="level3">
+<h3 class="anchored" data-anchor-id="operational-friction-and-the-activation-bottleneck">Operational Friction and the Activation Bottleneck</h3>
+<p>Those administrative layers land on study start-up, which remains a primary logistical bottleneck. Start-up timelines vary dramatically by site type (<a href="16-site-selection.html" class="quarto-xref"><span>Chapter 18</span></a>): 77% of academic medical centers and health systems require more than 60 days, while 60% of independent sites can initiate in under 60 days, and 77% of U.S. sites cite “Budgets and Contracts” as the dominant bottleneck <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>. Ex-U.S. sites more frequently cite ethical/regulatory review (58%) as the primary obstacle.</p>
+<p>Technology adds friction of its own. In one industry survey, 60% of sites reported using more than 20 technology systems per day to conduct research <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>. This “portal proliferation” imposes an immense cognitive and administrative load on site staff, often leading to data entry errors and protocol deviations that further extend timelines, and sponsor-mandated proprietary software frequently conflicts with the site’s existing technology infrastructure, forcing sites into manual workarounds.</p>
+<p>Sites respond by hiring additional staff, prioritizing training, and (for 27% of them) participating in fewer studies as a deliberate strategy to maintain quality (see <a href="17-recruitment.html" class="quarto-xref"><span>Chapter 19</span></a> for detailed breakdowns of site solutions and <a href="17-recruitment.html#fig-wcg-solutions" class="quarto-xref">Figure&nbsp;<span>19.1</span></a>). Staff turnover has improved modestly: the proportion of sites reporting low turnover (less than 5% annually) rose from 22% in 2023 to 35% in 2024 (see <a href="17-recruitment.html#fig-wcg-turnover" class="quarto-xref">Figure&nbsp;<span>19.4</span></a> in <a href="17-recruitment.html" class="quarto-xref"><span>Chapter 19</span></a>) <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>.</p>
+<p><a href="#fig-wcg-startup-times" class="quarto-xref">Figure&nbsp;<span>20.1</span></a> visualizes these process delays across site types.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-wcg-startup-times" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wcg-startup-times-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="18-logistics_files/figure-html/fig-wcg-startup-times-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wcg-startup-times-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.1: Average clinical trial site start-up durations (days) by institution type. Data from <span class="citation" data-cites="wcg_site_challenges_2024">WCG Clinical (<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">2024</a>)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="operational-challenges-and-execution-models" class="level3">
+<h3 class="anchored" data-anchor-id="operational-challenges-and-execution-models">Operational Challenges and Execution Models</h3>
+<p>Language requirements extend far beyond translation accuracy: informed consent forms, patient materials, and training manuals must be culturally adapted and medically equivalent across all participating regions. Global teams spanning a dozen or more time zones rely on structured asynchronous communication, reserving carefully scheduled real-time calls for critical decisions. Investigational product has to clear each country’s own customs and import regulations, which is hardest for temperature-sensitive biologics that require validated cold-chain logistics and rigorous contingency planning for border delays. Data privacy law is fragmented as well, and GDPR and PIPL often require regional hosting or complex pseudonymization protocols. The financial logistics of managing payments across dozens of currencies and banking systems demand meticulous attention to fair market value assessments and anti-corruption compliance.</p>
+<p>Three organizational models recur. A centralized model runs the entire trial from a single global operations center to maximize consistency, sometimes at the cost of local expertise and responsiveness. A regional hub model delegates authority to specialized leads in Europe, Asia-Pacific, or the Americas, balancing global protocols against regional nuance. Partnering with local CROs buys deep expertise in specific emerging markets and accelerates startup, at the price of a heavier vendor management burden.</p>
+<p>The choice depends on the sponsor’s organizational structure, the complexity of the protocol, and the specific countries involved. Whichever model is chosen, decision rights have to be explicit: when a site in Japan raises a protocol interpretation question, who has authority to answer?</p>
+<p>The logistical footprint of a trial is often characterized by its <em>executional design characteristics</em>, the countable elements that define the scope of the operation. Benchmarks from the Tufts Center for the Study of Drug Development (Tufts CSDD) put a typical Phase III trial at an average of 14 countries and 82 investigative sites <span class="citation" data-cites="getz_protocol_benchmarks_2022">(<a href="references.html#ref-getz_protocol_benchmarks_2022" role="doc-biblioref">Getz, Smith, and Kravet 2023</a>)</span>.</p>
+<p>Oncology and rare disease trials are often dispersed further while enrolling relatively few patients. A rare disease trial might enroll only 200 patients globally and still require 27 sites across 10 countries to find them. Oncology trials involve about 60% more countries than non-oncology trials (13 versus 8) and require significantly more patient visits (29 versus 16), each visit adding to the logistical burden on both sites and patients <span class="citation" data-cites="getz_protocol_benchmarks_2022">(<a href="references.html#ref-getz_protocol_benchmarks_2022" role="doc-biblioref">Getz, Smith, and Kravet 2023</a>)</span>.</p>
+<p>Vendor counts have grown too, to an average of 4 to 6 specialized providers per trial <span class="citation" data-cites="getz_protocol_benchmarks_2022">(<a href="references.html#ref-getz_protocol_benchmarks_2022" role="doc-biblioref">Getz, Smith, and Kravet 2023</a>)</span>: central labs, imaging core labs, EDC providers, and logistics firms, each requiring disciplined coordination so that data flow correctly and samples are processed within required windows.</p>
+</section>
+</section>
+<section id="project-management-and-execution-flow" class="level2" data-number="20.5">
+<h2 data-number="20.5" class="anchored" data-anchor-id="project-management-and-execution-flow"><span class="header-section-number">20.5</span> Project Management and Execution Flow</h2>
+<p>The project management of a clinical trial focuses on the transition from planning to execution, ensuring that sites are activated, staff are trained, and data flows reliably from the clinic to the sponsor.</p>
+<section id="site-initiation-and-monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="site-initiation-and-monitoring">Site Initiation and Monitoring</h3>
+<p>Before a site can enroll patients, it must be formally initiated. The <em>Site Initiation Visit (SIV)</em> marks this transition. Typically conducted by CRO personnel, the SIV ensures that all regulatory approvals are in place, the investigational product has arrived and is properly stored, site staff understand the protocol and procedures, and the site’s essential documents are in order. Benchmarks show that study initiation (from protocol approval to first patient first visit) now takes an average of 166 days for Phase III trials <span class="citation" data-cites="lamberti_enrollment_2024">(<a href="references.html#ref-lamberti_enrollment_2024" role="doc-biblioref">Lamberti et al. 2024</a>)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Checklist: Remote/Hybrid Site Initiation Visit (SIV)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Checklist: Remote/Hybrid Site Initiation Visit (SIV)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The increasing use of decentralized elements and remote work has shifted many “initiation” activities from a single in-person meeting toward a hybrid model. FDA guidance emphasizes that decentralized elements must preserve participant safety and data integrity; operationally, this implies that initiation must explicitly cover remote access, training, and computerized-system controls rather than assuming that in-person presence resolves them <span class="citation" data-cites="fda_dct_guidance_2024 fda_electronic_systems_2024">(<a href="references.html#ref-fda_dct_guidance_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024c</a>, <a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">2024b</a>)</span>.</p>
+<ul>
+<li><em>Regulatory and essential documents readiness</em>: confirm approvals are current; confirm controlled document versions are distributed; confirm delegation and training records are complete and attributable <span class="citation" data-cites="ich_e6 ich_e6r3_2025">(<a href="references.html#ref-ich_e6" role="doc-biblioref">International Council for Harmonisation 1996</a>, <a href="references.html#ref-ich_e6r3_2025" role="doc-biblioref">2025</a>)</span>.</li>
+<li><em>Consent readiness</em>: confirm the correct consent versions, procedures for re-consent, and (if applicable) eConsent workflows and documentation controls <span class="citation" data-cites="fda_econsent_2016 fda_electronic_systems_2024">(<a href="references.html#ref-fda_econsent_2016" role="doc-biblioref">U.S. Food and Drug Administration 2016</a>, <a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">2024b</a>)</span>.</li>
+<li><em>Computerized systems readiness</em>: confirm access provisioning, role-based permissions, and audit trail availability for EDC/ePRO/IRT and any remote source-review workflows <span class="citation" data-cites="cfr21_11 fda_electronic_systems_2024">(<a href="references.html#ref-cfr21_11" role="doc-biblioref">U.S. Food and Drug Administration 2023a</a>, <a href="references.html#ref-fda_electronic_systems_2024" role="doc-biblioref">2024b</a>)</span>.</li>
+<li><em>Remote/hybrid visit workflows</em>: define how remote visits will be conducted, documented, and supported (telehealth procedures, home health vendor roles, escalation paths) <span class="citation" data-cites="fda_dct_guidance_2024">(<a href="references.html#ref-fda_dct_guidance_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024c</a>)</span>.</li>
+<li><em>Investigational product logistics</em>: confirm chain-of-custody processes for site and (if applicable) direct-to-participant shipments; confirm temperature excursion procedures and reconciliation responsibilities <span class="citation" data-cites="fda_dct_guidance_2024">(<a href="references.html#ref-fda_dct_guidance_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024c</a>)</span>.</li>
+<li><em>Data flow and reconciliation</em>: confirm expected data sources (central labs, devices, ePRO), transfer cadence, and responsibility for reconciliation and query resolution <span class="citation" data-cites="fda_dht_guidance_2023">(<a href="references.html#ref-fda_dht_guidance_2023" role="doc-biblioref">U.S. Food and Drug Administration 2023c</a>)</span>.</li>
+</ul>
+</div>
+</div>
+<p>Monitors (whether employed by the sponsor or CRO) visit sites periodically to verify compliance. They review source documents, check informed consent processes, reconcile investigational product, and identify any issues requiring correction. Monitoring reports document these visits and any corrective actions required.</p>
+<p>Beyond routine monitoring, sponsors and CROs may conduct audits, which are formal examinations of trial processes and documents to verify compliance with protocols, SOPs, GCP, and regulations. Regulators may also conduct inspections, particularly of pivotal trials submitted to support marketing applications.</p>
+</section>
+<section id="site-team-roles-and-relationships" class="level3">
+<h3 class="anchored" data-anchor-id="site-team-roles-and-relationships">Site Team Roles and Relationships</h3>
+<p>At the site level, the investigator shoulders substantial regulatory obligations. <em>Patient safety</em> comes first: the investigator must ensure that qualified staff are available, that appropriate medical care is provided, and that participants are protected from unnecessary risks. The investigator is responsible for all trial-related medical decisions. <em>Informed consent</em> must be obtained before any trial procedures, following approved procedures and forms, with participants informed of any new information that might affect their willingness to continue. <em>Protocol compliance</em> means conducting the study exactly as specified, with every deviation documented. <em>Regulatory maintenance</em> requires keeping the ISF current, reporting to the IRB, and cooperating with monitors and auditors. Investigators must retain trial records for specified periods (often 15 years or longer) and be available for regulatory inspection even years after a trial concludes.</p>
+<p>Study coordinators occupy a unique position: they are on the ground at the site, managing the daily logistics that determine whether a trial succeeds or fails. Coordinators screen potential participants against eligibility criteria, schedule and conduct study visits, administer questionnaires and assessments, collect and enter data, and manage investigational product accountability. They maintain the ISF, respond to monitor queries, and prepare for monitoring visits. They also manage relationships with patients (who need coordination for visits and follow-up), with investigators (who rely on coordinators to keep the trial running smoothly), and with sponsors and CROs (who depend on coordinators for data and compliance). The coordinator role is often underappreciated. Experienced coordinators are among the strongest determinants of site performance, and sites with high coordinator turnover struggle with enrollment and data quality. Sites themselves rank staffing and retention among their top challenges, and finding research professionals with enough experience to deliver good, accurate trial data remains a persistent difficulty <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>. The best sponsors and CROs invest in coordinator relationships, recognizing that these individuals make or break trial execution.</p>
+<p>The three-way relationship among sponsors, CROs, and sites can be complicated. CROs are accountable to sponsors: their contracts and revenue depend on sponsor satisfaction. Sites depend on sponsors (often through CROs) for trial opportunities and funding. This creates potential tension: CROs may prioritize sponsor timelines over site needs; sites may feel caught between competing demands. Communication breakdowns are common. A 2024 industry column, citing a 2022 ZS Associates report, said that over half of sites were dissatisfied with how communication is handled and that sites often repeat the same information to multiple contacts <span class="citation" data-cites="bronner_site_cro_2024">(<a href="references.html#ref-bronner_site_cro_2024" role="doc-biblioref">Bronner 2024</a>)</span>. High staff turnover at CROs exacerbates the problem: sites must repeatedly educate new monitors about local circumstances. Best practices emphasize clear role definitions, consistent contacts, and responsive communication.</p>
+</section>
+</section>
+<section id="modern-logistics-and-innovation" class="level2" data-number="20.6">
+<h2 data-number="20.6" class="anchored" data-anchor-id="modern-logistics-and-innovation"><span class="header-section-number">20.6</span> Modern Logistics and Innovation</h2>
+<p>The logistics of clinical research are being transformed by new technologies and methodologies that address the friction of global operations and the shift toward more patient-centric designs.</p>
+<section id="sec-logistics-ai-automation" class="level3">
+<h3 class="anchored" data-anchor-id="sec-logistics-ai-automation">AI and Automation in Trial Logistics</h3>
+<p>A trial that once shipped temperature-controlled product to a few dozen sites may now ship it to thousands of homes. Add SOPs harmonized across 20+ countries with distinct regulatory requirements, plus the protocol deviations that multiply as complex protocols meet site staff overburdened with multiple systems, and the friction exceeds what manual processes can absorb.</p>
+<p>The industry’s answer has been IT and AI, treated in detail in <a href="23-clinical-it.html" class="quarto-xref"><span>Chapter 25</span></a> and <a href="24-ai-agents.html" class="quarto-xref"><span>Chapter 26</span></a>, but autonomy is the wrong frame here. The practical contribution is <em>coordination at scale</em>: converting streams of operational events (shipments, visits, queries, deviations) into timely decisions and documented actions. The ethical and regulatory constraints do not change (patient safety, data integrity, and accountability), so successful automation must produce auditable traces and preserve human oversight <span class="citation" data-cites="cfr21_11 nist_ai_rmf_2023">(<a href="references.html#ref-cfr21_11" role="doc-biblioref">U.S. Food and Drug Administration 2023a</a>; <a href="references.html#ref-nist_ai_rmf_2023" role="doc-biblioref">National Institute of Standards and Technology 2023</a>)</span>.</p>
+<p>Decentralized elements and direct-to-patient (DtP) distribution multiply the endpoints, and many shipments require strict temperature control <span class="citation" data-cites="iqvia_dtp_2024">(<a href="references.html#ref-iqvia_dtp_2024" role="doc-biblioref">IQVIA 2024</a>)</span>. Here AI earns its place by forecasting resupply from enrollment trajectories, visit schedules, and dispensing patterns, and by pushing shipments with early warning signals (temperature excursions, customs delays, address failures) to the top of the queue. Reconciliation is the other half: sensor data, courier scans, and dispensing logs linked into a single, reviewable chain-of-custody record suitable for quality oversight and inspection.</p>
+<p>Many of the longest delays sponsors experience as “logistics problems” are document and workflow problems. Feasibility questionnaires, contracts, training records, IRB/EC packets, and essential document completeness determine whether sites can activate on time and whether trial conduct remains inspection-ready. Workflow automation and AI-assisted classification can reduce filing and quality-control backlogs, but only when the system retains provenance and supports review; one that silently “auto-files” errors into an eTMF structure has bought speed at the cost of traceability <span class="citation" data-cites="dia_reference_model amershi_hai_guidelines_2019">(<a href="references.html#ref-dia_reference_model" role="doc-biblioref">TMF Reference Model Initiative 2024</a>; <a href="references.html#ref-amershi_hai_guidelines_2019" role="doc-biblioref">Amershi et al. 2019</a>)</span>.</p>
+<p>Protocol deviations follow the same logic: they are often downstream of cognitive overload, from complex schedules, many systems, and inconsistent site communication. Risk-based quality management (RBQM) formalizes the idea that oversight should follow risk signals rather than fixed calendars <span class="citation" data-cites="acro_rbqm_2025">(<a href="references.html#ref-acro_rbqm_2025" role="doc-biblioref">Association of Clinical Research Organizations 2025</a>)</span>. An AI layer that detects anomalous patterns (repeated out-of-window visits at a site, say) and directs monitoring attention and corrective action accordingly is most defensible when it also produces a structured explanation of why the record or site was flagged, one a reviewer can challenge and revise as part of an auditable process.</p>
+<p>Automation can fail, ethically and operationally, if it simply shifts work onto sites (more alerts, more portals, more passwords) without reducing burden. The baseline is already heavy: in a 2022 Society for Clinical Research Sites poll reported in WCG’s 2024 site-challenges survey, 60% of the sites surveyed were using more than 20 different technology systems each day <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>. While 43% of sponsors view their own software’s adoption as a key site selection criterion, approximately 38% of sites find these sponsor-provided technologies inadequate for their workflows, and 42% now stress the need for sponsor acceptance of the site’s own technology infrastructure as a condition for study participation <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>.</p>
+<p>Coordinators already sit at the center of execution, and systems that add friction can worsen data quality rather than improve it, however advanced they look: sites report the sprawl of sponsor-provided tools as a top challenge in its own right, and the same survey’s prescription is integration that cuts data entry and administrative burden <span class="citation" data-cites="wcg_site_challenges_2024">(<a href="references.html#ref-wcg_site_challenges_2024" role="doc-biblioref">WCG Clinical 2024</a>)</span>. Treat coordinator time as a constrained resource: automation should remove repetitive work and reduce context switching, and give exceptions a clear escalation path with a visible owner for the next decision.</p>
+</section>
+<section id="direct-to-patient-and-decentralized-trials" class="level3">
+<h3 class="anchored" data-anchor-id="direct-to-patient-and-decentralized-trials">Direct-to-Patient and Decentralized Trials</h3>
+<p>Driven by patient demand for convenience and enabled by regulatory guidance <span class="citation" data-cites="fda_dct_guidance_2024">(<a href="references.html#ref-fda_dct_guidance_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024c</a>)</span>, logistics providers now routinely ship investigational products directly to participants’ homes. That shift to <em>decentralized clinical trials (DCTs)</em> and a direct-to-patient supply chain is the most significant logistical evolution of the 2020s.</p>
+<p>Many of these shipments require strictly controlled temperatures, which means smart packaging with IoT sensors that track stability in real time <span class="citation" data-cites="iqvia_dtp_2024">(<a href="references.html#ref-iqvia_dtp_2024" role="doc-biblioref">IQVIA 2024</a>)</span>. Home health nurses administer infusions and draw blood in the patient’s home, extending the trial’s reach to those unable to travel to sites. Centralized <em>ePharmacies</em> dispense trial medications for simpler protocols, bypassing the site-based pharmacy altogether. Each of these moves burden off the patient and onto the sponsor, who now runs a distributed supply chain.</p>
+<p>AI can cut the coordination overhead that would otherwise overwhelm sites and sponsors: reminders, instructions, and scheduling handled automatically, remote data capture standardized, exceptions (missed visits, sensor failures, shipping issues) routed to humans with enough context to act. Medable positions a unified DCT platform that bundles eConsent, eCOA/ePRO, remote monitoring, and study build workflows <span class="citation" data-cites="medable_platform_2026">(<a href="references.html#ref-medable_platform_2026" role="doc-biblioref">Medable 2026</a>)</span>. The pattern matters more than the vendor: decentralized trials become practical when tooling collapses distributed coordination tasks into auditable workflows that can be monitored and corrected in near real time, consistent with regulatory expectations for decentralized elements <span class="citation" data-cites="fda_dct_guidance_2024">(<a href="references.html#ref-fda_dct_guidance_2024" role="doc-biblioref">U.S. Food and Drug Administration 2024c</a>)</span>.</p>
+<p>Early reports suggest that DCT elements may shorten enrollment durations, which currently average over 500 days for Phase III trials. The offset, at least in the short term, is that non-standard datasets and novel practices may add protocol complexity and demand more specialized logistical management.</p>
+</section>
+<section id="project-management-fundamentals" class="level3">
+<h3 class="anchored" data-anchor-id="project-management-fundamentals">Project Management Fundamentals</h3>
+<p>A clinical trial is a <em>project</em> in the formal sense: a temporary endeavor with a defined beginning, end, and scope, typically running from protocol finalization through database lock and study reporting, or even through regulatory submission. The <em>project manager</em> (or clinical project manager, or clinical operations lead) coordinates activities across functions, monitors progress against timelines and budgets, identifies risks, and drives issues to resolution.</p>
+<p>Four constraints define the job. <em>Scope</em> is what the trial will accomplish: the protocol establishes scientific scope, and the project plan translates that into operational scope. <em>Schedule</em> is when activities must occur, anchored on the milestones every trial shares: first site initiated, first patient enrolled, last patient enrolled, last patient last visit, database lock, final study report. <em>Budget</em> runs to detailed line items: site costs, CRO fees, laboratory expenses, vendor costs, internal labor. <em>Quality</em> means conducting the trial according to the protocol, GCP, and regulatory requirements while generating clean, analyzable data. <a href="#tbl-phase-costs" class="quarto-xref">Table&nbsp;<span>20.4</span></a> gives typical timelines and budgets by development phase.</p>
+<div id="tbl-phase-costs" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[15,15,15,15,20,20]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-phase-costs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;20.4: Typical Clinical Development Timelines and Budgets <span class="citation" data-cites="tufts_cost_2016 iqvia_success_2024 fda_pdufa_fees_fy2027">(<a href="references.html#ref-tufts_cost_2016" role="doc-biblioref">DiMasi, Grabowski, and Hansen 2016</a>; <a href="references.html#ref-iqvia_success_2024" role="doc-biblioref">IQVIA Institute for Human Data Science 2024</a>; <a href="references.html#ref-fda_pdufa_fees_fy2027" role="doc-biblioref">U.S. Food and Drug Administration 2026</a>)</span>
+</figcaption>
+<div aria-describedby="tbl-phase-costs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Phase</th>
+<th>Duration</th>
+<th>Patients</th>
+<th>Trial Cost</th>
+<th>Key Milestones</th>
+<th>Common Challenges</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Phase I</em></td>
+<td>6-12 months</td>
+<td>20-100</td>
+<td>$1-5M</td>
+<td>FIH, MTD, PK</td>
+<td>Dose selection; Safety stops</td>
+</tr>
+<tr class="even">
+<td><em>Phase II</em></td>
+<td>1-2 years</td>
+<td>100-500</td>
+<td>$10-30M</td>
+<td>PoC, Dose-response</td>
+<td>Go/no-go decision; Endpoint selection</td>
+</tr>
+<tr class="odd">
+<td><em>Phase III</em></td>
+<td>2-4 years</td>
+<td>300-3000+</td>
+<td>$50-200M+</td>
+<td>LPLV, DB Lock, CSR</td>
+<td>Enrollment delays; Data quality</td>
+</tr>
+<tr class="even">
+<td><em>NDA/BLA</em></td>
+<td>10-12 months</td>
+<td>N/A</td>
+<td>$4.6M FDA fee</td>
+<td>Submission, Review, Approval</td>
+<td>Complete response; Advisory committee</td>
+</tr>
+<tr class="odd">
+<td><em>Phase IV</em></td>
+<td>Ongoing</td>
+<td>Varies</td>
+<td>Varies</td>
+<td>REMS, PMRs</td>
+<td>Safety signal management</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>[!NOTE] FIH = First-in-Human; MTD = Maximum Tolerated Dose; PoC = Proof of Concept; LPLV = Last Patient Last Visit; PMRs = Post-Marketing Requirements</p>
+<p>The NDA/BLA cost is FDA’s application fee for fiscal year 2027 (an application requiring clinical data); the sponsor’s own cost of preparing the dossier is not included.</p>
+</blockquote>
+<p>Planning precedes the first patient. The <em>study plan</em> (or clinical operations plan) documents how the trial will be executed: site selection criteria, recruitment strategy, monitoring approach, data management processes, safety reporting procedures, and vendor management.</p>
+<p>Timelines are built backward from the required endpoints. If the sponsor needs a completed CSR by a certain date, when must database lock occur? When must the last patient complete the last visit? Backward planning reveals the critical path; <a href="#tbl-critical-path" class="quarto-xref">Table&nbsp;<span>20.5</span></a> sets out its key activities and their dependencies.</p>
+<div id="tbl-critical-path" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[20,50,30]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-critical-path-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;20.5: Typical Critical Path Dependencies
+</figcaption>
+<div aria-describedby="tbl-critical-path-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 50%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th>Key Steps</th>
+<th>Dependencies</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Protocol Development</em></td>
+<td>Draft protocol, Investigator Review, Final Approval</td>
+<td>Precedes all site activities</td>
+</tr>
+<tr class="even">
+<td><em>Regulatory</em></td>
+<td>IND/CTA Submission, Ethics Approval, Green Light</td>
+<td>Precedes IP shipment</td>
+</tr>
+<tr class="odd">
+<td><em>Site Activation</em></td>
+<td>Feasibility, Contract Negotiation, SIV, Green Light</td>
+<td>Precedes Enrollment</td>
+</tr>
+<tr class="even">
+<td><em>Enrollment</em></td>
+<td>Screen patients, Enroll, Randomize, Treat</td>
+<td>Dependent on Site Activation</td>
+</tr>
+<tr class="odd">
+<td><em>Data Management</em></td>
+<td>Database Build, UAT, Data Entry, Cleaning, Lock</td>
+<td>Runs parallel to Enrollment</td>
+</tr>
+<tr class="even">
+<td><em>Reporting</em></td>
+<td>Analysis, TLF Generation, CSR Writing</td>
+<td>Dependent on Database Lock</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><em>Resource planning</em> identifies what people, equipment, and services are needed when: how many monitors at peak enrollment, what laboratory capacity. <em>Risk assessment</em> anticipates what might go wrong, and the common answers are familiar: slow enrollment, poor data quality, site non-compliance, vendor underperformance, regulatory delays.</p>
+<p>Once the trial is underway, the work becomes tracking and correction. <em>Status tracking</em> follows the metrics that indicate trial health: sites activated, patients enrolled, data cleaned, queries resolved, protocol deviations, serious adverse events, surfaced through dashboards and reports. <em>Variance analysis</em> compares actual performance against plan; if enrollment is running 30% behind projection, what is causing the gap? Issues are logged, assigned to owners, and tracked to resolution. Regular team meetings, status reports, and steering committee updates keep sponsors, CROs, and key sites current.</p>
+<p><em>Change control</em> governs modifications to scope, schedule, or budget. Site additions, vendor changes, and budget increases require formal approval and documentation; protocol amendments are the disruptive case (see <a href="12-study-design.html#sec-protocol-amendments" class="quarto-xref"><span>Section 13.8.1</span></a>), and by 2022 protocols averaged 3.3 amendments each <span class="citation" data-cites="getz_protocol_amendments_2024">(<a href="references.html#ref-getz_protocol_amendments_2024" role="doc-biblioref">Getz et al. 2024</a>)</span>. Operationalizing an amendment requires submission to every IRB/EC and, where the change calls for it, to regulators, re-consenting patients if risks or procedures change, updating EDC databases and IVRS/IRT randomization logic, and revising supply chain forecasts. A single substantial amendment can cost $500,000 or more in direct and indirect fees <span class="citation" data-cites="getz_protocol_amendments_2016">(<a href="references.html#ref-getz_protocol_amendments_2016" role="doc-biblioref">Getz et al. 2016</a>)</span>.</p>
+<p>Coordination runs across specialized functions, each with its own deliverables and interdependencies: clinical operations manages sites and monitors, data management handles collection and cleaning, biostatistics performs the analyses, regulatory affairs manages submissions, pharmacovigilance monitors safety, medical monitoring provides oversight, and CMC/supply chain ensures product availability. The project manager owns the handoffs between them.</p>
+<p><em>Clinical Trial Management Systems (CTMS)</em> track site and patient status, <em>Electronic Data Capture (EDC)</em> platforms enable remote data review, collaboration platforms carry communication across distributed teams, and analytics dashboards feed risk-based monitoring.</p>
+<p>Problems arrive anyway. Enrollment shortfalls are the most common, answered by adding sites, extending timelines, or intensifying recruitment. Data quality issues may require site retraining, safety signals may require protocol amendments, and budget overruns force difficult decisions about scope or resources. Experienced project managers expect all of it and build margin into their plans, keeping contingency reserves and the relationships that let a problem be solved quickly.</p>
+</section>
+</section>
+<section id="publication-and-data-sharing-policies" class="level2" data-number="20.7">
+<h2 data-number="20.7" class="anchored" data-anchor-id="publication-and-data-sharing-policies"><span class="header-section-number">20.7</span> Publication and Data Sharing Policies</h2>
+<p>How and when trial results become public is now as much a matter of policy as of science.</p>
+<section id="publication-policy-gpp-2022-and-modern-transparency-expectations" class="level3">
+<h3 class="anchored" data-anchor-id="publication-policy-gpp-2022-and-modern-transparency-expectations">Publication policy: GPP 2022 and modern transparency expectations</h3>
+<p>Classic operational handbooks addressed publication policy in terms of authorship criteria and sponsor review rights <span class="citation" data-cites="meinert_cth_2013">(<a href="references.html#ref-meinert_cth_2013" role="doc-biblioref">Meinert 2013</a>)</span>. The 2022 update to Good Publication Practice (GPP 2022) widens that frame <span class="citation" data-cites="gpp_2022">(<a href="references.html#ref-gpp_2022" role="doc-biblioref">DeTora et al. 2022</a>)</span>: it encourages plain-language summaries as enhanced content, asking that publications support the communication of scientific information to lay audiences through such summaries and other accessible formats. The guidelines explicitly address patients as potential authors or contributors, recognizing that patient expertise may be relevant to interpreting outcomes, burden, or real-world applicability. They also emphasize transparency about medical writing support and statistical analysis, requiring disclosure of any sponsor involvement in study design, data access, and manuscript preparation.</p>
+<p>Publication planning should begin early in the trial, ideally during protocol development, so that data collection supports the planned analyses and authorship expectations are clear before results emerge.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Template: Publication Policy (GPP 2022-Aligned)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Template: Publication Policy (GPP 2022-Aligned)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><em>Authorship criteria</em>: ICMJE criteria for authorship; explicit documentation of contributions; prohibition of ghost authorship.</li>
+<li><em>Plain-language summaries</em>: commitment to producing accessible summaries for each primary publication; process for patient review of draft summaries.</li>
+<li><em>Patient contributors</em>: defined process for including patient authors or acknowledged contributors where their input meaningfully shaped interpretation or presentation.</li>
+<li><em>Sponsor review rights</em>: timeline for sponsor review (typically 30-60 days, sometimes up to 90, with a further limited delay if the sponsor needs to file a patent) <span class="citation" data-cites="uidp_acta_2014 mello_cta_2005">(<a href="references.html#ref-uidp_acta_2014" role="doc-biblioref">University-Industry Demonstration Partnership 2014</a>; <a href="references.html#ref-mello_cta_2005" role="doc-biblioref">Mello, Clarridge, and Studdert 2005</a>)</span>; explicit prohibition of sponsor suppression of unfavorable results; documentation of any sponsor-requested changes and author responses.</li>
+<li><em>Data access and transparency</em>: statement of investigator access to study data; commitment to registration and results reporting per FDAAA and NIH policies.</li>
+<li><em>Publication timing</em>: planned timeline for primary results publication relative to database lock; coordination with regulatory submissions.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="ancillary-study-policy-alignment-with-nih-data-management-and-sharing-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="ancillary-study-policy-alignment-with-nih-data-management-and-sharing-requirements">Ancillary study policy: alignment with NIH Data Management and Sharing requirements</h3>
+<p>Traditional ancillary study policies addressed resource neutrality, Steering Committee review, and restrictions on treatment-group analyses until main trial completion <span class="citation" data-cites="meinert_cth_2013">(<a href="references.html#ref-meinert_cth_2013" role="doc-biblioref">Meinert 2013</a>)</span>. The 2023 Data Management and Sharing (DMS) Policy adds a requirement for NIH-funded research: ancillary studies must inherit or establish their own data sharing plans, and the relationship between parent and ancillary data must be documented <span class="citation" data-cites="nih_dms_2023">(<a href="references.html#ref-nih_dms_2023" role="doc-biblioref">National Institutes of Health 2023</a>)</span>.</p>
+<p>An ancillary study proposal should therefore address how the data generated will be managed, retained, and shared, alongside the usual scientific merit and resource impact. For specimens or data collected under the parent trial’s consent, investigators must verify that consent language supports the proposed ancillary use, which argues for broad consent language in the original protocol.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Template: Ancillary Study Policy (NIH DMS-Aligned)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Template: Ancillary Study Policy (NIH DMS-Aligned)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><em>Proposal requirements</em>: scientific rationale; resource impact assessment; timeline relative to parent trial milestones; investigator qualifications.</li>
+<li><em>Review and approval</em>: Steering Committee or designated subcommittee review; sponsor concurrence for industry-funded trials; documentation of approval.</li>
+<li><em>Data management plan</em>: ancillary study-specific DMS plan or explicit adoption of parent trial plan; identification of repositories for data and specimens.</li>
+<li><em>Consent alignment</em>: verification that parent trial consent supports proposed ancillary use; process for obtaining additional consent if required.</li>
+<li><em>Embargo and coordination</em>: restrictions on ancillary publications that could compromise parent trial integrity or unblinding; timeline for lifting embargoes relative to primary results.</li>
+<li><em>Data sharing timeline</em>: commitment to share ancillary study data per NIH DMS timelines (generally at time of publication or end of award, whichever comes first).</li>
+</ul>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-amershi_hai_guidelines_2019" class="csl-entry" role="listitem">
+Amershi, Saleema, Dan Weld, Mihaela Vorvoreanu, Adam Fourney, Besmira Nushi, Penny Collisson, Jina Suh, et al. 2019. <span>“Guidelines for Human-AI Interaction.”</span> In <em>Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems</em>, 1–13. <a href="https://doi.org/10.1145/3290605.3300233">https://doi.org/10.1145/3290605.3300233</a>.
+</div>
+<div id="ref-acro_rbqm_2025" class="csl-entry" role="listitem">
+Association of Clinical Research Organizations. 2025. <span>“2025 Risk-Based Quality Management (RBQM) Summary Report.”</span> <a href="https://www.acrohealth.org/wp-content/uploads/2025/06/ACRO_2025-RBQM-Report_Final-062425.pdf">https://www.acrohealth.org/wp-content/uploads/2025/06/ACRO_2025-RBQM-Report_Final-062425.pdf</a>.
+</div>
+<div id="ref-bronner_site_cro_2024" class="csl-entry" role="listitem">
+Bronner, Denise. 2024. <span>“Why Site-<span>CRO</span> Relationships Are so Strained, and How to Fix Them.”</span> Clinical Leader, guest column. <a href="https://www.clinicalleader.com/doc/why-site-cro-relationships-are-so-strained-and-how-to-fix-them-0001">https://www.clinicalleader.com/doc/why-site-cro-relationships-are-so-strained-and-how-to-fix-them-0001</a>.
+</div>
+<div id="ref-deloitte_rd_return_2025" class="csl-entry" role="listitem">
+Deloitte Centre for Health Solutions. 2025. <span>“Be Brave, Be Bold: Measuring the Return from Pharmaceutical Innovation.”</span> <a href="https://www.deloitte.com/content/dam/assets-shared/docs/industries/life-sciences-health-care/2025/deloitte-measuring-return-from-pharmaceutical-innovation-2025.pdf">https://www.deloitte.com/content/dam/assets-shared/docs/industries/life-sciences-health-care/2025/deloitte-measuring-return-from-pharmaceutical-innovation-2025.pdf</a>.
+</div>
+<div id="ref-gpp_2022" class="csl-entry" role="listitem">
+DeTora, Lisa M., Dikran Toroser, Angela Sykes, Christine Vanderlinden, Fiona J. Plunkett, Trevor Lane, Eline Hanekamp, et al. 2022. <span>“Good Publication Practice (GPP) Guidelines for Company-Sponsored Biomedical Research: 2022 Update.”</span> <em>Annals of Internal Medicine</em> 175 (9): 1298–1304. <a href="https://doi.org/10.7326/M22-1460">https://doi.org/10.7326/M22-1460</a>.
+</div>
+<div id="ref-tufts_cost_2016" class="csl-entry" role="listitem">
+DiMasi, Joseph A., Henry G. Grabowski, and Ronald W. Hansen. 2016. <span>“Innovation in the Pharmaceutical Industry: New Estimates of <span>R&amp;D</span> Costs.”</span> <em>Journal of Health Economics</em> 47: 20–33. <a href="https://doi.org/10.1016/j.jhealeco.2016.01.012">https://doi.org/10.1016/j.jhealeco.2016.01.012</a>.
+</div>
+<div id="ref-ema_ctr_ctis" class="csl-entry" role="listitem">
+European Medicines Agency. 2022. <span>“Clinical Trials Regulation (EU) No 536/2014 and Clinical Trials Information System (CTIS).”</span> <a href="https://www.ema.europa.eu/en/human-regulatory/research-development/clinical-trials/clinical-trials-regulation">https://www.ema.europa.eu/en/human-regulatory/research-development/clinical-trials/clinical-trials-regulation</a>.
+</div>
+<div id="ref-getz_protocol_benchmarks_2022" class="csl-entry" role="listitem">
+Getz, Kenneth A., Zachary P. Smith, and Marcy Kravet. 2023. <span>“Protocol Design and Performance Benchmarks by Phase and by Oncology and Rare Disease Subgroups.”</span> <em>Therapeutic Innovation &amp; Regulatory Science</em> 57 (1): 49–56. <a href="https://doi.org/10.1007/s43441-022-00438-5">https://doi.org/10.1007/s43441-022-00438-5</a>.
+</div>
+<div id="ref-getz_protocol_amendments_2024" class="csl-entry" role="listitem">
+Getz, Kenneth A., Zachary Smith, Emily Botto, Elisabeth Murphy, and Arnaud Dauchy. 2024. <span>“New Benchmarks on Protocol Amendment Practices, Trends and Their Impact on Clinical Trial Performance.”</span> <em>Therapeutic Innovation &amp; Regulatory Science</em> 58 (3): 539–48. <a href="https://doi.org/10.1007/s43441-024-00622-9">https://doi.org/10.1007/s43441-024-00622-9</a>.
+</div>
+<div id="ref-getz_protocol_amendments_2016" class="csl-entry" role="listitem">
+Getz, Kenneth A., Stella Stergiopoulos, Mary Short, Leon Surgeon, Randy Krauss, Sybrand Pretorius, Julian Desmond, and Derek Dunn. 2016. <span>“The Impact of Protocol Amendments on Clinical Trial Performance and Cost.”</span> <em>Therapeutic Innovation &amp; Regulatory Science</em> 50 (4): 436–41. <a href="https://doi.org/10.1177/2168479016632271">https://doi.org/10.1177/2168479016632271</a>.
+</div>
+<div id="ref-grandview_healthcare_cro_2026" class="csl-entry" role="listitem">
+Grand View Research. 2026. <span>“Healthcare Contract Research Organization Market Report, 2026-2033.”</span> <a href="https://www.grandviewresearch.com/industry-analysis/healthcare-contract-research-outsourcing-market">https://www.grandviewresearch.com/industry-analysis/healthcare-contract-research-outsourcing-market</a>.
+</div>
+<div id="ref-ich_e6" class="csl-entry" role="listitem">
+International Council for Harmonisation. 1996. <span>“ICH Harmonised Tripartite Guideline: Guideline for Good Clinical Practice E6(R1).”</span> <a href="https://www.ema.europa.eu/en/documents/scientific-guideline/ich-e6-r1-guideline-good-clinical-practice_en.pdf">https://www.ema.europa.eu/en/documents/scientific-guideline/ich-e6-r1-guideline-good-clinical-practice_en.pdf</a>.
+</div>
+<div id="ref-ich_e5" class="csl-entry" role="listitem">
+———. 1998. <span>“ICH Harmonised Tripartite Guideline: Ethnic Factors in the Acceptability of Foreign Clinical Data E5(R1).”</span> <a href="https://www.ema.europa.eu/en/documents/scientific-guideline/ich-e-5-r1-ethnic-factors-acceptability-foreign-clinical-data-step-5_en.pdf">https://www.ema.europa.eu/en/documents/scientific-guideline/ich-e-5-r1-ethnic-factors-acceptability-foreign-clinical-data-step-5_en.pdf</a>.
+</div>
+<div id="ref-ich_e6r2_2016" class="csl-entry" role="listitem">
+———. 2016. <span>“<span>ICH E6(R2)</span>: Integrated Addendum to ICH E6(R1) - Guideline for Good Clinical Practice.”</span> <a href="https://database.ich.org/sites/default/files/E6_R2_Addendum.pdf">https://database.ich.org/sites/default/files/E6_R2_Addendum.pdf</a>.
+</div>
+<div id="ref-ich_e17" class="csl-entry" role="listitem">
+———. 2017. <span>“ICH Harmonised Guideline: General Principles for Planning and Design of Multi-Regional Clinical Trials E17.”</span> <a href="https://www.ema.europa.eu/en/documents/scientific-guideline/ich-guideline-e17-general-principles-planning-and-design-multi-regional-clinical-trials-step-5-first-version_en.pdf">https://www.ema.europa.eu/en/documents/scientific-guideline/ich-guideline-e17-general-principles-planning-and-design-multi-regional-clinical-trials-step-5-first-version_en.pdf</a>.
+</div>
+<div id="ref-ich_e6r3_2025" class="csl-entry" role="listitem">
+———. 2025. <span>“<span>ICH E6(R3)</span>: Guideline for Good Clinical Practice (GCP).”</span> <a href="https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf">https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf</a>.
+</div>
+<div id="ref-iqvia_dtp_2024" class="csl-entry" role="listitem">
+IQVIA. 2024. <span>“Decentralized Clinical Trials Solutions.”</span> <a href="https://www.iqvia.com/solutions/research-and-development/decentralized-trials">https://www.iqvia.com/solutions/research-and-development/decentralized-trials</a>.
+</div>
+<div id="ref-iqvia_success_2024" class="csl-entry" role="listitem">
+IQVIA Institute for Human Data Science. 2024. <span>“Global Trends in <span>R&amp;D</span> 2024: Activity, Productivity, and Enablers.”</span> <a href="https://www.iqvia.com/insights/the-iqvia-institute/reports-and-publications/reports/global-trends-in-r-and-d-2024-activity-productivity-and-enablers">https://www.iqvia.com/insights/the-iqvia-institute/reports-and-publications/reports/global-trends-in-r-and-d-2024-activity-productivity-and-enablers</a>.
+</div>
+<div id="ref-iqvia_rd_trends_2025" class="csl-entry" role="listitem">
+———. 2025. <span>“Global Trends in <span>R&amp;D</span> 2025.”</span> <a href="https://iqvia.com/insights/the-iqvia-institute/reports-and-publications/reports/global-trends-in-r-and-d-2025">https://iqvia.com/insights/the-iqvia-institute/reports-and-publications/reports/global-trends-in-r-and-d-2025</a>.
+</div>
+<div id="ref-lamberti_enrollment_2024" class="csl-entry" role="listitem">
+Lamberti, Mary Jo, Abigail Dirks, Nicholas Kikuchi, Neha Patel Cervantes, and Kenneth Getz. 2024. <span>“Benchmarking Site Activation and Patient Enrollment.”</span> <em>Therapeutic Innovation &amp; Regulatory Science</em> 58 (4): 696–703. <a href="https://doi.org/10.1007/s43441-024-00638-1">https://doi.org/10.1007/s43441-024-00638-1</a>.
+</div>
+<div id="ref-medable_platform_2026" class="csl-entry" role="listitem">
+Medable. 2026. <span>“Medable Clinical Trial Platform.”</span> <a href="https://www.medable.com">https://www.medable.com</a>.
+</div>
+<div id="ref-meinert_cth_2013" class="csl-entry" role="listitem">
+Meinert, Curtis L. 2013. <em>Clinical Trials Handbook: Design and Conduct</em>. Hoboken, NJ: John Wiley &amp; Sons.
+</div>
+<div id="ref-mello_cta_2005" class="csl-entry" role="listitem">
+Mello, Michelle M., Brian R. Clarridge, and David M. Studdert. 2005. <span>“Academic Medical Centers’ Standards for Clinical-Trial Agreements with Industry.”</span> <em>New England Journal of Medicine</em> 352 (21): 2202–10. <a href="https://doi.org/10.1056/NEJMsa044115">https://doi.org/10.1056/NEJMsa044115</a>.
+</div>
+<div id="ref-nist_ai_rmf_2023" class="csl-entry" role="listitem">
+National Institute of Standards and Technology. 2023. <span>“Artificial Intelligence Risk Management Framework (AI RMF 1.0).”</span> <a href="https://www.nist.gov/itl/ai-risk-management-framework">https://www.nist.gov/itl/ai-risk-management-framework</a>.
+</div>
+<div id="ref-nih_dms_2023" class="csl-entry" role="listitem">
+National Institutes of Health. 2023. <span>“NIH Policy for Data Management and Sharing.”</span> <a href="https://sharing.nih.gov/data-management-and-sharing-policy/about-data-management-and-sharing-policies">https://sharing.nih.gov/data-management-and-sharing-policy/about-data-management-and-sharing-policies</a>.
+</div>
+<div id="ref-getz_delay_day_2024" class="csl-entry" role="listitem">
+Smith, Zachary P., Joseph A. DiMasi, and Kenneth A. Getz. 2024. <span>“New Estimates on the Cost of a Delay Day in Drug Development.”</span> <em>Therapeutic Innovation &amp; Regulatory Science</em> 58 (5): 855–62. <a href="https://doi.org/10.1007/s43441-024-00667-w">https://doi.org/10.1007/s43441-024-00667-w</a>.
+</div>
+<div id="ref-dia_reference_model" class="csl-entry" role="listitem">
+TMF Reference Model Initiative. 2024. <span>“Trial Master File Reference Model.”</span> <a href="https://tmfrefmodel.com/">https://tmfrefmodel.com/</a>.
+</div>
+<div id="ref-uidp_acta_2014" class="csl-entry" role="listitem">
+University-Industry Demonstration Partnership. 2014. <span>“Accelerated Clinical Trial Agreement (<span>ACTA</span>).”</span> <a href="https://uidp.org/our-work/acta/">https://uidp.org/our-work/acta/</a>.
+</div>
+<div id="ref-epa_sop_2007" class="csl-entry" role="listitem">
+U.S. Environmental Protection Agency. 2007. <span>“Guidance for Preparing Standard Operating Procedures (<span>SOPs</span>) (<span>EPA QA/G-6</span>).”</span> EPA/600/B-07/001. <a href="https://www.epa.gov/sites/default/files/2015-06/documents/g6-final.pdf">https://www.epa.gov/sites/default/files/2015-06/documents/g6-final.pdf</a>.
+</div>
+<div id="ref-fda_econsent_2016" class="csl-entry" role="listitem">
+U.S. Food and Drug Administration. 2016. <span>“Use of Electronic Informed Consent in Clinical Investigations: Questions and Answers.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-electronic-informed-consent-clinical-investigations-questions-and-answers">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-electronic-informed-consent-clinical-investigations-questions-and-answers</a>.
+</div>
+<div id="ref-fda_drug_development" class="csl-entry" role="listitem">
+———. 2018. <span>“The Drug Development Process.”</span> <a href="https://www.fda.gov/patients/learn-about-drug-and-device-approvals/drug-development-process">https://www.fda.gov/patients/learn-about-drug-and-device-approvals/drug-development-process</a>.
+</div>
+<div id="ref-cfr21_11" class="csl-entry" role="listitem">
+———. 2023a. <span>“21 CFR Part 11: Electronic Records; Electronic Signatures.”</span> <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11">https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11</a>.
+</div>
+<div id="ref-cfr21_56" class="csl-entry" role="listitem">
+———. 2023b. <span>“21 CFR Part 56: Institutional Review Boards.”</span> <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-56">https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-56</a>.
+</div>
+<div id="ref-fda_dht_guidance_2023" class="csl-entry" role="listitem">
+———. 2023c. <span>“Digital Health Technologies for Remote Data Acquisition in Clinical Investigations: Guidance for Industry, Investigators, and Other Stakeholders.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/digital-health-technologies-remote-data-acquisition-clinical-investigations">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/digital-health-technologies-remote-data-acquisition-clinical-investigations</a>.
+</div>
+<div id="ref-cfr21_312" class="csl-entry" role="listitem">
+———. 2024a. <span>“21 CFR Part 312: Investigational New Drug Application.”</span> <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-D/part-312">https://www.ecfr.gov/current/title-21/chapter-I/subchapter-D/part-312</a>.
+</div>
+<div id="ref-fda_electronic_systems_2024" class="csl-entry" role="listitem">
+———. 2024b. <span>“Electronic Systems, Electronic Records, and Electronic Signatures in Clinical Investigations: Questions and Answers.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-systems-electronic-records-and-electronic-signatures-clinical-investigations-questions">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-systems-electronic-records-and-electronic-signatures-clinical-investigations-questions</a>.
+</div>
+<div id="ref-fda_dct_guidance_2024" class="csl-entry" role="listitem">
+———. 2024c. <span>“Conducting Clinical Trials with Decentralized Elements.”</span> <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/conducting-clinical-trials-decentralized-elements">https://www.fda.gov/regulatory-information/search-fda-guidance-documents/conducting-clinical-trials-decentralized-elements</a>.
+</div>
+<div id="ref-fda_pdufa_fees_fy2027" class="csl-entry" role="listitem">
+———. 2026. <span>“Prescription Drug User Fee Rates for Fiscal Year 2027.”</span> Federal Register 91 FR 48160, 30 July 2026. <a href="https://www.federalregister.gov/documents/2026/07/30/2026-15334/prescription-drug-user-fee-rates-for-fiscal-year-2027">https://www.federalregister.gov/documents/2026/07/30/2026-15334/prescription-drug-user-fee-rates-for-fiscal-year-2027</a>.
+</div>
+<div id="ref-wcg_site_challenges_2024" class="csl-entry" role="listitem">
+WCG Clinical. 2024. <span>“2024 Clinical Research Site Challenges Report: Data-Driven Insights on Current Site Challenges and Strategic Recommendations to Overcome Barriers and Boost Clinical Trial Efficiency.”</span> <a href="https://www.wcgclinical.com/wp-content/uploads/2024/10/WCG_2024_Clinical_Research_Site_Challenges_Report.pdf">https://www.wcgclinical.com/wp-content/uploads/2024/10/WCG_2024_Clinical_Research_Site_Challenges_Report.pdf</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./17-recruitment.html" class="pagination-link" aria-label="Patient Recruitment and Retention">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Patient Recruitment and Retention</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./19-data-management.html" class="pagination-link" aria-label="Data Management">
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Data Management</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
